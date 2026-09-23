@@ -1,0 +1,27 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Porchlamp</title>
+  <meta name="description" content="Porchlamp ranks open-source projects by what happens to a stranger's pull request, not by stars. Find the projects that leave the light on.">
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="styles/tokens.css">
+  <link rel="stylesheet" href="styles/base.css">
+  <link rel="stylesheet" href="styles/components.css">
+  <link rel="stylesheet" href="styles/views.css">
+</head>
+<body>
+  <a class="skip-link" href="#app-main">Skip to main content</a>
+  <div class="app-shell">
+    <header class="app-header" id="app-header-controls"></header>
+    <nav class="app-primary-nav" id="app-primary-nav"></nav>
+    <main class="app-main" id="app-main" tabindex="-1"></main>
+    <footer class="app-footer" id="app-footer"></footer>
+  </div>
+  <div id="app-drawer-root"></div>
+  <div id="app-keymap-root"></div>
+  <div id="app-live-region" class="app-live-region" role="status" aria-live="polite"></div>
+  <script type="module" src="app.js"></script>
+</body>
+</html>

@@ -46,6 +46,11 @@ export const COLUMN_STARS = "Audited stars";
 // U-3: vanity columns (audited stars) are never sortable; this is the
 // tooltip that says so wherever such a column header appears.
 export const VANITY_TOOLTIP = "audited, not scored";
+// The "Audited stars" column is hidden while no row on screen has an audit,
+// rather than showing a dash on every row.
+export function hasAuditedStars(rows) {
+  return (rows || []).some((r) => r && r.stars_audited != null);
+}
 
 export const PILLAR_NAMES = Object.freeze({
   responsiveness: "Responsiveness",
@@ -105,6 +110,9 @@ export const QUADRANT_GLYPHS = Object.freeze({
 });
 
 const TIER_CAPPED_SUFFIX = " (capped)"; // private: only tierLabel needs the literal
+/** Why a tier says "(capped)": a statement about the data, never a lower grade. Shown on the pill and in the drawer. */
+export const TIER_CAPPED_EXPLANATION =
+  "Capped: this tier can go no higher until more of the project's inputs are measured. It reflects how much data there is, not how good the score is.";
 export function tierLabel(tier, tierCeiling) {
   if (!tier) return MISSING_VALUE;
   const capped = tierCeiling && tier === tierCeiling;
@@ -478,6 +486,9 @@ export const CONFIGURE_DELTA_EMPTY = "No re-projection yet — adjust a slider t
 export const CONFIGURE_TOP_MOVERS_UP = "Top movers up";
 export const CONFIGURE_TOP_MOVERS_DOWN = "Top movers down";
 export function configureDeltaText(row) {
+  if (row.balanced_rank === null || row.balanced_rank === undefined) {
+    return `• ${row.owner}/${row.name}: new → ${row.rank}`;
+  }
   const delta = row.balanced_rank - row.rank;
   const sign = delta > 0 ? "▲" : delta < 0 ? "▼" : "•";
   return `${sign} ${row.owner}/${row.name}: ${row.balanced_rank} → ${row.rank}`;

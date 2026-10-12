@@ -270,10 +270,14 @@ export function missingValueReason(reason) {
 export const LOADING_LABEL = "Loading…";
 export const LOADING_ROW_SR_TEXT = "Loading repositories…";
 
+const SUSPICION_FLAG_COPY = Object.freeze({
+  black_hole: "PR black hole (>50% of external PRs receive zero substantive response within 14 days)",
+});
 export const SUSPICION_LABEL = "Suspicion flags";
 export function suspicionTooltip(flags) {
   if (!flags || flags.length === 0) return "";
-  return `Flagged by: ${flags.join(", ")}`;
+  const formatted = flags.map((f) => (SUSPICION_FLAG_COPY[f] ? `${f} (${SUSPICION_FLAG_COPY[f]})` : f));
+  return `Flagged by: ${formatted.join(", ")}`;
 }
 
 export const ROW_OPEN_HINT = "Press Enter to view why this score";
@@ -664,3 +668,22 @@ export function corpusMeterLabel(counts) {
     `of ${counts.total} repositories in this snapshot`
   );
 }
+
+// --- Outbound repository link, pillar sorting & onboarding strip ---------
+export const DRAWER_GITHUB_LABEL = "View on GitHub ↗";
+export function drawerGithubUrl(owner, name) {
+  return `https://github.com/${encodeURIComponent(owner)}/${encodeURIComponent(name)}`;
+}
+export const PILLAR_SHORT_NAMES = Object.freeze({
+  responsiveness: "Resp",
+  criticality: "Crit",
+  governance: "Gov",
+  rigor: "Rigor",
+  accessibility: "Acc",
+});
+export function pillarSortTooltip(pillar) {
+  return `Sort by ${PILLAR_NAMES[pillar] || pillar}`;
+}
+export const ONBOARDING_SUBTITLE =
+  "Evidence-based open-source repository ranking across 5 pillars: Responsiveness, Criticality, Governance, Rigor, and Accessibility.";
+export const ONBOARDING_METHODOLOGY_LINK = "How scores & gates work →";

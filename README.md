@@ -12,17 +12,17 @@ request, not by how many stars the project has.
 
 ## Stars don't review pull requests
 
-Measured on the 2026-10-11 snapshot of 11,000 projects:
+Measured on the 2026-10-12 snapshot of 11,000 projects:
 
-- **More than a third of active projects are black holes.** Of the 4,349
+- **More than a third of active projects are black holes.** Of the 4,375
   licensed, maintained software projects that received at least ten outside pull
-  requests in six months, 1,613 (37.1%) left most of them with no human reply,
+  requests in six months, 1,622 (37.1%) left most of them with no human reply,
   review or merge for two weeks. Counting only pull requests opened by people,
-  not bots, gives 56.6%.
+  not bots, gives 56.7%.
 - **More stars, more silence.** The black-hole share rises with popularity: 33%
   of projects with 1k–10k stars, 41% at 10k–50k, and 48% at 50k or more.
-- **Stars barely predict the ranking.** Across the 3,150 ranked projects the
-  rank correlation between stars and the Porchlamp score is 0.10, and 7 of the
+- **Stars barely predict the ranking.** Across the 3,321 ranked projects the
+  rank correlation between stars and the Porchlamp score is 0.12, and 7 of the
   100 most-starred projects make the top 100.
 
 ## Where the numbers come from
@@ -39,5 +39,5 @@ number traces back to a recorded GitHub response and its content hash.
 
 This repository is the published site and nothing else: a static snapshot
 served by GitHub Pages. Every ranking, filter and project page is answered
-from precomputed JSON under `data/2026-10-11/`, so the site needs
-no server. Snapshot `2026-10-11`, measured as of 2026-10-11T04:04:06+00:00.
+from precomputed JSON under `data/2026-10-12/`, so the site needs
+no server. Snapshot `2026-10-12`, measured as of 2026-10-11T04:04:06+00:00.

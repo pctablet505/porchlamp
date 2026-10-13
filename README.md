@@ -25,8 +25,6 @@ Measured on the 2026-10-13c snapshot of 11,000 projects:
   rank correlation between stars and the Porchlamp score is 0.13, and 9 of the
   100 most-starred projects make the top 100.
 
-![Stars Don't Review PRs — 6 Hard Gates & 5 Scoring Pillars](assets/animations/anim-2-gates-and-pillars.svg)
-
 ## Where the numbers come from
 
 We followed 212,390 pull requests from 110,605 outside contributors to 11,000
@@ -37,11 +35,7 @@ unmaintained, unlicensed or not software, are listed but never ranked. The rest
 are scored on five pillars and re-weighted for five kinds of contributor. Every
 number traces back to a recorded GitHub response and its content hash.
 
-![2D Leverage × Friction Discovery Matrix & 5 Contributor Persona Lenses](assets/animations/anim-3-matrix-and-personas.gif)
-
 ## This repository
-
-![Porchlamp Snapshot Pipeline & Phone Relay](assets/animations/anim-1-snapshot-pipeline.svg)
 
 This repository is the published site and nothing else: a static snapshot
 served by GitHub Pages. Every ranking, filter and project page is answered

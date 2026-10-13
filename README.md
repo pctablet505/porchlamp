@@ -12,7 +12,7 @@ request, not by how many stars the project has.
 
 ## Stars don't review pull requests
 
-Measured on the 2026-10-13 snapshot of 11,000 projects:
+Measured on the 2026-10-13b snapshot of 11,000 projects:
 
 - **More than a third of active projects are black holes.** Of the 4,370
   licensed, maintained software projects that received at least ten outside pull
@@ -45,11 +45,11 @@ number traces back to a recorded GitHub response and its content hash.
 
 This repository is the published site and nothing else: a static snapshot
 served by GitHub Pages. Every ranking, filter and project page is answered
-from precomputed JSON under `data/2026-10-13/` by `api.js` (project records sharded into 256
-hash-bucketed files under `data/2026-10-13/repos/`), so the site needs no
+from precomputed JSON under `data/2026-10-13b/` by `api.js` (project records sharded into 256
+hash-bucketed files under `data/2026-10-13b/repos/`), so the site needs no
 server.
 
-- **Snapshot ID:** `2026-10-13` (measured as of `2026-10-11T04:04:06+00:00`, benchmark `2.0.0-rc1`)
+- **Snapshot ID:** `2026-10-13b` (measured as of `2026-10-11T04:04:06+00:00`, benchmark `2.0.0-rc1`)
 - **Universe Counts:** `3,320` rated (ranked) · `6,275` gated (Stage 0) · `1,405` unrated (`<60%` coverage) · `11,000` total
 - **Persona Visible Counts:** `balanced: 3,320` · `first_timer: 1,658` · `career_capital: 706` · `senior_systems: 1,109` · `ai_assisted: 3,492`
 - **Verification Hashes:** `constants_hash: aca719a92226…` · `manifest_root: fd98bcef55e9…` · `canonical_dump_hash: 66560c7f1d83…`

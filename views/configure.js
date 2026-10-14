@@ -9,7 +9,8 @@
 
 import * as copy from "../copy.js";
 import { PILLAR_IDS, PERSONA_PRESET_WEIGHTS, PAGE_SIZES } from "../state.js";
-import { renderColumnHeader, createRowElement, updateRowElement, rowKey, SORTABLE_COLUMNS } from "../components/table.js";
+import { renderColumnHeader, syncHeaderSortDom, createRowElement, updateRowElement, rowKey, SORTABLE_COLUMNS } from "../components/table.js";
+import { syncPager } from "./leaderboard.js";
 import { patchRows } from "../components/patch.js";
 
 function escapeHtml(value) {
@@ -214,69 +215,132 @@ export function mergeReprojectPages(first, laterPages) {
   return { ...first, rows: first.rows.concat(...laterPages.map((page) => page.rows)) };
 }
 
-export function renderPager(page, pageSize, total) {
+/**
+ * Client-side filter for the already-loaded `/reproject` row set by ecosystem
+ * and substring search on `owner/name` (matching `notranked.js` and `matrix.js`).
+ */
+export function filterReprojectRows(rows, { ecosystem = "", query = "" } = {}) {
+  if (!rows) return [];
+  const ecoLower = ecosystem ? ecosystem.trim().toLowerCase() : "";
+  const qLower = query ? query.trim().toLowerCase() : "";
+  return rows.filter((r) => {
+    if (ecoLower && String(r.ecosystem || "").toLowerCase() !== ecoLower) return false;
+    if (qLower && !`${r.owner}/${r.name}`.toLowerCase().includes(qLower)) return false;
+    return true;
+  });
+}
+
+export function renderPager(page, pageSize, total, { bottom = false } = {}) {
   const totalPages = Math.max(1, Math.ceil(total / pageSize));
   const sizeOptions = PAGE_SIZES.map((n) => `<option value="${n}"${n === pageSize ? " selected" : ""}>${n}</option>`).join("");
+  const sizeControl = bottom
+    ? ""
+    : `<label>${escapeHtml(copy.PAGE_SIZE_LABEL)} <select class="control" data-configure-pager-size-select="true">${sizeOptions}</select></label>`;
   return (
-    `<div class="pager">` +
-    `<label>${escapeHtml(copy.PAGE_SIZE_LABEL)} <select class="control" data-configure-pager-size-select="true">${sizeOptions}</select></label>` +
-    `<button type="button" data-configure-pager-prev="true"${page <= 1 ? " disabled" : ""}>&larr;</button>` +
-    `<span>${escapeHtml(copy.pagerStatusText(page, totalPages, total))}</span>` +
-    `<button type="button" data-configure-pager-next="true"${page >= totalPages ? " disabled" : ""}>&rarr;</button>` +
+    `<div class="pager${bottom ? " pager-bottom" : ""}">` +
+    sizeControl +
+    `<button type="button" data-configure-pager-first="true" aria-label="${escapeHtml(copy.PAGER_FIRST_LABEL)}"${page <= 1 ? " disabled" : ""}>&laquo;</button>` +
+    `<button type="button" data-configure-pager-prev="true" aria-label="${escapeHtml(copy.PAGER_PREV_LABEL)}"${page <= 1 ? " disabled" : ""}>&larr;</button>` +
+    `<span data-configure-pager-status="true">${escapeHtml(copy.pagerStatusText(page, totalPages, total))}</span>` +
+    `<button type="button" data-configure-pager-next="true" aria-label="${escapeHtml(copy.PAGER_NEXT_LABEL)}"${page >= totalPages ? " disabled" : ""}>&rarr;</button>` +
+    `<button type="button" data-configure-pager-last="true" aria-label="${escapeHtml(copy.PAGER_LAST_LABEL)}"${page >= totalPages ? " disabled" : ""}>&raquo;</button>` +
     `</div>`
   );
 }
 
-export function renderTableShell() {
+export function renderTableShell(sortField = "rank") {
   return (
     `<table class="leaderboard-table" data-configure-table="true">` +
-    `<thead><tr data-configure-thead="true"></tr></thead>` +
+    `<thead data-configure-thead="true">${renderColumnHeader(sortField, false)}</thead>` +
     `<tbody data-configure-tbody="true"></tbody>` +
     `</table>`
   );
 }
 
 export function patchConfigureTable(main, doc, state) {
-  const rows = state.reproject ? sortReprojectRows(state.reproject.rows, state.configureSort || "rank") : [];
+  const filteredRows = state.reproject
+    ? filterReprojectRows(state.reproject.rows, { ecosystem: state.ecosystem, query: state.query })
+    : [];
+  const rows = sortReprojectRows(filteredRows, state.configureSort || "rank");
   const totalPages = Math.max(1, Math.ceil(rows.length / state.configurePageSize));
   const page = Math.min(state.configurePage, totalPages);
   const start = (page - 1) * state.configurePageSize;
   const pageRows = rows.slice(start, start + state.configurePageSize);
 
   const thead = main.querySelector("[data-configure-thead]");
-  if (thead) thead.innerHTML = renderColumnHeader(state.configureSort || "rank", false);
+  if (thead) {
+    if (!thead.querySelector || !thead.querySelector("[data-sort-field]")) {
+      thead.innerHTML = renderColumnHeader(state.configureSort || "rank", false);
+    } else {
+      syncHeaderSortDom(thead, state.configureSort || "rank");
+    }
+  }
 
-  // Unlike the leaderboard's leaderboard.js, this table is never
-  // windowed within a page: `/reproject` returns the WHOLE eligible set
-  // in one call (no server-side paging fields at all — see
-  // scripts/serve_ui_fixtures.py's own docstring), so pagination here is
-  // purely a client-side slice of an already-small in-memory array; a
-  // full page (up to 1000 rows, the same ceiling the leaderboard allows)
-  // patches through `patchRows` in one pass without a separate windowing
-  // layer.
   const tbody = main.querySelector("[data-configure-tbody]");
   if (tbody) {
     const table = tbody.closest("table");
     if (table) table.classList.toggle("stars-unaudited", !copy.hasAuditedStars(pageRows));
     const previousRowByKey = new Map();
+    if (pageRows.length > 0 && start > 0) {
+      previousRowByKey.set(rowKey(pageRows[0]), rows[start - 1]);
+    }
     for (let i = 1; i < pageRows.length; i++) previousRowByKey.set(rowKey(pageRows[i]), pageRows[i - 1]);
     patchRows(
       tbody,
       pageRows,
       rowKey,
-      (row) => createRowElement(doc, row, { previousRow: previousRowByKey.get(rowKey(row)) || null, showPersonaDelta: false }),
-      (node, row) => updateRowElement(node, row, { previousRow: previousRowByKey.get(rowKey(row)) || null, showPersonaDelta: false })
+      (row) => createRowElement(doc, row, { previousRow: previousRowByKey.get(rowKey(row)) || null, showPersonaDelta: false, selected: rowKey(row) === state.selectedRepoKey }),
+      (node, row) => updateRowElement(node, row, { previousRow: previousRowByKey.get(rowKey(row)) || null, showPersonaDelta: false, selected: rowKey(row) === state.selectedRepoKey })
     );
   }
 
+  const topPagerHost = main.querySelector("[data-configure-pager-top-host]");
+  if (topPagerHost && (!topPagerHost.querySelector || !topPagerHost.querySelector("[data-configure-pager-status]"))) {
+    topPagerHost.innerHTML = renderPager(page, state.configurePageSize, rows.length);
+  }
   const pagerHost = main.querySelector("[data-configure-pager-host]");
-  if (pagerHost) pagerHost.innerHTML = renderPager(page, state.configurePageSize, rows.length);
+  if (pagerHost && (!pagerHost.querySelector || !pagerHost.querySelector("[data-configure-pager-status]"))) {
+    pagerHost.innerHTML = renderPager(page, state.configurePageSize, rows.length, { bottom: true });
+  }
+  syncPager(main, page, state.configurePageSize, rows.length, "configure-pager");
 
   const deltaHost = main.querySelector("[data-configure-delta-host]");
   if (deltaHost) deltaHost.innerHTML = renderDeltaList(state.reproject);
 
   const table = main.querySelector("[data-configure-table]");
-  if (table) table.classList.toggle("stale-table", !!state.reprojectRefetching);
+  const isFilteredEmpty = Boolean(state.reproject && rows.length === 0 && (state.ecosystem || (state.query && state.query.trim())));
+  const emptyHost = main.querySelector("[data-configure-empty-host]");
+  if (emptyHost) {
+    if (isFilteredEmpty) {
+      const q = (state.query || "").trim();
+      const eco = (state.ecosystem || "").trim();
+      emptyHost.hidden = false;
+      emptyHost.innerHTML =
+        `<div class="empty-state"><p>${escapeHtml(copy.emptyFilteredText(q, eco, "rated"))}</p>` +
+        `<p class="empty-actions"><button type="button" class="link-button" data-clear-filters="true">${escapeHtml(copy.CLEAR_FILTERS_LABEL)}</button></p></div>`;
+    } else {
+      emptyHost.hidden = true;
+    }
+  }
+  if (table) {
+    table.hidden = isFilteredEmpty;
+    table.classList.toggle("stale-table", !!(state.reprojectRefetching || state.reprojectError));
+  }
+  if (topPagerHost) topPagerHost.hidden = isFilteredEmpty;
+  if (pagerHost) pagerHost.hidden = isFilteredEmpty;
+
+  const errBanner = main.querySelector("[data-configure-error]");
+  if (errBanner) {
+    if (state.reprojectError) {
+      errBanner.hidden = false;
+      errBanner.innerHTML =
+        `${escapeHtml(copy.configureErrorText(state.reprojectError.endpoint, state.reprojectError.status, state.reprojectError.detail))}` +
+        ` <button type="button" class="icon-button" data-configure-retry="true">${escapeHtml(copy.CONFIGURE_RETRY_LABEL)}</button>`;
+    } else {
+      errBanner.hidden = true;
+    }
+  }
+
   const progress = main.querySelector("[data-configure-progress]");
   if (progress) progress.hidden = !state.reprojectRefetching;
 }
@@ -310,8 +374,9 @@ export function renderShell(state) {
     heading +
     controls +
     `<div class="refetch-progress" data-configure-progress="true" hidden></div>` +
+    `<div class="error-banner" role="alert" data-configure-error="true" hidden></div>` +
     `<div class="configure-layout">` +
-    `<div class="configure-table-col">${renderTableShell()}<div data-configure-pager-host="true"></div></div>` +
+    `<div class="configure-table-col"><div data-configure-empty-host="true" hidden></div><div data-configure-pager-top-host="true"></div>${renderTableShell()}<div data-configure-pager-host="true"></div></div>` +
     `<aside class="configure-delta-col" data-configure-delta-host="true"></aside>` +
     `</div>`
   );

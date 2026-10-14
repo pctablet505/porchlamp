@@ -21,6 +21,11 @@
 // since individual parameters may be partially measured even though
 // composite coverage fell below the 0.60 floor.
 //
+// Section 2 ends with the README badge box (`renderMaintainerBadge`) when the
+// repository's balanced record earns one (copy.js `maintainerBadgeSpec`): the
+// badge is the balanced rating whatever lens is active (U-4), and its
+// Markdown points at the public site's address, which app.js passes in.
+//
 // Focus trap and Esc-to-close-and-restore-focus are DOM concerns handled by
 // app.js; this module only produces markup.
 
@@ -70,13 +75,32 @@ export function classifyKind(found) {
  * verbatim for balanced and for the static contract parity test.
  */
 export function classifyKindForLens(found, persona) {
-  if (!found.eligible) return "gated";
+  if (!found.eligible) {
+    if (typeof found.gate_reason === "string" && found.gate_reason.startsWith("unrated:")) {
+      return "unrated";
+    }
+    return "gated";
+  }
   if (persona && persona !== "balanced") {
     if (found.persona_gates && found.persona_gates[persona]) return "persona-gated";
     const pc = found.persona_composites && found.persona_composites[persona];
     if (pc) return pc.rated ? "rated" : "unrated";
   }
   return classifyKind(found);
+}
+
+/**
+ * Derives the coverage ceiling band (`null`, `"A"`, or `"B"`) from a persona's
+ * coverage fraction when `PersonaComposite` does not carry `tier_ceiling`
+ * explicitly on the wire (matching `porchlamp/serve/app.py::_no_ceiling_or_band`).
+ */
+export function deriveTierCeiling(coverage, explicitCeiling) {
+  if (explicitCeiling !== undefined) return explicitCeiling;
+  if (typeof coverage !== "number" || !Number.isFinite(coverage)) return null;
+  if (coverage >= 0.95) return null;
+  if (coverage >= 0.8) return "A";
+  if (coverage >= 0.6) return "B";
+  return null;
 }
 
 /**
@@ -93,14 +117,14 @@ export function projectRowForLens(found, persona) {
     porchlamp: pc.porchlamp,
     coverage: pc.coverage,
     tier: pc.tier,
-    tier_ceiling: pc.tier_ceiling,
+    tier_ceiling: deriveTierCeiling(pc.coverage, pc.tier_ceiling),
     rated: pc.rated,
   };
 }
 
 function renderIdentity(kind, row, persona) {
   const heading =
-    `<div aria-label="${escapeHtml(copy.DRAWER_SECTION_IDENTITY)}">` +
+    `<div class="drawer-identity" aria-label="${escapeHtml(copy.DRAWER_SECTION_IDENTITY)}">` +
     `<p class="drawer-kicker">${escapeHtml(copy.DRAWER_TITLE)}</p>` +
     `<h1 id="drawer-title">${escapeHtml(row.owner)}/${escapeHtml(row.name)}</h1>` +
     `<p class="eco-chip">${escapeHtml(row.ecosystem)}</p>` +
@@ -121,13 +145,35 @@ function renderIdentity(kind, row, persona) {
   if (kind === "unrated") {
     return (
       heading +
-      `<div class="gate-banner" role="alert">${escapeHtml(copy.unratedReasonText(row.unrated_reason, row.coverage))}</div>`
+      `<div class="gate-banner" role="alert">${escapeHtml(copy.unratedReasonText(row.unrated_reason || row.gate_reason, row.coverage))}</div>`
     );
   }
   return heading;
 }
 
-function renderComposite(row) {
+/**
+ * The README badge box at the end of the Composite section: a preview of the
+ * image, the Markdown to paste and a copy button (app.js copies the
+ * `[data-badge-markdown]` text). `canonicalRow` is the balanced record, never
+ * the lens projection (U-4); `baseUrl` is the public site's address.
+ */
+export function renderMaintainerBadge(canonicalRow, baseUrl = "") {
+  const spec = copy.maintainerBadgeSpec(canonicalRow);
+  if (!spec) return "";
+  return (
+    `<div class="maintainer-badge-box" data-maintainer-badge="${escapeHtml(spec.id)}">` +
+    `<div class="maintainer-badge-head">` +
+    `<span class="identity-label">${escapeHtml(copy.MAINTAINER_BADGE_HEADING)}</span>` +
+    `<button type="button" class="reproduce-copy" data-badge-copy="true">${escapeHtml(copy.MAINTAINER_BADGE_COPY_LABEL)}</button>` +
+    `</div>` +
+    `<img class="maintainer-badge-preview" src="${escapeHtml(spec.file)}" alt="${escapeHtml(spec.alt)}" height="20">` +
+    `<p class="maintainer-badge-note">${escapeHtml(copy.MAINTAINER_BADGE_NOTE)}</p>` +
+    `<pre class="maintainer-badge-snippet" data-badge-markdown="true">${escapeHtml(copy.maintainerBadgeMarkdown(canonicalRow, baseUrl))}</pre>` +
+    `</div>`
+  );
+}
+
+function renderComposite(row, canonicalRow, baseUrl) {
   const capped = !!row.tier_ceiling && row.tier === row.tier_ceiling;
   const cappedNote = capped
     ? `<p>${escapeHtml(copy.TIER_CAPPED_EXPLANATION)}</p>`
@@ -142,11 +188,12 @@ function renderComposite(row) {
     `<p class="cell-numeric">Score ${row.porchlamp != null ? row.porchlamp.toFixed(2) : copy.MISSING_VALUE} · ${renderCoverageBadge(row.coverage)} · ${renderTierCell(row.tier, row.tier_ceiling)}</p>` +
     cappedNote +
     `<p>${renderQuadrant(row.quadrant)} — ${escapeHtml(copy.COORDINATES_LABEL)}: leverage ${lev} (coverage ${levCov}), friction ${fric} (coverage ${fricCov})</p>` +
+    renderMaintainerBadge(canonicalRow, baseUrl) +
     `</details>`
   );
 }
 
-function renderPillarRadar(row) {
+export function renderPillarRadar(row) {
   const cx = 190;
   const cy = 130;
   const r = 75;
@@ -161,49 +208,66 @@ function renderPillarRadar(row) {
     })
     .join("");
 
-  const spokes = angles
-    .map((a) => {
-      const x2 = (cx + r * Math.cos(a)).toFixed(1);
-      const y2 = (cy + r * Math.sin(a)).toFixed(1);
-      return `<line x1="${cx}" y1="${cy}" x2="${x2}" y2="${y2}" class="radar-spoke" />`;
-    })
-    .join("");
-
   const dataPoints = PILLAR_ORDER.map((p, i) => {
     const rawVal = row[`p_${p}`];
-    const val = typeof rawVal === "number" ? Math.max(0, Math.min(100, rawVal)) : 0;
-    const norm = val / 100;
+    const measured = typeof rawVal === "number" && Number.isFinite(rawVal);
+    const val = measured ? Math.max(0, Math.min(100, rawVal)) : null;
+    const norm = measured ? val / 100 : 0;
     const a = angles[i];
     return {
       x: cx + r * norm * Math.cos(a),
       y: cy + r * norm * Math.sin(a),
+      outerX: cx + r * Math.cos(a),
+      outerY: cy + r * Math.sin(a),
       val: rawVal,
+      measured,
       pillar: p,
     };
   });
 
-  const polyPoints = dataPoints.map((pt) => `${pt.x.toFixed(1)},${pt.y.toFixed(1)}`).join(" ");
+  const spokes = angles
+    .map((a, i) => {
+      const x2 = (cx + r * Math.cos(a)).toFixed(1);
+      const y2 = (cy + r * Math.sin(a)).toFixed(1);
+      const unmeasuredCls = dataPoints[i].measured ? "" : " radar-spoke-unmeasured";
+      return `<line x1="${cx}" y1="${cy}" x2="${x2}" y2="${y2}" class="radar-spoke${unmeasuredCls}" />`;
+    })
+    .join("");
+
+  const measuredPoints = dataPoints.filter((pt) => pt.measured);
+  const polyPoints = measuredPoints.map((pt) => `${pt.x.toFixed(1)},${pt.y.toFixed(1)}`).join(" ");
+  const polygonHtml =
+    measuredPoints.length >= 3
+      ? `<polygon points="${polyPoints}" class="radar-area" />`
+      : measuredPoints.length === 2
+        ? `<polyline points="${polyPoints}" class="radar-area" />`
+        : "";
 
   const labels = PILLAR_ORDER.map((p, i) => {
     const a = angles[i];
     const lx = cx + (r + 18) * Math.cos(a);
     const ly = cy + (r + 14) * Math.sin(a);
     const name = copy.PILLAR_NAMES[p] || p;
-    const score = typeof row[`p_${p}`] === "number" ? row[`p_${p}`].toFixed(1) : copy.MISSING_VALUE;
+    const score = dataPoints[i].measured ? row[`p_${p}`].toFixed(1) : copy.MISSING_VALUE;
     const anchor = Math.abs(Math.cos(a)) < 0.2 ? "middle" : Math.cos(a) > 0 ? "start" : "end";
-    return `<text x="${lx.toFixed(1)}" y="${ly.toFixed(1)}" text-anchor="${anchor}" class="radar-label">${escapeHtml(name)} <tspan class="radar-score">${score}</tspan></text>`;
+    const dyAttr = Math.sin(a) > 0.3 ? ' dy="0.7em"' : "";
+    return `<text x="${lx.toFixed(1)}" y="${ly.toFixed(1)}"${dyAttr} text-anchor="${anchor}" class="radar-label">${escapeHtml(name)} <tspan class="radar-score">${score}</tspan></text>`;
   }).join("");
 
   const markers = dataPoints
-    .map((pt) => `<circle cx="${pt.x.toFixed(1)}" cy="${pt.y.toFixed(1)}" r="3" class="radar-point" />`)
+    .map((pt) =>
+      pt.measured
+        ? `<circle cx="${pt.x.toFixed(1)}" cy="${pt.y.toFixed(1)}" r="3" class="radar-point" data-pillar="${pt.pillar}" />`
+        : `<circle cx="${pt.outerX.toFixed(1)}" cy="${pt.outerY.toFixed(1)}" r="3" class="radar-point-unmeasured" data-pillar="${pt.pillar}" />`
+    )
     .join("");
 
   return (
     `<div class="radar-chart-container" aria-hidden="true">` +
-    `<svg class="radar-chart" viewBox="0 0 380 260" role="img" aria-label="5-pillar radar visualization">` +
+    `<svg class="radar-chart" viewBox="-10 10 400 230" role="img" aria-label="5-pillar radar visualization">` +
     gridPolygons +
     spokes +
-    `<polygon points="${polyPoints}" class="radar-area" />` +
+    polygonHtml +
     markers +
     labels +
     `</svg></div>`
@@ -236,7 +300,7 @@ function renderEvidenceTable(evidenceRows, evidenceError) {
         }
         return (
           `<tr><td title="${escapeHtml(r.param_id)}">${paramLabel}</td>` +
-          `<td class="cell-numeric">${r.value != null ? escapeHtml(String(r.value)) : copy.MISSING_VALUE}</td>` +
+          `<td class="cell-numeric">${r.value != null ? escapeHtml(copy.formatParameterValue(r.value)) : copy.MISSING_VALUE}</td>` +
           `<td class="cell-numeric">${r.score != null ? r.score.toFixed(1) : copy.MISSING_VALUE}</td>` +
           `<td class="cell-numeric">${r.n ?? copy.MISSING_VALUE}</td>` +
           `<td>${escapeHtml(r.window_start || "")}${r.window_start ? " – " : ""}${escapeHtml(r.window_end || "")}</td>` +
@@ -278,14 +342,8 @@ function renderPillarSection(row, evidenceRows, evidenceError) {
 }
 
 /**
- * Shared by the "unrated" branch (always `open`) and the "gated" branch
- * (always collapsed): neither kind has any
- * `p_<pillar>`/`c_<pillar>` score to summarise (`RepoDetailResponse`
- * returns `None` for both — a gated/unrated repo never reaches
- * `porchlamp.core.engine`'s pillar computation), so unlike `renderPillarSection`
- * above (the "rated" case) this never calls `renderPillarSummary` — only
- * the evidence table, which is populated independently of `kind`
- * (individual parameters may still be measured/unmeasured with reasons).
+ * Shared by the "unrated" branch (always `open` when no pillar scores exist)
+ * and the "gated" branch (always collapsed).
  */
 function renderEvidenceOnlyPillarSection(evidenceRows, evidenceError, open) {
   return (
@@ -323,22 +381,48 @@ function renderPersonaSectionAllGated(row) {
 }
 
 function renderPersonaSection(row) {
-  const rows = Object.entries(row.persona_composites || {})
-    .map(([persona, composite]) => {
-      const gateReason = row.persona_gates ? row.persona_gates[persona] : undefined;
-      const name = copy.PERSONA_NAMES[persona] || persona;
-      if (gateReason) {
-        return `<tr><td>${escapeHtml(name)}</td><td colspan="3">${escapeHtml(copy.personaGateReason(gateReason))}</td></tr>`;
-      }
-      return (
-        `<tr><td>${escapeHtml(name)}</td>` +
-        `<td class="cell-numeric">${composite.porchlamp != null ? composite.porchlamp.toFixed(2) : copy.MISSING_VALUE}</td>` +
-        `<td>${renderTierCell(composite.tier, composite.tier_ceiling)}</td>` +
-        `<td>${composite.rated ? escapeHtml(copy.RATED_LABEL) : escapeHtml(copy.NOT_RATED_LABEL)}</td>` +
-        `</tr>`
-      );
-    })
-    .join("");
+  const composites = row.persona_composites || {};
+  const canonicalKeys = Object.keys(copy.PERSONA_NAMES);
+  const extraKeys = Object.keys(composites).filter((k) => !canonicalKeys.includes(k));
+  const orderedKeys = [...canonicalKeys.filter((k) => k in composites), ...extraKeys];
+  const isUnratedGate = typeof row.gate_reason === "string" && row.gate_reason.startsWith("unrated:");
+  const fallbackReason =
+    row.unrated_reason || isUnratedGate
+      ? copy.unratedReasonText(row.unrated_reason || row.gate_reason, row.coverage)
+      : row.gate_reason
+        ? copy.gateReasonText(row.gate_reason)
+        : copy.NOT_RATED_LABEL;
+  const rows = orderedKeys.length
+    ? orderedKeys
+        .map((persona) => {
+          const composite = composites[persona];
+          const gateReason = row.persona_gates ? row.persona_gates[persona] : undefined;
+          const name = copy.PERSONA_NAMES[persona] || persona;
+          if (gateReason) {
+            return `<tr><td>${escapeHtml(name)}</td><td colspan="3">${escapeHtml(copy.personaGateReason(gateReason))}</td></tr>`;
+          }
+          const ceiling = deriveTierCeiling(composite.coverage, composite.tier_ceiling);
+          const unratedStatus =
+            row.unrated_reason || isUnratedGate
+              ? copy.unratedReasonText(row.unrated_reason || row.gate_reason, composite.coverage ?? row.coverage)
+              : copy.NOT_RATED_LABEL;
+          return (
+            `<tr><td>${escapeHtml(name)}</td>` +
+            `<td class="cell-numeric">${composite.porchlamp != null ? composite.porchlamp.toFixed(2) : copy.MISSING_VALUE}</td>` +
+            `<td>${renderTierCell(composite.tier, ceiling)}</td>` +
+            `<td>${composite.rated ? escapeHtml(copy.RATED_LABEL) : escapeHtml(unratedStatus)}</td>` +
+            `</tr>`
+          );
+        })
+        .join("")
+    : canonicalKeys
+        .map((persona) => {
+          const gateReason = row.persona_gates ? row.persona_gates[persona] : undefined;
+          const name = copy.PERSONA_NAMES[persona] || persona;
+          const text = gateReason ? copy.personaGateReason(gateReason) : fallbackReason;
+          return `<tr><td>${escapeHtml(name)}</td><td colspan="3">${escapeHtml(text)}</td></tr>`;
+        })
+        .join("");
   return (
     `<details>` +
     `<summary>${escapeHtml(copy.DRAWER_SECTION_PERSONAS)}</summary>` +
@@ -370,10 +454,151 @@ function renderPlaybookSection() {
   );
 }
 
-export function renderDrawer(state) {
+export function renderBlackHoleEvidence(row, evidenceRows) {
+  if (!row) return "";
+  const isBlackHole =
+    row.gate_reason === "black_hole" ||
+    (Array.isArray(row.suspicion) && row.suspicion.includes("black_hole"));
+  if (!isBlackHole) return "";
+
+  const evidence = row.black_hole_evidence;
+  let unanswered = null;
+  let populationN = null;
+  let unansweredShare = null;
+  let wilsonLowerBound = null;
+  let windowStart = null;
+  let windowEnd = null;
+  let source = null;
+  let excluded = null;
+  let countedPrs = [];
+
+  if (evidence) {
+    unanswered = evidence.unanswered;
+    populationN = evidence.population_n;
+    unansweredShare = evidence.unanswered_share;
+    wilsonLowerBound = evidence.wilson_lower_bound;
+    windowStart = evidence.window_start;
+    windowEnd = evidence.window_end;
+    source = evidence.source;
+    excluded = evidence.excluded;
+    countedPrs = Array.isArray(evidence.counted_prs) ? evidence.counted_prs : [];
+  } else if (Array.isArray(evidenceRows)) {
+    const grRow = evidenceRows.find((r) => r.param_id === "gr14_ghost_rate");
+    if (grRow && typeof grRow.value === "number" && typeof grRow.n === "number" && grRow.n > 0) {
+      unansweredShare = grRow.value;
+      populationN = grRow.n;
+      unanswered = Math.round(unansweredShare * populationN);
+      const z = 1.644853;
+      const denom = 1 + (z * z) / populationN;
+      const center = unansweredShare + (z * z) / (2 * populationN);
+      const spread = z * Math.sqrt((unansweredShare * (1 - unansweredShare) + (z * z) / (4 * populationN)) / populationN);
+      wilsonLowerBound = Math.max(0, (center - spread) / denom);
+      windowStart = grRow.window_start;
+      windowEnd = grRow.window_end;
+      source = grRow.source;
+    }
+  }
+
+  const hasData = typeof unanswered === "number" && typeof populationN === "number" && populationN > 0;
+
+  let bodyHtml = "";
+  if (hasData) {
+    const pct = typeof unansweredShare === "number" ? (unansweredShare * 100).toFixed(1) : "0.0";
+    const wPct = typeof wilsonLowerBound === "number" ? (wilsonLowerBound * 100).toFixed(1) : "0.0";
+
+    const statHtml = `<p class="black-hole-stat">${escapeHtml(unanswered)} of ${escapeHtml(populationN)} (${escapeHtml(pct)}%) external non-bot PRs had no maintainer response, merge, or close within 14 days</p>`;
+    const wilsonHtml = `<p class="black-hole-wilson">95% Wilson lower confidence bound: ${escapeHtml(wPct)}% (threshold: &gt; 50.0%, min n = 10)</p>`;
+
+    let windowHtml = "";
+    if (windowStart && windowEnd) {
+      windowHtml = `<p class="black-hole-window">${escapeHtml(windowStart)} – ${escapeHtml(windowEnd)}</p>`;
+    }
+    let sourceHtml = "";
+    if (source) {
+      sourceHtml = `<p class="black-hole-source">Source: ${escapeHtml(source)}</p>`;
+    }
+
+    let excludedCountsHtml = "";
+    if (excluded) {
+      const parts = [];
+      // Draft and self-closed counts exist only when the envelope recorded
+      // the RFC-0008 fields; otherwise their zeros are not measurements.
+      if (evidence.rule_inputs_measured === true) {
+        if (excluded.draft > 0) parts.push(`${excluded.draft} draft`);
+        if (excluded.self_closed > 0) parts.push(`${excluded.self_closed} author self-closed`);
+      }
+      if (excluded.new_account > 0) parts.push(`${excluded.new_account} new account (<90d)`);
+      if (excluded.bot > 0) parts.push(`${excluded.bot} bot`);
+      if (excluded.internal > 0) parts.push(`${excluded.internal} internal/maintainer`);
+      if (excluded.under_14d > 0) parts.push(`${excluded.under_14d} open <14d`);
+      if (parts.length > 0) {
+        excludedCountsHtml = `<p class="black-hole-excluded-counts">Excluded: ${escapeHtml(parts.join(", "))}</p>`;
+      }
+    }
+
+    let prTableHtml = "";
+    const validPrs = countedPrs.filter(
+      (pr) => typeof pr.number === "number" && Number.isInteger(pr.number) && pr.number > 0
+    );
+    if (validPrs.length > 0) {
+      const prRows = validPrs
+        .map((pr) => {
+          const num = Number(pr.number);
+          const prUrl = `https://github.com/${encodeURIComponent(row.owner)}/${encodeURIComponent(row.name)}/pull/${num}`;
+          const statusText = pr.answered_within_14d
+            ? (pr.response_kind ? `Answered (${escapeHtml(pr.response_kind)})` : "Answered")
+            : "No response within 14d";
+          return (
+            `<tr>` +
+            `<td><a href="${escapeHtml(prUrl)}" target="_blank" rel="noopener noreferrer">#${num}</a></td>` +
+            `<td>${escapeHtml(pr.created_at || "")}</td>` +
+            `<td>${statusText}</td>` +
+            `</tr>`
+          );
+        })
+        .join("");
+      prTableHtml =
+        `<div class="table-scroll"><table class="evidence-table black-hole-pr-table"><thead><tr>` +
+        `<th>PR</th><th>Opened</th><th>14-day status</th>` +
+        `</tr></thead><tbody>${prRows}</tbody></table></div>`;
+    }
+
+    bodyHtml =
+      statHtml +
+      wilsonHtml +
+      windowHtml +
+      sourceHtml +
+      `<p class="black-hole-exclusions">${escapeHtml(copy.BLACK_HOLE_EXCLUSIONS_TEXT)}</p>` +
+      (evidence && evidence.rule_inputs_measured === false
+        ? `<p class="black-hole-not-measured">${escapeHtml(copy.BLACK_HOLE_RULE_INPUTS_NOT_MEASURED_TEXT)}</p>`
+        : "") +
+      excludedCountsHtml +
+      prTableHtml +
+      `<p class="black-hole-recheck">${escapeHtml(copy.BLACK_HOLE_RECHECK_TEXT)}</p>`;
+  } else {
+    bodyHtml =
+      `<p class="black-hole-exclusions">${escapeHtml(copy.BLACK_HOLE_EXCLUSIONS_TEXT)}</p>` +
+      `<p class="black-hole-recheck">${escapeHtml(copy.BLACK_HOLE_RECHECK_TEXT)}</p>`;
+  }
+
+  return (
+    `<div class="black-hole-evidence" data-black-hole-evidence="true">` +
+    `<h3>${escapeHtml(copy.BLACK_HOLE_EVIDENCE_HEADING)}</h3>` +
+    `<p class="black-hole-rule">${escapeHtml(copy.BLACK_HOLE_RULE_TEXT)}</p>` +
+    bodyHtml +
+    `</div>`
+  );
+}
+
+/**
+ * `opts.siteBaseUrl` is the public site's address for the README badge's
+ * Markdown; app.js reads it from index.html, since this module never reads
+ * the DOM.
+ */
+export function renderDrawer(state, opts = {}) {
   if (!state.repo) return "";
   const [owner, name] = state.repo.split("/");
-  const found = findRow(state, owner, name);
+  const found = owner && name ? findRow(state, owner, name) : null;
 
   if (!found) {
     let body;
@@ -393,10 +618,11 @@ export function renderDrawer(state) {
     } else {
       body = `<div class="empty-state">${escapeHtml(copy.DRAWER_NOT_FOUND_TEXT)}</div>`;
     }
+    const fallbackTitle = name ? `${escapeHtml(owner)}/${escapeHtml(name)}` : escapeHtml(state.repo);
     return (
       `<div class="drawer-backdrop" data-drawer-backdrop="true">` +
       `<div class="drawer" role="dialog" aria-modal="true" aria-labelledby="drawer-title">` +
-      `<div class="drawer-header"><h1 id="drawer-title">${escapeHtml(owner)}/${escapeHtml(name)}</h1>` +
+      `<div class="drawer-header"><h1 id="drawer-title">${fallbackTitle}</h1>` +
       `<button type="button" class="icon-button" data-drawer-close="true">${escapeHtml(copy.DRAWER_CLOSE_LABEL)}</button></div>` +
       body +
       `</div></div>`
@@ -405,19 +631,28 @@ export function renderDrawer(state) {
 
   // `found` IS the flat `RepoDetailResponse` -- `kind` is derived under the
   // active persona lens (`classifyKindForLens`), and `row` projects the lens's
-  // composite score/coverage/tier when a non-balanced lens is active.
-  const kind = classifyKindForLens(found, state.persona);
-  const row = projectRowForLens(found, state.persona);
+  // composite score/coverage/tier when a non-balanced lens is active on a tab
+  // that exposes the persona selector (`ranked`, `notranked`, `compare`).
+  const lensActiveOnTab =
+    !state.tab || state.tab === "ranked" || state.tab === "notranked" || state.tab === "compare";
+  const activePersona = lensActiveOnTab ? state.persona : "balanced";
+  const kind = classifyKindForLens(found, activePersona);
+  const row = projectRowForLens(found, activePersona);
   const repoKey = `${row.owner}/${row.name}`;
   const githubUrl = copy.drawerGithubUrl(row.owner, row.name);
   const githubLink = `<a class="btn btn-secondary drawer-github-link" href="${escapeHtml(githubUrl)}" target="_blank" rel="noopener noreferrer">${escapeHtml(copy.DRAWER_GITHUB_LABEL)}</a>`;
   const compareBtn = `<button type="button" class="btn btn-secondary drawer-compare-btn" data-drawer-compare="${escapeHtml(repoKey)}">${escapeHtml(copy.DRAWER_COMPARE_LABEL)}</button>`;
   const closeButton = `<button type="button" class="icon-button" data-drawer-close="true">${escapeHtml(copy.DRAWER_CLOSE_LABEL)}</button>`;
   const headerActions = `<div class="drawer-actions">${githubLink}${compareBtn}${closeButton}</div>`;
-  const identity = renderIdentity(kind, row, state.persona);
+  const identity = renderIdentity(kind, row, activePersona);
 
   const evidenceRows = state.evidenceByRepo[state.repo];
   const evidenceError = evidenceRows ? null : state.evidenceError;
+
+  const isBlackHole =
+    row.gate_reason === "black_hole" ||
+    (Array.isArray(row.suspicion) && row.suspicion.includes("black_hole"));
+  const blackHoleEvidenceHtml = isBlackHole ? renderBlackHoleEvidence(row, evidenceRows) : "";
 
   if (kind === "gated") {
     // The gate sentence (in `identity` above) stays "the reason
@@ -436,6 +671,7 @@ export function renderDrawer(state) {
       `<div class="drawer-backdrop" data-drawer-backdrop="true">` +
       `<div class="drawer" role="dialog" aria-modal="true" aria-labelledby="drawer-title">` +
       `<div class="drawer-header">${identity}${headerActions}</div>` +
+      blackHoleEvidenceHtml +
       sections +
       `</div></div>`
     );
@@ -443,15 +679,26 @@ export function renderDrawer(state) {
 
   let sections;
   if (kind === "persona-gated") {
+    const hasPillarScores = PILLAR_ORDER.some((p) => row[`p_${p}`] != null);
     sections =
-      renderEvidenceOnlyPillarSection(evidenceRows, evidenceError, false) +
+      renderMaintainerBadge(found, opts.siteBaseUrl) +
+      (hasPillarScores
+        ? `<details><summary>${escapeHtml(copy.DRAWER_SECTION_PILLARS)}</summary>${renderPillarRadar(row)}${renderPillarSummary(row)}${renderEvidenceTable(evidenceRows, evidenceError)}</details>`
+        : renderEvidenceOnlyPillarSection(evidenceRows, evidenceError, false)) +
       renderPersonaSection(row) +
       renderIntegritySection(row);
   } else if (kind === "unrated") {
-    sections = renderEvidenceOnlyPillarSection(evidenceRows, evidenceError, true);
+    const hasPillarScores = PILLAR_ORDER.some((p) => row[`p_${p}`] != null);
+    sections =
+      renderMaintainerBadge(found, opts.siteBaseUrl) +
+      (hasPillarScores
+        ? renderPillarSection(row, evidenceRows, evidenceError)
+        : renderEvidenceOnlyPillarSection(evidenceRows, evidenceError, true)) +
+      renderPersonaSection(row) +
+      renderIntegritySection(row);
   } else {
     sections = (
-      renderComposite(row) +
+      renderComposite(row, found, opts.siteBaseUrl) +
       renderPillarSection(row, evidenceRows, evidenceError) +
       renderPersonaSection(row) +
       renderIntegritySection(row) +
@@ -463,6 +710,7 @@ export function renderDrawer(state) {
     `<div class="drawer-backdrop" data-drawer-backdrop="true">` +
     `<div class="drawer" role="dialog" aria-modal="true" aria-labelledby="drawer-title">` +
     `<div class="drawer-header">${identity}${headerActions}</div>` +
+    blackHoleEvidenceHtml +
     sections +
     `</div></div>`
   );

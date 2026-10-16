@@ -10,6 +10,8 @@ request, not by how many stars the project has.
 
 **Open the ranking: https://porchlamp.org/**
 
+**Read the report, with charts and the method: https://porchlamp.org/black-holes/**
+
 ## Stars don't review pull requests
 
 Measured on the 2026-10-14 snapshot of 11,000 projects:
@@ -50,4 +52,4 @@ server.
 
 ## License and citation
 
-The data under `data/` and the text of this site are licensed under [CC BY 4.0](LICENSE): reuse them freely, with credit to "Porchlamp rankings" and a link to https://porchlamp.org/. To cite the dataset, use GitHub's "Cite this repository" button, which reads `CITATION.cff`. The code in this repository is not covered by this license, and the engine that collects the data is private.
+The data under `data/` and the text of this site are licensed under [CC BY 4.0](LICENSE): reuse them freely, with credit to "Porchlamp rankings" and a link to https://porchlamp.org/. To cite the dataset, use GitHub's "Cite this repository" button, which reads `CITATION.cff`. To cite a finding, link the report frozen for this snapshot: https://porchlamp.org/black-holes/2026-10-14/ . The code in this repository is not covered by this license, and the engine that collects the data is private.

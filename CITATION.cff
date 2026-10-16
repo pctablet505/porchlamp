@@ -1,0 +1,19 @@
+cff-version: 1.2.0
+message: "If you use the Porchlamp rankings or their data, please cite them as below."
+title: "Porchlamp rankings: open-source projects ranked by what happens to a stranger's pull request"
+type: dataset
+authors:
+  - given-names: Rahul
+    family-names: Kumar
+    alias: pctablet505
+version: "2026-10-14"
+date-released: 2026-10-14
+url: "https://porchlamp.org/"
+repository: "https://github.com/pctablet505/porchlamp"
+license: CC-BY-4.0
+abstract: "A six-month snapshot of 212,390 pull requests from 110,605 outside contributors to 11,000 GitHub projects. Each project is ranked by what happens to a stranger's pull request: whether a human replies, reviews or merges it, and how soon."
+keywords:
+  - open source
+  - pull requests
+  - maintainer responsiveness
+  - first contribution

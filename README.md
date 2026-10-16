@@ -8,7 +8,7 @@ A porch lamp left on tells a visitor they are expected. Porchlamp ranks
 open-source projects the same way: by what happens to a stranger's pull
 request, not by how many stars the project has.
 
-**Open the ranking: https://pctablet505.github.io/porchlamp/**
+**Open the ranking: https://porchlamp.org/**
 
 ## Stars don't review pull requests
 
@@ -48,3 +48,6 @@ server.
 - **Persona Visible Counts:** `balanced: 3,833` · `first_timer: 1,968` · `career_capital: 823` · `senior_systems: 1,206` · `ai_assisted: 3,929`
 - **Verification Hashes:** `constants_hash: 6e4f3e8e1d0c…` · `manifest_root: 85d93789d7a5…` · `canonical_dump_hash: 89b186d4dacf…`
 
+## License and citation
+
+The data under `data/` and the text of this site are licensed under [CC BY 4.0](LICENSE): reuse them freely, with credit to "Porchlamp rankings" and a link to https://porchlamp.org/. To cite the dataset, use GitHub's "Cite this repository" button, which reads `CITATION.cff`. The code in this repository is not covered by this license, and the engine that collects the data is private.

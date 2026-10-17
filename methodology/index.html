@@ -2,87 +2,36 @@
 <html lang="en">
 <head>
   <meta charset="utf-8">
+  <!-- The app with no page text of its own (routes.js). GitHub Pages answers an address it has no file for with
+       this page, and the app shows what the address names: a project's side panel, or "page not found".
+       scripts/export_static.py also writes it at each view's address (/matrix/, ...) with that view's title and
+       canonical address. The head and the body's frame are index.html's (tests/test_app_routes.py), without the
+       home page's own text and data. -->
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; connect-src 'self' https://api.github.com; object-src 'none'; base-uri 'self'; form-action 'self'">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Porchlamp methodology: how open-source projects are measured and ranked | Porchlamp</title>
-  <meta name="description" content="Every gate, pillar, lens, weight and parameter behind the Porchlamp ranking of open-source projects, generated from the constants the ranking code uses.">
-  <meta name="author" content="Rahul Kumar (pctablet505)">
-  <meta name="theme-color" content="#0f1419">
-  <link rel="icon" href="../favicon.svg" type="image/svg+xml">
   <link rel="canonical" href="https://porchlamp.org/methodology/">
-  <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
-  <meta property="og:type" content="article">
-  <meta property="og:locale" content="en_US">
-  <meta property="og:site_name" content="Porchlamp">
-  <meta property="og:title" content="Porchlamp methodology: how open-source projects are measured and ranked | Porchlamp">
-  <meta property="og:description" content="Every gate, pillar, lens, weight and parameter behind the Porchlamp ranking of open-source projects, generated from the constants the ranking code uses.">
-  <meta property="og:url" content="https://porchlamp.org/methodology/">
-  <meta property="og:image" content="https://porchlamp.org/og.png">
-  <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Porchlamp methodology: how open-source projects are measured and ranked | Porchlamp">
-  <meta name="twitter:description" content="Every gate, pillar, lens, weight and parameter behind the Porchlamp ranking of open-source projects, generated from the constants the ranking code uses.">
-  <meta name="twitter:image" content="https://porchlamp.org/og.png">
-  <link rel="stylesheet" href="../styles/tokens.css">
-  <link rel="stylesheet" href="../styles/base.css">
-  <link rel="stylesheet" href="../styles/report.css">
-  <script type="application/ld+json">
-  {"@context":"https://schema.org","@graph":[{"@type":"Person","@id":"https://porchlamp.org/#creator","name":"Rahul Kumar","alternateName":"pctablet505","url":"https://github.com/pctablet505"},{"@type":"TechArticle","@id":"https://porchlamp.org/methodology/#article","headline":"How Porchlamp measures a project","description":"Every gate, pillar, lens, weight and parameter behind the Porchlamp ranking of open-source projects, generated from the constants the ranking code uses.","url":"https://porchlamp.org/methodology/","mainEntityOfPage":"https://porchlamp.org/methodology/","inLanguage":"en","author":{"@id":"https://porchlamp.org/#creator"}}]}
-  </script>
+  <meta name="description" content="Porchlamp ranks open-source projects by what happens to a stranger's pull request, not by stars.">
+  <meta name="theme-color" content="#0f1419">
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="/styles/tokens.css">
+  <link rel="stylesheet" href="/styles/base.css">
+  <link rel="stylesheet" href="/styles/components.css">
+  <link rel="stylesheet" href="/styles/views.css">
 </head>
 <body>
-  <a class="skip-link" href="#report-main">Skip to main content</a>
+  <a class="skip-link" href="#app-main">Skip to main content</a>
   <div class="app-shell">
-    <nav class="report-nav" aria-label="Porchlamp"><img src="../favicon.svg" width="28" height="28" alt=""><a href="../">Porchlamp rankings</a><a href="../black-holes/">Report</a><a href="../methodology/" aria-current="page">Methodology</a></nav>
-    <main class="app-main" id="report-main" tabindex="-1">
-      <article class="seo-fallback report">
-        <h1>How Porchlamp measures a project</h1>
-        <p class="lede">Porchlamp ranks open-source projects by what happens to a stranger's pull request. This page lists every rule, weight and parameter behind the ranking, generated from the same constants the ranking code uses.</p>
-        <p>This page describes snapshot 2026-10-17. The <a href="../black-holes/">black-hole report</a> and the <a href="../">rankings</a> use the same rules.</p>
-        <h2 id="gates">Gates</h2>
-        <p>Checks a repository must pass to be ranked. A repository that fails one carries the gate's reason instead of a rank.</p>
-        <h3 id="d-gate-1">D-GATE-1: Software project</h3>
-        <p>repository tree contains a recognised build/package manifest at depth &lt;= 2, or the repository is a curated anchor</p>
-        <h3 id="d-gate-2">D-GATE-2: Not archived, not a mirror, not a fork</h3>
-        <p>archived == false, mirror_url is null, fork == false (a fork is allowed only if its parent is absent from the universe)</p>
-        <h3 id="d-gate-3">D-GATE-3: Licensed</h3>
-        <p>SPDX id present and OSI-approved; an undetermined SPDX id falls back to a LICENSE* file search before the gate fails</p>
-        <h3 id="d-gate-4">D-GATE-4: Vitality</h3>
-        <p>&gt;= 1 commit by a non-bot User on the default branch in the trailing window</p>
-        <h3 id="d-gate-5">D-GATE-5: Not a black hole</h3>
-        <p>over external PRs by non-bot authors (D-IN-1) opened in the trailing PR window and at least the minimum age, the 95% one-sided Wilson lower confidence bound (z = 1.6448536269514722) on the zero-response share must not exceed the ceiling (a minimum population of 10 is required, else the gate is UNDECIDED rather than failed, and a repository whose PR records lack the fields the exclusions below read is UNDECIDED, neither passed nor failed: the missing fields move the share both ways); the raw share is the gr14_ghost_rate parameter, computed for such a repository without the rules those fields feed (the draft and self-close exclusions, and a maintainer close counted as a response). A reply or review counts when it is substantive (D-IN-2: any review, or a comment of 40+ characters, by a non-author, non-bot member, owner or collaborator, or by an account that merged a PR in the window, since org membership can be private); a merge or maintainer close within the deadline counts on its own. Five false-positive exclusions apply (RFC-0008, RFC-0010): draft PRs are excluded until marked ready for review (clock starts at ready_at); author self-closed PRs with no earlier maintainer response are excluded only when the author closed them within the 14-day response deadline from clock start, and a later self-close with no response counts as unanswered; accounts under 90 days old (MIN_ACCOUNT_AGE_DAYS) are excluded; maintainer closes within 14 days count as responses; and the 14-day observation age is judged from clock start against min(now, observed_at)</p>
-        <h3 id="d-gate-6">D-GATE-6: PR workflow</h3>
-        <p>&gt;= 1 external PR (bots included: the gate asks whether the repository works through GitHub pull requests at all) decided (merged or closed) in the trailing decision window, read from the recorded PR window, the 365-day author history and the 30 newest PRs, or off-platform markers present (routed, not failed); neither means unrated: no_external_workflow, but only when those records hold the repository's whole PR history (the 30 newest were fewer than 30, and no window or history read beside them is truncated): otherwise the gate is UNDECIDED, because a PR opened before the records may have been decided inside the window. Each record shows decisions up to its own fetch. A repository also routes off-platform, whatever its decided PRs, when it hands review off: among its outside PRs (external, non-bot authors in the recorded PR window) at least 5, and at least 50% of them, carry a notice, a comment by an account other than the PR's author that contains "has been imported to gerrit for code review", "welcome to gitgitgadget" or "import it to our internal repository for further review" (any letter case) or is written by an account whose login starts with "gitgitgadget". D-GATE-5 is then undecided for it, never failed</p>
-        <h3 id="d-evid-1">D-EVID-1: Evidence sufficiency</h3>
-        <p>composite coverage must reach the rated minimum, else listed unranked</p>
-        <h2 id="pillars">Pillars</h2>
-        <p>The five pillars of the composite score, and the share of it each one carries.</p>
-        <div class="seo-fallback-table-wrap"><table><thead><tr><th scope="col">Pillar</th><th scope="col">Weight in the balanced composite</th></tr></thead><tbody><tr><th scope="row">Responsiveness</th><td>25%</td></tr><tr><th scope="row">Criticality</th><td>25%</td></tr><tr><th scope="row">Governance</th><td>20%</td></tr><tr><th scope="row">Rigor</th><td>15%</td></tr><tr><th scope="row">Accessibility</th><td>15%</td></tr></tbody></table></div>
-        <h2 id="lenses">Lenses</h2>
-        <p>Alternative weightings of the same five pillars, and the gates that decide which repositories each persona shows.</p>
-        <div class="seo-fallback-table-wrap"><table><thead><tr><th scope="col">Lens</th><th scope="col"><abbr title="Responsiveness">Resp</abbr></th><th scope="col"><abbr title="Criticality">Crit</abbr></th><th scope="col"><abbr title="Governance">Gov</abbr></th><th scope="col"><abbr title="Rigor">Rigor</abbr></th><th scope="col"><abbr title="Accessibility">Acc</abbr></th></tr></thead><tbody><tr><th scope="row">Balanced</th><td>25%</td><td>25%</td><td>20%</td><td>15%</td><td>15%</td></tr><tr><th scope="row"><a href="../first-timers/">First-timer</a></th><td>35%</td><td>10%</td><td>15%</td><td>10%</td><td>30%</td></tr><tr><th scope="row"><a href="../career/">Career capital</a></th><td>20%</td><td>35%</td><td>15%</td><td>10%</td><td>20%</td></tr><tr><th scope="row"><a href="../senior-systems/">Senior systems</a></th><td>15%</td><td>35%</td><td>25%</td><td>20%</td><td>5%</td></tr><tr><th scope="row"><a href="../ai-assisted/">AI-assisted</a></th><td>20%</td><td>20%</td><td>15%</td><td>35%</td><td>10%</td></tr></tbody></table></div>
-        <ul><li><strong>AI-assisted:</strong> Hard AI ban (exclusion gate): fires only when ai_posture is measured PROSCRIBED with non-empty evidence.</li><li><strong>Senior systems:</strong> Multi-vendor (exclusion gate): fires only on a measured elephant factor below the minimum.</li><li><strong>First-timer:</strong> Low barrier (inclusion gate): shown when decided first-timer PRs in the window reach the minimum count and MR_first reaches its minimum rate, or the newcomer-issue-supply count reaches its minimum; an unmeasured input never satisfies an inclusion gate (D-PERS-3).</li><li><strong>Career capital:</strong> High-tier brand (inclusion gate): shown when the criticality pillar score and its coverage both reach their minimums.</li></ul>
-        <h2 id="parameters">Parameters</h2>
-        <p>The measured inputs, grouped by pillar: how each is scored, how much evidence it needs, and over what window.</p>
-        <details><summary>All 18 parameters</summary>
-        <div class="seo-fallback-table-wrap"><table class="wrap-cells"><thead><tr><th scope="col">Parameter</th><th scope="col">Pillar</th><th scope="col">Weight in pillar</th><th scope="col">Min count</th><th scope="col">Window</th><th scope="col">Scoring curve</th></tr></thead><tbody><tr><th scope="row">Time to First Response</th><td data-label="Pillar">Responsiveness</td><td data-label="Weight in pillar">30%</td><td data-label="Min count">10</td><td data-label="Window">180 days</td><td data-label="Scoring curve">100 if the median hours to first substantive human response is &lt;= 12; else max(0, 100 - 25 * log2(t / 12))</td></tr><tr><th scope="row">Decision Rate (90d)</th><td data-label="Pillar">Responsiveness</td><td data-label="Weight in pillar">25%</td><td data-label="Min count">10</td><td data-label="Window">180 days</td><td data-label="Scoring curve">min(100, 125 * r)</td></tr><tr><th scope="row">First-timer Merge Rate</th><td data-label="Pillar">Responsiveness</td><td data-label="Weight in pillar">20%</td><td data-label="Min count">5</td><td data-label="Window">180 days</td><td data-label="Scoring curve">min(100, 125 * r)</td></tr><tr><th scope="row">PR Ghost Rate (14d)</th><td data-label="Pillar">Responsiveness</td><td data-label="Weight in pillar">15%</td><td data-label="Min count">10</td><td data-label="Window">180 days</td><td data-label="Scoring curve">max(0, 100 - 200 * g)</td></tr><tr><th scope="row">Time to Merge (p90)</th><td data-label="Pillar">Responsiveness</td><td data-label="Weight in pillar">10%</td><td data-label="Min count">5</td><td data-label="Window">180 days</td><td data-label="Scoring curve">100 - ECDF_mid(p90), mid-rank ECDF over the frozen ecosystem population (D-NORM-1)</td></tr><tr><th scope="row">Dependents</th><td data-label="Pillar">Criticality</td><td data-label="Weight in pillar">40%</td><td data-label="Min count">n/a</td><td data-label="Window">n/a</td><td data-label="Scoring curve">ECDF_mid(value) on the raw measured value, no transform on either side (D-NORM-1/D-NORM-3)</td></tr><tr><th scope="row">OpenSSF Criticality</th><td data-label="Pillar">Criticality</td><td data-label="Weight in pillar">35%</td><td data-label="Min count">n/a</td><td data-label="Window">n/a</td><td data-label="Scoring curve">100 * C, the locally computed OpenSSF/Pike criticality score C in [0, 1]</td></tr><tr><th scope="row">Monthly Downloads</th><td data-label="Pillar">Criticality</td><td data-label="Weight in pillar">25%</td><td data-label="Min count">n/a</td><td data-label="Window">n/a</td><td data-label="Scoring curve">ECDF_mid(value) on the raw measured value, no transform on either side (D-NORM-1/D-NORM-3)</td></tr><tr><th scope="row">Legal IP Regime</th><td data-label="Pillar">Governance</td><td data-label="Weight in pillar">35%</td><td data-label="Min count">n/a</td><td data-label="Window">n/a</td><td data-label="Scoring curve">evidence-based regime lookup; see this parameter's value_domain.score_table</td></tr><tr><th scope="row">Elephant Factor</th><td data-label="Pillar">Governance</td><td data-label="Weight in pillar">35%</td><td data-label="Min count">30</td><td data-label="Window">n/a</td><td data-label="Scoring curve">min(100, 25 * EF)</td></tr><tr><th scope="row">Promotion Ladder</th><td data-label="Pillar">Governance</td><td data-label="Weight in pillar">30%</td><td data-label="Min count">n/a</td><td data-label="Window">n/a</td><td data-label="Scoring curve">evidence-based rung lookup; see this parameter's value_domain.score_table</td></tr><tr><th scope="row">Pipeline Defenses</th><td data-label="Pillar">Rigor</td><td data-label="Weight in pillar">40%</td><td data-label="Min count">n/a</td><td data-label="Window">n/a</td><td data-label="Scoring curve">identity, clamped to [0, 100] (Scorecard check mean, or the proxy blend when absent)</td></tr><tr><th scope="row">AI Policy Posture</th><td data-label="Pillar">Rigor</td><td data-label="Weight in pillar">30%</td><td data-label="Min count">n/a</td><td data-label="Window">n/a</td><td data-label="Scoring curve">persona-conditional posture lookup; see this parameter's value_domain.score_table</td></tr><tr><th scope="row">Substantive Review Rate</th><td data-label="Pillar">Rigor</td><td data-label="Weight in pillar">30%</td><td data-label="Min count">10</td><td data-label="Window">180 days</td><td data-label="Scoring curve">min(100, 125 * r)</td></tr><tr><th scope="row">Newcomer Issue Supply</th><td data-label="Pillar">Accessibility</td><td data-label="Weight in pillar">35%</td><td data-label="Min count">n/a</td><td data-label="Window">n/a</td><td data-label="Scoring curve">min(100, 10 * count)</td></tr><tr><th scope="row">Newcomer Conversion</th><td data-label="Pillar">Accessibility</td><td data-label="Weight in pillar">35%</td><td data-label="Min count">5</td><td data-label="Window">n/a</td><td data-label="Scoring curve">min(100, 200 * r)</td></tr><tr><th scope="row">Newcomer Return Rate</th><td data-label="Pillar">Accessibility</td><td data-label="Weight in pillar">15%</td><td data-label="Min count">5</td><td data-label="Window">n/a</td><td data-label="Scoring curve">min(100, 200 * r)</td></tr><tr><th scope="row">Developer Experience</th><td data-label="Pillar">Accessibility</td><td data-label="Weight in pillar">15%</td><td data-label="Min count">5</td><td data-label="Window">n/a</td><td data-label="Scoring curve">identity, clamped to [0, 100] (0.5 CI runtime score + 0.5 setup-signal score)</td></tr></tbody></table></div>
-        </details>
-        <h2 id="missing-data">Missing data</h2>
-        <p>What a missing input means, and how much coverage a repository needs before it is rated.</p>
-        <ul><li>Unrated below: 60%</li><li>Tier ceiling B below: 80%</li><li>Tier ceiling A below: 95%</li></ul>
-        <p>Why a measurement can be missing:</p>
-        <ul><li><code>third_party_gap</code>: A third party (a registry, OpenSSF, deps.dev) never provided the fact; no maintainer action can close this gap.</li><li><code>collector_failure</code>: The collector attempted to measure this input and failed (a fetch error, a stale window anchor); a retry can still measure it.</li><li><code>insufficient_n</code>: The input was measured but its sample size fell below the parameter's minimum n; the measurement is recorded but scored as unmeasured.</li><li><code>not_applicable</code>: The parameter is undefined for this repository's class by a closed, design-level rule (D-MISS-5); excluded from both the numerator and the denominator of coverage.</li><li><code>no_population</code>: The parameter is ECDF-normalised and no rated, measured repository exists in its ecosystem or globally at this snapshot to build a population from.</li></ul>
-        <h2 id="tie-break">Tie-break order</h2>
-        <p>When two composites are equal, these fields separate them, in this order.</p>
-        <ol><li><code>composite</code>, descending: rounded to 2 decimal place(s) before comparison</li><li><code>coverage</code>, descending</li><li><code>responsiveness_pillar_score</code>, descending</li><li><code>friction</code>, ascending</li><li><code>leverage</code>, descending</li><li><code>ttfhr_p75_hours</code>, ascending: p75, not the median: consistency, not just the typical case</li><li><code>last_non_bot_commit_at</code>, descending</li><li><code>owner_name_lowercase</code>, ascending: deterministic last resort; never stars, forks or downloads</li></ol>
-        <h2 id="limits">Limits</h2>
-        <ul><li>Not a verdict on the people who maintain these projects. Review time is scarce, and popular projects receive far more pull requests than anyone can read.</li><li>GitHub only. Projects that review on Gerrit or a mailing list are left undecided, not failed.</li><li>One six-month window. The numbers will change at the next snapshot.</li></ul>
-        <h2 id="reproduce">Reproduce it</h2>
-        <pre class="reproduce"><code>python -m porchlamp.snapshot reproduce 2026-10-17</code></pre>
-        <h2 id="hashes">Hashes</h2>
-        <ul class="hashes"><li>Benchmark version: <code>2.0.0-rc1</code></li><li>Methodology constants hash: <code>6e4f3e8e1d0c0fcd829d9c8c386a65179eadb5f936595f96e9eba98712d55b94</code></li><li>Manifest root: <code>f2eb5fc971de3fc0840b3bd1e828f229879a093ed03bfce8980cf0cec503da03</code></li><li>Canonical dump hash: <code>e84ab8e5181fe6f1f0f7483ad08d1021917b1761bcbe4fdc7ec507b1acd6706b</code></li><li>Code commit: <code>663e9c781ae31b7424ecb104bd7d6560f21e3e67</code></li><li>Snapshot database SHA-256: <code>ff1d7a10f0c746e0a64ade264a85129aec9459674fcc6c0ce0b67f1a3215a6e1</code></li></ul>
-        <p>To check a project, open https://porchlamp.org/projects/&lt;owner&gt;/&lt;name&gt;/ (lower case), or search on the <a href="../check/">check page</a>.</p>
-        <footer class="report-footer"><p><a href="../">Porchlamp rankings</a> · <a href="../methodology/">Methodology</a> · <a href="https://github.com/pctablet505/porchlamp">Data on GitHub</a></p></footer>
-      </article>
+    <header class="app-header" id="app-header-controls"></header>
+    <nav class="app-primary-nav" id="app-primary-nav"></nav>
+    <main class="app-main" id="app-main" tabindex="-1">
+      <noscript><p>Porchlamp needs JavaScript to show this page. Without it, read the <a href="/">rankings</a>, the <a href="/black-holes/">report</a> and the <a href="/methodology/">methodology</a>.</p></noscript>
     </main>
+    <footer class="app-footer" id="app-footer"></footer>
   </div>
+  <div id="app-drawer-root"></div>
+  <div id="app-keymap-root"></div>
+  <div id="app-live-region" class="app-live-region" role="status" aria-live="polite"></div>
+  <script type="module" src="/app.js"></script>
 </body>
 </html>

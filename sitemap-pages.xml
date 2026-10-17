@@ -2,18 +2,62 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://porchlamp.org/</loc>
-    <lastmod>2026-10-14</lastmod>
+    <lastmod>2026-10-17</lastmod>
   </url>
   <url>
     <loc>https://porchlamp.org/black-holes/</loc>
+    <lastmod>2026-10-17</lastmod>
   </url>
   <url>
-    <loc>https://porchlamp.org/black-holes/2026-10-14/</loc>
+    <loc>https://porchlamp.org/black-holes/2026-10-17/</loc>
+    <lastmod>2026-10-17</lastmod>
   </url>
   <url>
     <loc>https://porchlamp.org/methodology/</loc>
+    <lastmod>2026-10-17</lastmod>
   </url>
   <url>
     <loc>https://porchlamp.org/check/</loc>
+    <lastmod>2026-10-17</lastmod>
+  </url>
+  <url>
+    <loc>https://porchlamp.org/rust/</loc>
+    <lastmod>2026-10-17</lastmod>
+  </url>
+  <url>
+    <loc>https://porchlamp.org/python/</loc>
+    <lastmod>2026-10-17</lastmod>
+  </url>
+  <url>
+    <loc>https://porchlamp.org/javascript/</loc>
+    <lastmod>2026-10-17</lastmod>
+  </url>
+  <url>
+    <loc>https://porchlamp.org/go/</loc>
+    <lastmod>2026-10-17</lastmod>
+  </url>
+  <url>
+    <loc>https://porchlamp.org/java/</loc>
+    <lastmod>2026-10-17</lastmod>
+  </url>
+  <url>
+    <loc>https://porchlamp.org/c-cpp/</loc>
+    <lastmod>2026-10-17</lastmod>
+  </url>
+  <url>
+    <loc>https://porchlamp.org/first-timers/</loc>
+    <lastmod>2026-10-17</lastmod>
+  </url>
+  <url>
+    <loc>https://porchlamp.org/career/</loc>
+    <lastmod>2026-10-17</lastmod>
+  </url>
+  <url>
+    <loc>https://porchlamp.org/senior-systems/</loc>
+    <lastmod>2026-10-17</lastmod>
+  </url>
+  <url>
+    <loc>https://porchlamp.org/ai-assisted/</loc>
+    <lastmod>2026-10-17</lastmod>
   </url>
 </urlset>

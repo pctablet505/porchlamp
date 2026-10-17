@@ -57,6 +57,7 @@ import {
   scrollDeltaToReveal,
   personaDeltaForState,
   personaVisibleForState,
+  lastPageWhenPastEnd,
 } from "./views/leaderboard.js";
 import {
   renderShell as renderNotRankedShell,
@@ -66,10 +67,10 @@ import {
   flattenGroups,
 } from "./views/notranked.js";
 import { renderDrawer, classifyKindForLens } from "./views/drawer.js";
+import { parseRepoSlug, runLiveCheck } from "./livecheck.js";
 import { renderBrand } from "./components/brand.js";
 import { renderKeymapOverlay, actionForKeyEvent } from "./components/keymap.js";
 import { computeVisibleRange, rowKey, ROW_HEIGHT_PX, CARD_HEIGHT_PX, sortDirectionLabel, sortColumnLabel, syncHeaderSortDom } from "./components/table.js";
-import { synthesizeRows } from "./perf-fixtures.js";
 import { renderPrimaryNav, syncPrimaryNav, centerActiveTab } from "./components/primarynav.js";
 import {
   renderShell as renderMatrixShell,
@@ -452,9 +453,7 @@ export function boot(win = window, doc = document) {
    * `<canvas>` with nothing drawn on it — the actual paint call needs
    * real resolved colours (canvas cannot read `var(--x)`/`currentColor`
    * itself), which only app.js can resolve via `getComputedStyle`. A
-   * no-op when the SVG path is showing (the real fixture's 73 points
-   * never cross the budget; this only fires under the `?perfmatrix=`
-   * dev harness).
+   * no-op when the SVG path is showing (at most `SVG_MARKER_BUDGET` points).
    */
   function drawMatrixCanvasIfPresent(state) {
     const canvas = main.querySelector("[data-matrix-canvas]");
@@ -678,20 +677,98 @@ export function boot(win = window, doc = document) {
   }
 
   /**
+   * Case-insensitive resolution against the snapshot: `fetchRepoDetail` is
+   * exact-case (FNV shard hash on `owner/name` in static mode, `owner = ? AND
+   * name = ?` in SQL), whereas `q` search is case-insensitive. Returns
+   * `{ owner, name }` when the snapshot holds the repository under another
+   * letter casing, `null` when both ranked and not-ranked searches confirm it
+   * is absent, or `undefined` when a search could not tell.
+   */
+  async function resolveCanonicalInSnapshot(owner, name) {
+    const ownerLow = owner.toLowerCase();
+    const nameLow = name.toLowerCase();
+    const same = (r) =>
+      r && typeof r.owner === "string" && typeof r.name === "string" &&
+      r.owner.toLowerCase() === ownerLow && r.name.toLowerCase() === nameLow;
+    const s = store.getState();
+    for (const k of Object.keys(s.repoDetailByKey || {})) {
+      const [o, n] = k.split("/");
+      if (o && n && o.toLowerCase() === ownerLow && n.toLowerCase() === nameLow) return { owner: o, name: n };
+    }
+    for (const list of [
+      s.leaderboard && s.leaderboard.rows,
+      s.notRanked && s.notRanked.gated,
+      s.notRanked && s.notRanked.unrated,
+      s.notRanked && s.notRanked.persona_hidden,
+      s.matrix && s.matrix.points,
+    ]) {
+      const hit = Array.isArray(list) ? list.find(same) : null;
+      if (hit) return { owner: hit.owner, name: hit.name };
+    }
+    const q = `${owner}/${name}`;
+    const [lb, nr] = await Promise.all([
+      api.fetchLeaderboard({ q, page_size: 100 }),
+      api.fetchNotRankedFull({ persona: "balanced", q }),
+    ]);
+    if (lb && lb.ok && Array.isArray(lb.data.rows)) {
+      const hit = lb.data.rows.find(same);
+      if (hit) return { owner: hit.owner, name: hit.name };
+    }
+    if (nr && nr.ok && nr.data) {
+      for (const group of ["gated", "unrated", "persona_hidden"]) {
+        const hit = Array.isArray(nr.data[group]) ? nr.data[group].find(same) : null;
+        if (hit) return { owner: hit.owner, name: hit.name };
+      }
+    }
+    const lbComplete = Boolean(lb && lb.ok && Array.isArray(lb.data.rows) && (lb.data.total || 0) <= lb.data.rows.length);
+    const nrComplete = Boolean(nr && nr.ok && nr.data && !nr.data.truncated);
+    return lbComplete && nrComplete ? null : undefined;
+  }
+
+  /**
    * Fetches the repo record (`GET /v1/porchlamp/repos/{o}/{n}`) — called by `openRepo`
    * regardless of which screen it was opened from, ensuring the drawer is
    * independent of any state slice a particular screen keeps in memory (Matrix
    * point list, Compare per-chip cache, etc.). Cached per repo, matching
-   * `loadEvidence`.
+   * `loadEvidence`. On a 404, checks whether the snapshot holds the repository
+   * under another letter casing before asserting that it is absent.
    */
   function loadRepoDetail(owner, name) {
     const key = `${owner}/${name}`;
     if (store.getState().repoDetailByKey[key]) return Promise.resolve();
     store.dispatch({ type: "REPO_DETAIL_LOADING" });
-    return api.fetchRepoDetail(owner, name).then((result) => {
+    return api.fetchRepoDetail(owner, name).then(async (result) => {
       if (!result.ok) {
+        if (result.error && result.error.status === 404) {
+          const canonical = await resolveCanonicalInSnapshot(owner, name);
+          if (canonical && (canonical.owner !== owner || canonical.name !== name)) {
+            if (store.getState().repo === key) {
+              const canonicalKey = `${canonical.owner}/${canonical.name}`;
+              store.dispatch({ type: "SET_CURSOR", key: canonicalKey });
+              store.dispatch({ type: "OPEN_REPO", repo: canonicalKey });
+              replaceUrl(store.getState());
+              loadRepoDetail(canonical.owner, canonical.name);
+              loadEvidence(canonical.owner, canonical.name);
+            }
+            return;
+          }
+          if (canonical === undefined) {
+            if (store.getState().repo === key) {
+              store.dispatch({
+                type: "REPO_DETAIL_ERROR",
+                repo: key,
+                error: {
+                  endpoint: result.error.endpoint || `/v1/porchlamp/repos/${owner}/${name}`,
+                  status: 503,
+                  detail: "could not confirm whether the snapshot holds this repository under different casing",
+                },
+              });
+            }
+            return;
+          }
+        }
         if (store.getState().repo === key) {
-          store.dispatch({ type: "REPO_DETAIL_ERROR", error: result.error });
+          store.dispatch({ type: "REPO_DETAIL_ERROR", repo: key, error: result.error });
         }
         return;
       }
@@ -923,6 +1000,14 @@ export function boot(win = window, doc = document) {
       announce(copy.apiErrorAnnouncement(result.error.endpoint, result.error.status));
       return;
     }
+    const lastPage = lastPageWhenPastEnd(result.data, requestedFromState.page, requestedFromState.pageSize);
+    if (lastPage !== null) {
+      // The address names a page past the end: show the last page, and make the address say so.
+      store.dispatch({ type: "SET_PAGE", page: lastPage });
+      replaceUrl(store.getState());
+      loadLeaderboard();
+      return;
+    }
     store.dispatch({ type: "LEADERBOARD_OK", data: result.data, signature });
     if (requestedFromState.persona !== "balanced" && requestedFromState.persona === store.getState().persona) {
       announce(copy.reprojectedAnnouncement(copy.PERSONA_NAMES[requestedFromState.persona], countRankChanges(previousRows, result.data.rows)));
@@ -963,6 +1048,12 @@ export function boot(win = window, doc = document) {
         else if (doc.activeElement.matches?.(".drawer-github-link")) restoreSelector = ".drawer-github-link";
         else if (doc.activeElement.matches?.("[data-repo-detail-retry]")) restoreSelector = "[data-repo-detail-retry]";
         else if (doc.activeElement.matches?.("[data-evidence-retry]")) restoreSelector = "[data-evidence-retry]";
+        // Keep focus on the live-check or canonical-open button when it still
+        // exists after a re-render; when the button was replaced by the status
+        // line or result, fall back to its enclosing `[data-live-check-region]`.
+        else if (doc.activeElement.matches?.("[data-live-check]")) restoreSelector = "[data-live-check]";
+        else if (doc.activeElement.matches?.("[data-live-open]")) restoreSelector = "[data-live-open]";
+        else if (doc.activeElement.closest?.("[data-live-check-region]")) restoreSelector = "[data-live-check-region]";
         else if (doc.activeElement.tagName === "SUMMARY") {
           restoreSummaryIndex = Array.from(drawerRoot.querySelectorAll("summary")).indexOf(doc.activeElement);
         }
@@ -973,7 +1064,10 @@ export function boot(win = window, doc = document) {
         const target =
           restoreSummaryIndex >= 0
             ? drawerRoot.querySelectorAll("summary")[restoreSummaryIndex]
-            : drawerRoot.querySelector(restoreSelector);
+            : drawerRoot.querySelector(restoreSelector) ||
+              ((restoreSelector === "[data-live-check]" || restoreSelector === "[data-live-open]")
+                ? drawerRoot.querySelector("[data-live-check-region]")
+                : null);
         (target || drawerRoot.querySelector("[data-drawer-close]"))?.focus();
       }
     }
@@ -1134,12 +1228,49 @@ export function boot(win = window, doc = document) {
   });
 
   function openRepo(owner, name) {
-    const key = `${owner}/${name}`;
+    const slug = parseRepoSlug(`${owner}/${name}`);
+    const o = slug ? slug.owner : owner;
+    const n = slug ? slug.name : name;
+    const key = `${o}/${n}`;
     store.dispatch({ type: "SET_CURSOR", key });
     store.dispatch({ type: "OPEN_REPO", repo: key });
     pushUrl(store.getState());
-    loadRepoDetail(owner, name);
-    loadEvidence(owner, name);
+    loadRepoDetail(o, n);
+    loadEvidence(o, n);
+  }
+
+  // ------------------------------------- live check (outside the snapshot)
+  /** D-GATE-2's fork question, from Porchlamp's own snapshot (no GitHub request): true, false, or null. */
+  async function isInUniverse(owner, name) {
+    const result = await api.fetchRepoDetail(owner, name);
+    if (result.ok) return true;
+    if (!result.error || result.error.status !== 404) return null;
+    const canonical = await resolveCanonicalInSnapshot(owner, name);
+    if (canonical) return true;
+    return canonical === null ? false : null;
+  }
+
+  /**
+   * Runs ONLY from the button the not-in-snapshot drawer shows
+   * (components/livepanel.js): the site contacts api.github.com for no other
+   * reason. One check per repository at a time; a finished one is kept in
+   * memory (`liveCheckByKey`) until the page reloads, so reopening the drawer
+   * costs nothing.
+   */
+  function startLiveCheck(rawKey) {
+    const slug = parseRepoSlug(rawKey);
+    if (!slug) return;
+    const key = `${slug.owner}/${slug.name}`;
+    const existing = store.getState().liveCheckByKey[key];
+    if (existing && existing.status === "loading") return;
+    store.dispatch({ type: "LIVE_CHECK_LOADING", key });
+    const fetchImpl = typeof win.fetch === "function" ? win.fetch.bind(win) : undefined;
+    runLiveCheck(slug.owner, slug.name, { fetchImpl, isInUniverse }).then((outcome) => {
+      store.dispatch({ type: "LIVE_CHECK_DONE", key, outcome });
+      const open = parseRepoSlug(store.getState().repo || "");
+      // Error banners carry `role="alert"` and are announced by the browser; announce only a completed check.
+      if (outcome.ok && open && `${open.owner}/${open.name}` === key) announce(copy.liveCheckAnnouncement(outcome));
+    });
   }
 
   function closeDrawer() {
@@ -1677,6 +1808,19 @@ export function boot(win = window, doc = document) {
       closeDrawer();
       return;
     }
+    const liveCheckBtn = evt.target.closest("[data-live-check]");
+    if (liveCheckBtn) {
+      startLiveCheck(liveCheckBtn.dataset.liveCheck);
+      return;
+    }
+    const liveOpenBtn = evt.target.closest("[data-live-open]");
+    if (liveOpenBtn) {
+      // GitHub knows the repository by another name (renamed, or different
+      // casing) -- which the snapshot may well hold: open that drawer.
+      const slug = parseRepoSlug(liveOpenBtn.dataset.liveOpen);
+      if (slug) openRepo(slug.owner, slug.name);
+      return;
+    }
     if (evt.target.closest("[data-evidence-retry]")) {
       const repo = store.getState().repo;
       if (!repo) return;
@@ -2137,75 +2281,26 @@ export function boot(win = window, doc = document) {
     initialThemeBtn.setAttribute("title", `Active theme: ${isDark ? "dark" : "light"}`);
   }
 
-  // Dev-only perf harness (U-19: "measured with the 1000-row page as the
-  // perf case"): `?perf=1000` synthesizes a page-shaped payload client-side
-  // instead of fetching, so windowing can be timed with `performance.now()`
-  // in a real browser without needing a 1000-row fixture on the server.
-  const perfParam = new URLSearchParams(win.location.search).get("perf");
-  if (perfParam) {
-    const n = parseInt(perfParam, 10) || 1000;
-    const t0 = win.performance.now();
-    const rows = synthesizeRows(n);
-    store.dispatch({
-      type: "LEADERBOARD_OK",
-      data: {
-        rows, total: rows.length, counts: { rated: rows.length, gated: 0, unrated: 0, total: rows.length },
-        page: 1, page_size: rows.length, persona: "balanced", ecosystem: null,
-      },
-    });
-    const t1 = win.performance.now();
-    // Dev-only timing readout (06 §7 budgets): never user-facing, exempt
-    // from copy.js.
-    // eslint-disable-next-line no-console
-    console.log(`[perf] synthesized ${n} rows in ${(t1 - t0).toFixed(1)}ms`);
-    render();
-    win.requestAnimationFrame(() => {
-      const t2 = win.performance.now();
-      patchLeaderboardBody(store.getState());
-      const t3 = win.performance.now();
-      // eslint-disable-next-line no-console
-      console.log(`[perf] initial windowed patch of ${n} rows: ${(t3 - t2).toFixed(1)}ms`);
-    });
-  } else if (new URLSearchParams(win.location.search).get("perfmatrix")) {
-    // Dev-only harness (06 §7: "matrix render < 150ms for 10k markers"):
-    // reuses `synthesizeRows` (its rows already carry leverage/friction/
-    // quadrant/stars_audited — a superset of `MatrixPoint`) so no second
-    // synthetic-data generator is needed for this budget.
-    const n = parseInt(new URLSearchParams(win.location.search).get("perfmatrix"), 10) || 10000;
-    const t0 = win.performance.now();
-    const points = synthesizeRows(n);
-    store.dispatch({ type: "SET_TAB", tab: "matrix" });
-    store.dispatch({ type: "MATRIX_OK", data: { points, excluded_count: 0, axis_coverage: {} } });
-    const t1 = win.performance.now();
-    // eslint-disable-next-line no-console
-    console.log(`[perf] synthesized ${n} matrix points in ${(t1 - t0).toFixed(1)}ms`);
-    const t2 = win.performance.now();
-    render();
-    const t3 = win.performance.now();
-    // eslint-disable-next-line no-console
-    console.log(`[perf] matrix render of ${n} points: ${(t3 - t2).toFixed(1)}ms`);
-  } else {
-    replaceUrl(store.getState());
-    render();
-    const initialState = store.getState();
-    const initialTab = initialState.tab;
-    if (initialTab === "ranked" || initialTab === "notranked") loadLeaderboard();
-    loadDataForTab(initialTab);
-    // U-7/U-15/U-16: a drawer opened straight from a URL (?repo=owner/name,
-    // no click ever happened) must fetch the same record+evidence a
-    // click-opened one does — see repoToLoadFromState's own docstring.
-    // `openRepo` is not reused here because the URL is already authoritative
-    // (repo/cursor/history are already correct); only the two fetches are missing.
-    // `renderDrawerAndKeymap` (called inside the `render()` just above)
-    // already focuses the drawer's close button for a URL-hydrated
-    // `state.repo` on this very first render (`wasDrawerOpen` starts
-    // `false`) — only the two fetches were missing.
-    const bootRepoToLoad = repoToLoadFromState(initialState);
-    if (bootRepoToLoad) {
-      store.dispatch({ type: "SET_CURSOR", key: initialState.repo });
-      loadRepoDetail(bootRepoToLoad.owner, bootRepoToLoad.name);
-      loadEvidence(bootRepoToLoad.owner, bootRepoToLoad.name);
-    }
+  replaceUrl(store.getState());
+  render();
+  const initialState = store.getState();
+  const initialTab = initialState.tab;
+  if (initialTab === "ranked" || initialTab === "notranked") loadLeaderboard();
+  loadDataForTab(initialTab);
+  // U-7/U-15/U-16: a drawer opened straight from a URL (?repo=owner/name,
+  // no click ever happened) must fetch the same record+evidence a
+  // click-opened one does — see repoToLoadFromState's own docstring.
+  // `openRepo` is not reused here because the URL is already authoritative
+  // (repo/cursor/history are already correct); only the two fetches are missing.
+  // `renderDrawerAndKeymap` (called inside the `render()` just above)
+  // already focuses the drawer's close button for a URL-hydrated
+  // `state.repo` on this very first render (`wasDrawerOpen` starts
+  // `false`) — only the two fetches were missing.
+  const bootRepoToLoad = repoToLoadFromState(initialState);
+  if (bootRepoToLoad) {
+    store.dispatch({ type: "SET_CURSOR", key: initialState.repo });
+    loadRepoDetail(bootRepoToLoad.owner, bootRepoToLoad.name);
+    loadEvidence(bootRepoToLoad.owner, bootRepoToLoad.name);
   }
   loadSnapshot();
 

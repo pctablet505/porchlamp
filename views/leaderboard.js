@@ -34,6 +34,7 @@ import {
 } from "../components/table.js";
 import { patchRows } from "../components/patch.js";
 import { PAGE_SIZES } from "../state.js";
+import { parseRepoSlug } from "../livecheck.js";
 
 function escapeHtml(value) {
   return String(value).replace(/[&<>"']/g, (ch) => (
@@ -65,11 +66,20 @@ export function renderEmptyState(gatedCount, unratedCount, { query = "", ecosyst
 }
 
 export function renderFilteredEmpty(query, ecosystem, otherList, what) {
+  // A search that is a repository name gets one more way out: open its drawer
+  // (the generic [data-owner][data-name] click), which shows the record when the
+  // snapshot holds it under another list, else offers the opt-in live check.
+  const slug = query ? parseRepoSlug(query) : null;
   const actions =
     `<button type="button" class="link-button" data-clear-filters="true">${escapeHtml(copy.CLEAR_FILTERS_LABEL)}</button>` +
     (query
       ? `<button type="button" class="link-button" data-search-${otherList}="true">${escapeHtml(
           otherList === "notranked" ? copy.searchNotRankedLabel(query) : copy.searchRankedLabel(query)
+        )}</button>`
+      : "") +
+    (slug
+      ? `<button type="button" class="link-button" data-owner="${escapeHtml(slug.owner)}" data-name="${escapeHtml(slug.name)}">${escapeHtml(
+          copy.lookUpRepoLabel(`${slug.owner}/${slug.name}`)
         )}</button>`
       : "");
   return (
@@ -408,6 +418,17 @@ export function syncPager(root, page, pageSize, total, dataPrefix = "pager") {
 export function scrollDeltaToReveal(anchorTop, stickyHeight, gap = 8) {
   const target = stickyHeight + gap;
   return anchorTop >= target ? null : anchorTop - target;
+}
+
+/**
+ * The page to show instead, when `page` is past the end of a non-empty result: the last page. `null` when the page
+ * has rows, or when nothing matched at all (the empty state is then the right answer).
+ */
+export function lastPageWhenPastEnd(leaderboard, page, pageSize) {
+  if (!leaderboard || !Array.isArray(leaderboard.rows) || leaderboard.rows.length > 0) return null;
+  if (typeof leaderboard.total !== "number" || !(leaderboard.total > 0)) return null;
+  const lastPage = Math.max(1, Math.ceil(leaderboard.total / pageSize));
+  return page > lastPage ? lastPage : null;
 }
 
 /** Which of the four structural shapes `renderShell` would produce — used by app.js to decide whether a full shell replace is needed at all. Includes the mobile/desktop breakpoint since that changes the shell's markup (table vs. card-list container). */

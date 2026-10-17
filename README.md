@@ -16,14 +16,15 @@ request, not by how many stars the project has.
 
 Measured on the 2026-10-17 snapshot of 11,000 projects:
 
-- **More than 1 in 6 active projects are black holes.** Of the 3,613 licensed,
+- **More than 1 in 5 active projects are black holes.** Of the 2,745 licensed,
   maintained software projects with at least ten counted outside pull requests
-  in six months, 720 (19.9%) left most of them with no human reply, review or
-  merge for two weeks.
-- **More stars, more silence.** The black-hole share rises with popularity: 16%
-  of projects with 1k–10k stars, 25% at 10k–50k, and 28% at 50k or more.
-- **Stars barely predict the ranking.** Across the 4,322 ranked projects the
-  rank correlation between stars and the Porchlamp score is 0.09, and 9 of the
+  in six months, 632 (23.0%) left most of them with no human reply, review or
+  merge for two weeks. We could not judge 868 busy projects yet: we hold only
+  the newest 500 pull requests of each, and they do not reach back to 20 April.
+- **More stars, more silence.** The black-hole share rises with popularity: 18%
+  of projects with 1k–10k stars, 30% at 10k–50k, and 35% at 50k or more.
+- **Stars barely predict the ranking.** Across the 4,402 ranked projects the
+  rank correlation between stars and the Porchlamp score is 0.08, and 9 of the
   100 most-starred projects make the top 100.
 
 ## Where the numbers come from
@@ -45,9 +46,9 @@ hash-bucketed files under `data/2026-10-17/repos/`), so the site needs no
 server.
 
 - **Snapshot ID:** `2026-10-17` (measured as of `2026-10-17T05:35:00+00:00`, benchmark `2.0.0-rc1`)
-- **Universe Counts:** `4,322` rated (ranked) · `5,381` gated (Stage 0) · `1,297` unrated (`<60%` coverage) · `11,000` total
-- **Persona Visible Counts:** `balanced: 4,322` · `first_timer: 2,132` · `career_capital: 907` · `senior_systems: 1,346` · `ai_assisted: 4,440`
-- **Verification Hashes:** `constants_hash: 6e4f3e8e1d0c…` · `manifest_root: f2eb5fc971de…` · `canonical_dump_hash: e84ab8e5181f…`
+- **Universe Counts:** `4,402` rated (ranked) · `5,293` gated (Stage 0) · `1,305` unrated (`<60%` coverage) · `11,000` total
+- **Persona Visible Counts:** `balanced: 4,402` · `first_timer: 2,159` · `career_capital: 929` · `senior_systems: 1,378` · `ai_assisted: 4,521`
+- **Verification Hashes:** `constants_hash: 5dc93c2f7bd9…` · `manifest_root: 1b9c148f73f9…` · `canonical_dump_hash: 5576b548cbf7…`
 
 ## License and citation
 

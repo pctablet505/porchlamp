@@ -17,34 +17,34 @@
     <link href="https://porchlamp.org/" rel="alternate" />
     <id>https://porchlamp.org/#snapshot-2026-10-17</id>
     <updated>2026-10-17T00:00:00Z</updated>
-    <summary>We followed 615,200 pull requests from 148,801 outside contributors to 11,000 GitHub projects, from 20 April to 17 October 2026. 4,402 ranked, 5,293 gated and 1,305 unrated.</summary>
+    <summary>We followed 614,499 pull requests from 148,789 outside contributors to 11,000 GitHub projects, from 20 April to 17 October 2026. 4,396 ranked, 5,299 gated and 1,305 unrated.</summary>
   </entry>
   <entry>
     <title>Stars don't review pull requests: the state of open-source black holes</title>
     <link href="https://porchlamp.org/black-holes/" rel="alternate" />
     <id>https://porchlamp.org/black-holes/#snapshot-2026-10-17</id>
     <updated>2026-10-17T00:00:00Z</updated>
-    <summary>More than 1 in 5. In Porchlamp's 2026-10-17 snapshot, 632 of 2,745 active open-source projects (23.0%) left most outside pull requests with no human reply, review or merge within 14 days. More stars, more silence. The share rises with stars: 18% of projects with 1,000 to 10,000 stars, 30% at 10,000 to 50,000, and 35% at 50,000 or more.</summary>
+    <summary>More than 1 in 5. In Porchlamp's 2026-10-17 snapshot, 638 of 2,745 active open-source projects (23.2%) left most outside pull requests with no human reply, review or merge within 14 days. More stars, more silence. The share rises with stars: 19% of projects with 1,000 to 10,000 stars, 30% at 10,000 to 50,000, and 35% at 50,000 or more.</summary>
   </entry>
   <entry>
-    <title>Open-source projects for first-time contributors (2,159 ranked)</title>
+    <title>Open-source projects for first-time contributors (2,157 ranked)</title>
     <link href="https://porchlamp.org/first-timers/" rel="alternate" />
     <id>https://porchlamp.org/first-timers/#snapshot-2026-10-17</id>
     <updated>2026-10-17T00:00:00Z</updated>
-    <summary>This view ranks 2,159 projects for first-time contributors. It weighs responsiveness 35%, accessibility 30%, governance 15%, criticality 10% and rigor 10%.</summary>
+    <summary>This view ranks 2,157 projects for first-time contributors. It weighs responsiveness 35%, accessibility 30%, governance 15%, criticality 10% and rigor 10%.</summary>
   </entry>
   <entry>
-    <title>Open-source projects for AI-assisted contributors (4,521 ranked)</title>
+    <title>Open-source projects for AI-assisted contributors (4,516 ranked)</title>
     <link href="https://porchlamp.org/ai-assisted/" rel="alternate" />
     <id>https://porchlamp.org/ai-assisted/#snapshot-2026-10-17</id>
     <updated>2026-10-17T00:00:00Z</updated>
-    <summary>This view ranks 4,521 projects for AI-assisted contributors. It weighs rigor 35%, responsiveness 20%, criticality 20%, governance 15% and accessibility 10%.</summary>
+    <summary>This view ranks 4,516 projects for AI-assisted contributors. It weighs rigor 35%, responsiveness 20%, criticality 20%, governance 15% and accessibility 10%.</summary>
   </entry>
   <entry>
     <title>Porchlamp methodology: 5 pillars, 18 parameters, gates and hashes</title>
     <link href="https://porchlamp.org/methodology/" rel="alternate" />
     <id>https://porchlamp.org/methodology/#snapshot-2026-10-17</id>
     <updated>2026-10-17T00:00:00Z</updated>
-    <summary>Every gate, pillar, lens, weight and parameter, with the constants hash 5dc93c2f7bd97ebe46185da3eab34916d2f203f366c4157b964b96b4a20792c7.</summary>
+    <summary>Every gate, pillar, lens, weight and parameter, with the constants hash 6f95d75a0aa5427288d3e7e8eadc5b9477d3a1816d636ab848b9defc7d6cea5a.</summary>
   </entry>
 </feed>

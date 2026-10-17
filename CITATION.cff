@@ -11,7 +11,7 @@ date-released: 2026-10-18
 url: "https://porchlamp.org/"
 repository: "https://github.com/pctablet505/porchlamp"
 license: CC-BY-4.0
-abstract: "A six-month snapshot of 615,200 pull requests from 148,801 outside contributors to 11,000 GitHub projects. Each project is ranked by what happens to a stranger's pull request: whether a human replies, reviews or merges it, and how soon."
+abstract: "A six-month snapshot of 614,499 pull requests from 148,789 outside contributors to 11,000 GitHub projects. Each project is ranked by what happens to a stranger's pull request: whether a human replies, reviews or merges it, and how soon."
 keywords:
   - open source
   - pull requests

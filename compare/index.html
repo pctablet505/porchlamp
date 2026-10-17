@@ -2,16 +2,12 @@
 <html lang="en">
 <head>
   <meta charset="utf-8">
-  <!-- The app with no page text of its own (routes.js). GitHub Pages answers an address it has no file for with
-       this page, and the app shows what the address names: a project's side panel, or "page not found".
-       scripts/export_static.py also writes it at each view's address (/matrix/, ...) with that view's title and
-       canonical address. The head and the body's frame are index.html's (tests/test_app_routes.py), without the
-       home page's own text and data. -->
   <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; connect-src 'self' https://api.github.com; object-src 'none'; base-uri 'self'; form-action 'self'">
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <script src="/theme-init.js"></script>
   <title>Compare open-source projects side by side | Porchlamp</title>
-  <link rel="canonical" href="https://porchlamp.org/compare/">
   <meta name="description" content="Porchlamp ranks open-source projects by what happens to a stranger's pull request, not by stars.">
+  <link rel="canonical" href="https://porchlamp.org/compare/">
   <meta name="theme-color" content="#0f1419">
   <link rel="icon" href="/favicon.svg" type="image/svg+xml">
   <link rel="stylesheet" href="/styles/tokens.css">
@@ -22,12 +18,12 @@
 <body>
   <a class="skip-link" href="#app-main">Skip to main content</a>
   <div class="app-shell">
-    <header class="app-header" id="app-header-controls"></header>
-    <nav class="app-primary-nav" id="app-primary-nav"></nav>
+    <header class="app-header" id="app-header-controls"><a class="brand-link" href="/" aria-label="Porchlamp"><span class="brand"><svg class="brand-mark" viewBox="0 0 24 24" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="2.2" y="13.2" width="2.4" height="8.4" rx="1" fill="currentColor" stroke="none"/><path d="M4.6 17.6H12.4V15.2"/><path d="M8.6 7.6L12.4 4.2L16.2 7.6Z" fill="currentColor"/><circle cx="12.4" cy="2.9" r="0.8" fill="currentColor" stroke="none"/><rect x="9.4" y="7.6" width="6" height="7.6" rx="0.9"/><rect class="brand-mark-glow" x="10.9" y="9.1" width="3" height="4.6" rx="1.5" stroke="none"/><path class="brand-mark-rays" d="M18.6 9.2L20.8 8.1M18.6 11.4H21.2M18.6 13.6L20.8 14.7"/></svg>Porchlamp</span><span class="brand-tagline">Find the projects that leave the light on.</span></a><span class="snapshot-chip" data-snapshot-chip="true" title="2026-10-17 · benchmark 2.0.0-rc1"><span data-v="header.snapshot_id">2026-10-17</span></span><div class="header-controls"><span class="header-filter-group" data-header-persona-group="true"><label class="field-label" for="persona-select">Persona</label><select class="control" id="persona-select" data-persona-select="true"><option value="balanced">Balanced</option><option value="first_timer">First-timer</option><option value="career_capital">Career capital</option><option value="senior_systems">Senior systems</option><option value="ai_assisted">AI-assisted</option></select></span><span class="header-filter-group" data-header-eco-group="true" hidden><label class="field-label" for="eco-select">Ecosystem</label><select class="control" id="eco-select" data-eco-select="true"><option value="">All ecosystems</option><option value="npm">JavaScript</option><option value="pypi">Python</option><option value="crates">Rust</option><option value="go">Go</option><option value="maven">Java</option><option value="systems">C and C++</option></select></span><form class="header-filter-group" data-header-search-group="true" role="search" action="/" method="get" hidden><input class="control" type="search" name="q" data-search-input="true" placeholder="Search owner/repo…" aria-label="Search repositories"></form><button type="button" class="icon-button theme-toggle" data-theme-toggle="true" aria-label="Toggle light/dark theme" title="Toggle light/dark theme"></button></div></header>
+    <nav class="app-primary-nav" id="app-primary-nav" aria-label="Primary"><div class="primary-tabs"><a class="primary-tab" href="/" data-route-tab="ranked">Leaderboard</a><a class="primary-tab" href="/matrix/" data-route-tab="matrix">Matrix</a><a class="primary-tab" href="/compare/" data-route-tab="compare" aria-current="page">Compare</a><a class="primary-tab" href="/weights/" data-route-tab="configure">Configure weights</a><a class="primary-tab" href="/methodology/" data-route-tab="methodology">Methodology</a><a class="primary-tab" href="/black-holes/" data-route-tab="report">Report</a></div></nav>
     <main class="app-main" id="app-main" tabindex="-1">
       <noscript><p>Porchlamp needs JavaScript to show this page. Without it, read the <a href="/">rankings</a>, the <a href="/black-holes/">report</a> and the <a href="/methodology/">methodology</a>.</p></noscript>
     </main>
-    <footer class="app-footer" id="app-footer"></footer>
+    <footer class="app-footer" id="app-footer"><span data-footer-snapshot="true">Snapshot: <span data-v="footer.snapshot_id">2026-10-17</span></span><span data-footer-version="true">Benchmark version: <span data-v="footer.benchmark_version">2.0.0-rc1</span></span><span data-footer-hash="true">Constants hash: <span data-v="footer.constants_hash">6e4f3e8e1d0c</span>…</span><span data-footer-manifest="true">Manifest root: <span data-v="footer.manifest_root">f2eb5fc971de</span>…</span><button type="button" class="icon-button" data-footer-retry="true" hidden>Retry</button><a href="/methodology/" data-route-tab="methodology">Methodology</a><a href="/black-holes/">Report</a><a href="https://github.com/pctablet505/porchlamp">Data on GitHub</a></footer>
   </div>
   <div id="app-drawer-root"></div>
   <div id="app-keymap-root"></div>

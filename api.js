@@ -313,6 +313,23 @@ export function fetchMethodology() {
   return answer("/v1/porchlamp/methodology", () => loadJson("methodology.json"));
 }
 
+/**
+ * The export's own record of what it published (manifest.json; no API answers it). The methodology prints the digest
+ * of the database file the site was exported from, `source_db_sha256`, from here: in the app, and at export, where
+ * web/prerender.mjs draws the page through this same call.
+ */
+export function fetchManifest() {
+  return answer("manifest.json", () => loadJson("manifest.json"));
+}
+
+/**
+ * The report's numbers and its guarded sentences (report.json; no API answers it): what views/report.js draws, in
+ * the app and at export, where web/prerender.mjs draws /black-holes/ through this same call.
+ */
+export function fetchReport() {
+  return answer("report.json", () => loadJson("report.json"));
+}
+
 // ---------------------------------------------------------- /reproject
 /**
  * SQLite's ROUND(x, n) for the values a composite takes (0..100). Exact

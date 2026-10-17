@@ -2,12 +2,12 @@
 <html lang="en">
 <head>
   <meta charset="utf-8">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; connect-src 'self' https://api.github.com; object-src 'none'; base-uri 'self'; form-action 'self'">
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <script src="/theme-init.js"></script>
   <title>getpaseo/paseo: pull request response time and contributor experience | Porchlamp</title>
   <meta name="description" content="The reply time and the share with no reply within 14 days both have too small a sample to measure (0 and 0 pull requests counted; 10 needed).">
   <meta name="author" content="Rahul Kumar (pctablet505)">
-  <meta name="theme-color" content="#0f1419">
-  <link rel="icon" href="../../../favicon.svg" type="image/svg+xml">
   <link rel="canonical" href="https://porchlamp.org/projects/getpaseo/paseo/">
   <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
   <meta property="og:type" content="article">
@@ -21,24 +21,28 @@
   <meta name="twitter:title" content="getpaseo/paseo: pull request response time and contributor experience | Porchlamp">
   <meta name="twitter:description" content="The reply time and the share with no reply within 14 days both have too small a sample to measure (0 and 0 pull requests counted; 10 needed).">
   <meta name="twitter:image" content="https://porchlamp.org/og.png">
-  <link rel="stylesheet" href="../../../styles/tokens.css">
-  <link rel="stylesheet" href="../../../styles/base.css">
-  <link rel="stylesheet" href="../../../styles/report.css">
+  <meta name="theme-color" content="#0f1419">
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="/styles/tokens.css">
+  <link rel="stylesheet" href="/styles/base.css">
+  <link rel="stylesheet" href="/styles/components.css">
+  <link rel="stylesheet" href="/styles/report.css">
   <script type="application/ld+json">
   {"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Porchlamp","item":"https://porchlamp.org/"},{"@type":"ListItem","position":2,"name":"getpaseo/paseo","item":"https://porchlamp.org/projects/getpaseo/paseo/"}]}
   </script>
 </head>
 <body>
-  <a class="skip-link" href="#report-main">Skip to main content</a>
+  <a class="skip-link" href="#app-main">Skip to main content</a>
   <div class="app-shell">
-    <nav class="report-nav" aria-label="Porchlamp"><img src="../../../favicon.svg" width="28" height="28" alt=""><a href="../../../">Porchlamp rankings</a><a href="../../../black-holes/">Report</a><a href="../../../methodology/">Methodology</a></nav>
-    <main class="app-main" id="report-main" tabindex="-1">
+    <header class="app-header" id="app-header-controls"><a class="brand-link" href="/" aria-label="Porchlamp"><span class="brand"><svg class="brand-mark" viewBox="0 0 24 24" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="2.2" y="13.2" width="2.4" height="8.4" rx="1" fill="currentColor" stroke="none"/><path d="M4.6 17.6H12.4V15.2"/><path d="M8.6 7.6L12.4 4.2L16.2 7.6Z" fill="currentColor"/><circle cx="12.4" cy="2.9" r="0.8" fill="currentColor" stroke="none"/><rect x="9.4" y="7.6" width="6" height="7.6" rx="0.9"/><rect class="brand-mark-glow" x="10.9" y="9.1" width="3" height="4.6" rx="1.5" stroke="none"/><path class="brand-mark-rays" d="M18.6 9.2L20.8 8.1M18.6 11.4H21.2M18.6 13.6L20.8 14.7"/></svg>Porchlamp</span><span class="brand-tagline">Find the projects that leave the light on.</span></a><span class="snapshot-chip" data-snapshot-chip="true" title="2026-10-17 · benchmark 2.0.0-rc1"><span data-v="header.snapshot_id">2026-10-17</span></span><div class="header-controls"><form class="header-filter-group" data-header-search-group="true" role="search" action="/" method="get"><input class="control" type="search" name="q" data-search-input="true" placeholder="Search owner/repo…" aria-label="Search repositories"></form><button type="button" class="icon-button theme-toggle" data-theme-toggle="true" aria-label="Toggle light/dark theme" title="Toggle light/dark theme"></button></div></header>
+    <nav class="app-primary-nav" id="app-primary-nav" aria-label="Primary"><div class="primary-tabs"><a class="primary-tab" href="/" data-route-tab="ranked">Leaderboard</a><a class="primary-tab" href="/matrix/" data-route-tab="matrix">Matrix</a><a class="primary-tab" href="/compare/" data-route-tab="compare">Compare</a><a class="primary-tab" href="/weights/" data-route-tab="configure">Configure weights</a><a class="primary-tab" href="/methodology/" data-route-tab="methodology">Methodology</a><a class="primary-tab" href="/black-holes/" data-route-tab="report">Report</a></div></nav>
+    <main class="app-main" id="app-main" tabindex="-1">
       <article class="seo-fallback report project">
         <h1>getpaseo/paseo</h1>
         <p class="lede">What happens to a stranger's pull request here, in the Porchlamp snapshot of 17 October 2026.</p>
         <p class="answer" id="answer">The reply time and the share with no reply within 14 days both have too small a sample to measure (0 and 0 pull requests counted; 10 needed). It ranks 2,724 of 4,322 overall. It is not ranked for first-time contributors: not enough evidence to show under this lens.</p>
         <h2 id="rating">Rating</h2>
-        <ul class="facts"><li>Score: 48.82</li><li>Coverage: 70% · Ceiling B</li><li>Tier: C</li><li>Quadrant: Nursery</li><li>Ecosystem: <a href="../../../javascript/">npm</a></li></ul>
+        <ul class="facts"><li>Score: 48.82</li><li>Coverage: 70% · Ceiling B</li><li>Tier: C</li><li>Quadrant: Nursery</li><li>Ecosystem: <a href="../../../javascript/">JavaScript</a></li></ul>
         
         <h2 id="pillars">Five pillars</h2>
         <div class="seo-fallback-table-wrap"><table><caption>Score out of 100, and how much of the pillar was measured</caption><thead><tr><th scope="col">Pillar</th><th scope="col">Score</th><th scope="col">Coverage</th></tr></thead><tbody><tr><th scope="row">Responsiveness</th><td>93.5</td><td>10%</td></tr><tr><th scope="row">Criticality</th><td>22.6</td><td>100%</td></tr><tr><th scope="row">Governance</th><td>50.5</td><td>100%</td></tr><tr><th scope="row">Rigor</th><td>40.2</td><td>100%</td></tr><tr><th scope="row">Accessibility</th><td>24.4</td><td>50%</td></tr></tbody></table></div>
@@ -59,10 +63,13 @@
         </ul>
         <h2 id="correction">Is something wrong?</h2>
         <p><a href="https://github.com/pctablet505/porchlamp/issues/new?title=Porchlamp%20record%3A%20getpaseo%2Fpaseo">Open an issue about this record</a> and say what looks wrong.</p>
-        <footer class="report-footer"><p><a href="../../../">Porchlamp rankings</a> · <a href="../../../black-holes/">Report</a> · <a href="../../../methodology/">Methodology</a> · <a href="https://github.com/pctablet505/porchlamp">Data on GitHub</a></p></footer>
       </article>
     </main>
+    <footer class="app-footer" id="app-footer"><span data-footer-snapshot="true">Snapshot: <span data-v="footer.snapshot_id">2026-10-17</span></span><span data-footer-version="true">Benchmark version: <span data-v="footer.benchmark_version">2.0.0-rc1</span></span><span data-footer-hash="true">Constants hash: <span data-v="footer.constants_hash">6e4f3e8e1d0c</span>…</span><span data-footer-manifest="true">Manifest root: <span data-v="footer.manifest_root">f2eb5fc971de</span>…</span><button type="button" class="icon-button" data-footer-retry="true" hidden>Retry</button><a href="/methodology/" data-route-tab="methodology">Methodology</a><a href="/black-holes/">Report</a><a href="https://github.com/pctablet505/porchlamp">Data on GitHub</a></footer>
   </div>
-  <script type="module" src="../../../back-forward.js"></script>
+  <div id="app-drawer-root"></div>
+  <div id="app-keymap-root"></div>
+  <div id="app-live-region" class="app-live-region" role="status" aria-live="polite"></div>
+  <script type="module" src="/back-forward.js"></script>
 </body>
 </html>

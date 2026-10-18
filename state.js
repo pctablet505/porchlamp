@@ -16,7 +16,8 @@
 // singleton so they stay testable without a DOM or a running server.
 
 import { parseRepoSlug } from "./livecheck.js";
-import { matchRoute, projectPath, routeById, routePath, routeTitle } from "./routes.js";
+import * as copy from "./copy.js";
+import { matchRoute, projectPath, routeById, routePath, routeTitle, routeView, routesOfView } from "./routes.js";
 
 //: The page sizes the pagination control offers. Mirrors
 //: `porchlamp.serve.contract.LEADERBOARD_PAGE_SIZES`.
@@ -203,6 +204,9 @@ export function defaultState() {
     notRankedError: null,
     notRankedPage: 1,
     notRankedPageSize: DEFAULT_PAGE_SIZE,
+    // The reason a list of the not-ranked projects by reason shows (routes.js `fixed.reason`, a bare reason code), at
+    // its own address; null on every other view, and on the whole not-ranked list.
+    notRankedReason: null,
 
     snapshot: null,
     snapshotLoading: false,
@@ -244,6 +248,7 @@ export const VALID_SORT_FIELDS = Object.freeze(new Set([
   "p_governance",
   "p_rigor",
   "p_accessibility",
+  "first_reply",
 ]));
 
 //: How each query field of an address reads into state and writes back. A value that does not parse is
@@ -254,7 +259,7 @@ const QUERY_FIELDS = Object.freeze({
     write: (state) => (state.persona && state.persona !== "balanced" ? state.persona : null),
   },
   eco: { read: (value) => ({ ecosystem: value }), write: (state) => state.ecosystem || null },
-  q: { read: (value) => ({ query: value }), write: (state) => state.query || null },
+  q: { read: (value) => ({ query: normalizeQuery(value) }), write: (state) => state.query || null },
   sort: {
     read: (value) => (VALID_SORT_FIELDS.has(value.startsWith("-") ? value.slice(1) : value) ? { sort: value } : null),
     write: (state) => (state.sort && state.sort !== "rank" ? state.sort : null),
@@ -314,24 +319,121 @@ function projectOf(repo) {
   return match.route.id === "project" ? { owner: match.owner, name: match.name } : null;
 }
 
+//: The leaderboard's fields a list's address can fix or set (routes.js `fixed`, `defaults`, `{page}`): each one's
+//: state field and its value where the route sets no other default.
+const LIST_FIELDS = Object.freeze({
+  persona: { state: "persona", value: "balanced" },
+  eco: { state: "ecosystem", value: "" },
+  q: { state: "query", value: "" },
+  sort: { state: "sort", value: "rank" },
+  page: { state: "page", value: 1 },
+  page_size: { state: "pageSize", value: DEFAULT_PAGE_SIZE },
+  reason: { state: "notRankedReason", value: null },
+});
+
+const owns = (object, key) => Boolean(object) && Object.prototype.hasOwnProperty.call(object, key);
+
+/** A field's value where `route`'s address does not name it. */
+function routeDefault(route, key) {
+  return owns(route.defaults, key) ? route.defaults[key] : LIST_FIELDS[key].value;
+}
+
+/** The value `route`'s path fixes a field at (null in the table is the field at its default). */
+function fixedValue(route, key) {
+  return route.fixed[key] === null ? LIST_FIELDS[key].value : route.fixed[key];
+}
+
+/** The list fields of a whole state, by query-field name. Only the not-ranked view reads a reason. */
+function listFieldsOf(state) {
+  const fields = Object.fromEntries(Object.entries(LIST_FIELDS).map(([key, field]) => [key, state[field.state]]));
+  if (state.tab !== "notranked" || fields.reason === undefined) fields.reason = null;
+  return fields;
+}
+
 /**
- * The state an address names (routes.js): the route's view as `tab`; for a project's address, its side panel
- * (`repo`, as written) over the leaderboard; for an address no route claims, the "notfound" view and that
- * address (`missingPath`). The query fields the route reads come back too; any other field is ignored. Only
- * what the address names is returned: the caller starts from the defaults.
+ * Whether `route` can be the address of `fields` (query-field name -> value; a field left out is unset, and takes
+ * the route's own default): every field the path fixes has its fixed value, and every other field that is off the
+ * route's default is one the path or the query holds.
+ */
+function routeHolds(route, fields) {
+  for (const key of Object.keys(LIST_FIELDS)) {
+    const own = routeDefault(route, key);
+    const value = fields[key] === undefined ? own : fields[key];
+    if (owns(route.fixed, key)) {
+      if (value !== fixedValue(route, key)) return false;
+    } else if (!route.path.includes(`{${key}}`) && value !== own && !route.query.includes(key)) {
+      return false;
+    }
+  }
+  return true;
+}
+
+/**
+ * The route of a view that is the address of `fields` (routes.js): among the routes that hold them, the one with the
+ * most fixed fields, the first in table order on a tie (so an ecosystem's path beats a lens's); the view's own
+ * route when no other holds them. `routes` is the view's routes in table order (routes.js `routesOfView`).
+ */
+export function routeForFields(view, fields, routes = routesOfView(view)) {
+  let best = routeById(view);
+  let most = -1;
+  for (const route of routes) {
+    const count = route.fixed ? Object.keys(route.fixed).length : 0;
+    if (count > most && (route.id === view || routeHolds(route, fields))) {
+      best = route;
+      most = count;
+    }
+  }
+  return best;
+}
+
+/** The route a state is drawn at: its view's route for its list fields (`routeForFields`); null for a project's
+ *  panel or the not-found view. */
+export function routeForState(state) {
+  const route = routeById(state.tab);
+  if (!route || route.path === null || route.id === "project") return null;
+  return routeForFields(state.tab, listFieldsOf(state));
+}
+
+/** `route`'s address for `fields` (and `state`, for the fields that are not a list's): its path, then each query
+ *  field it reads that is off its default there. */
+function addressAt(route, fields, state = {}) {
+  const qs = new URLSearchParams();
+  for (const key of route.query) {
+    if (owns(LIST_FIELDS, key)) {
+      const value = fields[key];
+      if (value !== undefined && value !== null && value !== routeDefault(route, key)) qs.set(key, String(value));
+    } else {
+      const value = QUERY_FIELDS[key].write(state);
+      if (value !== null) qs.set(key, value);
+    }
+  }
+  const query = qs.toString();
+  return routePath(route.id, { page: fields.page ?? 1 }) + (query ? `?${query}` : "");
+}
+
+/**
+ * The state an address names (routes.js): the route's view as `tab`; for a list's own address, the fields its path
+ * fixes and its defaults; for a project's address, its side panel (`repo`, as written) over the leaderboard; for an
+ * address no route claims, the "notfound" view and that address (`missingPath`). The query fields the route reads
+ * come back too; any other field is ignored. Only what the address names is returned: the caller starts from the
+ * defaults.
  */
 export function parseLocation(pathname, search = "") {
   const match = matchRoute(pathname);
   const { route } = match;
   if (route.id === "notfound") return { tab: "notfound", missingPath: String(pathname || "/") };
   if (route.id === "project") return { tab: "ranked", repo: `${match.owner}/${match.name}`, ...parseQuery(search, route.query) };
-  return { tab: route.id, ...parseQuery(search, route.query) };
+  const named = {};
+  for (const key of Object.keys(route.defaults || {})) named[LIST_FIELDS[key].state] = route.defaults[key];
+  for (const key of Object.keys(route.fixed || {})) named[LIST_FIELDS[key].state] = fixedValue(route, key);
+  if (match.page !== undefined) named.page = match.page;
+  return { tab: routeView(route), ...named, ...parseQuery(search, route.query) };
 }
 
 /**
- * The address of a state: an open panel's project address (with the persona when the view under it reads
- * one), else the view's path; then the query fields that route reads, each only when it is not at its default.
- * The "notfound" view keeps the address it answers.
+ * The address of a state: an open panel's project address (with the persona when the view under it reads one),
+ * else the address of its view's route (`routeForState`): the path, then the query fields that route reads, each
+ * only when it is off the route's default. The "notfound" view keeps the address it answers.
  */
 export function serializeLocation(state) {
   const panel = projectOf(state.repo);
@@ -341,9 +443,28 @@ export function serializeLocation(state) {
     return projectPath(panel.owner, panel.name) + serializeQuery(state, keys);
   }
   if (state.tab === "notfound") return state.missingPath || "/";
-  const route = routeById(state.tab);
-  if (!route || route.path === null || route.id === "project") return "/";
-  return route.path + serializeQuery(state, route.query);
+  const route = routeForState(state);
+  if (!route) return "/";
+  return addressAt(route, listFieldsOf(state), state);
+}
+
+/** The list fields an address names itself, by query-field name: those its path fixes, its page, and those its query
+ *  sets (a field it leaves out is unset). */
+function namedListFields(match, search) {
+  const { route } = match;
+  const fields = {};
+  for (const key of Object.keys(route.fixed || {})) fields[key] = fixedValue(route, key);
+  if (match.page !== undefined) fields.page = match.page;
+  const read = parseQuery(search, route.query.filter((key) => owns(LIST_FIELDS, key)));
+  for (const [key, field] of Object.entries(LIST_FIELDS)) {
+    if (read[field.state] !== undefined) fields[key] = read[field.state];
+  }
+  return fields;
+}
+
+/** The address of the leaderboard list `fields` name (`routeForFields`), with no default written. */
+function listAddress(fields) {
+  return addressAt(routeForFields("ranked", fields), fields);
 }
 
 /**
@@ -387,6 +508,9 @@ export const VALID_TABS = Object.freeze(["ranked", "notranked", "matrix", "compa
  *   is (`load: false`): over the view `tab=` named, at the panel's address `href`, with `under` the address of
  *   the view below it and `repo` the project as the link spelled it (`historyEntryFor`).
  * - A project address in another letter case loads the lower-case one, where the export writes the page.
+ * - A list of the leaderboard named by a path and a query that another route has a path for (routes.js: `/?eco=crates`,
+ *   `/?persona=first_timer&eco=go`, `/?page=3&page_size=100`, `/rust/?persona=first_timer`) loads that route's
+ *   address, keeping the other fields; a field the address leaves out takes the new route's default.
  *
  * An address that is loaded keeps its fragment (`?tab=methodology#gates` lands on `/methodology/#gates`).
  */
@@ -397,16 +521,23 @@ export function redirectTarget(pathname, search = "", hash = "") {
     if (match.owner === match.owner.toLowerCase() && match.name === match.name.toLowerCase()) return null;
     return { href: projectPath(match.owner, match.name) + String(search || "") + fragment, load: true };
   }
-  if (match.route.id !== "ranked") return null;
-  if (hash === "#methodology") return { href: routePath("methodology"), load: true };
+  if (routeView(match.route) !== "ranked") return null;
   const qs = new URLSearchParams(String(search || "").replace(/^\?/, ""));
-  if (!qs.has("tab") && !qs.has("repo")) return null;
-  const tab = VALID_TABS.includes(qs.get("tab")) ? qs.get("tab") : "ranked";
-  const view = { ...defaultState(), tab, ...parseQuery(search, routeById(tab).query) };
-  const panel = qs.has("repo") ? projectOf(normalizeRepoParam(qs.get("repo"))) : null;
-  if (!panel) return { href: serializeLocation(view) + fragment, load: true };
-  const repo = `${panel.owner}/${panel.name}`;
-  return { href: serializeLocation({ ...view, repo }), under: serializeLocation(view), repo, load: false };
+  if (match.route.id === "ranked" && (hash === "#methodology" || qs.has("tab") || qs.has("repo"))) {
+    if (hash === "#methodology") return { href: routePath("methodology"), load: true };
+    const tab = VALID_TABS.includes(qs.get("tab")) ? qs.get("tab") : "ranked";
+    const view = { ...defaultState(), tab, ...parseQuery(search, routeById(tab).query) };
+    const under = tab === "ranked" ? listAddress(namedListFields(match, search)) : serializeLocation(view);
+    const panel = qs.has("repo") ? projectOf(normalizeRepoParam(qs.get("repo"))) : null;
+    if (!panel) return { href: under + fragment, load: true };
+    const repo = `${panel.owner}/${panel.name}`;
+    return { href: serializeLocation({ ...view, repo }), under, repo, load: false };
+  }
+  // A list of the leaderboard named in another form (`/?eco=crates`, `/?page=3&page_size=100`) loads the list's own
+  // path, keeping the other fields; the same path in another form is the app's to tidy (boot's replaceState).
+  const fields = namedListFields(match, search);
+  if (routeForFields("ranked", fields) === match.route) return null;
+  return { href: listAddress(fields) + fragment, load: true };
 }
 
 /**
@@ -429,9 +560,175 @@ export function titleForState(state) {
     return routeTitle("project", record ? { owner: record.owner, name: record.name } : panel);
   }
   if (state.tab === "report" && state.report && state.report.title) return state.report.title;
+  const route = routeForState(state);
+  const slots = route && route.view ? listTitleSlots(route, state) : null;
+  if (slots) return routeTitle(route.id, slots);
   return routeTitle(routeById(state.tab) ? state.tab : "notfound");
 }
 
+//: Every page title ends with the site's name (routes.js); a list's heading is its title without it.
+export const TITLE_SITE_SUFFIX = " | Porchlamp";
+
+/** A count with commas between the thousands (`4,402`), the same bytes in every locale. */
+const groupThousands = (n) => String(n).replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+
+/** The positions a page of the list shows, `{ first, last, total }` (1-based), from the page of rows it has
+ *  loaded; null before it has. */
+export function listSpan(state) {
+  const total = state.leaderboard ? state.leaderboard.total : null;
+  if (typeof total !== "number") return null;
+  return { first: (state.page - 1) * state.pageSize + 1, last: Math.min(state.page * state.pageSize, total), total };
+}
+
+/**
+ * The words and numbers a list's title names (routes.js "{ecosystem}", "{lens}", "{first}", "{last}", "{total}"):
+ * the ecosystem and the lens its path fixes, in copy.js's words, and for a page of the ranking the positions it
+ * shows. Null for a page of the ranking whose rows have not loaded.
+ */
+export function listTitleSlots(route, state) {
+  const fixed = route.fixed || {};
+  if (fixed.reason) return reasonListTitleSlots(route, state);
+  const slots = {};
+  if (fixed.eco) slots.ecosystem = copy.ecosystemName(fixed.eco);
+  if (fixed.persona && fixed.persona !== "balanced") slots.lens = copy.LENS_PHRASES[fixed.persona];
+  if (route.path.includes("{page}")) {
+    const span = listSpan(state);
+    if (!span) return null;
+    slots.first = groupThousands(span.first);
+    slots.last = groupThousands(span.last);
+    slots.total = groupThousands(span.total);
+  }
+  return slots;
+}
+
+/**
+ * What a person typed or pasted into the search, as the text to look for: the spaces at its ends, its case, a GitHub
+ * address's `https://`, `www.` and `github.com/`, and trailing slashes are dropped, so `https://github.com/Pallets/Flask/`
+ * reads as `pallets/flask`.
+ */
+export function normalizeQuery(text) {
+  return String(text || "")
+    .trim()
+    .toLowerCase()
+    .replace(/^(?:https?:\/\/)?(?:www\.)?github\.com\//, "")
+    .replace(/\/+$/, "");
+}
+
+/**
+ * Where the header search's Enter takes a reader, from what they typed or pasted (`text`) and where they are
+ * (`state`): text that is not an owner/name stays the list's filter (`{ kind: "filter" }`), or opens the rankings
+ * filtered by it on a view without one (`{ kind: "address", href }`). An owner/name opens its project:
+ * - one the snapshot holds unranked, the not-ranked list filtered to its row, which shows its reason
+ *   (`{ kind: "address", href }`, its ecosystem filter dropped);
+ * - any other, its panel over the list (`{ kind: "panel", owner, name }`): a ranked project's, in its real spelling,
+ *   or the panel of a name the snapshot does not hold, which says so.
+ * `lookup(owner, name)` answers `{ owner, name, rated }` for a project the snapshot holds (its real spelling), `null`
+ * for one it does not, and `undefined` when it cannot tell.
+ */
+export async function searchDestination(text, state, lookup) {
+  const query = normalizeQuery(text);
+  const slug = parseRepoSlug(query);
+  if (!slug) {
+    if (routeById(state.tab) && routeById(state.tab).query.includes("q")) return { kind: "filter" };
+    return { kind: "address", href: hrefFor({ ...state, query, page: 1 }, "ranked") };
+  }
+  const held = await lookup(slug.owner, slug.name);
+  if (held && held.rated === false) {
+    const row = normalizeQuery(`${held.owner}/${held.name}`);
+    return { kind: "address", href: hrefFor({ ...state, ecosystem: "", query: row, notRankedPage: 1 }, "notranked") };
+  }
+  const at = held || slug;
+  return { kind: "panel", owner: at.owner, name: at.name };
+}
+
+// --- The lists of the not-ranked projects by reason (routes.js "notranked-*") ---------------------------------------
+
+/** A not-ranked row's reason: its gate, else its unrated reason, in the bare form ("unrated: insufficient_evidence" is
+ *  "insufficient_evidence"), as the routes fix it. */
+export function notRankedRowReason(row) {
+  return copy.bareUnratedReason(row.gate_reason ?? row.unrated_reason ?? null);
+}
+
+/** The not-ranked rows in `ecosystem` (a code) whose "owner/name" holds `query`; all of them without either. */
+export function filterNotRankedRows(rows, ecosystem, query) {
+  if (!rows) return [];
+  const eco = ecosystem ? ecosystem.trim().toLowerCase() : "";
+  const q = query ? query.trim().toLowerCase() : "";
+  if (!eco && !q) return rows;
+  return rows.filter((r) => {
+    if (eco && String(r.ecosystem || "").toLowerCase() !== eco) return false;
+    if (q && !`${r.owner}/${r.name}`.toLowerCase().includes(q)) return false;
+    return true;
+  });
+}
+
+/**
+ * The Not ranked tab's count: the size of the list the tab opens, that lens's not-ranked list filtered by the page's
+ * ecosystem and search (what views/notranked.js lists). With the list loaded, its rows; without it and with no
+ * ecosystem or search, the snapshot's own numbers (balanced: gated + unrated; another lens: the total less the
+ * projects the lens ranks). With an ecosystem or a search and no list loaded: null, never another list's number.
+ */
+export function notRankedTabCount(state) {
+  const searched = Boolean(state.query && state.query.trim());
+  const notRanked = state.notRanked;
+  if (notRanked && !(notRanked.truncated && !state.ecosystem && !searched)) {
+    return ["gated", "unrated", "persona_hidden"].reduce(
+      (sum, group) => sum + filterNotRankedRows(notRanked[group], state.ecosystem, state.query).length,
+      0
+    );
+  }
+  if (state.ecosystem || searched) return null;
+  const counts = state.leaderboard ? state.leaderboard.counts : null;
+  if (state.persona === "balanced") return counts ? counts.gated + counts.unrated : null;
+  const snapshot = state.snapshot;
+  const visible = snapshot && snapshot.persona_visible_counts ? snapshot.persona_visible_counts[state.persona] : undefined;
+  const total = snapshot && snapshot.counts ? snapshot.counts.total : undefined;
+  return typeof visible === "number" && typeof total === "number" ? total - visible : null;
+}
+
+/** Every not-ranked row with `reason`, in the API's order (lower-case owner/name, gated then unrated). */
+export function notRankedReasonRows(notRanked, reason) {
+  if (!notRanked) return [];
+  return [...(notRanked.gated || []), ...(notRanked.unrated || [])].filter((row) => notRankedRowReason(row) === reason);
+}
+
+/**
+ * The page of a list by reason `state` is at: `{ route, reason, rows, total, page, pages, pageSize, first }`, the rows
+ * of that page (`pageSize` a page, the API's order) with `page` held to the list's pages (a list with no rows has one
+ * empty page). `rows`, `total` and `pages` are null before the not-ranked list has loaded. Null at any other address.
+ */
+export function reasonListPage(state) {
+  const route = state.tab === "notranked" ? routeForState(state) : null;
+  const reason = route && route.fixed ? route.fixed.reason : null;
+  if (!reason) return null;
+  const pageSize = route.fixed.page_size;
+  const all = state.notRanked ? notRankedReasonRows(state.notRanked, reason) : null;
+  const pages = all ? Math.max(1, Math.ceil(all.length / pageSize)) : null;
+  const page = pages ? Math.min(Math.max(1, state.page || 1), pages) : Math.max(1, state.page || 1);
+  const start = (page - 1) * pageSize;
+  return {
+    route,
+    reason,
+    rows: all ? all.slice(start, start + pageSize) : null,
+    total: all ? all.length : null,
+    page,
+    pages,
+    pageSize,
+    first: start + 1,
+  };
+}
+
+/** A list by reason's title slots: its name, and its page part when it has more than one page; null before the
+ *  not-ranked list has loaded (the view's own title stands until then). */
+function reasonListTitleSlots(route, state) {
+  const at = reasonListPage({ ...state, tab: "notranked" });
+  if (!at || at.route !== route || at.pages === null) return null;
+  const pageOf =
+    at.pages > 1
+      ? copy.NOT_RANKED_LIST_PAGE_OF.replace("{page}", groupThousands(at.page)).replace("{pages}", groupThousands(at.pages))
+      : "";
+  return { list: copy.NOT_RANKED_LIST_NAMES[route.fixed.reason], page_of: pageOf };
+}
 
 export function weightsEqual(a, b) {
   return PILLAR_IDS.every((p) => Math.abs((a[p] ?? 0) - (b[p] ?? 0)) < 1e-9);
@@ -554,6 +851,7 @@ export function reduce(state, action) {
       const rawPayload = action.payload || {};
       const { resetTabSlices: payloadReset, ...payload } = rawPayload;
       if (payload.repo !== undefined) payload.repo = normalizeRepoParam(payload.repo);
+      if (payload.query !== undefined) payload.query = normalizeQuery(payload.query);
       const shouldResetSlices = Boolean(action.resetTabSlices || payloadReset);
       const nextTab = payload.tab !== undefined ? payload.tab : state.tab;
       const personaChanged = payload.persona && payload.persona !== state.persona;
@@ -585,6 +883,19 @@ export function reduce(state, action) {
         if (payload.pageSize !== undefined) tabSync.configurePageSize = payload.pageSize;
         if (payload.sort !== undefined) tabSync.configureSort = payload.sort;
       }
+      // A lens, an ecosystem or a search chosen on a list by reason leaves the list for the whole not-ranked list
+      // (`/not-ranked/?…`), at its own page size: the list's address fixes all three.
+      const leavesReasonList =
+        Boolean(state.notRankedReason) && payload.notRankedReason === undefined && Boolean(personaChanged || filterChanged);
+      const reasonSync = leavesReasonList
+        ? {
+            notRankedReason: null,
+            notRankedPage: 1,
+            notRankedPageSize: DEFAULT_PAGE_SIZE,
+            ...(payload.page === undefined ? { page: 1 } : {}),
+            ...(nextTab === "notranked" && payload.pageSize === undefined ? { pageSize: DEFAULT_PAGE_SIZE } : {}),
+          }
+        : {};
       const repoChanged = payload.repo !== undefined && payload.repo !== state.repo;
       const validRepo = isValidRepoKey(payload.repo);
       const repoSync = repoChanged
@@ -623,6 +934,7 @@ export function reduce(state, action) {
                 ...(payload.page === undefined ? { page: 1 } : {}),
               }
             : {}),
+        ...reasonSync,
         ...tabSync,
       };
     }
@@ -638,6 +950,14 @@ export function reduce(state, action) {
       };
     case "SET_TAB": {
       if (action.tab === state.tab) return state;
+      // A list by reason is a page of the not-ranked view: another view, and the Not ranked tab opened from there,
+      // come back to the whole list.
+      if (state.notRankedReason) {
+        return reduce(
+          { ...state, notRankedReason: null, notRankedPage: 1, notRankedPageSize: DEFAULT_PAGE_SIZE },
+          action
+        );
+      }
       if (action.tab === "notranked") {
         return {
           ...state,

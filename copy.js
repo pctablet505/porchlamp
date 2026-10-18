@@ -190,7 +190,7 @@ const GATE_REASON_COPY = Object.freeze({
 // A project record carries the engine's own spelling of an unrated reason
 // ("unrated: off_platform_routed", porchlamp/core/gates.py); the Not-ranked
 // list sends it bare ("off_platform_routed"). Both read the same sentence.
-function bareUnratedReason(reason) {
+export function bareUnratedReason(reason) {
   return typeof reason === "string" ? reason.replace(/^unrated: /, "") : reason;
 }
 export function gateReasonText(reason) {
@@ -205,11 +205,28 @@ const UNRATED_REASON_COPY = Object.freeze({
   off_platform_routed:
     "Contribution activity happens off-platform and cannot be measured here.",
 });
-export function unratedReasonText(reason, coverage) {
+/** The insufficient-evidence sentence's coverage clause: the row's coverage and the methodology's floor, each a whole
+ *  percent. `unratedReasonText` fills it and no view reads it, so it is not exported: the verifier and the tests read
+ *  it from this file, as they read the reason maps above. */
+const UNRATED_COVERAGE_BELOW_FLOOR = "(coverage {coverage}, below the {floor} floor).";
+/** The coverage floor an unrated project fell below: methodology.json `missingness.coverage_thresholds.unrated_below`
+ *  (a share); null without a methodology that states it. */
+export function unratedCoverageFloor(methodology) {
+  const thresholds = methodology && methodology.missingness ? methodology.missingness.coverage_thresholds : null;
+  return thresholds && typeof thresholds.unrated_below === "number" ? thresholds.unrated_below : null;
+}
+/**
+ * An unrated reason's sentence. Insufficient evidence names the project's coverage and the floor it fell below
+ * (`floor`, a share from `unratedCoverageFloor`); without a floor (the methodology has not loaded) the sentence says
+ * the reason alone, never a floor it was not given.
+ */
+export function unratedReasonText(reason, coverage, floor = null) {
   const bare = bareUnratedReason(reason);
   if (bare === "insufficient_evidence") {
-    const pct = typeof coverage === "number" ? `${Math.round(coverage * 100)}%` : "unknown";
-    return `${UNRATED_REASON_COPY[bare]} (coverage ${pct}, below the 60% floor).`;
+    if (typeof floor !== "number") return NOT_RANKED_LIST_REASONS.insufficient_evidence;
+    const whole = (share) => `${Math.round(share * 100)}%`;
+    const pct = typeof coverage === "number" ? whole(coverage) : "unknown";
+    return `${UNRATED_REASON_COPY[bare]} ${UNRATED_COVERAGE_BELOW_FLOOR.replace("{coverage}", pct).replace("{floor}", whole(floor))}`;
   }
   return UNRATED_REASON_COPY[bare] || reason;
 }
@@ -983,10 +1000,9 @@ export const METHODOLOGY_COPIED_LABEL = "Copied";
 // verifier reads it back from (components/fill.js).
 export const METHODOLOGY_BENCHMARK_LINE = "Benchmark {benchmark_version} · schema {schema_version} · constants hash {constants_hash}…";
 export const METHODOLOGY_SNAPSHOT_LINE = "{snapshot_id} · as of {as_of}";
-/** How a project's own record is found: its page's address, or the search on the check page ({check_page}). */
+/** How a project's own record is found: its page's address, or the header's search. */
 export const METHODOLOGY_CHECK_LINE =
-  "To check a project, open https://porchlamp.org/projects/<owner>/<name>/ (lower case), or search on the {check_page}.";
-export const METHODOLOGY_CHECK_LINK_LABEL = "check page";
+  "To check a project, open https://porchlamp.org/projects/<owner>/<name>/ (lower case), or type its name or GitHub address into the search at the top of the page.";
 /** The digest of the database file this snapshot was published from (the export's manifest.json). */
 export const METHODOLOGY_DB_SHA256_LABEL = "Snapshot database SHA-256";
 /** The first characters of a digest, where a line names one without printing all of it. */
@@ -1085,10 +1101,86 @@ export const ONBOARDING_METHODOLOGY_LINK = "How scores & gates work →";
 //: Without a report the line is left out and only the link below it is drawn.
 export const FINDINGS_LINE = "More than 1 in {one_in} active projects leave most strangers' pull requests unanswered for {deadline_days} days.";
 export const FINDINGS_LINK_LABEL = "Read the findings";
-/** The home's links to the ten landing pages (views/leaderboard.js `renderBrowseLinks`): the nav's name and the two lines' labels. */
+/** The home's links to the lists (views/leaderboard.js `renderBrowseLinks`): the nav's name and its lines' labels. */
 export const HOME_BROWSE_LABEL = "Browse";
 export const HOME_BROWSE_ECOSYSTEMS_LABEL = "Browse by ecosystem:";
 export const HOME_BROWSE_LENSES_LABEL = "Browse by contributor lens:";
+/** The home's lines to the other lists (views/leaderboard.js `renderBrowseLinks`); the ranking line heads the page
+ *  links of every page of the ranking too. */
+export const HOME_BROWSE_RANKING_LABEL = "The whole ranking, {page_size} projects a page:";
+export const HOME_BROWSE_FIRST_TIMERS_LABEL = "First-time contributors by ecosystem:";
+export const HOME_BROWSE_FASTEST_LABEL = "Fastest first reply:";
+export const HOME_BROWSE_FASTEST_ALL = "All projects";
+
+// --- The lists of the leaderboard at their own addresses (routes.js presets; views/leaderboard.js `listHead`) -------
+// No digit in any of these: every number fills a slot, a hook of id `list.<slot>` (tests/unit.test.mjs checks).
+/** The phrase a title and an intro use after "projects for", per lens (porchlamp/serve/home_pages.py reads it). */
+export const LENS_PHRASES = Object.freeze({
+  first_timer: "first-time contributors",
+  career_capital: "building career capital",
+  senior_systems: "senior systems engineers",
+  ai_assisted: "AI-assisted contributors",
+});
+/** A count under ten as a word ("six ecosystems", "five pillars"), indexed by the count. */
+export const NUMBER_WORDS = Object.freeze(["zero", "one", "two", "three", "four", "five", "six", "seven", "eight", "nine"]);
+export const LIST_RANKINGS_HEADING = "The Porchlamp ranking, projects {first} to {last}";
+export const LIST_INTRO_RANKINGS =
+  "Open-source projects ranked {first} to {last} of {total} by what happens to a stranger's pull request, each with its median first reply.";
+export const LIST_INTRO_ECOSYSTEM = "Porchlamp ranks {total} {ecosystem} projects by what happens to a stranger's pull request.";
+export const LIST_INTRO_ECOSYSTEM_REPORT =
+  "Among the {judged} judged {ecosystem} projects, {eco_share}% left most outside pull requests unanswered for {deadline_days} days, against {share}% across all {ecosystems_word} ecosystems.";
+export const LIST_INTRO_LENS = "This view ranks {total} projects for {lens}.";
+export const LIST_INTRO_ECOSYSTEM_LENS = "This view ranks {total} {ecosystem} projects for {lens}.";
+export const LIST_INTRO_WEIGHS = "It weighs {weights}.";
+/** One pillar's weight in "It weighs {weights}.", largest first; the last two joined by LIST_AND. */
+export const LIST_WEIGHT_ITEM = "{pillar} {percent}";
+export const LIST_AND = "{items} and {last}";
+export const LIST_INTRO_FASTEST =
+  "{total} projects, ordered by the median time to a first human reply to outside pull requests, fastest first.";
+export const LIST_INTRO_FASTEST_ECOSYSTEM =
+  "{total} {ecosystem} projects, ordered by the median time to a first human reply to outside pull requests, fastest first.";
+export const LIST_INTRO_FASTEST_SAMPLE =
+  "A median is listed only when it comes from {min_n} or more pull requests; the sample is shown.";
+export const LIST_CAVEAT_FASTEST =
+  "This is one measure, not the Porchlamp score, which weighs {parameters} parameters across {pillars} pillars.";
+/** The leaderboard's two reply columns (components/table.js); without a report the second is PARAM_NAMES's name. */
+export const COLUMN_FIRST_REPLY = "First reply (median)";
+export const COLUMN_NO_REPLY = "No reply in {deadline_days} days";
+/** A median's sample: the first-reply cell's title, and a second line of it on the fastest-reply lists. */
+export const REPLY_SAMPLE_TEXT = "{n} pull requests";
+
+// --- The not-ranked projects by reason, one list each at its own address (routes.js "notranked-*"; views/notranked.js)
+// No digit and no typed count in any of these: every number fills a slot. Keyed by the bare reason code a row carries.
+/** Each list's name: its h1 ("Not ranked: {list}"), its title, and, capitalised, its link in the "Lists by reason" line. */
+export const NOT_RANKED_LIST_NAMES = Object.freeze({
+  stale: "no recent human activity",
+  non_software: "not software",
+  archived: "archived",
+  unlicensed: "no open-source license",
+  black_hole: "unanswered pull requests",
+  fork: "fork of another repository",
+  mirror: "mirror of another repository",
+  insufficient_evidence: "not enough evidence",
+  no_external_workflow: "no outside contribution workflow",
+  off_platform_routed: "contributions happen off GitHub",
+});
+/** A list's title, after its name, when it has more than one page (routes.js "{page_of}"). */
+export const NOT_RANKED_LIST_PAGE_OF = " (page {page} of {pages})";
+/** The intro's first sentence where it is not the reason's own sentence (GATE_REASON_COPY, UNRATED_REASON_COPY): the
+ *  black-hole one with the report's deadline in a slot, and the insufficient-evidence one without a row's coverage. */
+export const NOT_RANKED_LIST_REASONS = Object.freeze({
+  black_hole: "More than half of outside pull requests got no human reply, review or merge on GitHub within {deadline_days} days.",
+  insufficient_evidence: "Not enough measured evidence to rank.",
+});
+export const NOT_RANKED_LIST_COUNT = "{total} projects, A to Z, {page_size} a page.";
+export const NOT_RANKED_LIST_TEST = "The test: more than half of at least {min_n} counted pull requests, at {ci_percent}% confidence.";
+/** One row: the whole text of its list item. */
+export const NOT_RANKED_LIST_ROW = "{repo} ({ecosystem}): {sentence}";
+export const NOT_RANKED_LIST_ROW_BLACK_HOLE =
+  "{unanswered} of {counted} counted outside pull requests got no human reply, review or merge within {deadline_days} days.";
+export const NOT_RANKED_LIST_PAGES_LABEL = "The whole list, {page_size} projects a page:";
+export const NOT_RANKED_LISTS_LABEL = "Lists by reason:";
+export const NOT_RANKED_LISTS_ITEM = "{list} ({count})";
 export const REPORT_PAGE_HREF = "/black-holes/";
 export const FOOTER_REPORT_LABEL = "Report";
 export const FOOTER_METHODOLOGY_LABEL = "Methodology";
@@ -1105,7 +1197,6 @@ export const LENS_PAGE_HREFS = Object.freeze({
   senior_systems: "/senior-systems/",
   ai_assisted: "/ai-assisted/",
 });
-export const CHECK_PAGE_HREF = "/check/";
 
 /**
  * What the numbers cannot tell a reader. The report prints them under "What this is not" and the methodology under
@@ -1339,7 +1430,7 @@ export const MONTHS = Object.freeze([
   "July", "August", "September", "October", "November", "December",
 ]);
 
-/** The path of each ecosystem's landing page (porchlamp/serve/report_pages.py ECOSYSTEM_SLUGS). */
+/** The path of each ecosystem's list page (routes.js; porchlamp/serve/report_pages.py ECOSYSTEM_SLUGS). */
 export const ECOSYSTEM_SLUGS = Object.freeze({
   pypi: "python",
   npm: "javascript",

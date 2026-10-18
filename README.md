@@ -23,8 +23,8 @@ Measured on the 2026-10-17 snapshot of 11,000 projects:
   the newest 500 pull requests of each, and they do not reach back to 20 April.
 - **More stars, more silence.** The black-hole share rises with popularity: 19%
   of projects with 1k–10k stars, 30% at 10k–50k, and 35% at 50k or more.
-- **Stars barely predict the ranking.** Across the 4,396 ranked projects the
-  rank correlation between stars and the Porchlamp score is 0.08, and 10 of the
+- **Stars barely predict the ranking.** Across the 3,219 ranked projects the
+  rank correlation between stars and the Porchlamp score is 0.01, and 0 of the
   100 most-starred projects make the top 100.
 
 ## Where the numbers come from
@@ -46,9 +46,9 @@ hash-bucketed files under `data/2026-10-17/repos/`), so the site needs no
 server.
 
 - **Snapshot ID:** `2026-10-17` (measured as of `2026-10-17T05:35:00+00:00`, benchmark `2.0.0-rc1`)
-- **Universe Counts:** `4,396` rated (ranked) · `5,299` gated (Stage 0) · `1,305` unrated (`<60%` coverage) · `11,000` total
-- **Persona Visible Counts:** `balanced: 4,396` · `first_timer: 2,157` · `career_capital: 926` · `senior_systems: 1,375` · `ai_assisted: 4,516`
-- **Verification Hashes:** `constants_hash: 6f95d75a0aa5…` · `manifest_root: 01a8d825306a…` · `canonical_dump_hash: 1f08e18ca9c8…`
+- **Universe Counts:** `3,219` rated (ranked) · `5,299` gated (Stage 0) · `2,482` unrated (`<60%` coverage) · `11,000` total
+- **Persona Visible Counts:** `balanced: 3,219` · `first_timer: 1,525` · `career_capital: 798` · `senior_systems: 1,276` · `ai_assisted: 3,696`
+- **Verification Hashes:** `constants_hash: be7023c09aa5…` · `manifest_root: 8a931670e97a…` · `canonical_dump_hash: 2cd0f7c8a63a…`
 
 ## License and citation
 

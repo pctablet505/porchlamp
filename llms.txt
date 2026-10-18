@@ -5,22 +5,21 @@
 ## Findings (snapshot `2026-10-17`)
 - **More than 1 in 5.** In Porchlamp's 2026-10-17 snapshot, 638 of 2,745 active open-source projects (23.2%) left most outside pull requests with no human reply, review or merge within 14 days.
 - **More stars, more silence.** The share rises with stars: 19% of projects with 1,000 to 10,000 stars, 30% at 10,000 to 50,000, and 35% at 50,000 or more.
-- **Fame is no guarantee.** 4 of the 100 most-starred projects are black holes, and only 10 of them reach Porchlamp's top 100.
-- **Stars barely predict an answer.** Across 4,396 ranked projects, the rank correlation between stars and the Porchlamp score is 0.08.
+- **Fame is no guarantee.** 4 of the 100 most-starred projects are black holes, and only 0 of them reach Porchlamp's top 100.
+- **Stars barely predict an answer.** Across 3,219 ranked projects, the rank correlation between stars and the Porchlamp score is 0.01.
 - **Most of those pull requests waited.** Inside the black-hole projects, 25,871 of 32,410 counted outside pull requests got no human reply within 14 days.
 - We followed 614,499 pull requests from 148,789 outside contributors to 11,000 GitHub projects, from 20 April to 17 October 2026.
-- 4,396 projects are ranked under the balanced lens; 5,299 are gated and 1,305 unrated, each listed with its reason under [Not ranked](https://porchlamp.org/not-ranked/).
+- 3,219 projects are ranked under the balanced lens; 5,299 are gated and 2,482 unrated, each listed with its reason under [Not ranked](https://porchlamp.org/not-ranked/).
 
 ## Static pages (readable without JavaScript)
 - [Stars don't review pull requests: the state of open-source black holes (latest snapshot)](https://porchlamp.org/black-holes/)
 - [The same report, frozen for citation (snapshot `2026-10-17`)](https://porchlamp.org/black-holes/2026-10-17/)
-- [CSV of the 4,396 ranked projects (CC BY 4.0)](https://porchlamp.org/black-holes/2026-10-17/porchlamp-2026-10-17-ranked.csv)
+- [CSV of the 3,219 ranked projects (CC BY 4.0)](https://porchlamp.org/black-holes/2026-10-17/porchlamp-2026-10-17-ranked.csv)
 - [Methodology: every gate, pillar, lens, weight and parameter](https://porchlamp.org/methodology/)
-- [Check any project: a search over the 4,396 ranked projects](https://porchlamp.org/check/)
 
 ## One page per ranked project (readable without JavaScript)
 To check a project, open https://porchlamp.org/projects/<owner>/<name>/ (lower case).
-Each page opens with the project's median time to a first human reply to an outside pull request, the share that got no reply within 14 days, and its rank overall and for first-time contributors. Example: [WordPress/gutenberg](https://porchlamp.org/projects/wordpress/gutenberg/)
+Each page opens with the project's median time to a first human reply to an outside pull request, the share that got no reply within 14 days, and its rank overall and for first-time contributors. Example: [servo/rust-smallvec](https://porchlamp.org/projects/servo/rust-smallvec/)
 
 ## Ecosystem and lens pages (readable without JavaScript)
 Each page lists the top 50 projects of its cut, with score and tier, and each name opens that project's page.
@@ -43,26 +42,26 @@ Each page lists the top 50 projects of its cut, with score and tier, and each na
 5. **Accessibility (15%):** Newcomer Issue Supply, Newcomer Conversion, Newcomer Return Rate, Developer Experience.
 
 ## Top 20 ranked projects (balanced lens, snapshot `2026-10-17`)
-1. `WordPress/gutenberg` (JavaScript) — Score `81.69` · Coverage `61%` · Tier `B (capped)` · `Sweet Spot`
-2. `ggml-org/llama.cpp` (C and C++) — Score `80.74` · Coverage `78%` · Tier `B (capped)` · `Sweet Spot`
-3. `vllm-project/vllm` (Python) — Score `80.37` · Coverage `78%` · Tier `B (capped)` · `Sweet Spot`
-4. `rust-lang/rust` (Rust) — Score `80.16` · Coverage `61%` · Tier `B (capped)` · `Sweet Spot`
-5. `servo/rust-smallvec` (Rust) — Score `79.45` · Coverage `94%` · Tier `A (capped)` · `Sweet Spot`
-6. `meshery/meshery` (JavaScript) — Score `79.12` · Coverage `65%` · Tier `B (capped)` · `Sweet Spot`
-7. `webdriverio/webdriverio` (JavaScript) — Score `78.71` · Coverage `81%` · Tier `A (capped)` · `Sweet Spot`
-8. `prometheus/prometheus` (Go) — Score `78.65` · Coverage `81%` · Tier `A (capped)` · `Sweet Spot`
-9. `kornia/kornia` (Python) — Score `78.21` · Coverage `81%` · Tier `A (capped)` · `Sweet Spot`
-10. `rust-lang/libc` (Rust) — Score `77.87` · Coverage `93%` · Tier `A (capped)` · `Sweet Spot`
-11. `freeCodeCamp/freeCodeCamp` (JavaScript) — Score `77.65` · Coverage `65%` · Tier `B (capped)` · `Sweet Spot`
-12. `kedacore/keda` (Go) — Score `77.38` · Coverage `93%` · Tier `A (capped)` · `Sweet Spot`
-13. `external-secrets/external-secrets` (Go) — Score `77.02` · Coverage `93%` · Tier `A (capped)` · `Sweet Spot`
-14. `ant-design/ant-design` (JavaScript) — Score `76.95` · Coverage `65%` · Tier `B (capped)` · `Sweet Spot`
-15. `organicmaps/organicmaps` (C and C++) — Score `76.45` · Coverage `93%` · Tier `A (capped)` · `Sweet Spot`
-16. `vercel/next.js` (JavaScript) — Score `76.23` · Coverage `78%` · Tier `B (capped)` · `Sweet Spot`
-17. `moby/moby` (Go) — Score `76.13` · Coverage `81%` · Tier `A (capped)` · `Sweet Spot`
-18. `apache/airflow` (Python) — Score `76.06` · Coverage `61%` · Tier `B (capped)` · `Sweet Spot`
-19. `matplotlib/matplotlib` (Python) — Score `75.72` · Coverage `93%` · Tier `A (capped)` · `Sweet Spot`
-20. `onnx/onnx` (Python) — Score `75.63` · Coverage `93%` · Tier `A (capped)` · `Sweet Spot`
+1. `servo/rust-smallvec` (Rust) — Score `79.26` · Coverage `94%` · Tier `A (capped)` · `Sweet Spot`
+2. `kedacore/keda` (Go) — Score `77.95` · Coverage `88%` · Tier `A (capped)` · `Sweet Spot`
+3. `rust-lang/libc` (Rust) — Score `77.20` · Coverage `88%` · Tier `A (capped)` · `Sweet Spot`
+4. `prometheus/client_golang` (Go) — Score `75.06` · Coverage `100%` · Tier `A` · `Sweet Spot`
+5. `rust-lang/cc-rs` (Rust) — Score `74.28` · Coverage `100%` · Tier `A` · `Sweet Spot`
+6. `redis/node-redis` (JavaScript) — Score `74.28` · Coverage `100%` · Tier `A` · `Sweet Spot`
+7. `diesel-rs/diesel` (Rust) — Score `73.72` · Coverage `100%` · Tier `A` · `Sweet Spot`
+8. `eslint/eslint` (JavaScript) — Score `73.53` · Coverage `88%` · Tier `A (capped)` · `Sweet Spot`
+9. `valyala/fasthttp` (Go) — Score `73.19` · Coverage `98%` · Tier `A` · `Sweet Spot`
+10. `caddyserver/caddy` (Go) — Score `73.00` · Coverage `93%` · Tier `A (capped)` · `Sweet Spot`
+11. `markedjs/marked` (JavaScript) — Score `72.85` · Coverage `100%` · Tier `A` · `Sweet Spot`
+12. `babel/babel` (JavaScript) — Score `72.79` · Coverage `93%` · Tier `A (capped)` · `Sweet Spot`
+13. `apache/dubbo-go` (Go) — Score `72.72` · Coverage `100%` · Tier `A` · `Sweet Spot`
+14. `agones-dev/agones` (Go) — Score `72.69` · Coverage `100%` · Tier `A` · `Sweet Spot`
+15. `ros-navigation/navigation2` (C and C++) — Score `72.23` · Coverage `88%` · Tier `A (capped)` · `Sweet Spot`
+16. `wasm-bindgen/wasm-bindgen` (Rust) — Score `72.10` · Coverage `100%` · Tier `A` · `Sweet Spot`
+17. `klauspost/compress` (Go) — Score `72.07` · Coverage `94%` · Tier `A (capped)` · `Sweet Spot`
+18. `faker-js/faker` (JavaScript) — Score `72.04` · Coverage `100%` · Tier `A` · `Sweet Spot`
+19. `rust-lang/socket2` (Rust) — Score `71.87` · Coverage `94%` · Tier `A (capped)` · `Sweet Spot`
+20. `gitpython-developers/GitPython` (Python) — Score `71.46` · Coverage `100%` · Tier `A` · `Sweet Spot`
 
 ## Data files
 - [Snapshot provenance and hashes](https://porchlamp.org/data/2026-10-17/snapshot.json)

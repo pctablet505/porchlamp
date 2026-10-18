@@ -39,6 +39,8 @@
   --text-primary: #f8fafc;
   --text-secondary: #94a3b8;
   --text-muted: #8896aa;
+  --text-success: #22c55e;  /* a gain in text (a rank moved up): AA on the dark surfaces */
+  --text-warning: #f87171;  /* a flag or a loss in text: AA on the dark surfaces */
   --text-on-accent: #0b1220;
 
   /* Quadrants (dual-encoded with glyphs in copy.js; never color-only) */
@@ -158,6 +160,8 @@
     --text-primary: #0f172a;
     --text-secondary: #475569;
     --text-muted: #5b6472;
+    --text-success: #15803d;  /* AA on the light surfaces, where the accent green is not */
+    --text-warning: #dc2626;
     --text-on-accent: #f8fafc;
 
     --quad-sweet-spot: #065f46;
@@ -203,6 +207,8 @@
   --text-primary: #0f172a;
   --text-secondary: #475569;
   --text-muted: #5b6472;
+  --text-success: #15803d;
+  --text-warning: #dc2626;
   --text-on-accent: #f8fafc;
 
   --quad-sweet-spot: #065f46;
@@ -347,6 +353,8 @@ a {
   }
 }
 
+/* The frozen report copy /black-holes/2026-10-14/ (carried from the published tree, never re-rendered) uses the
+ * .seo-fallback rules; no page the export writes does (scripts/export_static.py CARRIED_FROZEN_ASSETS). */
 .seo-fallback {
   max-width: 960px;
   margin: 0 auto;
@@ -833,7 +841,7 @@ input.control::placeholder {
 }
 
 .suspicion-icon {
-  color: var(--accent-warning);
+  color: var(--text-warning);
   cursor: default;
 }
 
@@ -962,7 +970,11 @@ input.control::placeholder {
   .leaderboard-table [data-col="stars"],
   .leaderboard-table [data-cell="stars"],
   .leaderboard-table [data-col="suspicion"],
-  .leaderboard-table [data-cell="suspicion"] {
+  .leaderboard-table [data-cell="suspicion"],
+  .leaderboard-table [data-col="no_reply_14d"],
+  .leaderboard-table [data-cell="no_reply_14d"],
+  .leaderboard-table [data-col="quadrant"],
+  .leaderboard-table [data-cell="quadrant"] {
     display: none;
   }
 
@@ -1041,6 +1053,27 @@ input.control::placeholder {
   text-decoration: none;
 }
 
+/* A row's and a card's name line (components/table.js repoLineHtml): a long name ends in "…" and its ecosystem chip
+ * stays whole beside it, inside the cell or the card. */
+.repo-line {
+  display: flex;
+  align-items: baseline;
+  min-width: 0;
+  max-width: 100%;
+}
+
+.repo-line-name {
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.repo-line .eco-chip {
+  flex: none;
+  white-space: nowrap;
+}
+
 .eco-chip {
   font-size: var(--text-caption);
   color: var(--text-secondary);
@@ -1051,11 +1084,11 @@ input.control::placeholder {
 }
 
 .delta-up {
-  color: var(--accent-success);
+  color: var(--text-success);
 }
 
 .delta-down {
-  color: var(--accent-warning);
+  color: var(--text-warning);
 }
 
 .delta-flat {
@@ -1095,10 +1128,10 @@ input.control::placeholder {
 }
 
 .leaderboard-card {
-  height: 156px;
+  height: 180px;
   box-sizing: border-box;
   overflow: hidden;
-  margin-bottom: 12px; /* 156 + 12 = components/table.js CARD_HEIGHT_PX (168) */
+  margin-bottom: 12px; /* 180 + 12 = components/table.js CARD_HEIGHT_PX (192): six lines, the replies one of them */
   background: var(--bg-surface);
   border: 1px solid var(--border-subtle);
   border-radius: var(--radius-card);
@@ -1134,6 +1167,86 @@ input.control::placeholder {
   justify-content: space-between;
   gap: var(--space-sm);
   margin-top: var(--space-2xs);
+}
+
+.leaderboard-card-replies {
+  margin-top: var(--space-2xs);
+  font-size: var(--text-caption);
+  color: var(--text-secondary);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* The fastest-reply lists print a median's sample under it (components/table.js firstReplyHtml). */
+.reply-sample {
+  display: block;
+  font-size: var(--text-caption);
+  color: var(--text-secondary);
+}
+
+.leaderboard-card-replies .reply-sample {
+  display: inline;
+  margin-left: var(--space-2xs);
+}
+
+/* ---- A list at its own address: heading, intro, caveat, its other lists, the ranking's page links ---- */
+.list-head {
+  margin: 0 0 var(--space-md);
+  max-width: 72ch;
+}
+
+.list-head .view-heading {
+  margin-bottom: var(--space-xs);
+}
+
+.list-intro,
+.list-caveat,
+.list-sublinks {
+  margin: 0 0 var(--space-xs);
+  font-size: var(--text-body-md);
+  line-height: 1.45;
+}
+
+.list-caveat {
+  color: var(--text-secondary);
+}
+
+.list-pages {
+  margin: var(--space-sm) 0;
+  font-size: var(--text-body-md);
+  line-height: 1.8;
+}
+
+.list-pages a[aria-current="page"],
+[data-ranking-pages] a[aria-current="page"] {
+  color: var(--text-primary);
+  font-weight: 700;
+  text-decoration: none;
+}
+
+/* ---- The not-ranked lists by reason (views/notranked.js): the lists line, and one sentence a project ---- */
+.reason-lists {
+  margin: var(--space-sm) 0;
+  font-size: var(--text-body-md);
+  line-height: 1.8;
+}
+
+.reason-list {
+  margin: 0;
+  padding-left: 4.5em;
+  font-size: var(--text-body-md);
+  line-height: 1.45;
+}
+
+.reason-list li {
+  padding: var(--space-2xs) 0;
+  overflow-wrap: anywhere;
+  cursor: pointer;
+}
+
+.reason-list li:hover {
+  background: var(--bg-surface-hover);
 }
 
 /* ---- Reason chips (Not ranked) ---- */
@@ -2487,7 +2600,9 @@ p.cell-numeric {
   .configure-table-col .leaderboard-table [data-col="stars"],
   .configure-table-col .leaderboard-table [data-cell="stars"],
   .configure-table-col .leaderboard-table [data-col="suspicion"],
-  .configure-table-col .leaderboard-table [data-cell="suspicion"] {
+  .configure-table-col .leaderboard-table [data-cell="suspicion"],
+  .configure-table-col .leaderboard-table [data-col="no_reply_14d"],
+  .configure-table-col .leaderboard-table [data-cell="no_reply_14d"] {
     display: none;
   }
 }

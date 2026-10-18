@@ -48,6 +48,9 @@ import {
   PERSONA_PRESET_WEIGHTS,
   MATRIX_QUADRANTS,
   weightsEqual,
+  notRankedTabCount,
+  reasonListPage,
+  searchDestination,
 } from "./state.js";
 import {
   renderShell,
@@ -63,6 +66,13 @@ import {
   prerenderedBoardKey,
   adoptPrerenderedBoard,
   syncFindingsLine,
+  pageDescription,
+  listRows,
+  listRowOpts,
+  listNeedsMethodology,
+  listInstanceKey,
+  renderListHead,
+  syncListHead,
 } from "./views/leaderboard.js";
 import {
   renderShell as renderNotRankedShell,
@@ -70,11 +80,15 @@ import {
   rebuildKey as notRankedRebuildKey,
   patchNotRankedBody,
   flattenGroups,
+  reasonListKey,
+  reasonListDescription,
+  notRankedBoardKey,
+  adoptNotRankedBoard,
 } from "./views/notranked.js";
 import { renderDrawer, classifyKindForLens } from "./views/drawer.js";
 import { parseRepoSlug, runLiveCheck } from "./livecheck.js";
 import { renderKeymapOverlay, actionForKeyEvent } from "./components/keymap.js";
-import { computeVisibleRange, rowKey, ROW_HEIGHT_PX, CARD_HEIGHT_PX, sortDirectionLabel, sortColumnLabel, syncHeaderSortDom, isPlainLeftClick } from "./components/table.js";
+import { computeVisibleRange, rowKey, ROW_HEIGHT_PX, CARD_HEIGHT_PX, sortDirectionLabel, sortColumnLabel, syncHeaderSortDom, isPlainLeftClick, noReplyColumnLabel } from "./components/table.js";
 import {
   renderAppHeader,
   renderChip,
@@ -86,7 +100,7 @@ import {
   navEntryFor,
   headerControlsFor,
 } from "./components/chrome.js";
-import { matchRoute, routeById } from "./routes.js";
+import { matchRoute, routeView } from "./routes.js";
 import { renderShell as renderNotFoundShell } from "./views/notfound.js";
 import {
   renderShell as renderMatrixShell,
@@ -164,7 +178,15 @@ export function boot(win = window, doc = document) {
   // the "did the SHAPE change" flags that decide shell-rebuild vs patch). ---
   let currentTab = null;
   let currentShellShape = null;
+  let drawnListHead = null; // the markup of the list's head last drawn (views/leaderboard.js renderListHead)
+  // The description the document loaded with, kept when its first address was `/`, to put back on `/` after a list.
+  const descriptionMeta = typeof doc.querySelector === "function" ? doc.querySelector('meta[name="description"]') : null;
+  const homeDescription =
+    descriptionMeta && matchRoute(win.location.pathname).route.id === "ranked" ? descriptionMeta.getAttribute("content") : null;
   let currentNotRankedShape = null;
+  // The lens, ecosystem and search the Not ranked tab's number was drawn for (`notRankedCountKeyOf`): a number drawn
+  // for another list is taken out until this one's has loaded.
+  let notRankedCountKey = null;
   let currentMatrixShape = null;
   let currentConfigureShape = null;
   let currentCompareShape = null;
@@ -209,13 +231,25 @@ export function boot(win = window, doc = document) {
   let footerHtml = null;
 
   function buildHeaderOnce() {
-    if (!chromeDrawn) header.innerHTML = renderAppHeader(store.getState().tab);
+    if (!chromeDrawn) header.innerHTML = renderAppHeader(store.getState().tab, null, store.getState());
   }
 
   function buildPrimaryNavOnce() {
     primaryNav.setAttribute("aria-label", copy.PRIMARY_NAV_LABEL);
     if (!chromeDrawn) primaryNav.innerHTML = renderNav(navEntryFor(store.getState().tab), store.getState());
     centerCurrentLink(primaryNav);
+  }
+
+  /** The list the Not ranked tab counts: the lens, the ecosystem and the search. */
+  function notRankedCountKeyOf(state) {
+    return `${state.persona}|${state.ecosystem || ""}|${(state.query || "").trim()}`;
+  }
+
+  /** On a leaderboard list with an ecosystem or a search, the Not ranked tab counts that lens's not-ranked list
+   *  filtered the same way (state.js `notRankedTabCount`): load the list once for the lens. */
+  function loadNotRankedForTabCount(state) {
+    const filtered = Boolean(state.ecosystem || (state.query && state.query.trim()));
+    if (state.tab === "ranked" && filtered && !state.notRanked && !state.notRankedLoading && !state.notRankedError) loadNotRanked();
   }
 
   /** Fetches whatever `tab` needs that has not already loaded — called on boot, a primary-nav click, popstate, and the footer "verify" link. Idempotent: never re-fetches data that is already present. */
@@ -229,6 +263,8 @@ export function boot(win = window, doc = document) {
     if (tab === "matrix" && !state.matrix && !state.matrixLoading) loadMatrix();
     if (tab === "configure" && !state.reproject && !state.reprojectLoading) runReproject();
     if (tab === "methodology" && !state.methodology && !state.methodologyLoading) loadMethodology();
+    // A lens's list states its weights, a fastest-reply list its sample floor (min_n): both from the methodology.
+    if (tab === "ranked" && listNeedsMethodology(state) && !state.methodology && !state.methodologyLoading && !state.methodologyError) loadMethodology();
     if (tab === "methodology" && state.manifestLoad === "idle") loadManifest();
     if (tab === "report" && !state.report && !state.reportLoading) loadReport();
     // The ranked view's findings line and the methodology's Finding paragraph are filled from the report; a report
@@ -242,6 +278,11 @@ export function boot(win = window, doc = document) {
       }
     }
     if (tab === "notranked" && !state.notRanked && !state.notRankedLoading) loadNotRanked();
+    // A list by reason's black-hole sentences take the report's deadline and test.
+    if (tab === "notranked" && reasonListKey(state) && !state.report && !state.reportLoading && !state.reportError) loadReport();
+    // The not-ranked rows name the methodology's coverage floor on an insufficient-evidence reason.
+    if (tab === "notranked") loadMethodologyOnce();
+    loadNotRankedForTabCount(state);
   }
 
   function syncHeaderControls(state) {
@@ -375,12 +416,13 @@ export function boot(win = window, doc = document) {
     }
     const notRankedCountEl = main.querySelector('[data-route-tab="notranked"] .count');
     if (notRankedCountEl) {
-      const notRankedCount = state.notRanked
-        ? flattenGroups(state.notRanked, { ecosystem: state.ecosystem, query: state.query }).length
-        : (state.leaderboard.counts?.gated ?? 0) + (state.leaderboard.counts?.unrated ?? 0);
-      if (notRankedCountEl.textContent !== String(notRankedCount)) {
-        notRankedCountEl.textContent = String(notRankedCount);
-      }
+      // The count of the list the tab opens; until it is known, the number the page was drawn with when it was drawn
+      // for this list (the prerendered page), else none.
+      const notRankedCount = notRankedTabCount(state);
+      const key = notRankedCountKeyOf(state);
+      const text = typeof notRankedCount === "number" ? String(notRankedCount) : key === notRankedCountKey ? notRankedCountEl.textContent : "";
+      if (notRankedCountEl.textContent !== text) notRankedCountEl.textContent = text;
+      notRankedCountKey = key;
     }
   }
 
@@ -393,9 +435,13 @@ export function boot(win = window, doc = document) {
     syncCountsStrip(state);
     if (state.leaderboard) syncPager(main, state.page, state.pageSize, state.leaderboard.total, "pager");
 
+    const noReplyHeader = main.querySelector('.leaderboard-table th[data-col="no_reply_14d"]');
+    const noReplyLabel = noReplyColumnLabel(state.report);
+    if (noReplyHeader && noReplyHeader.textContent !== noReplyLabel) noReplyHeader.textContent = noReplyLabel;
+
     const viewport = currentViewport();
-    const rows = state.leaderboard ? state.leaderboard.rows : [];
-    const opts = { showPersonaDelta: state.persona !== "balanced", selectedRepoKey: state.selectedRepoKey };
+    const rows = listRows(state);
+    const opts = { ...listRowOpts(state), selectedRepoKey: state.selectedRepoKey };
 
     if (viewport.isMobile) {
       const container = main.querySelector("[data-leaderboard-cards]");
@@ -501,6 +547,30 @@ export function boot(win = window, doc = document) {
     }
 
     if (state.tab === "notranked") {
+      if (prerendered) {
+        // The export drew this page (web/prerender.mjs): a list by reason, or the whole list at `/not-ranked/`. Keep
+        // it until the not-ranked list, the counts, the snapshot, the methodology and, on a list by reason, the report
+        // have each loaded or failed, then take it over. A page that shows another list, lens, filter or page is drawn
+        // as usual.
+        if (prerenderedBoardKey(main) !== notRankedBoardKey(state)) {
+          prerendered = null;
+        } else {
+          const pending =
+            (!state.notRanked && !state.notRankedError) ||
+            (!state.leaderboard && !state.leaderboardError) ||
+            (!state.snapshot && !state.snapshotError) ||
+            (reasonListKey(state) && !state.report && !state.reportError) ||
+            (!state.methodology && !state.methodologyError);
+          if (pending) return;
+          prerendered = null;
+          if (adoptNotRankedBoard(main, state, doc)) {
+            currentTab = "notranked";
+            currentNotRankedShape = notRankedRebuildKey(state);
+            forgetOtherShapes("notranked");
+            return;
+          }
+        }
+      }
       const key = notRankedRebuildKey(state);
       if (currentTab !== "notranked" || key !== currentNotRankedShape) {
         const focusedSubTab =
@@ -613,7 +683,8 @@ export function boot(win = window, doc = document) {
 
     const viewport = currentViewport();
     const shape = shellShape(state, viewport);
-    const shellKey = shape === "empty" ? `${shape}:${state.ecosystem}:${state.query}` : shape;
+    // Each list at its own address (a preset, a page of the ranking) has a shell of its own: its heading and pager.
+    const shellKey = `${shape === "empty" ? `${shape}:${state.ecosystem}:${state.query}` : shape}@${listInstanceKey(state)}`;
     if (prerendered) {
       // The export drew the first page of the ranked view (web/prerender.mjs). A board that shows something else
       // than this state asks for (another lens, a page, a search) can never be taken over: draw as usual.
@@ -624,15 +695,20 @@ export function boot(win = window, doc = document) {
         const pending =
           (!state.leaderboard && !state.leaderboardError) ||
           (!state.snapshot && !state.snapshotError) ||
-          (!state.report && !state.reportError);
+          (!state.report && !state.reportError) ||
+          (listNeedsMethodology(state) && !state.methodology && !state.methodologyError);
         if (pending) return;
         prerendered = null;
         if (adoptPrerenderedBoard(main, state, viewport)) {
+          // The board's key is its lens, ecosystem and search: its Not ranked number is this list's.
+          notRankedCountKey = notRankedCountKeyOf(state);
           currentTab = "ranked";
           currentShellShape = shellKey;
+          drawnListHead = renderListHead(state);
           forgetOtherShapes("ranked");
           patchLeaderboardBody(state);
           syncFindingsLine(main, state.report);
+          drawnListHead = syncListHead(main, state, drawnListHead);
           return;
         }
       }
@@ -643,13 +719,16 @@ export function boot(win = window, doc = document) {
           ? doc.activeElement.getAttribute?.("data-route-tab")
           : null;
       main.innerHTML = renderShell(state, viewport);
+      notRankedCountKey = notRankedCountKeyOf(state);
       if (focusedSubTab) main.querySelector(`[data-route-tab="${focusedSubTab}"]`)?.focus();
       currentTab = "ranked";
       currentShellShape = shellKey;
+      drawnListHead = renderListHead(state);
       forgetOtherShapes("ranked");
     }
     if (shape.startsWith("table")) patchLeaderboardBody(state);
     syncFindingsLine(main, state.report);
+    drawnListHead = syncListHead(main, state, drawnListHead);
   }
 
   /** Configure's slider/preset/sum controls render in EVERY shape (loading/error/empty/body — the controls stay visible while re-projecting), so a weight/lock change never rebuilds the shell; this syncs the five sliders' value/output/lock state plus the sum display. Also called from `syncView`'s non-"body" branch, since the controls exist there too. */
@@ -822,6 +901,8 @@ export function boot(win = window, doc = document) {
    */
   function loadRepoDetail(owner, name) {
     const key = `${owner}/${name}`;
+    // An unrated project's panel names the methodology's coverage floor (views/project.js `coverageFloor`).
+    loadMethodologyOnce();
     if (store.getState().repoDetailByKey[key]) return Promise.resolve();
     store.dispatch({ type: "REPO_DETAIL_LOADING" });
     return api.fetchRepoDetail(owner, name).then(async (result) => {
@@ -877,6 +958,12 @@ export function boot(win = window, doc = document) {
   }
 
   // ------------------------------------------- Methodology (F)
+  /** The methodology, unless it has loaded, is loading or has failed. */
+  function loadMethodologyOnce() {
+    const s = store.getState();
+    if (!s.methodology && !s.methodologyLoading && !s.methodologyError) loadMethodology();
+  }
+
   function loadMethodology() {
     store.dispatch({ type: "METHODOLOGY_LOADING" });
     return api.fetchMethodology().then((result) => {
@@ -1082,6 +1169,8 @@ export function boot(win = window, doc = document) {
    */
   function loadLeaderboard() {
     const state = store.getState();
+    loadNotRankedForTabCount(state);
+    if (state.tab === "ranked" && listNeedsMethodology(state) && !state.methodology && !state.methodologyLoading && !state.methodologyError) loadMethodology();
     const signature = requestSignature(state);
     inFlightSignature = signature;
 
@@ -1221,6 +1310,15 @@ export function boot(win = window, doc = document) {
     // A page the export drew carries its own title until the app has taken it over (the report's names its month).
     const title = titleForState(state);
     if (!prerendered && doc.title !== title) doc.title = title;
+    // A list at its own address describes itself (its intro's first sentence), as its exported page does; `/` gets
+    // back the description it loaded with.
+    const description =
+      !prerendered && descriptionMeta
+        ? state.tab === "notranked" && !state.repo
+          ? reasonListDescription(state)
+          : pageDescription(state, homeDescription)
+        : null;
+    if (description !== null && descriptionMeta.getAttribute("content") !== description) descriptionMeta.setAttribute("content", description);
     syncHeaderControls(state);
     syncFooter(state);
     syncNav(primaryNav, navEntryFor(state.tab), state);
@@ -1308,17 +1406,30 @@ export function boot(win = window, doc = document) {
   );
 
   // The header's search is a form to the rankings, so it works on every page before the app runs. Here the app
-  // answers it in place: a view that lists projects has already applied the query as it was typed; any other view
-  // opens the rankings with it.
-  header.addEventListener("submit", (evt) => {
+  // answers its Enter in place (state.js searchDestination): an owner/name opens its project, a ranked one's panel or
+  // a not-ranked one's row; other text is the filter a view that lists projects has already applied as it was typed,
+  // or opens the rankings with it. An Enter overtaken by a newer one is dropped when its lookup comes back.
+  let searchSubmits = 0;
+  header.addEventListener("submit", async (evt) => {
     const form = evt.target.closest("[data-header-search-group]");
     if (!form) return;
     evt.preventDefault();
-    const state = store.getState();
-    if (!routeById(state.tab)?.query.includes("q")) {
-      navigateTo(hrefFor({ ...state, query: form.querySelector("[data-search-input]").value, page: 1 }, "ranked"));
-    }
+    const submit = ++searchSubmits;
+    const where = await searchDestination(form.querySelector("[data-search-input]").value, store.getState(), lookUpProject);
+    if (submit !== searchSubmits) return;
+    if (where.kind === "panel") openRepo(where.owner, where.name);
+    else if (where.kind === "address") navigateTo(where.href);
   });
+
+  /** A project the snapshot holds, in its real spelling, with whether it is rated: `{ owner, name, rated }` (`rated`
+   *  null when its record could not load); `null` when the snapshot does not hold it; `undefined` when that cannot be
+   *  told (resolveCanonicalInSnapshot). */
+  async function lookUpProject(owner, name) {
+    const held = await resolveCanonicalInSnapshot(owner, name);
+    if (!held) return held;
+    const detail = await api.fetchRepoDetail(held.owner, held.name);
+    return { ...held, rated: detail.ok ? detail.data.rated : null };
+  }
 
   // The theme is theme-init.js's on every page: it applies the choice and answers the toggle, and says so with this
   // event. The store keeps the theme in force, so a view drawn in the theme's colours (the matrix canvas) redraws.
@@ -1347,7 +1458,7 @@ export function boot(win = window, doc = document) {
     if (!route.shell) return;
     evt.preventDefault();
     const tab = link.getAttribute("data-route-tab");
-    if (tab === route.id) {
+    if (tab === routeView(route)) {
       const hadFocus = doc.activeElement === link && main.contains(link);
       goToTab(tab);
       if (hadFocus) main.querySelector(`[data-route-tab="${CSS.escape(tab)}"]`)?.focus();
@@ -1821,7 +1932,10 @@ export function boot(win = window, doc = document) {
   function goToNotRankedPage(page) {
     if (page < 1) return;
     const s = store.getState();
-    if (s.notRanked) {
+    const reasonList = reasonListPage(s);
+    if (reasonList) {
+      if (reasonList.pages === null || page > reasonList.pages) return;
+    } else if (s.notRanked) {
       const flat = flattenGroups(s.notRanked, { ecosystem: s.ecosystem, query: s.query });
       const totalPages = Math.max(1, Math.ceil(flat.length / s.notRankedPageSize));
       if (page > totalPages) return;
@@ -2089,6 +2203,8 @@ export function boot(win = window, doc = document) {
           return;
         }
         if (s.tab === "notranked") {
+          // A list by reason is plain text, one sentence a project: no row cursor.
+          if (reasonListKey(s)) return;
           const flat = s.notRanked ? flattenGroups(s.notRanked, { ecosystem: s.ecosystem, query: s.query }) : [];
           if (flat.length === 0) return;
           const totalPages = Math.max(1, Math.ceil(flat.length / s.notRankedPageSize));
@@ -2120,7 +2236,7 @@ export function boot(win = window, doc = document) {
           focusRowByKey(nextKey);
           return;
         }
-        const rows = s.leaderboard ? s.leaderboard.rows : [];
+        const rows = listRows(s);
         if (rows.length === 0) return;
         const curIdx = rows.findIndex((r) => rowKey(r) === s.selectedRepoKey);
         const delta = action === "cursor-down" ? 1 : -1;
@@ -2323,7 +2439,7 @@ export function boot(win = window, doc = document) {
     const defaults = {
       persona: "balanced", ecosystem: "", query: "", sort: "rank",
       page: 1, pageSize: DEFAULT_PAGE_SIZE, tab: "ranked", repo: null, missingPath: null,
-      weights: { ...BALANCED_WEIGHTS }, compareRepos: [],
+      weights: { ...BALANCED_WEIGHTS }, compareRepos: [], notRankedReason: null,
     };
     store.dispatch({
       type: "SET_PARAMS",

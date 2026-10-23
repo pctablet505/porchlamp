@@ -24,7 +24,8 @@
 
 import * as copy from "../copy.js";
 import { renderCoverageBadge, renderQuadrant, renderTierCell } from "../components/badge.js";
-import { PILLAR_ORDER, escapeHtml as e } from "../components/table.js";
+import { PILLAR_ORDER } from "../components/table.js";
+import { escapeHtml as e } from "../escape.js";
 import { fill, hook } from "../components/fill.js";
 import { projectPath } from "../routes.js";
 
@@ -134,7 +135,7 @@ export function formatParameterValue(paramId, value) {
 export function deriveTierCeiling(coverage, explicitCeiling) {
   if (explicitCeiling !== undefined) return explicitCeiling;
   if (typeof coverage !== "number" || !Number.isFinite(coverage)) return null;
-  if (coverage >= 0.95) return null;
+  if (coverage >= 0.9) return null;
   if (coverage >= 0.8) return "A";
   if (coverage >= 0.6) return "B";
   return null;

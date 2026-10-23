@@ -1,0 +1,2766 @@
+rank,owner,name,ecosystem,score,tier,coverage,quadrant,rank_ai_assisted,rank_balanced,rank_career_capital,rank_first_timer,rank_senior_systems
+1,moby,moby,go,82.3,B,0.625833333333,Sweet Spot,11,1,,,9
+2,servo,rust-smallvec,crates,80.72,S,0.9375,Sweet Spot,12,2,1,3,22
+3,kedacore,keda,go,80.06,A,0.875,Sweet Spot,4,3,,1,35
+4,ray-project,ray,pypi,79.75,B,0.655,Sweet Spot,20,4,,20,8
+5,redis,node-redis,npm,79.15,A,1.0,Sweet Spot,22,5,2,14,
+6,jaegertracing,jaeger,go,78.79,B,0.625833333333,Sweet Spot,23,6,,,18
+7,onnx,onnx,pypi,78.65,A,0.8125,Sweet Spot,26,7,3,22,21
+8,nltk,nltk,pypi,78.56,B,0.7725,Sweet Spot,125,8,,46,11
+9,argoproj,argo-cd,go,78.46,B,0.625833333333,Sweet Spot,21,9,,,19
+10,crimera,piko,maven,78.38,B,0.61,Sweet Spot,266,10,,15,
+11,fyne-io,fyne,go,77.5,B,0.720833333333,Sweet Spot,46,11,,111,10
+12,delta-io,delta-rs,crates,76.91,B,0.7125,Sweet Spot,31,12,,18,37
+13,rclone,rclone,go,76.45,B,0.618333333333,Sweet Spot,66,13,,13,39
+14,rust-lang,cargo,crates,76.27,B,0.6475,Sweet Spot,17,14,,,7
+15,kube-rs,kube,crates,75.51,A,1.0,Sweet Spot,,15,18,53,
+16,rust-lang,cc-rs,crates,75.45,A,1.0,Sweet Spot,140,16,6,34,56
+17,external-secrets,external-secrets,go,75.31,A,0.8125,Sweet Spot,35,17,,7,61
+18,junit-team,junit-framework,maven,75.26,B,0.688333333333,Sweet Spot,49,18,,,15
+19,prometheus,prometheus,go,75.16,B,0.625833333333,Sweet Spot,32,19,,,27
+20,eslint,eslint,npm,75.03,A,0.875,Sweet Spot,27,20,20,,14
+21,diesel-rs,diesel,crates,74.97,B,0.7725,Sweet Spot,19,21,,30,60
+22,image-rs,image,crates,74.87,A,1.0,Sweet Spot,85,22,12,60,
+23,jupyterlab,jupyterlab,npm,74.79,A,0.8125,Sweet Spot,68,23,,4,110
+24,tokio-rs,axum,crates,74.77,A,1.0,Sweet Spot,127,24,13,99,29
+25,caddyserver,caddy,go,74.72,A,0.925,Sweet Spot,37,25,7,10,93
+26,numaproj,numaflow,crates,74.52,A,0.8375,Sweet Spot,77,26,,12,92
+27,rjsf-team,react-jsonschema-form,npm,74.18,A,1.0,Sweet Spot,33,27,,9,
+28,valyala,fasthttp,go,74.12,A,0.9775,Sweet Spot,195,28,4,23,89
+29,agones-dev,agones,go,73.95,A,1.0,Sweet Spot,24,29,,37,
+30,faker-js,faker,npm,73.88,A,1.0,Sweet Spot,108,30,19,41,81
+31,babel,babel,npm,73.71,A,0.925,Sweet Spot,110,31,5,66,
+32,apache,dubbo-go,go,73.7,A,1.0,Sweet Spot,135,32,22,24,108
+33,strimzi,strimzi-kafka-operator,maven,73.7,A,0.875,Sweet Spot,38,33,,25,96
+34,ueberdosis,tiptap,npm,73.61,A,0.875,Sweet Spot,118,34,8,11,
+35,markedjs,marked,npm,73.57,A,1.0,Sweet Spot,225,35,17,88,58
+36,kubernetes-sigs,cluster-api,go,73.55,B,0.625833333333,Sweet Spot,270,36,,,122
+37,ros-navigation,navigation2,systems,73.53,A,0.875,Sweet Spot,116,37,,31,95
+38,open-policy-agent,opa,go,73.52,B,0.625833333333,Sweet Spot,58,38,,,30
+39,mongodb,mongo-go-driver,go,73.42,A,0.9775,Sweet Spot,40,39,23,115,
+40,prometheus,client_golang,go,73.41,A,1.0,Sweet Spot,75,40,10,120,41
+41,pylint-dev,pylint,pypi,73.37,A,0.8125,Sweet Spot,44,41,15,135,42
+42,rook,rook,go,73.32,B,0.625833333333,Sweet Spot,36,42,,,38
+43,klauspost,compress,go,73.23,A,0.9375,Sweet Spot,45,43,24,119,
+44,falconry,falcon,pypi,73.21,A,1.0,Sweet Spot,51,44,,17,
+45,rust-lang,libc,crates,73.15,A,0.875,Sweet Spot,169,45,14,202,33
+46,wasm-bindgen,wasm-bindgen,crates,73.06,A,1.0,Sweet Spot,156,46,16,71,72
+47,rust-lang,socket2,crates,73.04,A,0.9375,Sweet Spot,141,47,25,84,65
+48,google,gvisor,go,72.98,B,0.625833333333,Sweet Spot,197,48,,,103
+49,gitpython-developers,GitPython,pypi,72.91,A,1.0,Sweet Spot,87,49,11,59,
+50,angular,angular,npm,72.91,B,0.655,Sweet Spot,30,50,,,31
+51,networkupstools,nut,systems,72.82,B,0.68,Sweet Spot,102,51,,130,
+52,quinn-rs,quinn,crates,72.81,A,1.0,Sweet Spot,57,52,30,129,53
+53,qmk,qmk_firmware,systems,72.61,A,0.925,Sweet Spot,90,53,,29,
+54,logisim-evolution,logisim-evolution,maven,72.61,B,0.61,Sweet Spot,209,54,,5,
+55,mongodb,node-mongodb-native,npm,72.51,A,1.0,Sweet Spot,41,55,27,131,
+56,wagtail,wagtail,pypi,72.51,B,0.6475,Sweet Spot,89,56,,,32
+57,RustAudio,cpal,crates,72.4,A,1.0,Sweet Spot,71,57,31,87,
+58,clap-rs,clap,crates,72.37,A,0.9775,Sweet Spot,,58,9,65,
+59,processing,p5.js,npm,72.15,B,0.6475,Sweet Spot,121,59,,70,76
+60,dapr,dapr,go,72.02,A,0.8125,Sweet Spot,74,60,41,89,
+61,google,benchmark,systems,71.99,A,1.0,Sweet Spot,39,61,,36,123
+62,flybywiresim,aircraft,npm,71.97,A,0.8375,Sweet Spot,61,62,,27,140
+63,vllm-project,vllm,pypi,71.68,B,0.655,Sweet Spot,136,63,,86,66
+64,apache,datafusion-sqlparser-rs,crates,71.67,A,1.0,Sweet Spot,106,64,35,168,55
+65,hyperium,hyper,crates,71.63,A,1.0,Sweet Spot,276,65,26,193,64
+66,Redot-Engine,redot-engine,systems,71.62,A,1.0,Sweet Spot,230,66,,55,118
+67,hickory-dns,hickory-dns,crates,71.4,B,0.6975,Sweet Spot,161,67,,242,62
+68,gdamore,tcell,go,71.39,A,1.0,Sweet Spot,72,68,34,96,
+69,grpc,grpc-go,go,71.37,A,0.875,Sweet Spot,65,69,28,,40
+70,redis,ioredis,npm,71.35,A,1.0,Sweet Spot,160,70,29,122,
+71,grafana,loki,go,71.35,B,0.625833333333,Sweet Spot,69,71,,,86
+72,keycloak,keycloak,maven,71.25,B,0.625833333333,Sweet Spot,104,72,,,173
+73,directus,directus,npm,71.22,A,0.8125,Sweet Spot,96,73,,107,83
+74,PyO3,pyo3,crates,71.19,A,0.875,Sweet Spot,219,74,56,322,50
+75,agentscope-ai,agentscope-java,maven,71.13,B,0.625833333333,Sweet Spot,50,75,,,210
+76,PokeAPI,pokeapi,pypi,71.09,A,0.8375,Sweet Spot,81,76,,69,
+77,crossplane,crossplane,go,70.95,B,0.688333333333,Sweet Spot,84,77,,279,51
+78,smartcontractkit,chainlink,go,70.95,B,0.625833333333,Sweet Spot,190,78,,,71
+79,ggml-org,whisper.cpp,systems,70.95,B,0.61,Sweet Spot,119,79,,397,
+80,go-delve,delve,go,70.94,A,1.0,Sweet Spot,157,80,46,77,
+81,apache,maka,npm,70.91,B,0.655,Nursery,164,81,,2,357
+82,tailscale,tailscale,go,70.9,B,0.625833333333,Sweet Spot,231,82,,,97
+83,chimurai,http-proxy-middleware,npm,70.81,B,0.755,Sweet Spot,158,83,33,117,
+84,supercollider,supercollider,systems,70.78,A,1.0,Sweet Spot,188,84,,52,
+85,isomorphic-git,isomorphic-git,npm,70.76,A,1.0,Sweet Spot,406,85,47,58,158
+86,kedro-org,kedro,pypi,70.7,A,1.0,Sweet Spot,,86,,104,113
+87,librosa,librosa,pypi,70.7,A,0.9775,Sweet Spot,73,87,38,105,
+88,litestar-org,litestar,pypi,70.62,A,0.925,Sweet Spot,408,88,,19,233
+89,apache,kvrocks,systems,70.55,A,1.0,Sweet Spot,144,89,,61,150
+90,open-telemetry,opentelemetry-rust,crates,70.49,A,1.0,Sweet Spot,52,90,37,249,
+91,shadps4-emu,shadPS4,systems,70.45,A,0.8125,Sweet Spot,179,91,,,70
+92,dagger,dagger,go,70.42,B,0.625833333333,Sweet Spot,373,92,,,84
+93,beeware,toga,pypi,70.36,A,0.875,Sweet Spot,94,93,,35,194
+94,velero-io,velero,go,70.34,B,0.625833333333,Nursery,207,94,,,310
+95,kubernetes-client,python,pypi,70.25,A,1.0,Sweet Spot,528,95,21,54,
+96,f3d-app,f3d,systems,70.25,A,0.875,Sweet Spot,,96,,32,
+97,pwndbg,pwndbg,pypi,70.24,B,0.7625,Sweet Spot,124,97,,57,172
+98,hajimehoshi,ebiten,go,70.24,B,0.720833333333,Sweet Spot,88,98,,189,106
+99,TheDan64,inkwell,crates,70.17,A,0.9375,Sweet Spot,422,99,,40,208
+100,rust-lang,rustfmt,crates,70.13,A,1.0,Sweet Spot,246,100,,62,168
+101,bombshell-dev,clack,npm,70.12,A,1.0,Sweet Spot,155,101,62,109,
+102,nonebot,nonebot2,pypi,70.12,B,0.755,Sweet Spot,372,102,75,83,160
+103,redis,go-redis,go,70.09,A,1.0,Sweet Spot,111,103,,56,186
+104,tokio-rs,tokio,crates,69.97,B,0.875,Sweet Spot,252,104,44,,52
+105,go-mysql-org,go-mysql,go,69.93,B,1.0,Sweet Spot,287,105,,82,164
+106,fastify,fastify,npm,69.92,B,0.875,Sweet Spot,275,106,69,425,54
+107,apache,calcite,maven,69.88,B,0.875,Sweet Spot,105,107,,,75
+108,GuillaumeGomez,sysinfo,crates,69.87,B,1.0,Sweet Spot,294,108,36,85,
+109,pest-parser,pest,crates,69.85,B,0.8875,Sweet Spot,319,109,40,,
+110,prometheus,alertmanager,go,69.85,B,0.875,Sweet Spot,185,110,81,,79
+111,numba,numba,pypi,69.78,B,0.7725,Sweet Spot,117,111,,223,91
+112,open-telemetry,opentelemetry-go,go,69.75,B,0.625833333333,Sweet Spot,80,112,,,36
+113,agavra,tuicr,crates,69.7,B,1.0,Sweet Spot,172,113,,26,238
+114,plantuml,plantuml,maven,69.65,B,1.0,Sweet Spot,300,114,,33,
+115,elastic,eui,npm,69.62,B,0.875,Sweet Spot,79,115,,8,
+116,cvxpy,cvxpy,systems,69.59,B,1.0,Sweet Spot,83,116,,92,162
+117,seanmonstar,reqwest,crates,69.59,B,1.0,Sweet Spot,507,117,39,306,94
+118,tokio-rs,mio,crates,69.56,B,1.0,Sweet Spot,236,118,59,232,104
+119,WiseLibs,better-sqlite3,npm,69.54,B,0.9775,Sweet Spot,359,119,53,174,
+120,apache,opendal,crates,69.48,B,0.8125,Sweet Spot,115,120,113,,98
+121,redisson,redisson,maven,69.39,B,0.68,Sweet Spot,661,121,,110,
+122,Qiskit,qiskit,pypi,69.38,B,0.8125,Sweet Spot,42,122,77,256,88
+123,spinframework,spin,crates,69.34,B,0.765,Sweet Spot,128,123,,,
+124,redis,redis-py,pypi,69.29,B,0.925,Sweet Spot,70,124,82,621,45
+125,k8sgpt-ai,k8sgpt,go,69.26,B,0.9775,Sweet Spot,176,125,,44,232
+126,networkx,networkx,pypi,69.22,B,0.925,Sweet Spot,171,126,85,586,57
+127,pytorch,ignite,pypi,69.11,B,1.0,Sweet Spot,390,127,,48,225
+128,pmndrs,zustand,npm,69.09,B,1.0,Sweet Spot,780,128,50,152,163
+129,conventional-changelog,commitlint,npm,69.06,B,1.0,Sweet Spot,561,129,32,114,
+130,rustls,rustls,crates,69.03,B,0.6975,Sweet Spot,78,130,,528,73
+131,docker,buildx,go,69.03,B,0.668333333333,Sweet Spot,309,131,,605,47
+132,alibaba,spring-cloud-alibaba,maven,68.99,B,0.9775,Sweet Spot,423,132,,39,258
+133,Keats,validator,crates,68.96,B,0.6625,Sweet Spot,585,133,76,,231
+134,console-rs,indicatif,crates,68.88,B,0.9375,Sweet Spot,198,134,65,275,
+135,hzeller,rpi-rgb-led-matrix,systems,68.87,B,0.8125,Sweet Spot,192,135,,,
+136,highlightjs,highlight.js,npm,68.81,B,1.0,Sweet Spot,214,136,49,405,77
+137,capstone-engine,capstone,systems,68.8,B,1.0,Sweet Spot,,137,,123,185
+138,apache,hertzbeat,maven,68.8,B,0.866666666667,Sweet Spot,320,138,,72,191
+139,rust-itertools,itertools,crates,68.75,B,0.915,Sweet Spot,419,139,57,327,116
+140,raspberrypi,pico-sdk,systems,68.74,B,1.0,Sweet Spot,312,140,,90,
+141,google,go-github,go,68.72,B,0.875,Sweet Spot,98,141,97,,117
+142,mesonbuild,meson,pypi,68.71,B,0.6475,Sweet Spot,218,142,,63,243
+143,chronotope,chrono,crates,68.69,B,0.845,Sweet Spot,502,143,42,221,146
+144,vueuse,vueuse,npm,68.57,B,1.0,Sweet Spot,533,144,58,224,137
+145,rhaiscript,rhai,crates,68.51,B,0.825,Sweet Spot,189,145,91,133,
+146,go-acme,lego,go,68.48,B,1.0,Sweet Spot,322,146,61,188,
+147,99designs,gqlgen,go,68.47,B,1.0,Sweet Spot,568,147,45,156,182
+148,biopython,biopython,pypi,68.45,B,1.0,Sweet Spot,298,148,54,169,
+149,qubvel-org,segmentation_models.pytorch,pypi,68.43,B,0.7325,Sweet Spot,215,149,,45,
+150,discordjs,discord.js,npm,68.42,B,1.0,Sweet Spot,411,150,80,339,105
+151,pypa,virtualenv,pypi,68.34,B,1.0,Sweet Spot,697,151,43,126,
+152,react-hook-form,react-hook-form,npm,68.32,B,1.0,Sweet Spot,592,152,52,186,
+153,openbao,openbao,go,68.32,B,0.625833333333,Nursery,,153,,,416
+154,youki-dev,youki,crates,68.31,B,1.0,Sweet Spot,353,154,,113,187
+155,openlayers,openlayers,npm,68.29,B,1.0,Sweet Spot,416,155,83,118,
+156,celery,celery,pypi,68.23,B,0.875,Sweet Spot,191,156,120,,59
+157,letsencrypt,boulder,go,68.13,B,1.0,Sweet Spot,301,157,78,97,
+158,ultralytics,ultralytics,pypi,68.1,B,0.655,Sweet Spot,233,158,,,121
+159,open-telemetry,opentelemetry-collector,go,68.08,B,0.625833333333,Sweet Spot,211,159,,,46
+160,dequelabs,axe-core,npm,67.97,B,1.0,Sweet Spot,103,160,63,194,
+161,diasurgical,DevilutionX,systems,67.96,B,1.0,Sweet Spot,305,161,,67,265
+162,lucide-icons,lucide,npm,67.96,B,0.8125,Sweet Spot,167,162,110,,63
+163,codeceptjs,CodeceptJS,npm,67.93,B,0.9775,Sweet Spot,453,163,,160,189
+164,Farama-Foundation,Gymnasium,pypi,67.9,B,1.0,Sweet Spot,523,164,88,233,165
+165,go-swagger,go-swagger,go,67.9,B,0.9775,Sweet Spot,427,165,84,98,
+166,docling-project,docling,pypi,67.89,B,0.8125,Sweet Spot,222,166,,173,166
+167,XTLS,Xray-core,go,67.88,B,0.875,Sweet Spot,364,167,146,,135
+168,astral-sh,ty,pypi,67.85,B,0.925,Sweet Spot,253,168,,47,294
+169,holoviz,panel,pypi,67.79,B,1.0,Sweet Spot,791,169,48,50,
+170,hluk,CopyQ,systems,67.77,B,0.825,Sweet Spot,279,170,,42,
+171,algolia,docsearch,npm,67.75,B,0.95,Sweet Spot,355,171,,,
+172,rust-lang-nursery,rand,crates,67.75,B,0.9125,Sweet Spot,202,172,79,356,
+173,adobe,react-spectrum,npm,67.74,B,0.8125,Sweet Spot,145,173,,49,282
+174,EFForg,rayhunter,crates,67.72,B,0.8375,Sweet Spot,133,174,,128,
+175,kubernetes-sigs,kubebuilder,go,67.72,B,0.688333333333,Sweet Spot,147,175,,,138
+176,hyperledger,fabric,go,67.64,B,1.0,Sweet Spot,749,176,95,163,
+177,mumble-voip,mumble,systems,67.64,B,1.0,Sweet Spot,245,177,,94,
+178,bpftrace,bpftrace,systems,67.63,B,0.925,Sweet Spot,180,178,,290,
+179,apache,incubator-seata,maven,67.63,B,0.866666666667,Sweet Spot,600,179,,51,272
+180,IBM,sarama,go,67.61,B,0.9775,Sweet Spot,130,180,116,284,
+181,grommet,grommet,npm,67.59,B,0.915,Sweet Spot,163,181,,150,
+182,video-dev,hls.js,npm,67.53,B,0.9375,Sweet Spot,325,182,86,183,
+183,apache,incubator-kie,maven,67.46,B,0.844166666667,Sweet Spot,181,183,,374,128
+184,ai,nanoid,npm,67.45,B,0.915,Sweet Spot,642,184,51,201,
+185,nextlevelbuilder,ui-ux-pro-max-skill,pypi,67.42,B,0.8375,Sweet Spot,123,185,,268,157
+186,clientIO,joint,npm,67.39,B,0.9275,Sweet Spot,435,186,,,
+187,python-websockets,websockets,pypi,67.39,B,0.915,Sweet Spot,395,187,55,300,
+188,webpack,webpack-bundle-analyzer,npm,67.39,B,0.865,Sweet Spot,308,188,74,,
+189,voyager-crew,voyager,npm,67.36,B,0.61,Sweet Spot,234,189,,137,
+190,telepresenceio,telepresence,go,67.35,B,0.750833333333,Sweet Spot,212,190,,162,214
+191,apache,dolphinscheduler,maven,67.34,B,0.925,Sweet Spot,331,191,,21,
+192,aws,aws-lambda-rust-runtime,crates,67.31,B,0.9375,Sweet Spot,370,192,,257,183
+193,jsdom,jsdom,npm,67.3,B,0.9775,Sweet Spot,244,193,68,,
+194,urfave,cli,go,67.24,B,1.0,Sweet Spot,315,194,66,378,
+195,aya-rs,aya,crates,67.22,B,1.0,Sweet Spot,173,195,,259,
+196,apexcharts,apexcharts.js,npm,67.21,B,0.9375,Sweet Spot,492,196,90,121,
+197,qualcomm,GenieX,crates,67.12,B,0.605,Sweet Spot,675,197,,595,
+198,falcosecurity,falco,systems,67.1,B,1.0,Sweet Spot,307,198,,147,
+199,py-pdf,pypdf,pypi,67.09,B,0.925,Sweet Spot,109,199,147,704,
+200,SeaQL,sea-orm,crates,67.08,B,1.0,Sweet Spot,532,200,70,78,
+201,portapack-mayhem,mayhem-firmware,systems,67.04,B,1.0,Sweet Spot,663,201,,103,279
+202,ManimCommunity,manim,pypi,67.04,B,0.9375,Sweet Spot,728,202,,141,219
+203,rust-random,rand,crates,67.03,B,0.85,Sweet Spot,242,203,,399,
+204,vuejs,core,npm,67.01,B,0.8125,Sweet Spot,611,204,112,,109
+205,preactjs,preact,npm,67.0,B,1.0,Sweet Spot,350,205,72,,
+206,cortexproject,cortex,go,67.0,B,0.875,Sweet Spot,216,206,191,,102
+207,vscode-icons,vscode-icons,npm,66.98,B,0.8375,Sweet Spot,226,207,,235,
+208,googleapis,google-cloud-go,go,66.97,B,0.625833333333,Sweet Spot,277,208,,,112
+209,JSQLParser,JSqlParser,maven,66.96,B,0.8875,Sweet Spot,756,209,119,,
+210,vuejs,eslint-plugin-vue,npm,66.95,B,0.9375,Sweet Spot,431,210,60,336,
+211,wekan,wekan,npm,66.95,B,0.61,Sweet Spot,405,211,,112,
+212,apache,iggy,crates,66.9,B,0.655,Sweet Spot,228,212,,76,292
+213,prometheus-operator,prometheus-operator,go,66.9,B,0.618333333333,Sweet Spot,386,213,,80,306
+214,rust-lang,log,crates,66.89,B,0.8125,Sweet Spot,388,214,106,,
+215,Azure,azure-sdk-for-python,pypi,66.87,B,0.655,Sweet Spot,247,215,,,80
+216,doxygen,doxygen,systems,66.87,B,0.61,Sweet Spot,239,216,,175,
+217,gofiber,fiber,go,66.86,B,0.618333333333,Sweet Spot,153,217,,,131
+218,uuidjs,uuid,npm,66.85,B,0.845,Sweet Spot,1057,218,67,320,205
+219,seL4,seL4,systems,66.76,B,1.0,Sweet Spot,310,219,,124,
+220,vitessio,vitess,go,66.76,B,0.8125,Sweet Spot,112,220,213,,78
+221,plotly,plotly.py,pypi,66.74,B,1.0,Sweet Spot,379,221,64,426,
+222,apache,brpc,systems,66.73,B,1.0,Sweet Spot,392,222,,148,249
+223,rollup,rollup,npm,66.73,B,1.0,Sweet Spot,362,223,71,557,
+224,ethereum,go-ethereum,go,66.7,B,0.8125,Sweet Spot,251,224,105,,82
+225,lxc,incus,go,66.68,B,0.625833333333,Sweet Spot,341,225,,,169
+226,marimo-team,marimo,pypi,66.67,B,0.655,Sweet Spot,241,226,,28,420
+227,changesets,changesets,npm,66.63,B,1.0,Sweet Spot,295,227,99,387,
+228,apache,zeppelin,maven,66.61,B,0.791666666667,Sweet Spot,203,228,,461,144
+229,spyder-ide,spyder,pypi,66.6,B,0.925,Sweet Spot,335,229,,116,
+230,massalabs,massa,crates,66.6,B,0.7025,Sweet Spot,466,230,,,
+231,yargs,yargs,npm,66.58,B,0.9075,Sweet Spot,237,231,104,,87
+232,apache,lucene,maven,66.56,B,0.679166666667,Sweet Spot,264,232,,,127
+233,pypa,pip,pypi,66.48,B,0.925,Sweet Spot,175,233,115,,
+234,docker,compose,go,66.46,B,0.875,Sweet Spot,184,234,212,,
+235,vuejs,router,npm,66.45,B,0.9375,Sweet Spot,560,235,,342,
+236,sidorares,node-mysql2,npm,66.33,B,0.8125,Sweet Spot,206,236,157,,
+237,utooland,utoo,crates,66.31,B,0.7125,Sweet Spot,285,237,,280,
+238,reduxjs,redux,npm,66.3,B,0.9375,Sweet Spot,1064,238,73,218,
+239,pallets,click,pypi,66.29,B,0.875,Sweet Spot,755,239,101,,
+240,open-telemetry,opentelemetry-collector-contrib,go,66.27,B,0.625833333333,Sweet Spot,271,240,,,262
+241,concourse,concourse,go,66.19,B,1.0,Sweet Spot,347,241,,178,
+242,ngrx,platform,npm,66.19,B,0.875,Sweet Spot,541,242,,317,
+243,Vita3K,Vita3K,systems,66.14,B,0.9775,Sweet Spot,700,243,,269,229
+244,antvis,G6,npm,66.11,B,0.755,Sweet Spot,880,244,,145,313
+245,go-sql-driver,mysql,go,66.07,B,0.795,Sweet Spot,311,245,134,,126
+246,spring-projects,spring-framework,maven,66.06,B,0.738333333333,Sweet Spot,343,246,,,49
+247,bloomberg,memray,pypi,66.04,B,1.0,Sweet Spot,457,247,,240,
+248,lxc,lxc,systems,66.02,B,1.0,Sweet Spot,,248,,217,
+249,Project-HAMi,HAMi,go,66.02,B,0.8125,Sweet Spot,,249,,,201
+250,github,gh-ost,go,65.94,B,0.9775,Sweet Spot,516,250,,100,347
+251,fonttools,fonttools,pypi,65.94,B,0.925,Sweet Spot,671,251,135,685,
+252,labstack,echo,go,65.92,B,1.0,Sweet Spot,323,252,132,508,
+253,plotly,dash,pypi,65.89,B,0.7725,Sweet Spot,274,253,,383,199
+254,alecthomas,chroma,go,65.87,B,1.0,Sweet Spot,473,254,108,358,
+255,o3de,o3de,systems,65.87,B,0.875,Sweet Spot,483,255,,,155
+256,pion,webrtc,go,65.84,B,1.0,Sweet Spot,738,256,109,329,230
+257,locustio,locust,pypi,65.82,B,1.0,Sweet Spot,281,257,158,254,
+258,browserslist,browserslist,npm,65.81,B,0.7875,Sweet Spot,762,258,131,488,
+259,cockroachdb,cockroach,go,65.81,B,0.625833333333,Sweet Spot,487,259,,,418
+260,flannel-io,flannel,go,65.77,B,1.0,Sweet Spot,317,260,,146,
+261,gpbl,react-day-picker,npm,65.75,B,0.7325,Sweet Spot,1053,261,103,143,
+262,eggjs,egg,npm,65.71,B,0.9775,Sweet Spot,609,262,,234,
+263,questdb,questdb,maven,65.65,B,0.679166666667,Sweet Spot,142,263,,,120
+264,facebook,lexical,npm,65.62,B,0.8125,Sweet Spot,229,264,238,,175
+265,joblib,joblib,pypi,65.61,B,0.925,Sweet Spot,495,265,140,722,125
+266,rust-lang,rust-bindgen,crates,65.58,B,1.0,Sweet Spot,763,266,96,513,167
+267,secdev,scapy,pypi,65.56,B,0.9775,Sweet Spot,459,267,143,292,
+268,htop-dev,htop,systems,65.55,B,1.0,Sweet Spot,255,268,,228,
+269,goreleaser,goreleaser,go,65.54,B,0.618333333333,Sweet Spot,342,269,,,176
+270,HypothesisWorks,hypothesis,pypi,65.52,B,0.7725,Sweet Spot,497,270,,,180
+271,rust-lang,rustup,crates,65.51,B,1.0,Sweet Spot,152,271,,43,
+272,vuetifyjs,vuetify,npm,65.51,B,0.6975,Sweet Spot,616,272,,134,325
+273,swiftlang,swift-corelibs-foundation,systems,65.49,B,1.0,Sweet Spot,538,273,,138,332
+274,elastic,elasticsearch,maven,65.49,B,0.625833333333,Nursery,378,274,,,541
+275,Mbed-TLS,mbedtls,systems,65.46,B,1.0,Sweet Spot,602,275,,127,
+276,microsoft,playwright,npm,65.46,B,0.655,Sweet Spot,221,276,,,153
+277,microsoft,terminal,systems,65.41,B,0.925,Sweet Spot,174,277,,93,
+278,expressjs,express,npm,65.4,B,0.9775,Sweet Spot,597,278,117,,99
+279,dmtrKovalenko,fff,crates,65.4,B,0.8375,Sweet Spot,441,279,,161,
+280,conorbronsdon,avoid-ai-writing,npm,65.39,B,0.8125,Nursery,280,280,,6,
+281,lingui,js-lingui,npm,65.36,B,1.0,Sweet Spot,888,281,,157,334
+282,lib,pq,go,65.36,B,0.8375,Sweet Spot,,282,94,394,
+283,merbanan,rtl_433,systems,65.35,B,1.0,Sweet Spot,698,283,,187,
+284,coredns,coredns,go,65.33,B,0.8125,Sweet Spot,527,284,165,,85
+285,withastro,starlight,npm,65.32,B,0.925,Sweet Spot,330,285,,440,215
+286,Smithay,smithay,crates,65.3,B,1.0,Sweet Spot,291,286,,184,288
+287,Tencent,AI-Infra-Guard,pypi,65.3,B,0.71,Sweet Spot,398,287,,132,314
+288,fluxcd,flux2,go,65.25,B,1.0,Sweet Spot,166,288,,331,
+289,keepassxreboot,keepassxc,systems,65.24,B,1.0,Sweet Spot,501,289,,219,277
+290,PaperMC,Paper,maven,65.24,B,0.791666666667,Sweet Spot,265,290,,737,119
+291,janet-lang,janet,systems,65.22,B,1.0,Sweet Spot,,291,,102,
+292,lballabio,QuantLib,systems,65.2,B,0.68,Sweet Spot,460,292,,75,
+293,spotbugs,spotbugs,maven,65.17,B,1.0,Sweet Spot,363,293,150,,
+294,mltframework,shotcut,systems,65.15,B,0.915,Sweet Spot,505,294,,209,
+295,vladmandic,sdnext,pypi,65.15,B,0.61,Nursery,721,295,,139,
+296,jupyterhub,jupyterhub,pypi,65.14,B,1.0,Sweet Spot,,296,,167,
+297,libgdx,libgdx,maven,65.14,B,1.0,Sweet Spot,463,297,,,213
+298,statelyai,xstate,npm,65.12,B,0.9775,Sweet Spot,626,298,137,222,
+299,aeron-io,aeron,maven,65.12,B,0.720833333333,Sweet Spot,1444,299,,206,308
+300,compiler-explorer,compiler-explorer,npm,65.12,B,0.7125,Sweet Spot,438,300,,,139
+301,elazarl,goproxy,go,65.09,B,0.9375,Sweet Spot,595,301,118,511,192
+302,jackc,pgx,go,65.07,B,1.0,Sweet Spot,524,302,98,422,
+303,postcss,postcss,npm,65.07,B,0.925,Sweet Spot,658,303,129,653,
+304,stoatchat,stoatchat,crates,65.06,B,0.9375,Sweet Spot,635,304,,74,
+305,quic-go,quic-go,go,65.05,B,0.9775,Sweet Spot,451,305,125,372,
+306,loft-sh,vcluster,go,65.04,B,0.875,Sweet Spot,514,306,,,
+307,remarkjs,remark,npm,65.04,B,0.6,Sweet Spot,987,307,,,303
+308,mvdan,sh,go,65.02,B,1.0,Sweet Spot,420,308,139,,
+309,lima-vm,lima,go,65.01,B,0.625833333333,Sweet Spot,210,309,,,202
+310,mqttjs,MQTT.js,npm,64.99,B,0.61,Sweet Spot,632,310,229,,217
+311,authzed,spicedb,go,64.97,B,0.875,Sweet Spot,647,311,,,
+312,i18next,i18next,npm,64.97,B,0.8625,Sweet Spot,652,312,174,535,
+313,vyperlang,vyper,pypi,64.96,B,1.0,Sweet Spot,224,313,,433,207
+314,testcontainers,testcontainers-go,go,64.95,B,1.0,Sweet Spot,352,314,145,442,
+315,primer,octicons,npm,64.93,B,0.925,Sweet Spot,318,315,,438,234
+316,NVIDIA,Megatron-LM,pypi,64.91,B,0.655,Sweet Spot,316,316,,491,181
+317,Zettlr,Zettlr,npm,64.89,B,0.8375,Sweet Spot,461,317,,149,
+318,lightbend,config,maven,64.89,B,0.7425,Sweet Spot,477,318,204,,193
+319,psf,black,pypi,64.87,B,0.925,Sweet Spot,694,319,133,854,115
+320,OthmanAdi,planning-with-files,pypi,64.86,B,0.8375,Sweet Spot,613,320,,153,
+321,elastic,kibana,npm,64.86,B,0.655,Nursery,394,321,,16,539
+322,libuv,libuv,systems,64.85,B,1.0,Sweet Spot,608,322,,303,276
+323,ipfs,kubo,go,64.85,B,1.0,Sweet Spot,465,323,151,248,
+324,openscad,openscad,systems,64.85,B,1.0,Sweet Spot,714,324,,231,
+325,seerr-team,seerr,npm,64.84,B,0.7125,Sweet Spot,250,325,,420,222
+326,icip-cas,PPTAgent,pypi,64.84,B,0.695,Sweet Spot,,326,,95,
+327,Rust-GPU,rust-gpu,crates,64.81,B,0.8525,Sweet Spot,525,327,,73,
+328,feast-dev,feast,pypi,64.79,B,0.8125,Sweet Spot,614,328,,449,206
+329,gopasspw,gopass,go,64.73,B,0.9375,Sweet Spot,469,329,,191,
+330,sigstore,cosign,go,64.72,B,0.925,Sweet Spot,625,330,227,602,188
+331,styled-components,styled-components,npm,64.72,B,0.8625,Sweet Spot,812,331,87,357,
+332,dbeaver,cloudbeaver,npm,64.72,B,0.7125,Sweet Spot,668,332,,,197
+333,ansible,ansible,pypi,64.69,B,0.8125,Sweet Spot,476,333,206,826,111
+334,webpro-nl,knip,npm,64.68,B,0.7725,Sweet Spot,440,334,,276,321
+335,hashicorp,terraform,go,64.68,B,0.625833333333,Sweet Spot,526,335,,,209
+336,foliojs,pdfkit,npm,64.67,B,0.9375,Sweet Spot,857,336,130,262,
+337,sindresorhus,ora,npm,64.67,B,0.61,Sweet Spot,1154,337,177,,221
+338,data-privacy-stack,presidio,pypi,64.65,B,1.0,Sweet Spot,418,338,,427,218
+339,rust-lang,hashbrown,crates,64.65,B,0.8625,Sweet Spot,520,339,178,729,
+340,gradio-app,gradio,pypi,64.64,B,0.875,Sweet Spot,381,340,195,,152
+341,ReactiveX,RxJava,maven,64.63,B,0.8125,Sweet Spot,504,341,218,,
+342,pdm-project,pdm,pypi,64.59,B,0.9375,Sweet Spot,586,342,,273,
+343,elastic,beats,go,64.58,B,0.625833333333,Sweet Spot,200,343,,,143
+344,uxlfoundation,oneTBB,systems,64.56,B,1.0,Sweet Spot,458,344,,181,
+345,bokeh,bokeh,pypi,64.56,B,0.9775,Sweet Spot,518,345,186,616,
+346,mitmproxy,mitmproxy,pypi,64.52,B,1.0,Sweet Spot,494,346,,631,161
+347,redis-rs,redis-rs,crates,64.52,B,0.925,Sweet Spot,428,347,233,785,
+348,GeyserMC,Geyser,maven,64.52,B,0.866666666667,Sweet Spot,404,348,,,
+349,aws,s2n-tls,systems,64.51,B,0.925,Sweet Spot,491,349,,261,305
+350,simdjson,simdjson,systems,64.5,B,1.0,Sweet Spot,713,350,,151,
+351,opencontainers,runc,go,64.5,B,0.925,Sweet Spot,503,351,184,,
+352,saleor,saleor,pypi,64.5,B,0.65,Sweet Spot,385,352,,214,
+353,TanStack,virtual,npm,64.45,B,1.0,Sweet Spot,870,353,,341,274
+354,anchore,syft,go,64.45,B,0.6075,Sweet Spot,588,354,176,,133
+355,django-commons,django-debug-toolbar,pypi,64.44,B,0.9375,Sweet Spot,582,355,182,391,
+356,dlt-hub,dlt,pypi,64.44,B,0.875,Sweet Spot,648,356,,416,223
+357,osquery,osquery,systems,64.43,B,1.0,Sweet Spot,569,357,,283,302
+358,pytest-dev,pytest,pypi,64.42,B,0.8125,Sweet Spot,544,358,123,853,
+359,deepjavalibrary,djl,maven,64.41,B,0.8875,Nursery,737,359,,,387
+360,go-playground,validator,go,64.38,B,1.0,Sweet Spot,486,360,128,759,134
+361,katspaugh,wavesurfer.js,npm,64.38,B,0.82,Sweet Spot,432,361,,,
+362,skim-rs,skim,crates,64.37,B,1.0,Sweet Spot,960,362,,182,
+363,mockito,mockito,maven,64.37,B,0.845,Sweet Spot,478,363,126,654,177
+364,halide,Halide,systems,64.36,B,0.925,Sweet Spot,345,364,,458,
+365,tw93,Kaku,crates,64.33,B,0.61,Sweet Spot,439,365,,245,
+366,rustdesk,rustdesk,crates,64.32,B,0.65,Sweet Spot,715,366,,481,247
+367,pyodide,pyodide,pypi,64.3,B,1.0,Sweet Spot,293,367,,250,
+368,supabase,supabase-js,npm,64.3,B,0.875,Sweet Spot,384,368,,,
+369,redis,jedis,maven,64.3,B,0.866666666667,Sweet Spot,258,369,,278,
+370,tikv,tikv,crates,64.3,B,0.7125,Sweet Spot,475,370,,408,246
+371,alacritty,alacritty,crates,64.29,B,0.9775,Sweet Spot,,371,,277,318
+372,securego,gosec,go,64.24,B,1.0,Sweet Spot,866,372,122,299,
+373,LanRhyme,MicYou,crates,64.24,B,0.8375,Nursery,840,373,,106,
+374,alexta69,metube,pypi,64.24,B,0.8375,Sweet Spot,446,374,,195,
+375,google,go-cloud,go,64.23,B,1.0,Sweet Spot,918,375,127,196,
+376,giampaolo,psutil,pypi,64.23,B,1.0,Sweet Spot,979,376,89,537,
+377,awslabs,mountpoint-s3,crates,64.23,B,0.9775,Sweet Spot,480,377,,154,
+378,gorakhargosh,watchdog,pypi,64.23,B,0.9375,Sweet Spot,1195,378,102,429,263
+379,jazzband,pip-tools,pypi,64.19,B,0.9375,Sweet Spot,204,379,189,,
+380,cure53,DOMPurify,npm,64.19,B,0.75,Sweet Spot,566,380,207,618,
+381,postcss,autoprefixer,npm,64.15,B,0.7575,Sweet Spot,939,381,92,496,
+382,huggingface,sentence-transformers,pypi,64.14,B,1.0,Sweet Spot,365,382,121,583,
+383,typst,typst,crates,64.11,B,0.875,Sweet Spot,397,383,,,151
+384,cert-manager,cert-manager,go,64.11,B,0.625833333333,Sweet Spot,426,384,,,132
+385,helmfile,helmfile,go,64.1,B,1.0,Sweet Spot,254,385,,258,
+386,TheOdinProject,curriculum,npm,64.1,B,0.7625,Sweet Spot,708,386,,547,241
+387,Kaggle,kaggle-cli,pypi,64.09,B,1.0,Sweet Spot,472,387,,198,
+388,probe-rs,probe-rs,crates,64.09,B,0.875,Sweet Spot,976,388,,,289
+389,jbeder,yaml-cpp,systems,64.08,B,1.0,Sweet Spot,,389,,172,355
+390,pgmq,pgmq,crates,64.07,B,0.9375,Sweet Spot,339,390,,144,
+391,stylelint,stylelint,npm,64.07,B,0.925,Sweet Spot,396,391,194,851,
+392,tauri-apps,wry,crates,64.05,B,1.0,Sweet Spot,717,392,202,447,268
+393,Python-Markdown,markdown,pypi,64.03,B,0.915,Sweet Spot,521,393,124,,
+394,kubernetes,kops,go,64.03,B,0.625833333333,Sweet Spot,292,394,,,154
+395,unocss,unocss,npm,64.01,B,1.0,Sweet Spot,736,395,199,369,
+396,Stellarium,stellarium,systems,64.01,B,0.61,Nursery,790,396,,203,
+397,Keats,tera,crates,63.96,B,0.915,Sweet Spot,744,397,152,385,
+398,etcd-io,etcd,go,63.93,B,0.625833333333,Sweet Spot,949,398,,,253
+399,eksctl-io,eksctl,go,63.92,B,0.866666666667,Sweet Spot,802,399,,312,
+400,zauberzeug,nicegui,pypi,63.9,B,0.925,Sweet Spot,199,400,,546,
+401,dependency-check,DependencyCheck,maven,63.89,B,0.9375,Sweet Spot,329,401,,190,
+402,linkerd,linkerd2,go,63.89,B,0.875,Sweet Spot,1032,402,,270,
+403,lmcinnes,umap,pypi,63.85,B,0.865,Sweet Spot,1341,403,160,,
+404,smoltcp-rs,smoltcp,crates,63.84,B,1.0,Sweet Spot,900,404,,330,320
+405,npm,node-semver,npm,63.84,B,0.8325,Sweet Spot,1221,405,100,549,242
+406,TypeStrong,typedoc,npm,63.83,B,0.9125,Sweet Spot,603,406,138,550,
+407,lovell,sharp,npm,63.82,B,1.0,Sweet Spot,954,407,114,460,
+408,microsoft,vscode-cpptools,npm,63.82,B,0.815,Nursery,823,408,,64,
+409,mongodb,mongo-python-driver,pypi,63.78,B,0.925,Sweet Spot,313,409,225,,
+410,caddyserver,certmagic,go,63.77,B,0.9775,Sweet Spot,822,410,161,581,220
+411,bleachbit,bleachbit,pypi,63.76,B,0.61,Nursery,861,411,,207,
+412,streamlink,streamlink,pypi,63.75,B,0.9375,Sweet Spot,302,412,,291,
+413,stenciljs,core,npm,63.75,B,0.9375,Sweet Spot,1314,413,,311,
+414,apache,fory,maven,63.74,B,0.741666666667,Sweet Spot,368,414,,,
+415,typeorm,typeorm,npm,63.71,B,0.875,Sweet Spot,547,415,93,490,226
+416,wazero,wazero,go,63.69,B,0.866666666667,Sweet Spot,628,416,,321,316
+417,typescript-eslint,typescript-eslint,npm,63.68,B,0.8125,Sweet Spot,853,417,162,,74
+418,apache,fesod,maven,63.67,B,0.804166666667,Sweet Spot,346,418,,210,
+419,pmndrs,valtio,npm,63.67,B,0.7325,Sweet Spot,1117,419,,165,
+420,kulshekhar,ts-jest,npm,63.65,B,0.8625,Sweet Spot,815,420,185,805,
+421,vega,altair,pypi,63.63,B,1.0,Sweet Spot,1144,421,142,434,
+422,pykeio,ort,crates,63.63,B,0.9375,Sweet Spot,,422,,247,
+423,apache,skywalking,maven,63.61,B,1.0,Sweet Spot,344,423,,136,
+424,sequelize,sequelize,npm,63.61,B,0.9775,Sweet Spot,549,424,107,390,
+425,elastic,elasticsearch-js,npm,63.61,B,0.68,Sweet Spot,261,425,,,
+426,alibaba,open-code-review,go,63.59,B,0.8125,Sweet Spot,340,426,,108,433
+427,valkey-io,valkey,systems,63.58,B,0.8125,Sweet Spot,400,427,,,124
+428,ImageMagick,ImageMagick,systems,63.58,B,0.61,Nursery,889,428,,229,
+429,h3js,h3,npm,63.57,B,1.0,Sweet Spot,554,429,169,393,
+430,puppeteer,puppeteer,npm,63.56,B,0.8125,Sweet Spot,493,430,141,,216
+431,Foundry376,Mailspring,npm,63.55,B,0.8375,Sweet Spot,481,431,,241,
+432,vadimdemedes,ink,npm,63.54,B,1.0,Sweet Spot,758,432,183,441,
+433,mozilla,rhino,npm,63.52,B,0.8375,Sweet Spot,348,433,,315,
+434,maplibre,martin,crates,63.52,B,0.8125,Sweet Spot,238,434,,,
+435,tsuru,tsuru,go,63.52,B,0.8125,Sweet Spot,974,435,,,
+436,thanos-io,thanos,go,63.51,B,1.0,Sweet Spot,578,436,175,424,
+437,SoftEtherVPN,SoftEtherVPN,systems,63.51,B,0.7075,Sweet Spot,551,437,,,
+438,twisted,twisted,pypi,63.49,B,0.9775,Sweet Spot,445,438,245,728,
+439,chakra-ui,ark,npm,63.46,B,1.0,Sweet Spot,895,439,,260,
+440,opentoonz,opentoonz,systems,63.46,B,1.0,Sweet Spot,598,440,,230,
+441,rust-windowing,winit,crates,63.46,B,1.0,Sweet Spot,750,441,167,697,195
+442,ProvableHQ,leo,crates,63.45,B,1.0,Sweet Spot,596,442,,170,
+443,influxdata,telegraf,go,63.42,B,0.625833333333,Sweet Spot,389,443,,,339
+444,apache,logging-log4j2,maven,63.4,B,1.0,Sweet Spot,376,444,168,762,
+445,etcd-io,bbolt,go,63.4,B,0.9375,Sweet Spot,834,445,156,593,
+446,lalrpop,lalrpop,crates,63.39,B,0.7425,Sweet Spot,1087,446,240,,290
+447,be5invis,Iosevka,npm,63.38,B,0.675,Nursery,1318,447,,274,
+448,bitsandbytes-foundation,bitsandbytes,pypi,63.35,B,1.0,Sweet Spot,732,448,216,571,254
+449,rust-random,getrandom,crates,63.34,B,0.755,Sweet Spot,821,449,136,545,
+450,amber-lang,amber,crates,63.32,B,0.775,Sweet Spot,655,450,,176,
+451,eugeniughelbur,obsidian-second-brain,pypi,63.32,B,0.7625,Sweet Spot,303,451,,359,
+452,AFLplusplus,AFLplusplus,systems,63.31,B,1.0,Sweet Spot,982,452,,125,
+453,ratatui,ratatui,crates,63.31,B,0.925,Sweet Spot,286,453,244,1009,114
+454,temporalio,temporal,go,63.29,B,0.625833333333,Sweet Spot,354,454,,,224
+455,redis,lettuce,maven,63.27,B,1.0,Sweet Spot,685,455,159,332,
+456,encode,django-rest-framework,pypi,63.27,B,0.9775,Sweet Spot,787,456,187,885,156
+457,conda,conda,pypi,63.27,B,0.875,Sweet Spot,278,457,,,286
+458,jemalloc,jemalloc,systems,63.26,B,1.0,Sweet Spot,666,458,,323,
+459,lightgbm-org,LightGBM,systems,63.23,B,1.0,Sweet Spot,201,459,,476,
+460,claration,Impactor,crates,63.2,B,0.8375,Sweet Spot,908,460,,155,
+461,axios,axios,npm,63.18,B,0.875,Sweet Spot,470,461,181,,90
+462,fullstorydev,grpcurl,go,63.18,B,0.7925,Sweet Spot,782,462,263,637,261
+463,servo,servo,crates,63.16,B,0.655,Nursery,687,463,,,397
+464,magcius,noclip.website,npm,63.12,B,0.8375,Sweet Spot,868,464,,179,
+465,n0-computer,iroh,crates,63.1,B,0.875,Sweet Spot,240,465,,,
+466,kgateway-dev,kgateway,go,63.1,B,0.8125,Nursery,537,466,,81,
+467,flyteorg,flyte,go,63.08,B,0.8125,Sweet Spot,754,467,,,331
+468,qxcnm,Codex-Manager,crates,63.07,B,0.61,Sweet Spot,653,468,,287,
+469,geopandas,geopandas,pypi,63.06,B,1.0,Sweet Spot,377,469,155,777,
+470,aws-amplify,amplify-js,npm,63.03,B,0.9775,Sweet Spot,369,470,,456,
+471,microsoft,STL,systems,63.01,B,1.0,Sweet Spot,442,471,,225,394
+472,time-rs,time,crates,63.01,B,0.8625,Sweet Spot,333,472,232,925,
+473,kubernetes,minikube,go,63.01,B,0.625833333333,Nursery,922,473,,,547
+474,raineorshine,npm-check-updates,npm,63.0,B,1.0,Sweet Spot,718,474,154,453,
+475,pyinstaller,pyinstaller,pypi,62.99,B,0.9375,Sweet Spot,627,475,208,,
+476,apollographql,apollo-client,npm,62.99,B,0.9375,Sweet Spot,314,476,188,544,
+477,open-cli-tools,concurrently,npm,62.99,B,0.8625,Sweet Spot,1038,477,170,619,
+478,nanopb,nanopb,systems,62.97,B,0.915,Nursery,1140,478,,158,451
+479,tsukinaha,tsukimi,crates,62.97,B,0.7625,Sweet Spot,462,479,,465,
+480,rakshasa,rtorrent,systems,62.96,B,1.0,Sweet Spot,999,480,,,
+481,apolloconfig,apollo,maven,62.95,B,0.915,Sweet Spot,338,481,,474,
+482,aws,serverless-application-model,pypi,62.94,B,0.8375,Sweet Spot,444,482,,350,
+483,actix,actix-web,crates,62.93,B,1.0,Sweet Spot,1066,483,144,532,
+484,nodeca,js-yaml,npm,62.93,B,0.925,Sweet Spot,412,484,224,,
+485,quasarframework,quasar,npm,62.93,B,0.7725,Sweet Spot,643,485,,360,368
+486,tsconfig,bases,npm,62.92,B,0.685,Sweet Spot,1040,486,,244,428
+487,Ralim,IronOS,systems,62.9,B,0.915,Sweet Spot,768,487,,220,
+488,grpc,grpc-rust,crates,62.87,B,1.0,Sweet Spot,220,488,,492,
+489,gonum,gonum,go,62.84,B,0.89,Sweet Spot,1103,489,163,502,
+490,ml-explore,mlx,systems,62.84,B,0.8125,Sweet Spot,268,490,,,170
+491,tinymce,tinymce,npm,62.82,B,0.875,Sweet Spot,950,491,277,,278
+492,flipt-io,flipt,go,62.82,B,0.8125,Sweet Spot,630,492,,,
+493,python-trio,trio,pypi,62.81,B,0.9775,Sweet Spot,456,493,220,,
+494,marshmallow-code,marshmallow,pypi,62.8,B,0.975,Sweet Spot,998,494,196,,
+495,traccar,traccar,maven,62.8,B,0.866666666667,Sweet Spot,706,495,,,
+496,drogonframework,drogon,systems,62.78,B,1.0,Nursery,1464,496,,166,447
+497,fabricjs,fabric.js,npm,62.78,B,0.82,Sweet Spot,334,497,209,,
+498,k3s-io,k3s,go,62.76,B,0.875,Sweet Spot,542,498,,,
+499,protobufjs,protobuf.js,npm,62.72,B,0.9775,Sweet Spot,739,499,203,710,
+500,google,osv-scanner,go,62.72,B,0.875,Sweet Spot,374,500,,,350
+501,ranaroussi,yfinance,pypi,62.7,B,1.0,Sweet Spot,1003,501,173,473,
+502,libfuse,libfuse,systems,62.69,B,1.0,Sweet Spot,847,502,,286,
+503,opentofu,opentofu,go,62.69,B,0.875,Sweet Spot,306,503,,,
+504,fastapi,typer,pypi,62.68,B,0.9775,Sweet Spot,745,504,214,,
+505,qbittorrent,search-plugins,pypi,62.65,B,0.775,Sweet Spot,522,505,,272,
+506,podman-desktop,podman-desktop,npm,62.61,B,0.655,Sweet Spot,425,506,,,336
+507,fontforge,fontforge,systems,62.6,B,1.0,Nursery,849,507,,142,
+508,doitsujin,dxvk,systems,62.58,B,1.0,Sweet Spot,931,508,,319,
+509,MaaXYZ,MaaFramework,systems,62.57,B,1.0,Sweet Spot,856,509,,197,
+510,huggingface,peft,pypi,62.57,B,0.8125,Sweet Spot,249,510,282,,142
+511,urql-graphql,urql,npm,62.56,B,0.68,Sweet Spot,562,511,,,
+512,cargo-bins,cargo-binstall,crates,62.55,B,0.9375,Sweet Spot,757,512,,288,
+513,hyperium,h2,crates,62.54,B,1.0,Sweet Spot,967,513,200,439,
+514,chaijs,chai,npm,62.54,B,0.845,Sweet Spot,1263,514,111,691,250
+515,flipperdevices,flipperzero-firmware,systems,62.52,B,1.0,Sweet Spot,781,515,,436,345
+516,gruntwork-io,terratest,go,62.52,B,0.915,Sweet Spot,783,516,226,421,
+517,CloudCompare,CloudCompare,systems,62.51,B,0.9375,Sweet Spot,759,517,,410,
+518,koajs,koa,npm,62.5,B,0.9075,Sweet Spot,831,518,180,688,245
+519,libkrun,libkrun,crates,62.5,B,0.8375,Sweet Spot,273,519,,483,
+520,galacean,engine,npm,62.5,B,0.7425,Sweet Spot,556,520,,,285
+521,webrtc-rs,webrtc,crates,62.48,B,0.9375,Sweet Spot,1085,521,,,
+522,online-ml,river,pypi,62.48,B,0.925,Sweet Spot,485,522,,596,
+523,hyperium,http,crates,62.47,B,0.9375,Sweet Spot,1005,523,149,633,
+524,Project-OSRM,osrm-backend,systems,62.46,B,1.0,Sweet Spot,607,524,,343,
+525,reduxjs,redux-toolkit,npm,62.44,B,1.0,Sweet Spot,1047,525,164,674,256
+526,pyinfra-dev,pyinfra,pypi,62.43,B,1.0,Sweet Spot,284,526,,594,255
+527,IsmaelMartinez,teams-for-linux,npm,62.42,B,0.7125,Sweet Spot,324,527,,,
+528,DefGuard,defguard,crates,62.41,B,0.65,Sweet Spot,1082,528,,,424
+529,cilium,ebpf,go,62.38,B,1.0,Sweet Spot,351,529,236,824,
+530,kivy,kivy,pypi,62.38,B,0.9775,Sweet Spot,944,530,,333,
+531,hashicorp,nomad,go,62.37,B,0.8125,Sweet Spot,872,531,210,,
+532,luanti-org,luanti,systems,62.33,B,0.925,Sweet Spot,407,532,324,,178
+533,vllm-project,semantic-router,go,62.33,B,0.625833333333,Sweet Spot,450,533,,,371
+534,cockroachdb,pebble,go,62.28,B,0.925,Sweet Spot,733,534,247,778,
+535,CaffeineMC,sodium,maven,62.28,B,0.866666666667,Nursery,1425,535,,140,
+536,canonical,lxd,go,62.28,B,0.625833333333,Sweet Spot,383,536,,,237
+537,CrowCpp,Crow,systems,62.26,B,0.9375,Sweet Spot,775,537,,263,
+538,gogf,gf,go,62.25,B,1.0,Sweet Spot,570,538,205,719,236
+539,PyCQA,isort,pypi,62.24,B,1.0,Sweet Spot,859,539,148,760,
+540,prometheus,client_python,pypi,62.24,B,1.0,Sweet Spot,1036,540,179,841,204
+541,grpc,grpc-java,maven,62.24,B,0.925,Sweet Spot,529,541,279,700,
+542,goharbor,harbor,go,62.24,B,0.8125,Nursery,1287,542,,243,425
+543,marmelab,react-admin,npm,62.23,B,1.0,Sweet Spot,638,543,,,
+544,NVIDIA,nvidia-container-toolkit,go,62.23,B,0.925,Sweet Spot,482,544,,398,
+545,colmap,colmap,systems,62.22,B,0.875,Sweet Spot,391,545,,,
+546,ntop,nDPI,systems,62.2,B,0.8125,Sweet Spot,989,546,,,
+547,passteque,gluetun,go,62.19,B,0.804166666667,Sweet Spot,474,547,,362,
+548,dry-python,returns,pypi,62.19,B,0.705,Sweet Spot,1099,548,,,376
+549,vuejs,vitepress,npm,62.17,B,1.0,Sweet Spot,1224,549,193,404,
+550,apache,druid,maven,62.17,B,0.625833333333,Sweet Spot,367,550,,,415
+551,ExpressLRS,ExpressLRS,systems,62.15,B,0.9775,Sweet Spot,519,551,,628,
+552,BurntSushi,memchr,crates,62.13,B,0.725,Sweet Spot,443,552,256,989,179
+553,pmndrs,jotai,npm,62.12,B,0.7575,Sweet Spot,1015,553,221,475,
+554,AtalayaLabs,OxiCloud,crates,62.11,B,0.61,Nursery,1540,554,,208,
+555,tokio-rs,bytes,crates,62.1,B,0.745,Sweet Spot,1056,555,153,754,248
+556,knative,serving,go,62.07,B,1.0,Sweet Spot,1203,556,211,352,
+557,WasmEdge,WasmEdge,systems,62.07,B,0.875,Sweet Spot,361,557,,690,
+558,bjarneo,cliamp,go,62.07,B,0.743333333333,Nursery,1325,558,,91,542
+559,dottxt-ai,outlines,pypi,62.06,B,1.0,Sweet Spot,741,559,,444,343
+560,istio,istio,go,62.06,B,0.625833333333,Sweet Spot,903,560,,,284
+561,amannn,next-intl,npm,62.05,B,1.0,Sweet Spot,413,561,,482,
+562,botpress,botpress,npm,62.05,B,0.875,Sweet Spot,871,562,,,353
+563,valhalla,valhalla,systems,62.04,B,1.0,Sweet Spot,557,563,,543,
+564,nats-io,nats.go,go,62.04,B,1.0,Sweet Spot,332,564,197,875,
+565,HandBrake,HandBrake,systems,62.02,B,1.0,Sweet Spot,1243,565,,304,
+566,camunda,camunda,maven,62.01,B,0.625833333333,Nursery,545,566,,,672
+567,kubernetes-sigs,external-dns,go,61.98,B,0.875,Sweet Spot,304,567,,624,
+568,shirou,gopsutil,go,61.96,B,1.0,Sweet Spot,654,568,171,730,
+569,notionnext-org,NotionNext,npm,61.96,B,0.65,Sweet Spot,729,569,,,
+570,ag2ai,faststream,pypi,61.92,B,0.925,Sweet Spot,576,570,,411,
+571,AsahiLinux,m1n1,pypi,61.92,B,0.8875,Sweet Spot,403,571,,,
+572,beetbox,beets,pypi,61.92,B,0.6975,Sweet Spot,468,572,,185,473
+573,scrapy,scrapy,pypi,61.88,B,0.8125,Sweet Spot,743,573,219,579,
+574,seanmonstar,warp,crates,61.86,B,0.61,Sweet Spot,1347,574,288,,342
+575,vektra,mockery,go,61.84,B,0.915,Sweet Spot,1286,575,190,353,
+576,TeamNewPipe,NewPipe,maven,61.84,B,0.844166666667,Sweet Spot,934,576,,345,
+577,appium,appium,npm,61.84,B,0.8125,Sweet Spot,691,577,,,
+578,invertase,react-native-firebase,npm,61.83,B,0.9375,Sweet Spot,434,578,,620,
+579,google,zerocopy,crates,61.83,B,0.875,Sweet Spot,742,579,260,,
+580,davidhalter,jedi,pypi,61.78,B,0.8125,Sweet Spot,1147,580,269,,
+581,ionic-team,capacitor,npm,61.77,B,1.0,Sweet Spot,830,581,234,750,
+582,moonrepo,moon,crates,61.77,B,0.8375,Sweet Spot,798,582,,371,
+583,ai,size-limit,npm,61.77,B,0.655,Sweet Spot,1075,583,257,,
+584,aws,aws-lambda-web-adapter,crates,61.75,B,0.8375,Sweet Spot,604,584,,215,
+585,projectcalico,calico,go,61.73,B,0.625833333333,Nursery,814,585,,,589
+586,goss-org,goss,go,61.72,B,0.8625,Sweet Spot,548,586,,656,301
+587,AntennaPod,AntennaPod,maven,61.71,B,0.866666666667,Sweet Spot,631,587,,454,
+588,stleary,JSON-java,maven,61.71,B,0.781666666667,Sweet Spot,710,588,,409,381
+589,swc-project,swc,crates,61.71,B,0.7175,Sweet Spot,605,589,,,264
+590,mozilla,cbindgen,crates,61.69,B,0.74,Sweet Spot,1431,590,198,451,383
+591,async-profiler,async-profiler,systems,61.68,B,0.9375,Sweet Spot,824,591,,340,
+592,unionai-oss,pandera,pypi,61.66,B,0.8375,Sweet Spot,672,592,,655,
+593,NVIDIA,garak,pypi,61.66,B,0.7175,Sweet Spot,357,593,,318,390
+594,cerbos,cerbos,go,61.64,B,0.875,Sweet Spot,680,594,,,
+595,readthedocs,readthedocs.org,pypi,61.64,B,0.65,Sweet Spot,580,595,,,
+596,kubernetes-sigs,kind,go,61.62,B,0.9775,Sweet Spot,711,596,249,643,
+597,GitoxideLabs,gitoxide,crates,61.62,B,0.6975,Sweet Spot,559,597,,827,281
+598,flatpak,flatpak,systems,61.61,B,1.0,Sweet Spot,983,598,,346,
+599,wal-g,wal-g,go,61.59,B,0.925,Nursery,1158,599,,226,504
+600,zmkfirmware,zmk,systems,61.57,B,0.9775,Sweet Spot,641,600,,,235
+601,BurntSushi,toml,go,61.55,B,0.845,Sweet Spot,,601,215,,269
+602,eclipse-iceoryx,iceoryx2,crates,61.54,B,0.7675,Sweet Spot,587,602,,470,389
+603,oxidecomputer,hubris,crates,61.51,B,0.7125,Sweet Spot,599,603,,,
+604,OpenListTeam,OpenList,go,61.48,B,0.925,Sweet Spot,248,604,,548,354
+605,coturn,coturn,systems,61.46,B,0.84,Sweet Spot,920,605,,307,
+606,alvr-org,ALVR,crates,61.46,B,0.775,Sweet Spot,508,606,,480,366
+607,steipete,summarize,npm,61.44,B,0.61,Sweet Spot,796,607,,388,
+608,huggingface,accelerate,pypi,61.43,B,1.0,Sweet Spot,1237,608,172,801,252
+609,huggingface,pytorch-image-models,pypi,61.43,B,0.9375,Sweet Spot,1076,609,222,627,
+610,solidjs,solid,npm,61.43,B,0.8125,Sweet Spot,896,610,287,,
+611,ArthurSonzogni,FTXUI,systems,61.42,B,1.0,Sweet Spot,878,611,,309,
+612,MrGlockenspiel,activate-linux,systems,61.4,B,0.65,Sweet Spot,,612,,400,395
+613,NevaMind-AI,memU,pypi,61.39,B,1.0,Nursery,975,613,,199,499
+614,libvips,libvips,systems,61.39,B,0.9775,Sweet Spot,639,614,,533,
+615,pybind,pybind11,systems,61.38,B,1.0,Sweet Spot,375,615,,642,
+616,rq,rq,pypi,61.38,B,0.915,Sweet Spot,693,616,235,582,
+617,grafana,tempo,go,61.37,B,0.625833333333,Sweet Spot,,617,,,437
+618,yhirose,cpp-httplib,systems,61.36,B,1.0,Sweet Spot,1106,618,,314,
+619,emberjs,ember.js,npm,61.36,B,0.6475,Sweet Spot,761,619,,,327
+620,sandboxie-plus,Sandboxie,systems,61.35,B,1.0,Sweet Spot,1008,620,,423,
+621,makenotion,notion-sdk-js,npm,61.35,B,0.865,Sweet Spot,703,621,,,
+622,mozilla,uniffi-rs,crates,61.31,B,1.0,Sweet Spot,1134,622,,437,
+623,NG-ZORRO,ng-zorro-antd,npm,61.3,B,0.9775,Sweet Spot,591,623,,705,
+624,sqlalchemy,sqlalchemy,pypi,61.3,B,0.9775,Sweet Spot,1155,624,166,843,
+625,google,clasp,npm,61.29,B,0.755,Nursery,1162,625,,171,565
+626,WebAssembly,wabt,systems,61.26,B,0.915,Sweet Spot,667,626,,623,356
+627,kando-menu,kando,npm,61.26,B,0.8375,Nursery,1430,627,,205,
+628,ilya-zlobintsev,LACT,crates,61.25,B,0.815,Sweet Spot,997,628,,298,
+629,maciejhirsz,logos,crates,61.21,B,0.8175,Sweet Spot,1014,629,228,666,
+630,ProvableHQ,snarkOS,crates,61.21,B,0.6375,Sweet Spot,583,630,,,287
+631,flutter-webrtc,flutter-webrtc,systems,61.2,B,1.0,Sweet Spot,1359,631,,512,382
+632,getzola,zola,crates,61.19,B,0.8375,Sweet Spot,,632,,432,
+633,onsi,ginkgo,go,61.19,B,0.7875,Sweet Spot,876,633,255,982,
+634,plait-board,drawnix,npm,61.19,B,0.7525,Sweet Spot,282,634,,,
+635,open-policy-agent,gatekeeper,go,61.18,B,0.925,Sweet Spot,496,635,,726,295
+636,microsoft,rushstack,npm,61.16,B,1.0,Sweet Spot,784,636,201,590,
+637,pyqtgraph,pyqtgraph,pypi,61.16,B,1.0,Sweet Spot,863,637,271,832,
+638,ankitects,anki,crates,61.15,B,0.65,Sweet Spot,795,638,,798,259
+639,kovidgoyal,calibre,pypi,61.13,B,0.61,Nursery,1525,639,,310,
+640,wasmerio,wasmer,crates,61.12,B,0.6475,Sweet Spot,380,640,,,260
+641,include-what-you-use,include-what-you-use,systems,61.08,B,1.0,Sweet Spot,1100,641,,296,
+642,pallets,werkzeug,pypi,61.08,B,0.975,Sweet Spot,1569,642,192,,
+643,BYVoid,OpenCC,systems,61.08,B,0.925,Sweet Spot,746,643,,608,
+644,ko-build,ko,go,61.08,B,0.804166666667,Sweet Spot,956,644,,328,
+645,spicetify,cli,npm,61.07,B,0.8375,Sweet Spot,1131,645,,478,410
+646,truefoundry,trueforge,npm,61.07,B,0.8125,Nursery,567,646,,238,509
+647,cypress-io,cypress,npm,61.07,B,0.655,Sweet Spot,914,647,,,315
+648,guillaumemeyer,watermarks-remover,pypi,61.07,B,0.65,Sweet Spot,662,648,,,
+649,jtroo,kanata,crates,61.06,B,1.0,Nursery,1227,649,,211,529
+650,schollz,croc,go,61.05,B,1.0,Nursery,1068,650,,281,
+651,eclipse-vertx,vert.x,maven,61.05,B,0.791666666667,Sweet Spot,676,651,,670,
+652,espressif,arduino-esp32,systems,61.04,B,0.925,Sweet Spot,612,652,307,738,348
+653,zufuliu,notepad4,systems,61.04,B,0.7875,Nursery,1558,653,,200,
+654,redis,redis,systems,61.03,B,0.8125,Sweet Spot,850,654,,,291
+655,yewstack,yew,crates,61.0,B,0.755,Sweet Spot,1122,655,258,525,
+656,astral-sh,python-build-standalone,pypi,61.0,B,0.75,Sweet Spot,1250,656,,472,
+657,opencost,opencost,go,60.98,B,0.925,Sweet Spot,618,657,,715,307
+658,tree-sitter,tree-sitter,crates,60.96,B,0.875,Sweet Spot,927,658,284,,
+659,nicolargo,glances,pypi,60.95,B,1.0,Sweet Spot,779,659,,255,
+660,uber,NullAway,maven,60.95,B,1.0,Sweet Spot,509,660,,463,
+661,jasmine,jasmine,npm,60.95,B,0.68,Sweet Spot,1113,661,251,,
+662,spockframework,spock,maven,60.92,B,0.705,Sweet Spot,360,662,304,,
+663,microsoft,WSL,systems,60.91,B,0.8125,Sweet Spot,328,663,,,
+664,software-mansion,react-native-gesture-handler,npm,60.9,B,0.875,Sweet Spot,356,664,322,,
+665,moby,buildkit,go,60.9,B,0.618333333333,Sweet Spot,816,665,,,271
+666,kanidm,kanidm,crates,60.88,B,1.0,Sweet Spot,839,666,,294,
+667,quickwit-oss,tantivy,crates,60.87,B,0.9775,Sweet Spot,1020,667,275,799,
+668,pallets-eco,flask-admin,pypi,60.83,B,0.865,Sweet Spot,1012,668,,,
+669,remsky,Kokoro-FastAPI,pypi,60.83,B,0.7525,Sweet Spot,760,669,,431,
+670,hydra-ecosystem,hydra,pypi,60.82,B,0.915,Sweet Spot,804,670,223,541,
+671,boyter,scc,go,60.81,B,0.9375,Nursery,1388,671,,293,
+672,vanhauser-thc,thc-hydra,systems,60.81,B,0.8625,Nursery,1168,672,,282,
+673,python-visualization,folium,pypi,60.8,B,1.0,Sweet Spot,1080,673,261,613,
+674,matrix-construct,tuwunel,crates,60.8,B,0.61,Nursery,1519,674,,316,
+675,zsviczian,obsidian-excalidraw-plugin,npm,60.79,B,0.61,Nursery,1260,675,,355,
+676,pixijs,pixijs,npm,60.77,B,1.0,Sweet Spot,1179,676,243,743,
+677,tridactyl,tridactyl,npm,60.74,B,0.7525,Sweet Spot,751,677,,392,
+678,salsa-rs,salsa,crates,60.73,B,0.9775,Sweet Spot,1355,678,,445,
+679,nanomsg,nng,systems,60.73,B,0.95,Nursery,1624,679,,,
+680,alibaba,nacos,maven,60.72,B,0.679166666667,Sweet Spot,794,680,,,
+681,bkaradzic,bgfx,systems,60.71,B,0.9775,Nursery,1342,681,,264,
+682,nitrojs,nitro,npm,60.66,B,0.875,Sweet Spot,769,682,,,
+683,AsamK,signal-cli,maven,60.65,B,0.866666666667,Sweet Spot,1282,683,,347,
+684,reflex-dev,reflex,pypi,60.65,B,0.8125,Sweet Spot,535,684,,,
+685,dpgaspar,Flask-AppBuilder,pypi,60.64,B,0.755,Nursery,1485,685,,325,
+686,EvoScientist,EvoScientist,pypi,60.63,B,1.0,Nursery,670,686,,79,
+687,CesiumGS,cesium,npm,60.62,B,0.7675,Sweet Spot,629,687,,519,426
+688,ron-rs,ron,crates,60.62,B,0.7425,Sweet Spot,957,688,289,,266
+689,wolfpld,tracy,systems,60.6,B,0.61,Nursery,1486,689,,384,
+690,boto,boto3,pypi,60.59,B,0.9775,Sweet Spot,1199,690,267,,
+691,mobxjs,mobx,npm,60.58,B,1.0,Sweet Spot,1119,691,239,800,
+692,NVIDIA,cuml,pypi,60.58,B,0.8125,Sweet Spot,436,692,,,
+693,hathach,tinyusb,systems,60.57,B,0.605,Sweet Spot,452,693,,1070,
+694,Activiti,Activiti,maven,60.55,B,1.0,Sweet Spot,705,694,,,391
+695,chubin,wttr.in,go,60.53,B,0.866666666667,Nursery,1232,695,,302,
+696,stakater,Reloader,go,60.52,B,1.0,Nursery,777,696,,377,
+697,golangci,golangci-lint,go,60.48,B,1.0,Sweet Spot,1105,697,217,,
+698,remix-run,react-router,npm,60.47,B,0.875,Sweet Spot,884,698,272,,
+699,sindresorhus,ky,npm,60.47,B,0.755,Sweet Spot,731,699,274,682,
+700,koodo-reader,koodo-reader,npm,60.47,B,0.61,Sweet Spot,890,700,,,
+701,gethomepage,homepage,npm,60.45,B,0.7125,Sweet Spot,448,701,,,
+702,microsoft,winget-cli,systems,60.44,B,1.0,Sweet Spot,437,702,,514,
+703,rehan-remade,universal-modder,pypi,60.43,B,0.65,Sweet Spot,575,703,,,363
+704,biliup,biliup,crates,60.4,B,0.775,Nursery,1688,704,,271,
+705,django-cms,django-cms,pypi,60.35,B,0.9,Sweet Spot,924,705,,506,
+706,ckan,ckan,pypi,60.35,B,0.7725,Sweet Spot,1368,706,,455,427
+707,meetecho,janus-gateway,systems,60.34,B,0.915,Sweet Spot,875,707,,395,
+708,virgiliojr94,book-to-skill,pypi,60.34,B,0.7625,Sweet Spot,517,708,,486,
+709,tw93,Pake,crates,60.33,B,0.8375,Sweet Spot,828,709,,510,
+710,MetaCubeX,metacubexd,npm,60.32,B,0.74,Nursery,1408,710,,266,
+711,cytoscape,cytoscape.js,npm,60.29,B,0.915,Sweet Spot,709,711,283,701,
+712,linebender,vello,crates,60.29,B,0.875,Sweet Spot,515,712,,,
+713,apache,tomcat,maven,60.29,B,0.68,Sweet Spot,725,713,,,
+714,citusdata,citus,systems,60.27,B,1.0,Sweet Spot,748,714,,401,470
+715,veracrypt,VeraCrypt,systems,60.25,B,0.9775,Sweet Spot,1037,715,,493,
+716,cemu-project,Cemu,systems,60.24,B,1.0,Sweet Spot,958,716,,517,
+717,rizinorg,cutter,systems,60.22,B,0.8925,Sweet Spot,366,717,,402,
+718,autogluon,autogluon,pypi,60.21,B,1.0,Sweet Spot,1011,718,,551,
+719,modelcontextprotocol,go-sdk,go,60.18,B,1.0,Sweet Spot,563,719,,338,492
+720,microsoft,agent-governance-toolkit,pypi,60.18,B,0.655,Sweet Spot,430,720,,,488
+721,Acode-Foundation,Acode,npm,60.17,B,0.7125,Sweet Spot,1404,721,,,
+722,OGRECave,ogre,systems,60.16,B,0.865,Nursery,1453,722,,,
+723,select2,select2,npm,60.15,B,0.8125,Sweet Spot,901,723,,,275
+724,alicevision,Meshroom,pypi,60.15,B,0.7125,Sweet Spot,565,724,,,
+725,flameshot-org,flameshot,systems,60.07,B,1.0,Sweet Spot,1127,725,,588,
+726,xonsh,xonsh,pypi,60.07,B,0.7725,Sweet Spot,1049,726,,435,478
+727,getsops,sops,go,60.06,B,1.0,Sweet Spot,935,727,,604,
+728,gyscos,cursive,crates,60.06,B,0.78,Sweet Spot,1376,728,,536,
+729,stretchr,testify,go,60.03,B,0.9775,Sweet Spot,1034,729,248,,
+730,Universal-Debloater-Alliance,universal-android-debloater-next-generation,crates,60.0,B,0.8375,Sweet Spot,1333,730,,597,401
+731,libcpr,cpr,systems,59.99,B,0.9375,Sweet Spot,1077,731,,601,407
+732,pmndrs,react-spring,npm,59.97,B,0.8625,Sweet Spot,674,732,313,879,
+733,pulldown-cmark,pulldown-cmark,crates,59.97,B,0.7525,Sweet Spot,766,733,,833,324
+734,awslabs,aws-sdk-rust,crates,59.97,B,0.6925,Sweet Spot,259,734,,,
+735,moesnow,March7thAssistant,pypi,59.95,B,0.61,Nursery,1432,735,,367,
+736,BigBodyCobain,Shadowbroker,pypi,59.93,B,0.8375,Nursery,1393,736,,252,
+737,certbot,certbot,pypi,59.92,B,1.0,Sweet Spot,1010,737,,587,
+738,danger,danger-js,npm,59.92,B,0.7875,Sweet Spot,1236,738,317,779,
+739,java-native-access,jna,maven,59.9,B,0.8125,Sweet Spot,1094,739,333,,
+740,harry0703,MoneyPrinterTurbo,pypi,59.9,B,0.65,Sweet Spot,1107,740,,,
+741,ben-manes,caffeine,maven,59.89,B,0.8125,Sweet Spot,581,741,330,,
+742,ClassicOldSong,Apollo,systems,59.88,B,0.8,Sweet Spot,297,742,,,411
+743,PyO3,maturin,crates,59.87,B,1.0,Sweet Spot,1078,743,,368,
+744,antvis,X6,npm,59.87,B,0.78,Sweet Spot,1582,744,,396,
+745,Kinto,kinto,pypi,59.86,B,0.84,Nursery,1063,745,,285,
+746,cloudflare,quiche,crates,59.85,B,0.9775,Sweet Spot,623,746,,830,
+747,scikit-image,scikit-image,pypi,59.83,B,0.9775,Sweet Spot,764,747,264,,212
+748,liquibase,liquibase,maven,59.82,B,0.791666666667,Sweet Spot,1001,748,,731,
+749,opennextjs,opennextjs-aws,npm,59.81,B,1.0,Sweet Spot,590,749,,462,
+750,caronc,apprise,pypi,59.78,B,1.0,Sweet Spot,1391,750,,530,
+751,google,gson,maven,59.78,B,0.9775,Sweet Spot,827,751,237,860,
+752,firebase,firebase-tools,npm,59.77,B,0.8125,Sweet Spot,995,752,296,,
+753,autobase-tech,autobase,npm,59.77,B,0.775,Nursery,1580,753,,351,
+754,panjf2000,ants,go,59.77,B,0.6875,Sweet Spot,2064,754,270,578,461
+755,irbis-sh,zen-desktop,go,59.71,B,0.9775,Nursery,484,755,,267,
+756,homebridge,homebridge,npm,59.7,B,0.8125,Sweet Spot,724,756,,,
+757,THU-MAIC,OpenMAIC,npm,59.7,B,0.8125,Nursery,579,757,,213,
+758,aquasecurity,trivy,go,59.69,B,0.875,Sweet Spot,855,758,254,555,
+759,AdnanHodzic,auto-cpufreq,pypi,59.68,B,0.775,Sweet Spot,897,759,,523,
+760,ovh,cds,go,59.64,B,0.6675,Sweet Spot,801,760,,,
+761,MemoriLabs,Memori,pypi,59.62,B,1.0,Nursery,1240,761,,239,
+762,ant-design,pro-components,npm,59.61,B,0.8125,Sweet Spot,1751,762,,,
+763,syncthing,syncthing,go,59.6,B,0.9775,Sweet Spot,932,763,,,
+764,Kozea,WeasyPrint,pypi,59.59,B,1.0,Sweet Spot,1069,764,242,732,
+765,microsoft,pyright,pypi,59.56,B,0.8375,Sweet Spot,510,765,,522,
+766,zxing,zxing,maven,59.55,B,0.925,Sweet Spot,1436,766,,803,
+767,RubyMetric,chsrc,systems,59.55,B,0.8175,Sweet Spot,414,767,,771,
+768,GothenburgBitFactory,taskwarrior,systems,59.54,B,0.9375,Sweet Spot,1042,768,,592,435
+769,Sigil-Ebook,Sigil,systems,59.54,B,0.7375,Sweet Spot,1048,769,,,
+770,cjpais,Handy,crates,59.54,B,0.7125,Sweet Spot,1039,770,,,
+771,solidjs,solid-start,npm,59.53,B,0.9775,Sweet Spot,951,771,,,361
+772,cberner,redb,crates,59.49,B,0.8625,Sweet Spot,968,772,332,815,
+773,SpikeHD,Dorion,crates,59.49,B,0.7525,Nursery,1593,773,,237,
+774,eosphoros-ai,DB-GPT,pypi,59.48,B,1.0,Nursery,844,774,,295,551
+775,deeplethe,utopia,crates,59.47,B,0.65,Nursery,1702,775,,,
+776,confluentinc,confluent-kafka-go,go,59.46,B,0.9775,Sweet Spot,877,776,246,617,
+777,uswds,uswds,npm,59.46,B,0.9775,Sweet Spot,1114,777,,553,
+778,unit8co,darts,pypi,59.45,B,1.0,Sweet Spot,894,778,,575,
+779,Gnucash,gnucash,systems,59.45,B,0.61,Sweet Spot,1029,779,,527,
+780,uNetworking,uWebSockets.js,systems,59.44,B,0.915,Sweet Spot,1259,780,,471,
+781,Automattic,mongoose,npm,59.43,B,0.6975,Sweet Spot,1280,781,,1036,311
+782,fishjar,kiss-translator,npm,59.41,B,0.8375,Nursery,1597,782,,466,
+783,lldap,lldap,crates,59.35,B,1.0,Nursery,1043,783,,204,595
+784,salvo-rs,salvo,crates,59.35,B,0.8625,Nursery,1826,784,,373,
+785,pocket-id,pocket-id,go,59.34,B,1.0,Nursery,645,785,,301,
+786,cosmos,cosmos-sdk,go,59.34,B,0.6075,Crucible,337,786,305,,
+787,lionsoul2014,ip2region,go,59.33,B,0.79,Nursery,1792,787,,,
+788,refined-github,refined-github,npm,59.3,B,0.65,Sweet Spot,699,788,,,
+789,qbittorrent,qBittorrent,systems,59.29,B,0.875,Sweet Spot,511,789,,,
+790,topgrade-rs,topgrade,crates,59.27,B,0.875,Nursery,682,790,,,
+791,cyberbotics,webots,systems,59.25,B,0.775,Sweet Spot,772,791,,,
+792,marc2332,freya,crates,59.24,B,0.875,Sweet Spot,992,792,,,
+793,traefik,traefik,go,59.24,B,0.8125,Sweet Spot,644,793,,,280
+794,violentmonkey,violentmonkey,npm,59.23,B,0.7525,Sweet Spot,1051,794,,638,
+795,FalkorDB,FalkorDB,crates,59.23,B,0.65,Sweet Spot,712,795,,806,337
+796,maboloshi,github-chinese,npm,59.22,B,0.8375,Nursery,1256,796,,418,
+797,intelowlproject,IntelOwl,pypi,59.22,B,0.7125,Sweet Spot,1166,797,,,417
+798,bethington,ghidra-mcp,maven,59.22,B,0.61,Sweet Spot,382,798,,711,
+799,kanbn,kan,npm,59.2,B,0.8375,Sweet Spot,1017,799,,415,
+800,riverqueue,river,go,59.19,B,1.0,Nursery,862,800,,212,
+801,Netflix,zuul,maven,59.19,B,1.0,Sweet Spot,1297,801,,520,
+802,deepspeedai,DeepSpeed,pypi,59.17,B,0.8125,Sweet Spot,621,802,370,,148
+803,elastic,logstash,maven,59.17,B,0.679166666667,Sweet Spot,634,803,,,430
+804,lexiforest,curl_cffi,pypi,59.16,B,1.0,Sweet Spot,,804,281,639,
+805,fmtlib,fmt,systems,59.16,B,1.0,Sweet Spot,969,805,,562,
+806,RsyncProject,rsync,systems,59.16,B,0.9775,Sweet Spot,1187,806,,667,
+807,rust-cross,cargo-zigbuild,crates,59.16,B,0.8775,Nursery,1288,807,,467,
+808,neutrinolabs,xrdp,systems,59.16,B,0.865,Sweet Spot,1061,808,,,
+809,jd,tenacity,pypi,59.15,B,0.9375,Sweet Spot,1356,809,231,915,
+810,pypa,pipenv,pypi,59.14,B,0.9,Sweet Spot,1749,810,,573,
+811,assimp,assimp,systems,59.13,B,1.0,Sweet Spot,1411,811,,671,419
+812,scriptscat,scriptcat,npm,59.13,B,0.7,Sweet Spot,695,812,,831,
+813,psf,requests,pypi,59.1,B,0.9775,Sweet Spot,1261,813,286,,
+814,nolimits4web,swiper,npm,59.09,B,0.8625,Sweet Spot,1235,814,266,817,
+815,James-Yu,LaTeX-Workshop,npm,59.09,B,0.7,Nursery,1426,815,,417,
+816,Snailclimb,JavaGuide,npm,59.08,B,0.8375,Nursery,1468,816,,495,
+817,qtile,qtile,pypi,59.07,B,1.0,Nursery,1193,817,,324,
+818,grpc,grpc-node,npm,59.07,B,0.8875,Sweet Spot,1481,818,250,,
+819,zizmorcore,zizmor,crates,59.07,B,0.875,Nursery,735,819,,380,
+820,expressjs,body-parser,npm,59.07,B,0.6925,Sweet Spot,1023,820,292,,
+821,pydantic,logfire,pypi,59.06,B,0.8125,Sweet Spot,1375,821,,,
+822,CopilotKit,OpenBot,npm,59.06,B,0.65,Nursery,1382,822,,,480
+823,taikoxyz,taiko-mono,crates,59.06,B,0.65,Sweet Spot,874,823,,,
+824,lycheeverse,lychee,crates,59.05,B,1.0,Sweet Spot,797,824,,497,
+825,danielgtaylor,huma,go,59.04,B,1.0,Sweet Spot,1214,825,,644,440
+826,hyperlight-dev,hyperlight,crates,58.98,B,0.875,Sweet Spot,571,826,,,
+827,jarun,nnn,systems,58.98,B,0.8125,Nursery,1303,827,,,
+828,Imbad0202,academic-research-skills,pypi,58.98,B,0.65,Sweet Spot,677,828,,,
+829,home-assistant,operating-system,pypi,58.97,B,0.775,Sweet Spot,546,829,,649,
+830,luau-lang,luau,systems,58.96,B,1.0,Sweet Spot,1255,830,,,
+831,serenity-rs,serenity,crates,58.95,B,0.93,Sweet Spot,1238,831,,733,413
+832,import-js,eslint-plugin-import,npm,58.95,B,0.925,Sweet Spot,1383,832,253,1060,
+833,nodejs,nodejs.org,npm,58.94,B,0.875,Nursery,961,833,,,494
+834,memgraph,memgraph,systems,58.92,B,0.8125,Sweet Spot,1231,834,,308,
+835,zloirock,core-js,npm,58.9,B,0.7075,Sweet Spot,1471,835,278,,
+836,slatedb,slatedb,crates,58.89,B,0.875,Sweet Spot,409,836,,,403
+837,aws-samples,aws-cdk-examples,npm,58.89,B,0.6275,Nursery,1753,837,,,
+838,style-dictionary,style-dictionary,npm,58.87,B,0.9375,Sweet Spot,1108,838,268,717,
+839,apache,maven,maven,58.87,B,0.8125,Sweet Spot,720,839,,,
+840,code-charity,youtube,npm,58.85,B,0.8375,Nursery,1879,840,,334,
+841,squidfunk,mkdocs-material,pypi,58.84,B,0.8025,Sweet Spot,1410,841,273,912,
+842,diffplug,spotless,maven,58.83,B,1.0,Sweet Spot,1450,842,,484,
+843,crate-ci,typos,crates,58.83,B,0.9375,Sweet Spot,,843,,552,
+844,vuejs,language-tools,npm,58.82,B,1.0,Nursery,1789,844,,381,
+845,LibreCAD,LibreCAD,systems,58.82,B,1.0,Nursery,1509,845,,507,
+846,pymc-devs,pymc,pypi,58.81,B,0.9775,Sweet Spot,1091,846,290,818,
+847,optuna,optuna,pypi,58.8,B,0.6975,Sweet Spot,963,847,,1101,299
+848,brianvoe,gofakeit,go,58.79,B,0.655,Sweet Spot,1367,848,343,,
+849,pinojs,pino,npm,58.78,B,1.0,Sweet Spot,1501,849,241,977,329
+850,ansible,awx,pypi,58.78,B,0.925,Sweet Spot,891,850,,518,
+851,kyutai-labs,pocket-tts,pypi,58.76,B,1.0,Sweet Spot,657,851,,428,
+852,timqian,chinese-independent-blogs,pypi,58.75,B,0.8375,Nursery,1739,852,,485,
+853,vuejs,pinia,npm,58.74,B,0.9375,Sweet Spot,1194,853,302,941,
+854,conductor-oss,conductor,maven,58.74,B,0.875,Nursery,892,854,,,
+855,plotly,plotly.js,npm,58.74,B,0.7725,Sweet Spot,539,855,,561,496
+856,jeffvli,feishin,npm,58.74,B,0.61,Sweet Spot,1073,856,,560,
+857,dpkp,kafka-python,pypi,58.73,B,0.84,Sweet Spot,1465,857,276,763,
+858,rachelos,we-mp-rss,pypi,58.72,B,0.7625,Nursery,1585,858,,407,
+859,deepset-ai,haystack,pypi,58.72,B,0.655,Sweet Spot,421,859,,,384
+860,libusb,libusb,systems,58.71,B,0.9775,Sweet Spot,649,860,,,
+861,apache,dubbo,maven,58.71,B,0.925,Sweet Spot,887,861,,379,527
+862,markdown-it,markdown-it,npm,58.69,B,0.925,Sweet Spot,913,862,314,,
+863,eclipse-che,che,npm,58.67,B,0.875,Nursery,659,863,,326,
+864,wasm-micro-runtime,wasm-micro-runtime,systems,58.66,B,1.0,Sweet Spot,1219,864,,457,
+865,containerd,nerdctl,go,58.66,B,0.668333333333,Sweet Spot,930,865,,1019,360
+866,bvaughn,react-error-boundary,npm,58.66,B,0.655,Sweet Spot,1339,866,334,,
+867,apache,tvm,pypi,58.66,B,0.655,Sweet Spot,902,867,,,399
+868,vrtmrz,obsidian-livesync,npm,58.66,B,0.61,Sweet Spot,622,868,,734,
+869,BurntSushi,jiff,crates,58.65,B,1.0,Sweet Spot,810,869,,503,
+870,sumatrapdfreader,sumatrapdf,systems,58.65,B,0.61,Nursery,1587,870,,,
+871,anyproto,anytype-ts,npm,58.65,B,0.605,Sweet Spot,1460,871,,923,
+872,SBoudrias,Inquirer.js,npm,58.63,B,0.9375,Sweet Spot,962,872,,789,
+873,tailwindlabs,tailwindcss,npm,58.63,B,0.925,Sweet Spot,1398,873,293,1092,
+874,karlstav,cava,systems,58.63,B,0.78,Nursery,1459,874,,403,
+875,jj-vcs,jj,crates,58.63,B,0.655,Sweet Spot,536,875,,,446
+876,renovatebot,renovate,npm,58.62,B,0.655,Sweet Spot,594,876,,665,479
+877,apache,age,systems,58.56,B,1.0,Sweet Spot,1059,877,,647,
+878,servo,rust-url,crates,58.55,B,0.9075,Sweet Spot,1300,878,299,1143,283
+879,x64dbg,x64dbg,systems,58.54,B,0.9775,Sweet Spot,1396,879,,526,
+880,emilk,egui,crates,58.54,B,0.875,Crucible,882,880,303,,
+881,google,pprof,go,58.54,B,0.795,Sweet Spot,1025,881,291,,409
+882,topoteretes,cognee,pypi,58.54,B,0.655,Sweet Spot,1279,882,,349,523
+883,adbar,trafilatura,pypi,58.53,B,0.8625,Sweet Spot,1241,883,352,1020,349
+884,node-red,node-red,npm,58.47,B,1.0,Sweet Spot,1406,884,,574,
+885,DarkFlippers,unleashed-firmware,systems,58.47,B,0.9375,Sweet Spot,1229,885,,645,
+886,rust-lang,mdBook,crates,58.46,B,1.0,Sweet Spot,786,886,312,1056,
+887,brndnmtthws,conky,systems,58.46,B,0.9375,Sweet Spot,704,887,,695,
+888,p-e-w,heretic,pypi,58.45,B,1.0,Nursery,1245,888,,289,
+889,apify,crawlee-python,pypi,58.44,B,0.925,Sweet Spot,624,889,,696,
+890,apple,coremltools,pypi,58.43,B,1.0,Sweet Spot,1369,890,,842,388
+891,stefanprodan,podinfo,go,58.43,B,0.7575,Nursery,1577,891,,337,
+892,liveblocks,liveblocks,npm,58.42,B,0.875,Sweet Spot,1143,892,,,
+893,official-stockfish,Stockfish,systems,58.42,B,0.805,Sweet Spot,1642,893,,,412
+894,rainbow-me,rainbow,npm,58.4,B,0.7125,Sweet Spot,848,894,,,
+895,jacob-bd,gemini-notebook-mcp-cli,pypi,58.39,B,1.0,Nursery,1320,895,,227,
+896,ariga,atlas,go,58.37,B,0.915,Sweet Spot,1535,896,342,,370
+897,lutris,lutris,pypi,58.37,B,0.8375,Sweet Spot,1323,897,,718,
+898,ValueCell-ai,ClawX,npm,58.36,B,0.6375,Sweet Spot,1538,898,,,
+899,rqlite,rqlite,go,58.35,B,0.925,Sweet Spot,660,899,,804,
+900,getsentry,responses,pypi,58.34,B,0.8625,Sweet Spot,1274,900,339,1218,251
+901,ok-oldking,ok-wuthering-waves,pypi,58.34,B,0.8375,Nursery,1771,901,,452,
+902,microsoft,playwright-python,pypi,58.33,B,0.9775,Sweet Spot,723,902,321,,
+903,searxng,searxng,pypi,58.33,B,0.65,Sweet Spot,964,903,,,
+904,wxt-dev,wxt,npm,58.32,B,0.925,Sweet Spot,640,904,,689,
+905,burrowers,garble,go,58.3,B,0.915,Sweet Spot,651,905,,,
+906,pgcentralfoundation,pgrx,crates,58.29,B,1.0,Sweet Spot,1165,906,,634,
+907,GitbookIO,gitbook,npm,58.29,B,0.875,Sweet Spot,1234,907,,,467
+908,pentaho,pentaho-kettle,maven,58.28,B,0.741666666667,Nursery,1381,908,,,
+909,awsdocs,aws-doc-sdk-examples,maven,58.27,B,0.729166666667,Sweet Spot,573,909,,852,405
+910,py-why,dowhy,pypi,58.26,B,1.0,Sweet Spot,747,910,,868,375
+911,zerobrewhq,zerobrew,crates,58.25,B,0.8375,Nursery,1476,911,,464,
+912,jenkins-x,jx,go,58.23,B,0.7375,Nursery,1764,912,,,
+913,freedomofpress,dangerzone,pypi,58.22,B,0.775,Sweet Spot,948,913,,567,
+914,winnow-rs,winnow,crates,58.21,B,0.68,Sweet Spot,,914,353,,
+915,hashicorp,consul,go,58.2,B,0.875,Sweet Spot,1178,915,294,,
+916,bytecodealliance,javy,crates,58.2,B,0.85,Nursery,1213,916,,,
+917,Flowseal,tg-ws-proxy,pypi,58.2,B,0.8375,Sweet Spot,1357,917,,607,
+918,ClementTsang,bottom,crates,58.19,B,0.9375,Nursery,906,918,,366,
+919,tinacms,tinacms,npm,58.19,B,0.875,Sweet Spot,835,919,,658,507
+920,pingcap,tidb,go,58.18,B,0.625833333333,Crucible,701,920,,,367
+921,s3fs-fuse,s3fs-fuse,systems,58.17,B,0.8775,Sweet Spot,938,921,,598,
+922,godot-rust,gdext,crates,58.13,B,1.0,Nursery,1198,922,,389,
+923,osm-search,Nominatim,pypi,58.13,B,1.0,Sweet Spot,589,923,,,
+924,justlovemaki,AIClient2API,npm,58.13,B,0.8375,Nursery,1911,924,,499,
+925,cachix,devenv,crates,58.13,B,0.61,Nursery,1495,925,,576,
+926,mlpack,mlpack,systems,58.12,B,0.915,Sweet Spot,489,926,,,
+927,php,frankenphp,go,58.12,B,0.791666666667,Sweet Spot,1121,927,,822,
+928,graphql,graphql-js,npm,58.11,B,0.9775,Sweet Spot,2016,928,230,839,
+929,getlago,lago,go,58.09,B,0.9775,Nursery,1488,929,,251,
+930,lucasgelfond,zerobrew,crates,58.07,B,0.8375,Nursery,1504,930,,430,
+931,coleifer,huey,pypi,58.07,B,0.7125,Sweet Spot,1455,931,,,
+932,backstage,backstage,npm,58.07,B,0.655,Sweet Spot,819,932,,498,503
+933,pgbackrest,pgbackrest,systems,58.06,B,0.9375,Sweet Spot,1027,933,,679,
+934,Mailu,Mailu,pypi,58.06,B,0.815,Sweet Spot,1402,934,,712,
+935,photoprism,photoprism,go,58.05,B,0.790833333333,Sweet Spot,637,935,,,393
+936,carthage-software,mago,crates,58.05,B,0.6475,Nursery,1701,936,,,538
+937,wg-easy,wg-easy,npm,58.03,B,0.8375,Nursery,1774,937,,531,
+938,pypa,pipx,pypi,58.02,B,1.0,Nursery,1874,938,,572,
+939,ScrapeGraphAI,Scrapegraph-ai,pypi,57.98,B,0.8375,Sweet Spot,1394,939,,635,
+940,pimalaya,himalaya,crates,57.97,B,1.0,Nursery,836,940,,521,
+941,linebender,resvg,crates,57.97,B,0.9775,Sweet Spot,1293,941,331,,319
+942,NLnetLabs,unbound,systems,57.96,B,0.9375,Sweet Spot,1190,942,,641,
+943,pwr-Solaar,Solaar,pypi,57.96,B,0.8375,Sweet Spot,1395,943,,622,
+944,leptos-rs,leptos,crates,57.95,B,1.0,Sweet Spot,1353,944,311,844,
+945,OpenVPN,openvpn,systems,57.95,B,0.84,Sweet Spot,988,945,,,
+946,kvcache-ai,AgentENV,crates,57.94,B,0.65,Sweet Spot,683,946,,,400
+947,openfga,openfga,go,57.93,B,0.925,Sweet Spot,664,947,,565,534
+948,raspberrypi,linux,systems,57.93,B,0.61,Nursery,1386,948,,657,
+949,lbjlaq,Antigravity-Manager,crates,57.92,B,0.61,Nursery,1439,949,,630,
+950,neuml,txtai,pypi,57.91,B,0.9775,Nursery,1267,950,,,
+951,carla-simulator,carla,systems,57.88,B,1.0,Sweet Spot,905,951,,796,
+952,sxyazi,yazi,crates,57.87,B,1.0,Sweet Spot,1000,952,,632,
+953,gohugoio,hugo,go,57.87,B,0.875,Sweet Spot,936,953,362,,
+954,NotionX,react-notion-x,npm,57.87,B,0.7075,Sweet Spot,942,954,,,
+955,anchore,grype,go,57.86,B,0.925,Sweet Spot,1365,955,,985,378
+956,trifectatechfoundation,sudo-rs,crates,57.84,B,1.0,Sweet Spot,530,956,,468,
+957,rr-debugger,rr,systems,57.84,B,0.84,Nursery,1521,957,,515,
+958,morpheus65535,bazarr,pypi,57.83,B,0.8375,Sweet Spot,1667,958,,564,
+959,googleapis,google-api-go-client,go,57.82,B,0.915,Sweet Spot,1625,959,265,809,
+960,Zipstack,unstract,pypi,57.81,B,0.7125,Sweet Spot,1419,960,,,486
+961,immerjs,immer,npm,57.8,B,0.925,Sweet Spot,1371,961,323,1183,
+962,linebender,xilem,crates,57.79,B,1.0,Sweet Spot,811,962,,542,
+963,nuclio,nuclio,go,57.79,B,0.925,Nursery,926,963,,802,
+964,ionic-team,ionic-framework,npm,57.79,B,0.875,Sweet Spot,1230,964,,,377
+965,ant-design,ant-design-pro,npm,57.79,B,0.795,Sweet Spot,793,965,,589,
+966,e2b-dev,E2B,pypi,57.77,B,0.8125,Sweet Spot,734,966,,,
+967,modelcontextprotocol,rust-sdk,crates,57.76,B,0.875,Sweet Spot,899,967,,,
+968,NapNeko,NapCatQQ,npm,57.76,B,0.8375,Nursery,1848,968,,540,
+969,oomol-lab,open-connector,npm,57.76,B,0.8125,Nursery,1361,969,,,583
+970,dherault,serverless-offline,npm,57.75,B,0.7575,Sweet Spot,1124,970,,768,
+971,Kozea,Radicale,pypi,57.73,B,0.7725,Nursery,1655,971,,313,682
+972,binarywang,WxJava,maven,57.7,B,0.866666666667,Sweet Spot,1409,972,,612,
+973,ntex-rs,ntex,crates,57.7,B,0.8625,Sweet Spot,1596,973,,807,
+974,swagger-api,swagger-editor,npm,57.69,B,0.865,Nursery,1334,974,,,
+975,toml-rs,toml,crates,57.69,B,0.7575,Crucible,,975,259,1090,
+976,Rich-Harris,degit,npm,57.69,B,0.7375,Sweet Spot,1026,976,,,
+977,open-multi-agent,open-multi-agent,npm,57.68,B,0.9775,Nursery,955,977,,365,
+978,goadesign,goa,go,57.67,B,0.925,Sweet Spot,730,978,,988,
+979,SukkaW,Surge,npm,57.67,B,0.7525,Nursery,885,979,,500,
+980,ccfos,nightingale,go,57.66,B,1.0,Nursery,1310,980,,443,
+981,pcottle,learnGitBranching,npm,57.65,B,0.9375,Nursery,869,981,,297,
+982,mockoon,mockoon,npm,57.65,B,0.7325,Sweet Spot,702,982,,600,
+983,dop251,goja,go,57.64,B,0.915,Sweet Spot,1483,983,344,,
+984,OpenFeign,feign,maven,57.63,B,0.925,Sweet Spot,785,984,359,1052,
+985,MagicMirrorOrg,MagicMirror,npm,57.62,B,0.845,Nursery,765,985,,669,518
+986,mierak,rmpc,crates,57.61,B,1.0,Nursery,1089,986,,236,
+987,graphql,graphiql,npm,57.59,B,1.0,Nursery,1820,987,,584,
+988,InternLM,lmdeploy,pypi,57.59,B,0.7125,Sweet Spot,1058,988,,,322
+989,Hufe921,canvas-editor,npm,57.58,B,0.73,Nursery,1115,989,,,
+990,LizardByte,Sunshine,systems,57.56,B,0.8125,Sweet Spot,1055,990,,,
+991,eclipse-zenoh,zenoh,crates,57.55,B,1.0,Sweet Spot,1692,991,,793,474
+992,angular,angular-cli,npm,57.54,B,0.655,Sweet Spot,471,992,,,464
+993,TheAlgorithms,Java,maven,57.53,B,0.791666666667,Sweet Spot,1505,993,,,432
+994,amoffat,sh,pypi,57.51,B,0.7375,Sweet Spot,1295,994,368,,
+995,sinonjs,sinon,npm,57.5,B,0.9775,Sweet Spot,1590,995,252,1022,
+996,datajuicer,data-juicer,pypi,57.5,B,0.9375,Nursery,1156,996,,479,588
+997,Ataraxy-Labs,sem,crates,57.49,B,1.0,Nursery,1900,997,,192,
+998,dynaconf,dynaconf,pypi,57.49,B,0.9775,Sweet Spot,1518,998,297,780,
+999,fastapi,sqlmodel,pypi,57.49,B,0.975,Sweet Spot,1609,999,298,,
+1000,PyMySQL,PyMySQL,pypi,57.49,B,0.7,Sweet Spot,1163,1000,349,,
+1001,nickel-lang,nickel,crates,57.48,B,0.65,Sweet Spot,808,1001,,,
+1002,shapely,shapely,pypi,57.46,B,0.9775,Sweet Spot,1331,1002,328,1219,
+1003,documenso,documenso,npm,57.46,B,0.65,Sweet Spot,1045,1003,,,
+1004,tinygo-org,tinygo,go,57.45,B,0.925,Sweet Spot,689,1004,,1031,
+1005,mochajs,mocha,npm,57.43,B,0.875,Crucible,842,1005,300,,
+1006,colyseus,colyseus,npm,57.41,B,0.915,Sweet Spot,1161,1006,,591,
+1007,hanydd,BilibiliSponsorBlock,npm,57.38,B,0.6175,Sweet Spot,1169,1007,,660,
+1008,pallets,flask,pypi,57.37,B,0.9525,Sweet Spot,1700,1008,315,,
+1009,JuliaPluto,Pluto.jl,npm,57.35,B,0.8375,Nursery,1687,1009,,539,
+1010,TanStack,form,npm,57.34,B,1.0,Sweet Spot,1379,1010,,850,431
+1011,JCTools,JCTools,maven,57.34,B,0.68,Nursery,1805,1011,,,
+1012,Mintplex-Labs,anything-llm,npm,57.34,B,0.65,Sweet Spot,1522,1012,,,
+1013,coder,code-server,npm,57.33,B,1.0,Nursery,1090,1013,,585,
+1014,OpenDCAI,DataFlow,pypi,57.32,B,0.9375,Nursery,1639,1014,,265,687
+1015,servo,html5ever,crates,57.32,B,0.8875,Sweet Spot,1252,1015,316,,330
+1016,Azure,azure-cli,pypi,57.32,B,0.8125,Sweet Spot,1207,1016,385,,402
+1017,phpredis,phpredis,systems,57.3,B,0.9275,Nursery,1599,1017,,,
+1018,WinMerge,winmerge,systems,57.3,B,0.875,Nursery,1794,1018,,,
+1019,DeepLabCut,DeepLabCut,pypi,57.3,B,0.865,Sweet Spot,860,1019,,,
+1020,npm,cli,npm,57.3,B,0.8125,Sweet Spot,1567,1020,356,,
+1021,pre-commit,pre-commit,pypi,57.29,B,0.9525,Sweet Spot,1762,1021,318,,
+1022,TEN-framework,ten-framework,pypi,57.29,B,0.7625,Sweet Spot,1346,1022,,913,444
+1023,pytorch,tutorials,pypi,57.28,B,0.8375,Sweet Spot,1206,1023,,614,567
+1024,rusqlite,rusqlite,crates,57.28,B,0.8175,Sweet Spot,1553,1024,285,953,
+1025,NativeScript,NativeScript,npm,57.27,B,0.925,Sweet Spot,1145,1025,,881,
+1026,KaijuEngine,kaiju,go,57.27,B,0.743333333333,Nursery,858,1026,,159,742
+1027,podman-container-tools,podman,go,57.27,B,0.625833333333,Nursery,678,1027,,,579
+1028,supabase-community,postgres-language-server,crates,57.25,B,0.8375,Sweet Spot,1171,1028,,606,
+1029,RedisJSON,RedisJSON,crates,57.25,B,0.765,Nursery,1289,1029,,,
+1030,vanilla-extract-css,vanilla-extract,npm,57.24,B,1.0,Sweet Spot,1605,1030,301,808,
+1031,oumi-ai,oumi,pypi,57.24,B,0.875,Nursery,716,1031,,,
+1032,remeda,remeda,npm,57.24,B,0.68,Sweet Spot,669,1032,,,
+1033,chaos-mesh,chaos-mesh,go,57.23,B,1.0,Sweet Spot,911,1033,,,352
+1034,roboflow,supervision,pypi,57.22,B,0.875,Sweet Spot,959,1034,379,,
+1035,dbcli,pgcli,pypi,57.21,B,1.0,Sweet Spot,1928,1035,,740,511
+1036,robotframework,robotframework,pypi,57.21,B,0.9775,Sweet Spot,1313,1036,326,994,
+1037,PointCloudLibrary,pcl,systems,57.2,B,1.0,Sweet Spot,1284,1037,,687,
+1038,gchq,CyberChef,npm,57.19,B,0.875,Sweet Spot,837,1038,,487,587
+1039,saadeghi,daisyui,npm,57.18,B,1.0,Sweet Spot,2038,1039,,703,
+1040,influxdata,influxdb,crates,57.17,B,0.7625,Nursery,1636,1040,,707,
+1041,microsoft,react-native-windows,systems,57.16,B,0.875,Sweet Spot,946,1041,,,495
+1042,cloud-custodian,cloud-custodian,pypi,57.15,B,0.925,Sweet Spot,1258,1042,,1157,323
+1043,firebase,firebase-ios-sdk,systems,57.14,B,0.8125,Sweet Spot,1210,1043,374,,
+1044,apify,crawlee,npm,57.14,B,0.8125,Sweet Spot,984,1044,,,
+1045,nanostores,nanostores,npm,57.13,B,0.8625,Nursery,1846,1045,,823,
+1046,SaladDay,cc-switch-cli,crates,57.13,B,0.61,Sweet Spot,1167,1046,,716,
+1047,certimate-go,certimate,go,57.11,B,1.0,Nursery,1870,1047,,180,
+1048,azahar-emu,azahar,systems,57.1,B,0.925,Sweet Spot,1111,1048,,996,
+1049,cross-rs,cross,crates,57.08,B,0.9375,Sweet Spot,1676,1049,,680,548
+1050,volcano-sh,volcano,go,57.07,B,0.8125,Crucible,617,1050,,,240
+1051,pcqpcq,open-source-android-apps,pypi,57.07,B,0.7,Nursery,1979,1051,,448,
+1052,go-resty,resty,go,57.06,B,0.9375,Sweet Spot,1385,1052,295,1087,
+1053,NVIDIA,DALI,systems,57.06,B,0.875,Sweet Spot,1321,1053,,,
+1054,sirupsen,logrus,go,57.06,B,0.8625,Sweet Spot,1316,1054,327,1267,
+1055,graphql-java,graphql-java,maven,57.05,B,0.8875,Sweet Spot,1215,1055,337,,
+1056,01mf02,jaq,crates,57.05,B,0.84,Sweet Spot,1617,1056,,,
+1057,Nuitka,Nuitka,pypi,57.04,B,0.8425,Sweet Spot,937,1057,,739,540
+1058,xournalpp,xournalpp,systems,57.02,B,0.9775,Sweet Spot,1018,1058,,901,
+1059,emcie-co,parlant,pypi,57.02,B,0.7625,Nursery,1641,1059,,524,
+1060,tornadoweb,tornado,pypi,57.01,B,1.0,Crucible,1070,1060,280,,
+1061,SwanHubX,SwanLab,pypi,57.01,B,0.8875,Nursery,1657,1061,,,
+1062,microsoft,GSL,systems,57.01,B,0.7425,Sweet Spot,656,1062,,,581
+1063,lottie-react-native,lottie-react-native,npm,57.01,B,0.6875,Sweet Spot,673,1063,,1098,351
+1064,motioneye-project,motioneye,pypi,57.0,B,0.8125,Nursery,907,1064,,,
+1065,GyulyVGC,sniffnet,crates,56.97,B,0.9775,Nursery,719,1065,,406,
+1066,quay,clair,go,56.96,B,0.865,Sweet Spot,1283,1066,,,
+1067,microsoft,msquic,systems,56.95,B,0.925,Sweet Spot,646,1067,,821,
+1068,FailproofAI,failproofai,npm,56.94,B,0.8125,Nursery,1024,1068,,253,
+1069,Blaizzy,mlx-audio,pypi,56.93,B,0.925,Sweet Spot,1247,1069,,948,445
+1070,supabase,pg_graphql,crates,56.93,B,0.7025,Nursery,1403,1070,,,
+1071,algolia,autocomplete,npm,56.88,B,0.68,Sweet Spot,1312,1071,,,484
+1072,handsontable,handsontable,npm,56.88,B,0.655,Sweet Spot,873,1072,,,476
+1073,arkime,arkime,systems,56.87,B,0.875,Nursery,1924,1073,,,
+1074,AsyncHttpClient,async-http-client,maven,56.87,B,0.875,Sweet Spot,1071,1074,377,,
+1075,dtolnay,syn,crates,56.87,B,0.755,Crucible,1712,1075,262,1086,
+1076,watchexec,watchexec,crates,56.86,B,0.8125,Sweet Spot,1630,1076,,,
+1077,jax-ml,jax,pypi,56.86,B,0.655,Crucible,1721,1077,,,317
+1078,MeteorDevelopment,meteor-client,maven,56.85,B,0.844166666667,Sweet Spot,1926,1078,,,514
+1079,nock,nock,npm,56.84,B,0.7925,Sweet Spot,1694,1079,338,1262,298
+1080,GoogleChrome,web-vitals,npm,56.82,B,0.8125,Sweet Spot,1352,1080,308,,
+1081,endless-sky,endless-sky,systems,56.81,B,0.925,Sweet Spot,1775,1081,,969,466
+1082,skeletonlabs,skeleton,npm,56.8,B,0.95,Nursery,2165,1082,,,
+1083,grafana,k6,go,56.79,B,0.8125,Crucible,776,1083,320,1029,
+1084,pymumu,smartdns,systems,56.78,B,0.9025,Nursery,1758,1084,,609,
+1085,nix-community,nh,crates,56.77,B,0.9375,Nursery,996,1085,,348,
+1086,obgnail,typora_plugin,npm,56.77,B,0.65,Sweet Spot,854,1086,,,
+1087,freqtrade,freqtrade,pypi,56.77,B,0.6475,Nursery,799,1087,,,597
+1088,nlohmann,json,systems,56.76,B,0.875,Sweet Spot,1093,1088,,,
+1089,crowdsecurity,crowdsec,go,56.74,B,0.925,Sweet Spot,1009,1089,,984,
+1090,express-validator,express-validator,npm,56.69,B,0.6875,Sweet Spot,1592,1090,366,1141,379
+1091,fastfetch-cli,fastfetch,systems,56.68,B,0.61,Nursery,2272,1091,,554,
+1092,netblue30,firejail,systems,56.67,B,0.9375,Sweet Spot,1640,1092,,757,
+1093,jupyter,docker-stacks,pypi,56.67,B,0.7,Nursery,1150,1093,,829,
+1094,dmlc,xgboost,systems,56.66,B,0.875,Sweet Spot,1422,1094,,,
+1095,fortra,impacket,pypi,56.65,B,0.8375,Sweet Spot,1534,1095,,998,396
+1096,tronprotocol,java-tron,maven,56.65,B,0.781666666667,Sweet Spot,1097,1096,,,374
+1097,dmno-dev,varlock,npm,56.64,B,0.875,Nursery,1031,1097,,,
+1098,OpenMathLib,OpenBLAS,systems,56.63,B,0.61,Nursery,1802,1098,,725,
+1099,qpdf,qpdf,systems,56.6,B,1.0,Sweet Spot,1421,1099,,646,
+1100,jMonkeyEngine,jmonkeyengine,maven,56.6,B,1.0,Sweet Spot,1492,1100,,699,
+1101,SteamClientHomebrew,Millennium,systems,56.6,B,0.61,Nursery,1919,1101,,651,
+1102,TecharoHQ,anubis,go,56.59,B,1.0,Nursery,1443,1102,,516,
+1103,asciimoo,hister,go,56.59,B,0.743333333333,Nursery,1002,1103,,177,765
+1104,lfnovo,open-notebook,npm,56.59,B,0.7125,Sweet Spot,1054,1104,,813,
+1105,shaka-project,shaka-player,npm,56.58,B,0.8125,Sweet Spot,867,1105,,,
+1106,eclipse-theia,theia,npm,56.57,B,0.875,Nursery,971,1106,,305,
+1107,middleapi,orpc,npm,56.57,B,0.8125,Nursery,1189,1107,,,
+1108,JerBouma,FinanceDatabase,pypi,56.56,B,0.8625,Nursery,1537,1108,,761,
+1109,stripe,stripe-node,npm,56.55,B,0.9775,Sweet Spot,1565,1109,310,,
+1110,javaparser,javaparser,maven,56.54,B,0.9775,Sweet Spot,1262,1110,376,1054,
+1111,bufbuild,buf,go,56.54,B,0.925,Sweet Spot,1646,1111,358,947,
+1112,LMMS,lmms,systems,56.53,B,0.9775,Sweet Spot,1129,1112,,1059,392
+1113,qltysh,qlty,crates,56.53,B,0.8775,Nursery,1072,1113,,412,
+1114,axboe,fio,systems,56.52,B,1.0,Sweet Spot,1304,1114,,910,
+1115,element-hq,synapse,pypi,56.52,B,0.875,Sweet Spot,1006,1115,,577,
+1116,deeplethe,forkd,crates,56.52,B,0.7625,Nursery,2108,1116,,413,
+1117,gtsteffaniak,filebrowser,go,56.51,B,0.875,Nursery,1507,1117,,,
+1118,obsproject,obs-studio,systems,56.51,B,0.875,Sweet Spot,1249,1118,,,
+1119,oclif,oclif,npm,56.5,B,0.915,Sweet Spot,1651,1119,325,,
+1120,KKKKhazix,AIHOT,npm,56.49,B,0.65,Nursery,917,1120,,,
+1121,srwi,EverythingToolbar,systems,56.47,B,0.655,Sweet Spot,1202,1121,,,
+1122,fivetran,great_expectations,pypi,56.46,B,0.875,Crucible,707,1122,361,,
+1123,goodrain,rainbond,go,56.46,B,0.7,Nursery,1500,1123,,,
+1124,turanszkij,WickedEngine,systems,56.43,B,0.8125,Nursery,1584,1124,,,
+1125,sktime,pytorch-forecasting,pypi,56.42,B,1.0,Sweet Spot,1306,1125,,904,468
+1126,arendst,Tasmota,systems,56.42,B,0.925,Sweet Spot,1850,1126,,908,
+1127,fail2ban,fail2ban,pypi,56.42,B,0.7025,Sweet Spot,1164,1127,,,
+1128,davatorium,rofi,systems,56.4,B,0.9775,Nursery,1647,1128,,741,
+1129,gabime,spdlog,systems,56.4,B,0.915,Sweet Spot,1626,1129,,,475
+1130,rui314,mold,systems,56.39,B,0.61,Nursery,2053,1130,,648,
+1131,78,xiaozhi-esp32,systems,56.36,B,0.9775,Sweet Spot,1666,1131,,972,459
+1132,zeromicro,go-zero,go,56.33,B,0.9775,Crucible,1278,1132,329,1104,
+1133,python-telegram-bot,python-telegram-bot,pypi,56.31,B,0.915,Sweet Spot,1345,1133,378,1113,
+1134,apache,shiro,maven,56.28,B,0.8625,Sweet Spot,770,1134,,1023,
+1135,Vanilagy,mediabunny,npm,56.27,B,1.0,Sweet Spot,893,1135,,748,
+1136,rusterlium,rustler,crates,56.27,B,0.8625,Sweet Spot,1387,1136,,882,
+1137,sveltejs,svelte,npm,56.27,B,0.8125,Crucible,838,1137,357,,
+1138,linera-io,linera-protocol,crates,56.26,B,0.8125,Nursery,1645,1138,,,
+1139,OpenRefine,OpenRefine,maven,56.25,B,1.0,Sweet Spot,865,1139,,,
+1140,adaltas,node-csv,npm,56.24,B,0.925,Sweet Spot,1634,1140,365,1094,
+1141,v2rayA,v2rayA,go,56.23,B,0.9775,Nursery,1148,1141,,,
+1142,livekit,livekit,go,56.22,B,0.741666666667,Sweet Spot,1291,1142,,,
+1143,microsoft,WindowsAppSDK,systems,56.2,B,0.875,Sweet Spot,970,1143,,,455
+1144,bottlepy,bottle,pypi,56.2,B,0.82,Sweet Spot,818,1144,,,341
+1145,apache,storm,maven,56.2,B,0.8125,Nursery,1285,1145,,,
+1146,OpenSenseNova,SenseNova-U1,pypi,56.19,B,0.7125,Nursery,1680,1146,,,562
+1147,vega,vega,npm,56.17,B,0.8125,Sweet Spot,1454,1147,,,
+1148,DioxusLabs,taffy,crates,56.16,B,0.9375,Sweet Spot,1650,1148,,,
+1149,vulkano-rs,vulkano,crates,56.15,B,0.865,Sweet Spot,1542,1149,,,
+1150,rolldown,tsdown,npm,56.14,B,1.0,Nursery,1204,1150,,662,
+1151,chakra-ui,chakra-ui,npm,56.14,B,1.0,Sweet Spot,1415,1151,,791,
+1152,podman-container-tools,buildah,go,56.14,B,0.925,Nursery,1209,1152,,857,
+1153,Nixtla,neuralforecast,pypi,56.13,B,1.0,Nursery,1478,1153,,504,
+1154,mediacms-io,mediacms,pypi,56.13,B,0.7025,Nursery,2268,1154,,,
+1155,mihomo-party-org,clash-party,npm,56.11,B,0.7625,Sweet Spot,1844,1155,,752,
+1156,CursorTouch,Windows-MCP,pypi,56.1,B,1.0,Nursery,1699,1156,,364,
+1157,archlinux,archinstall,pypi,56.1,B,0.875,Nursery,1120,1157,,,544
+1158,distribution,distribution,go,56.09,B,1.0,Sweet Spot,1539,1158,,956,
+1159,sqlpage,SQLPage,crates,56.09,B,0.8425,Nursery,972,1159,,,
+1160,BishopFox,sliver,go,56.07,B,0.925,Nursery,1440,1160,,636,
+1161,o2sh,onefetch,crates,56.06,B,0.8625,Sweet Spot,726,1161,,,
+1162,aws,aws-sam-cli,pypi,56.05,B,0.875,Sweet Spot,1041,1162,,,
+1163,zmap,zmap,systems,56.04,B,0.705,Nursery,1839,1163,,,643
+1164,pomerium,pomerium,go,56.03,B,0.8125,Sweet Spot,1180,1164,,,
+1165,agentscope-ai,agentscope,pypi,56.02,B,0.8125,Sweet Spot,1081,1165,,782,
+1166,firebase,firebaseui-web,npm,56.02,B,0.7575,Sweet Spot,788,1166,,900,
+1167,nilbuild,developer-roadmap,npm,55.99,B,0.7125,Nursery,2135,1167,,,506
+1168,Redocly,redoc,npm,55.97,B,0.795,Sweet Spot,1336,1168,,,472
+1169,Byron,dua-cli,crates,55.95,B,0.915,Nursery,1490,1169,,477,
+1170,codenotary,immudb,go,55.95,B,0.8125,Sweet Spot,1462,1170,,,
+1171,StevenBlack,hosts,pypi,55.94,B,0.7,Nursery,1589,1171,,888,
+1172,robolectric,robolectric,maven,55.93,B,0.8125,Nursery,1302,1172,,,
+1173,gridstack,gridstack.js,npm,55.92,B,0.7825,Nursery,1837,1173,,,
+1174,elastic,go-elasticsearch,go,55.89,B,0.85,Sweet Spot,1275,1174,360,1024,
+1175,cloudwu,skynet,systems,55.88,B,0.7375,Nursery,1484,1175,,,
+1176,react-native-webrtc,react-native-webrtc,maven,55.88,B,0.676666666667,Nursery,1541,1176,,,585
+1177,lucaslorentz,caddy-docker-proxy,go,55.85,B,0.78,Nursery,2067,1177,,659,
+1178,Heroic-Games-Launcher,HeroicGamesLauncher,npm,55.81,B,0.8375,Sweet Spot,833,1178,,,
+1179,go-task,task,go,55.8,B,1.0,Sweet Spot,1678,1179,,934,
+1180,labring,sealos,npm,55.8,B,0.65,Sweet Spot,1007,1180,,,436
+1181,spotDL,spotify-downloader,pypi,55.78,B,1.0,Sweet Spot,1201,1181,,774,
+1182,tradingview,lightweight-charts,npm,55.78,B,0.9775,Sweet Spot,1506,1182,,903,
+1183,helidon-io,helidon,maven,55.77,B,0.8125,Nursery,1378,1183,,,
+1184,prestodb,presto,maven,55.77,B,0.625833333333,Nursery,1449,1184,,,673
+1185,projectdiscovery,nuclei,go,55.76,B,0.875,Sweet Spot,1186,1185,,,
+1186,steel-dev,steel-browser,npm,55.76,B,0.815,Nursery,1804,1186,,,634
+1187,mikke89,RmlUi,systems,55.75,B,1.0,Sweet Spot,,1187,,871,
+1188,projectdiscovery,httpx,go,55.75,B,0.9775,Sweet Spot,1840,1188,,,
+1189,quantumlib,Cirq,pypi,55.74,B,0.925,Sweet Spot,1074,1189,,723,
+1190,coder,coder,go,55.74,B,0.625833333333,Nursery,1096,1190,,,641
+1191,kubernetes-sigs,aws-load-balancer-controller,go,55.73,B,1.0,Nursery,1772,1191,,709,
+1192,LemmyNet,lemmy,crates,55.73,B,0.915,Nursery,1635,1192,,721,
+1193,haraka,Haraka,npm,55.73,B,0.78,Nursery,1137,1193,,678,
+1194,greenbone,openvas-scanner,crates,55.71,B,0.7625,Sweet Spot,1474,1194,,983,
+1195,pydantic,pydantic,pypi,55.7,B,0.8125,Crucible,1808,1195,306,,
+1196,xtekky,gpt4free,pypi,55.67,B,0.9375,Nursery,1632,1196,,814,
+1197,StarTrail-org,LEANN,pypi,55.67,B,0.8375,Nursery,1757,1197,,784,591
+1198,yoavbls,pretty-ts-errors,npm,55.67,B,0.755,Nursery,1517,1198,,375,
+1199,airbytehq,airbyte,pypi,55.67,B,0.655,Sweet Spot,1610,1199,,,520
+1200,lnkiai,m3e-canvas,npm,55.66,B,0.65,Nursery,1022,1200,,,
+1201,replicate,cog,go,55.65,B,0.875,Nursery,1269,1201,,,
+1202,astrid-runtime,astrid,crates,55.65,B,0.8125,Nursery,771,1202,,570,
+1203,acidanthera,OpenCorePkg,systems,55.64,B,0.865,Nursery,1649,1203,,,630
+1204,nesbox,TIC-80,systems,55.61,B,0.9375,Sweet Spot,1586,1204,,890,536
+1205,RapidAI,RapidOCR,pypi,55.61,B,0.84,Nursery,2252,1205,,692,
+1206,fission,fission,go,55.6,B,0.8125,Sweet Spot,941,1206,,,
+1207,mayswind,ezbookkeeping,go,55.59,B,1.0,Nursery,1824,1207,,370,
+1208,Turfjs,turf,npm,55.57,B,1.0,Sweet Spot,1855,1208,346,891,
+1209,chromiumembedded,cef,systems,55.57,B,0.9775,Nursery,1847,1209,,686,
+1210,not-fl3,macroquad,crates,55.57,B,0.7925,Sweet Spot,2129,1210,,892,566
+1211,parca-dev,parca,npm,55.56,B,0.95,Nursery,2263,1211,,363,
+1212,transloadit,uppy,npm,55.56,B,0.875,Sweet Spot,977,1212,,,
+1213,verdaccio,verdaccio,npm,55.54,B,0.8125,Crucible,789,1213,,,
+1214,CLIUtils,CLI11,systems,55.5,B,0.9375,Sweet Spot,1294,1214,,927,
+1215,altair-graphql,altair,npm,55.5,B,0.755,Nursery,1013,1215,,756,
+1216,lief-project,LIEF,systems,55.48,B,0.925,Nursery,1954,1216,,753,
+1217,xtaci,kcp-go,go,55.48,B,0.655,Sweet Spot,1880,1217,,,
+1218,dreamhunter2333,cloudflare_temp_email,npm,55.46,B,1.0,Nursery,1489,1218,,386,
+1219,CaviraOSS,LongMemory,npm,55.46,B,0.775,Nursery,1868,1219,,566,
+1220,tw93,Waza,pypi,55.45,B,0.815,Sweet Spot,1159,1220,,810,
+1221,deckarep,golang-set,go,55.45,B,0.7925,Sweet Spot,1816,1221,382,1256,386
+1222,tortoise,tortoise-orm,pypi,55.44,B,1.0,Sweet Spot,1348,1222,,1058,439
+1223,MarlinFirmware,Marlin,systems,55.43,B,0.9775,Sweet Spot,1228,1223,,1118,
+1224,spring-cloud,spring-cloud-gateway,maven,55.42,B,0.9775,Sweet Spot,1998,1224,,866,
+1225,Atmosphere-NX,Atmosphere,systems,55.42,B,0.915,Nursery,2104,1225,,,
+1226,h2database,h2database,maven,55.41,B,0.865,Sweet Spot,1955,1226,380,,
+1227,Thysrael,Horizon,pypi,55.4,B,0.8375,Nursery,1975,1227,,568,
+1228,WerWolv,ImHex,systems,55.39,B,0.9375,Sweet Spot,1472,1228,,914,
+1229,AFLplusplus,LibAFL,crates,55.38,B,0.9775,Sweet Spot,1637,1229,,966,526
+1230,EvolvingLMMs-Lab,lmms-eval,pypi,55.38,B,0.925,Nursery,1142,1230,,902,563
+1231,qax-os,excelize,go,55.36,B,1.0,Nursery,1351,1231,,755,601
+1232,apache,hive,maven,55.34,B,0.741666666667,Sweet Spot,740,1232,,,421
+1233,iovisor,bcc,systems,55.33,B,0.9775,Sweet Spot,1268,1233,,1041,449
+1234,Canop,bacon,crates,55.33,B,0.79,Nursery,1882,1234,,,
+1235,flet-dev,flet,pypi,55.32,B,1.0,Nursery,1669,1235,,747,
+1236,wezterm,wezterm,crates,55.32,B,1.0,Sweet Spot,1710,1236,372,,450
+1237,swagger-api,swagger-core,maven,55.3,B,1.0,Crucible,1546,1237,347,1106,
+1238,fluid-dev,hexo-theme-fluid,npm,55.28,B,0.685,Nursery,2323,1238,,459,739
+1239,henrypp,simplewall,systems,55.26,B,0.7375,Nursery,1970,1239,,,
+1240,dbcli,mycli,pypi,55.26,B,0.6475,Nursery,1598,1240,,,674
+1241,zalando,postgres-operator,go,55.22,B,1.0,Sweet Spot,1896,1241,,920,557
+1242,prometheus,blackbox_exporter,go,55.22,B,1.0,Sweet Spot,1823,1242,,847,
+1243,silvia-odwyer,photon,crates,55.22,B,0.635,Nursery,1744,1243,,,604
+1244,komodorio,helm-dashboard,npm,55.21,B,0.775,Nursery,2206,1244,,615,
+1245,NomicFoundation,hardhat,npm,55.21,B,0.6475,Crucible,925,1245,,,373
+1246,encoredev,encore,go,55.2,B,0.9775,Nursery,1656,1246,,,
+1247,katanemo,plano,crates,55.2,B,0.8375,Sweet Spot,1216,1247,,861,
+1248,gajus,slonik,npm,55.2,B,0.7325,Nursery,1992,1248,,664,
+1249,89luca89,distrobox,go,55.18,B,1.0,Nursery,1607,1249,,538,
+1250,ciromattia,kcc,pypi,55.18,B,0.8375,Sweet Spot,1600,1250,,855,
+1251,apify,apify-mcp-server,npm,55.15,B,0.875,Sweet Spot,686,1251,,,
+1252,withastro,flue,npm,55.14,B,0.6975,Sweet Spot,1457,1252,,,458
+1253,bitflags,bitflags,crates,55.14,B,0.655,Crucible,1594,1253,351,,
+1254,dail8859,NotepadNext,systems,55.13,B,1.0,Sweet Spot,1595,1254,,795,
+1255,BuilderIO,builder,npm,55.13,B,0.875,Nursery,1530,1255,,,594
+1256,Kludex,starlette,pypi,55.12,B,0.9775,Crucible,1470,1256,345,,
+1257,hicccc77,WeFlow,npm,55.12,B,0.7675,Nursery,2307,1257,,419,753
+1258,tj,commander.js,npm,55.11,B,0.9075,Nursery,1372,1258,,,665
+1259,zaproxy,zaproxy,maven,55.1,B,1.0,Nursery,1135,1259,,,
+1260,TokisanGames,Terrain3D,systems,55.1,B,0.9375,Nursery,1696,1260,,792,
+1261,DavidHDev,react-bits,npm,55.1,B,0.8375,Nursery,1763,1261,,790,
+1262,miurla,morphic,npm,55.09,B,0.7625,Nursery,1272,1262,,,
+1263,umijs,umi,npm,55.09,B,0.73,Sweet Spot,1271,1263,,1025,
+1264,apache,jmeter,maven,55.07,B,0.865,Sweet Spot,1109,1264,,,
+1265,ocornut,imgui,systems,55.06,B,0.9775,Sweet Spot,1529,1265,,,
+1266,resend,react-email,npm,55.05,B,0.875,Sweet Spot,1322,1266,,,
+1267,kubernetes,kubernetes,go,55.05,B,0.625833333333,Sweet Spot,1319,1267,,,599
+1268,scylladb,seastar,systems,55.04,B,0.925,Sweet Spot,1603,1268,,1071,
+1269,0xGF,boneyard,npm,55.02,B,0.755,Nursery,1845,1269,,501,
+1270,OutlineFoundation,outline-apps,npm,55.0,B,0.7625,Sweet Spot,767,1270,,1014,
+1271,abiosoft,colima,go,54.98,C,0.9375,Nursery,1683,1271,,720,
+1272,googleapis,google-cloud-python,pypi,54.97,C,0.655,Sweet Spot,1574,1272,,,580
+1273,magic-wormhole,magic-wormhole,pypi,54.96,C,0.7,Nursery,1740,1273,,770,
+1274,M2Team,NanaZip,systems,54.94,C,0.8625,Sweet Spot,1591,1274,,1120,
+1275,mozilla,sccache,crates,54.93,C,1.0,Sweet Spot,1175,1275,,883,564
+1276,dsh-market,dsh-market,npm,54.93,C,0.8125,Nursery,1172,1276,,,
+1277,MechanicalSoup,MechanicalSoup,pypi,54.93,C,0.7425,Sweet Spot,1448,1277,,,537
+1278,python-jsonschema,jsonschema,pypi,54.92,C,0.8775,Sweet Spot,2094,1278,319,,
+1279,SenteLabsAI,OpenExecutive,pypi,54.91,C,0.65,Nursery,1803,1279,,,
+1280,stanfordnlp,stanza,pypi,54.9,C,0.915,Sweet Spot,1665,1280,,,
+1281,mgba-emu,mgba,systems,54.9,C,0.915,Nursery,,1281,,765,
+1282,Infisical,infisical,npm,54.9,C,0.655,Nursery,1126,1282,,344,771
+1283,Drakkar-Software,OctoBot,pypi,54.89,C,0.875,Nursery,1315,1283,,,
+1284,jitsucom,jitsu,npm,54.89,C,0.75,Nursery,1330,1284,,611,693
+1285,moonshine-ai,moonshine,systems,54.85,C,0.865,Sweet Spot,990,1285,,954,
+1286,gluesql,gluesql,crates,54.84,C,0.8625,Sweet Spot,953,1286,,1186,
+1287,jianchang512,pyvideotrans,pypi,54.83,C,0.7625,Nursery,2260,1287,,864,
+1288,apache,shardingsphere,maven,54.83,C,0.625833333333,Nursery,1050,1288,,,623
+1289,OpenByteInc,QuantDinger,pypi,54.82,C,0.9025,Nursery,2039,1289,,216,
+1290,davidjerleke,embla-carousel,npm,54.82,C,0.6725,Sweet Spot,,1290,,884,
+1291,pierrecomputer,pierre,npm,54.82,C,0.6475,Nursery,1152,1291,,,648
+1292,ipython,ipython,pypi,54.8,C,1.0,Crucible,2001,1292,309,1216,
+1293,OpenDroneMap,ODM,pypi,54.79,C,0.815,Nursery,1668,1293,,893,
+1294,elder-plinius,T3MP3ST,npm,54.78,C,0.7625,Nursery,1499,1294,,962,
+1295,svix,svix-webhooks,crates,54.76,C,0.925,Nursery,1555,1295,,797,
+1296,sub-store-org,Sub-Store,npm,54.76,C,0.815,Nursery,2080,1296,,899,
+1297,SFML,SFML,systems,54.73,C,0.9375,Sweet Spot,1551,1297,,931,
+1298,gnuradio,gnuradio,systems,54.72,C,0.9775,Sweet Spot,1136,1298,,,
+1299,conventional-changelog,conventional-changelog,npm,54.72,C,0.78,Sweet Spot,1930,1299,355,1089,
+1300,apache,shardingsphere-elasticjob,maven,54.71,C,0.7375,Nursery,1836,1300,,,
+1301,vosen,ZLUDA,crates,54.71,C,0.65,Nursery,2170,1301,,745,
+1302,youzan,vant,npm,54.69,C,0.9375,Sweet Spot,2238,1302,,1105,485
+1303,rust-cli,config-rs,crates,54.68,C,0.795,Sweet Spot,,1303,373,1195,
+1304,CloverHackyColor,CloverBootloader,systems,54.68,C,0.7,Nursery,2254,1304,,,
+1305,czy0729,Bangumi,npm,54.65,C,0.65,Sweet Spot,1400,1305,,,
+1306,RLinf,RLinf,pypi,54.64,C,0.875,Sweet Spot,966,1306,,,513
+1307,fastly,pushpin,crates,54.64,C,0.65,Nursery,1604,1307,,,
+1308,maurodesouza,profile-readme-generator,npm,54.61,C,0.7525,Nursery,1446,1308,,825,
+1309,superradcompany,microsandbox,crates,54.61,C,0.655,Nursery,1326,1309,,,627
+1310,treeverse,lakeFS,go,54.6,C,0.925,Nursery,1510,1310,,489,
+1311,honojs,hono,npm,54.6,C,0.8125,Sweet Spot,1888,1311,404,,
+1312,dataease,SQLBot,npm,54.59,C,0.6875,Nursery,1922,1312,,933,
+1313,napi-rs,napi-rs,crates,54.58,C,0.7625,Sweet Spot,1631,1313,,1027,
+1314,smallstep,certificates,go,54.57,C,1.0,Sweet Spot,1737,1314,341,940,
+1315,containers,bubblewrap,systems,54.57,C,0.9775,Sweet Spot,1583,1315,,887,
+1316,johnste,finicky,go,54.57,C,0.7325,Nursery,2176,1316,,354,
+1317,shuakami,qq-chat-exporter,crates,54.57,C,0.625,Nursery,1858,1317,,,
+1318,metallb,metallb,go,54.56,C,1.0,Sweet Spot,1791,1318,,1051,
+1319,virtual-kubelet,virtual-kubelet,go,54.56,C,0.785,Sweet Spot,1709,1319,,1001,558
+1320,cookiecutter,cookiecutter-django,pypi,54.56,C,0.65,Sweet Spot,1482,1320,,,
+1321,visgl,deck.gl,npm,54.54,C,0.875,Sweet Spot,928,1321,,,
+1322,moment,moment,npm,54.53,C,0.9775,Crucible,1516,1322,335,,
+1323,reconurge,flowsint,npm,54.53,C,0.8375,Nursery,1866,1323,,706,
+1324,amnweb,yasb,pypi,54.52,C,0.8375,Nursery,2184,1324,,775,
+1325,pdfcpu,pdfcpu,go,54.51,C,0.89,Sweet Spot,,1325,,,
+1326,mufeedvh,code2prompt,crates,54.51,C,0.6975,Sweet Spot,636,1326,,794,
+1327,yikart,AiToEarn,npm,54.51,C,0.6775,Nursery,1971,1327,,,646
+1328,heroui-inc,heroui,npm,54.5,C,0.875,Nursery,1536,1328,,,
+1329,crmne,spotifast,crates,54.49,C,0.65,Sweet Spot,1389,1329,,,
+1330,patroni,patroni,pypi,54.48,C,1.0,Nursery,1225,1330,,758,
+1331,cri-o,cri-o,go,54.48,C,0.875,Sweet Spot,1083,1331,,,
+1332,graphile,crystal,npm,54.48,C,0.66,Nursery,1547,1332,,,656
+1333,v2fly,domain-list-community,go,54.46,C,0.875,Nursery,1915,1333,,,629
+1334,Breakthrough,PySceneDetect,pypi,54.46,C,0.8625,Sweet Spot,1197,1334,,1039,
+1335,agronholm,apscheduler,pypi,54.46,C,0.8625,Crucible,1329,1335,403,1287,
+1336,streamlabs,desktop,npm,54.45,C,0.7125,Sweet Spot,1211,1336,,,
+1337,Gaurav-Gosain,tuios,go,54.45,C,0.630833333333,Nursery,1110,1337,,,
+1338,open-edge-platform,anomalib,pypi,54.44,C,0.925,Sweet Spot,1170,1338,,1057,
+1339,ant-design,ant-design-mobile,npm,54.43,C,0.8125,Sweet Spot,1442,1339,,,
+1340,gatsbyjs,gatsby,npm,54.41,C,0.9775,Sweet Spot,1799,1340,367,1095,
+1341,Koenkk,zigbee2mqtt,npm,54.41,C,0.925,Nursery,1098,1341,,916,
+1342,ssrajadh,sentrysearch,pypi,54.39,C,0.715,Nursery,1576,1342,,677,
+1343,swagger-api,swagger-ui,npm,54.37,C,1.0,Sweet Spot,1377,1343,,1082,
+1344,Klipper3d,klipper,systems,54.36,C,1.0,Sweet Spot,1340,1344,,,
+1345,rudderlabs,rudder-server,go,54.36,C,0.8125,Sweet Spot,973,1345,,,
+1346,crmne,fastpotify,crates,54.35,C,0.65,Sweet Spot,1390,1346,,,
+1347,podman-container-tools,skopeo,go,54.34,C,0.9775,Nursery,1112,1347,,838,
+1348,axllent,mailpit,go,54.33,C,0.915,Nursery,1200,1348,,681,
+1349,google,sentencepiece,systems,54.31,C,1.0,Nursery,1746,1349,,673,
+1350,remnawave,panel,npm,54.31,C,0.7625,Nursery,2424,1350,,676,
+1351,mimblewimble,grin,crates,54.29,C,0.875,Nursery,1437,1351,,,
+1352,SilentVoid13,Templater,npm,54.27,C,0.7525,Nursery,1907,1352,,812,
+1353,davisking,dlib,systems,54.26,C,0.9375,Sweet Spot,1575,1353,,970,
+1354,swimlane,ngx-charts,npm,54.26,C,0.7425,Sweet Spot,1932,1354,,,533
+1355,kysely-org,kysely,npm,54.25,C,0.9775,Sweet Spot,1648,1355,400,,
+1356,lark-parser,lark,pypi,54.23,C,0.925,Sweet Spot,1773,1356,395,1242,
+1357,playcanvas,supersplat,npm,54.23,C,0.8375,Nursery,2182,1357,,,
+1358,keephq,keep,pypi,54.21,C,0.7125,Nursery,1960,1358,,,621
+1359,googleapis,google-api-python-client,pypi,54.19,C,0.9275,Sweet Spot,2009,1359,354,,
+1360,TNG,ArchUnit,maven,54.18,C,0.915,Sweet Spot,1447,1360,,1078,
+1361,Gallopsled,pwntools,pypi,54.17,C,1.0,Sweet Spot,1606,1361,,938,
+1362,TanStack,table,npm,54.17,C,0.9775,Sweet Spot,1672,1362,407,,
+1363,mgechev,revive,go,54.17,C,0.8875,Crucible,1473,1363,340,,
+1364,stlink-org,stlink,systems,54.17,C,0.655,Nursery,1878,1364,,,
+1365,Nixtla,statsforecast,pypi,54.16,C,0.9775,Sweet Spot,1621,1365,,,519
+1366,codecombat,codecombat,npm,54.16,C,0.7125,Nursery,1903,1366,,,
+1367,tutao,tutanota,npm,54.16,C,0.6475,Nursery,2157,1367,,,614
+1368,openlake-project,openlake,crates,54.15,C,0.7625,Nursery,1779,1368,,856,
+1369,dcastil,tailwind-merge,npm,54.11,C,0.705,Crucible,1276,1369,412,,
+1370,ckeditor,ckeditor5,npm,54.1,C,0.7175,Sweet Spot,2122,1370,,,577
+1371,rust-lang,rustlings,crates,54.08,C,1.0,Nursery,1173,1371,,,
+1372,QLHazyCoder,FlowPilot,npm,54.08,C,0.61,Nursery,2148,1372,,,
+1373,gojue,ecapture,systems,54.07,C,0.655,Sweet Spot,1141,1373,,,
+1374,electric-sql,electric,npm,54.06,C,0.8125,Nursery,1384,1374,,,
+1375,LongSoft,UEFITool,systems,54.05,C,0.705,Nursery,1910,1375,,,
+1376,silverbulletmd,silverbullet,npm,54.05,C,0.61,Nursery,2354,1376,,727,
+1377,werf,werf,go,54.04,C,0.625833333333,Nursery,1658,1377,,,575
+1378,smogon,pokemon-showdown,npm,54.03,C,0.875,Nursery,1949,1378,,,653
+1379,jellyfin,jellyfin-desktop,systems,54.03,C,0.8175,Sweet Spot,1428,1379,,788,
+1380,cesanta,mongoose,systems,54.01,C,0.915,Sweet Spot,1217,1380,,,
+1381,libffi,libffi,systems,54.0,C,0.925,Nursery,2180,1381,,819,
+1382,Kong,insomnia,npm,53.99,C,0.8125,Sweet Spot,1079,1382,,,608
+1383,flightlessmango,MangoHud,systems,53.97,C,1.0,Nursery,2196,1383,,848,
+1384,micro-editor,micro,go,53.96,C,1.0,Nursery,1503,1384,,749,669
+1385,kubernetes,kube-state-metrics,go,53.95,C,1.0,Crucible,1629,1385,,1083,
+1386,mitsuhiko,insta,crates,53.95,C,0.9375,Crucible,2079,1386,350,1168,
+1387,actions,setup-node,npm,53.95,C,0.815,Sweet Spot,1814,1387,,,482
+1388,BruceDevices,firmware,systems,53.94,C,1.0,Nursery,2376,1388,,936,617
+1389,iflytek,astron-rpa,maven,53.94,C,0.679166666667,Sweet Spot,1308,1389,,,572
+1390,miuuyy,codex-chatgpt-web,npm,53.94,C,0.65,Nursery,1618,1390,,,
+1391,Fincept-Corporation,FinceptTerminal,systems,53.92,C,1.0,Nursery,2281,1391,,,
+1392,conan-io,conan,pypi,53.92,C,0.925,Sweet Spot,1452,1392,,1200,
+1393,RT-Thread,rt-thread,systems,53.92,C,0.875,Sweet Spot,1301,1393,,,487
+1394,therealaleph,MasterHttpRelayVPN-RUST,crates,53.92,C,0.7625,Nursery,1559,1394,,,
+1395,serengil,deepface,pypi,53.91,C,0.8625,Nursery,1644,1395,,,
+1396,release-it,release-it,npm,53.88,C,1.0,Crucible,1913,1396,348,1167,
+1397,kserve,kserve,go,53.87,C,0.8125,Sweet Spot,1181,1397,,,
+1398,graphhopper,graphhopper,maven,53.86,C,0.844166666667,Nursery,1943,1398,,918,
+1399,ravynsoft,ravynos,systems,53.86,C,0.8125,Nursery,1566,1399,,,
+1400,arvidn,libtorrent,systems,53.86,C,0.8125,Sweet Spot,1835,1400,,,
+1401,areal-project,AReaL,pypi,53.85,C,0.875,Nursery,1561,1401,,,603
+1402,starship,starship,crates,53.84,C,1.0,Sweet Spot,1619,1402,,1049,543
+1403,Canop,broot,crates,53.79,C,0.9375,Nursery,,1403,,724,
+1404,infiniflow,infinity,systems,53.78,C,0.8525,Nursery,2164,1404,,,637
+1405,operator-framework,operator-sdk,go,53.78,C,0.675,Sweet Spot,2347,1405,364,,530
+1406,daijro,camoufox,systems,53.73,C,0.9775,Sweet Spot,1461,1406,,1208,
+1407,m1k1o,neko,go,53.7,C,0.915,Nursery,1993,1407,,505,
+1408,Aleksoid1978,MPC-BE,systems,53.69,C,0.925,Nursery,2199,1408,,1042,
+1409,cloudflare,workers-rs,crates,53.68,C,0.9375,Sweet Spot,1977,1409,,978,
+1410,berty,berty,npm,53.68,C,0.65,Nursery,2283,1410,,,
+1411,sigp,lighthouse,crates,53.68,C,0.65,Crucible,978,1411,,1175,483
+1412,throneproj,Throne,systems,53.66,C,1.0,Nursery,2191,1412,,967,
+1413,potpie-ai,potpie,pypi,53.66,C,0.925,Nursery,1684,1413,,,632
+1414,openclaw,mcporter,npm,53.65,C,1.0,Nursery,1281,1414,,889,
+1415,mswjs,msw,npm,53.65,C,0.755,Crucible,2117,1415,336,,
+1416,interpretml,interpret,systems,53.63,C,0.655,Sweet Spot,1554,1416,,,
+1417,projectdiscovery,interactsh,go,53.62,C,0.84,Sweet Spot,1978,1417,,,
+1418,enso-org,enso,maven,53.61,C,0.666666666667,Nursery,1857,1418,,,
+1419,ironcalc,IronCalc,crates,53.6,C,0.6475,Nursery,1705,1419,,,675
+1420,uber,h3,systems,53.59,C,1.0,Nursery,1831,1420,,769,
+1421,clementine-player,Clementine,systems,53.57,C,0.7375,Nursery,1895,1421,,,
+1422,paulmillr,chokidar,npm,53.57,C,0.7175,Crucible,1752,1422,402,,364
+1423,hedgedoc,hedgedoc,npm,53.54,C,0.8125,Nursery,1480,1423,,,
+1424,GoogleCloudPlatform,golang-samples,go,53.53,C,1.0,Nursery,1936,1424,,764,
+1425,gotenberg,gotenberg,go,53.52,C,0.8625,Nursery,1622,1425,,922,
+1426,TencentCloud,TencentDB-Agent-Memory,npm,53.52,C,0.8125,Nursery,2121,1426,,469,
+1427,skylot,jadx,maven,53.51,C,1.0,Nursery,1727,1427,,663,
+1428,toss,es-toolkit,npm,53.5,C,0.925,Sweet Spot,1527,1428,,1240,490
+1429,Clooos,Bubble-Card,npm,53.5,C,0.8375,Sweet Spot,1920,1429,,1008,
+1430,microsoft,fluentui,npm,53.5,C,0.8125,Nursery,1185,1430,,886,
+1431,spider-rs,spider,crates,53.5,C,0.78,Sweet Spot,1615,1431,,945,
+1432,spring-cloud,spring-cloud-netflix,maven,53.5,C,0.7375,Sweet Spot,2045,1432,,,
+1433,ag2ai,ag2,pypi,53.49,C,0.8125,Crucible,915,1433,,,481
+1434,modelscope,modelscope,pypi,53.47,C,0.915,Sweet Spot,1999,1434,,1043,
+1435,owncast,owncast,go,53.47,C,0.605833333333,Nursery,1317,1435,,684,
+1436,mapeditor,tiled,systems,53.46,C,1.0,Sweet Spot,1046,1436,,1040,
+1437,shadowsocks,shadowsocks-c,systems,53.45,C,0.79,Nursery,2107,1437,,,
+1438,spencermountain,compromise,npm,53.44,C,0.8125,Sweet Spot,1613,1438,,,
+1439,Arindam200,awesome-ai-apps,pypi,53.41,C,0.815,Sweet Spot,1205,1439,,,
+1440,huggingface,speech-to-speech,pypi,53.41,C,0.75,Nursery,945,1440,,556,763
+1441,bigskysoftware,htmx,npm,53.4,C,1.0,Nursery,2092,1441,,874,
+1442,libgit2,libgit2,systems,53.4,C,1.0,Sweet Spot,1959,1442,,950,
+1443,versatica,mediasoup,systems,53.4,C,0.8125,Nursery,1718,1443,,,
+1444,elastic,elasticsearch-py,pypi,53.39,C,0.925,Crucible,1380,1444,387,,
+1445,google,error-prone,maven,53.39,C,0.875,Crucible,1716,1445,392,,
+1446,alibaba,spring-ai-alibaba,maven,53.35,C,0.925,Sweet Spot,1349,1446,,1125,556
+1447,unitycatalog,unitycatalog,maven,53.35,C,0.741666666667,Sweet Spot,980,1447,,,
+1448,martanne,vis,systems,53.32,C,0.865,Nursery,1819,1448,,,
+1449,cloudwego,hertz,go,53.31,C,0.925,Sweet Spot,2210,1449,,1108,
+1450,rerun-io,rerun,crates,53.3,C,0.6975,Sweet Spot,1095,1450,,909,652
+1451,pshenok,server-survival,npm,53.3,C,0.6175,Nursery,2228,1451,,736,
+1452,capnproto,capnproto,systems,53.29,C,1.0,Sweet Spot,1578,1452,,1026,
+1453,mudler,LocalAI,go,53.27,C,0.625833333333,Nursery,1248,1453,,,661
+1454,apache,flink-cdc,maven,53.26,C,1.0,Sweet Spot,1044,1454,,926,622
+1455,lingodotdev,lingo.dev,npm,53.26,C,0.925,Nursery,1493,1455,,,
+1456,daeuniverse,dae,go,53.25,C,0.925,Nursery,1682,1456,,975,644
+1457,instantdb,instant,npm,53.25,C,0.875,Nursery,1813,1457,,,
+1458,wshobson,agents,pypi,53.24,C,0.8375,Nursery,1562,1458,,981,
+1459,Vinzent03,obsidian-git,npm,53.23,C,0.8375,Sweet Spot,1520,1459,,1066,
+1460,fabiolb,fabio,go,53.22,C,0.8125,Nursery,1747,1460,,,
+1461,ether,etherpad,npm,53.2,C,0.65,Nursery,1884,1461,,,
+1462,has2k1,plotnine,pypi,53.19,C,0.7875,Sweet Spot,1968,1462,436,1234,
+1463,golang-jwt,jwt,go,53.18,C,0.82,Crucible,1916,1463,420,,406
+1464,tikv,raft-rs,crates,53.18,C,0.6625,Sweet Spot,2187,1464,,,516
+1465,useplunk,plunk,npm,53.17,C,1.0,Nursery,1533,1465,,610,
+1466,AlistGo,alist,go,53.17,C,0.804166666667,Sweet Spot,1724,1466,,1011,
+1467,micheleg,dash-to-dock,npm,53.17,C,0.775,Sweet Spot,1982,1467,,1021,
+1468,OneDragon-Anything,ZenlessZoneZero-OneDragon,pypi,53.17,C,0.7625,Sweet Spot,1976,1468,,1046,
+1469,google-deepmind,open_spiel,systems,53.16,C,1.0,Sweet Spot,2130,1469,,1016,
+1470,twpayne,chezmoi,go,53.16,C,0.9375,Nursery,2046,1470,,629,
+1471,dolanmiu,docx,npm,53.15,C,0.9375,Crucible,1467,1471,,1138,
+1472,love2d,love,systems,53.13,C,0.915,Nursery,2111,1472,,872,
+1473,Acly,krita-ai-diffusion,pypi,53.13,C,0.8375,Sweet Spot,1417,1473,,,
+1474,Devolutions,IronRDP,crates,53.13,C,0.8125,Sweet Spot,1307,1474,,930,
+1475,gevent,gevent,pypi,53.11,C,0.84,Crucible,1693,1475,381,1276,
+1476,antfu-collective,taze,npm,53.1,C,0.925,Nursery,2590,1476,,834,
+1477,google,guava,maven,53.09,C,0.875,Crucible,1990,1477,369,,
+1478,modelscope,DiffSynth-Studio,pypi,53.09,C,0.8375,Sweet Spot,2088,1478,,1077,
+1479,wakujs,waku,npm,53.08,C,0.925,Nursery,1909,1479,,907,
+1480,avelino,awesome-go,go,53.08,C,0.875,Nursery,2047,1480,,939,640
+1481,Stremio,stremio-web,npm,53.07,C,0.6575,Sweet Spot,1299,1481,,,
+1482,brookhong,Surfingkeys,npm,53.07,C,0.6175,Nursery,1822,1482,,906,
+1483,coroot,coroot,go,53.06,C,0.9375,Nursery,2034,1483,,534,
+1484,uptrace,bun,go,53.05,C,0.9375,Crucible,2069,1484,375,1176,522
+1485,skyzh,tiny-llm,pypi,53.05,C,0.78,Nursery,1545,1485,,599,
+1486,medialab,xan,crates,53.04,C,0.915,Nursery,2065,1486,,569,
+1487,prisma,orm,npm,53.04,C,0.655,Nursery,1298,1487,,,664
+1488,ifixai-ai,iFixAi,pypi,53.01,C,0.8125,Nursery,1695,1488,,,
+1489,flamegraph-rs,flamegraph,crates,52.99,C,0.73,Nursery,2114,1489,,,
+1490,pmd,pmd,maven,52.99,C,0.618333333333,Sweet Spot,1581,1490,,,624
+1491,antvis,Infographic,npm,52.98,C,0.78,Nursery,1723,1491,,625,
+1492,rolling-scopes,rsschool-app,npm,52.98,C,0.6375,Nursery,1885,1492,,,
+1493,gotify,server,go,52.96,C,0.8125,Sweet Spot,1416,1493,,,
+1494,gboeing,osmnx,pypi,52.96,C,0.68,Sweet Spot,2061,1494,,,
+1495,taubyte,tau,go,52.94,C,0.875,Nursery,1588,1495,,,
+1496,ets-labs,python-dependency-injector,pypi,52.94,C,0.705,Sweet Spot,2220,1496,432,,
+1497,mybatis,mybatis-3,maven,52.93,C,1.0,Crucible,1643,1497,391,1235,
+1498,CloakHQ,CloakBrowser,pypi,52.93,C,0.9775,Nursery,1782,1498,,781,
+1499,bvaughn,react-resizable-panels,npm,52.92,C,0.915,Sweet Spot,1905,1499,,1068,
+1500,rllm-org,rllm,pypi,52.92,C,0.7125,Nursery,2678,1500,,,681
+1501,mozilla-ai,llamafile,systems,52.91,C,0.9375,Sweet Spot,1736,1501,,921,
+1502,greatscottgadgets,hackrf,systems,52.91,C,0.925,Sweet Spot,1778,1502,,,
+1503,pgdogdev,pgdog,crates,52.9,C,0.8125,Nursery,1324,1503,,,
+1504,libp2p,go-libp2p,go,52.89,C,0.9775,Crucible,1612,1504,408,,
+1505,line,armeria,maven,52.89,C,0.925,Sweet Spot,1654,1505,,1193,
+1506,vercel,ncc,npm,52.88,C,0.6625,Sweet Spot,2066,1506,,,549
+1507,getmaxun,maxun,npm,52.86,C,0.61,Nursery,1962,1507,,958,
+1508,recommenders-team,recommenders,pypi,52.85,C,0.9775,Nursery,1673,1508,,694,
+1509,awslabs,llrt,crates,52.82,C,0.875,Nursery,1675,1509,,,
+1510,raysan5,raygui,systems,52.79,C,0.9025,Nursery,2563,1510,,746,
+1511,projectdiscovery,subfinder,go,52.78,C,0.9375,Nursery,2256,1511,,,
+1512,graykode,abtop,crates,52.78,C,0.925,Nursery,845,1512,,986,
+1513,SuperClaude-Org,SuperClaude_Framework,pypi,52.76,C,0.695,Nursery,,1513,,895,
+1514,OpenBB-finance,OpenBB,pypi,52.75,C,1.0,Sweet Spot,1829,1514,,,
+1515,rfjakob,earlyoom,systems,52.75,C,0.63,Nursery,2346,1515,,,685
+1516,runhey,OnmyojiAutoScript,pypi,52.74,C,1.0,Nursery,2403,1516,,509,
+1517,inertiajs,inertia,npm,52.74,C,1.0,Nursery,2085,1517,,928,
+1518,nodemailer,nodemailer,npm,52.74,C,0.79,Crucible,1797,1518,409,,
+1519,omnivore-app,omnivore,npm,52.74,C,0.6775,Nursery,2606,1519,,713,
+1520,alibaba,fastjson2,maven,52.73,C,0.915,Crucible,1067,1520,394,1318,
+1521,serverless,serverless,npm,52.7,C,0.875,Sweet Spot,1945,1521,413,,
+1522,buxuku,SmartSub,npm,52.7,C,0.65,Sweet Spot,1423,1522,,,
+1523,samchon,typia,go,52.69,C,0.915,Nursery,1556,1523,,783,
+1524,cameron314,concurrentqueue,systems,52.69,C,0.61,Nursery,2032,1524,,,668
+1525,zenml-io,zenml,pypi,52.68,C,0.875,Sweet Spot,1116,1525,,,
+1526,antfu,eslint-config,npm,52.68,C,0.7575,Sweet Spot,2296,1526,393,1136,
+1527,jeessy2,ddns-go,go,52.67,C,0.8625,Nursery,2495,1527,,650,783
+1528,pypa,hatch,pypi,52.65,C,1.0,Crucible,1969,1528,397,,
+1529,exo-explore,exo,pypi,52.65,C,0.7125,Sweet Spot,1918,1529,,,578
+1530,TiddlyWiki,TiddlyWiki5,npm,52.64,C,0.9275,Nursery,2082,1530,,,717
+1531,samber,lo,go,52.62,C,0.8625,Crucible,2096,1531,371,1197,
+1532,jsx-eslint,eslint-plugin-react,npm,52.62,C,0.845,Crucible,2072,1532,388,1401,385
+1533,matter-labs,zksync-era,crates,52.61,C,0.925,Sweet Spot,1270,1533,,,552
+1534,tock,tock,crates,52.61,C,0.6975,Nursery,1004,1534,,911,700
+1535,apache,pouchdb,npm,52.59,C,0.8375,Nursery,,1535,,929,
+1536,marktext,marktext,npm,52.56,C,0.65,Crucible,1513,1536,,,
+1537,windtf,wireproxy,go,52.54,C,0.7575,Nursery,2334,1537,,580,
+1538,milvus-io,milvus,go,52.54,C,0.625833333333,Nursery,1679,1538,,,730
+1539,imroc,req,go,52.5,C,0.915,Crucible,1458,1539,448,,
+1540,yuliskov,SmartTube,maven,52.49,C,0.844166666667,Sweet Spot,2431,1540,,,
+1541,pydantic,monty,crates,52.49,C,0.8125,Nursery,1735,1541,,,
+1542,jetty,jetty.project,maven,52.49,C,0.8125,Nursery,1434,1542,,,626
+1543,chinabugotech,hutool,maven,52.48,C,0.866666666667,Nursery,2797,1543,,846,
+1544,NVIDIA,warp,pypi,52.48,C,0.82,Crucible,1233,1544,,,452
+1545,gorse-io,gorse,go,52.47,C,1.0,Nursery,2335,1545,,626,
+1546,alibaba,MNN,systems,52.47,C,0.925,Sweet Spot,1253,1546,,1228,
+1547,tonyantony300,dashbeam,npm,52.47,C,0.6175,Nursery,2560,1547,,652,
+1548,kivy,python-for-android,pypi,52.46,C,0.925,Nursery,1681,1548,,1088,
+1549,jqlang,jq,systems,52.45,C,1.0,Crucible,1427,1549,,1097,
+1550,windirstat,windirstat,systems,52.41,C,1.0,Nursery,2657,1550,,1028,
+1551,maximhq,bifrost,go,52.41,C,0.625833333333,Nursery,1725,1551,,,780
+1552,a-h,templ,go,52.39,C,0.9375,Crucible,1674,1552,398,1187,
+1553,leejet,stable-diffusion.cpp,systems,52.39,C,0.875,Sweet Spot,1806,1553,,,
+1554,hashicorp,hcl,go,52.38,C,0.8625,Crucible,1327,1554,419,1390,
+1555,tailscale,tailcat,go,52.37,C,0.8125,Nursery,2030,1555,,,
+1556,olekukonko,tablewriter,go,52.37,C,0.7,Crucible,1796,1556,418,,
+1557,saulpw,visidata,pypi,52.36,C,0.9375,Sweet Spot,1466,1557,,995,
+1558,domcyrus,rustnet,crates,52.35,C,0.925,Nursery,1661,1558,,702,
+1559,Suwayomi,Suwayomi-Server,maven,52.35,C,0.791666666667,Nursery,2375,1559,,,
+1560,gomods,athens,go,52.34,C,0.9375,Sweet Spot,2071,1560,,1099,605
+1561,TykTechnologies,tyk,go,52.34,C,0.8125,Sweet Spot,2211,1561,,,457
+1562,Tencent,cherry-markdown,npm,52.33,C,0.915,Nursery,2287,1562,,683,
+1563,apache,tika,maven,52.32,C,0.625833333333,Nursery,1821,1563,,,768
+1564,OpenHFT,Chronicle-Queue,maven,52.31,C,0.679166666667,Nursery,2499,1564,,,
+1565,kaifcodec,user-scanner,pypi,52.3,C,0.6975,Nursery,813,1565,,949,698
+1566,triton-inference-server,server,pypi,52.28,C,1.0,Nursery,1790,1566,,,
+1567,mindcraft-bots,mindcraft,npm,52.28,C,0.7525,Nursery,2635,1567,,,709
+1568,apache,hadoop,maven,52.28,C,0.741666666667,Crucible,1088,1568,,,469
+1569,invoke-ai,InvokeAI,pypi,52.28,C,0.6475,Sweet Spot,864,1569,,,454
+1570,mrexodia,ida-pro-mcp,pypi,52.27,C,1.0,Nursery,2074,1570,,698,
+1571,run-llama,liteparse,crates,52.27,C,0.7725,Nursery,2054,1571,,563,831
+1572,swaywm,sway,systems,52.26,C,0.9775,Sweet Spot,2012,1572,,,532
+1573,MinishLab,semble,pypi,52.26,C,0.925,Nursery,,1573,,,
+1574,openwall,john,systems,52.26,C,0.87,Nursery,2422,1574,,898,
+1575,ast-grep,ast-grep,crates,52.24,C,0.925,Sweet Spot,1344,1575,,1161,
+1576,boa-dev,boa,crates,52.24,C,0.875,Sweet Spot,1795,1576,,,596
+1577,keplergl,kepler.gl,npm,52.24,C,0.8625,Sweet Spot,1332,1577,,,
+1578,konvajs,konva,npm,52.24,C,0.79,Sweet Spot,2498,1578,410,,
+1579,iluwatar,java-design-patterns,maven,52.23,C,0.844166666667,Crucible,1759,1579,,1182,561
+1580,yihong0618,running_page,npm,52.23,C,0.7,Nursery,2229,1580,,979,
+1581,ianstormtaylor,slate,npm,52.21,C,0.9375,Crucible,2022,1581,396,1249,
+1582,cabaletta,baritone,maven,52.21,C,0.844166666667,Sweet Spot,1842,1582,,,546
+1583,amazon-science,chronos-forecasting,pypi,52.19,C,1.0,Nursery,1730,1583,,,
+1584,PuerkitoBio,goquery,go,52.19,C,0.8125,Crucible,1981,1584,421,,
+1585,jrouwe,JoltPhysics,systems,52.18,C,0.9375,Nursery,2163,1585,,767,
+1586,palantir,blueprint,npm,52.16,C,0.875,Sweet Spot,1662,1586,,1129,
+1587,NVIDIA,TensorRT,systems,52.15,C,0.795,Sweet Spot,1809,1587,,,573
+1588,authlib,authlib,pypi,52.14,C,0.9375,Crucible,2190,1588,389,1290,
+1589,9001,copyparty,pypi,52.11,C,1.0,Nursery,2483,1589,,559,
+1590,trufflesecurity,trufflehog,go,52.11,C,0.875,Nursery,1564,1590,,,651
+1591,CyberTimon,RapidRAW,npm,52.11,C,0.61,Nursery,2510,1591,,905,
+1592,wevm,wagmi,npm,52.1,C,0.9775,Sweet Spot,2237,1592,,,
+1593,perkeep,perkeep,go,52.08,C,0.7,Nursery,2501,1593,,,
+1594,tldraw,tldraw,npm,52.08,C,0.655,Nursery,1571,1594,,863,743
+1595,wger-project,wger,pypi,52.08,C,0.61,Nursery,2139,1595,,976,
+1596,apache,superset,pypi,52.07,C,0.655,Sweet Spot,1264,1596,,,528
+1597,orhun,git-cliff,crates,52.05,C,1.0,Sweet Spot,2120,1597,,1075,
+1598,jitsi,jitsi-meet,npm,52.05,C,0.8125,Nursery,1374,1598,,,
+1599,openziti,zrok,go,52.04,C,0.915,Nursery,2020,1599,,,
+1600,junegunn,fzf,go,52.04,C,0.755,Nursery,2214,1600,,1048,
+1601,tmoroney,auto-subs,npm,52.04,C,0.6875,Sweet Spot,2093,1601,,1191,
+1602,krillinai,OpenCreator,npm,52.01,C,0.65,Sweet Spot,1952,1602,,,607
+1603,zgsm-ai,costrict,npm,52.01,C,0.6375,Nursery,2291,1603,,,
+1604,LibreTranslate,LibreTranslate,pypi,51.99,C,0.78,Nursery,1765,1604,,,
+1605,eternnoir,pyTelegramBotAPI,pypi,51.99,C,0.755,Nursery,2166,1605,,1074,
+1606,JanDeDobbeleer,oh-my-posh,go,51.98,C,0.925,Nursery,1690,1606,,1072,
+1607,openatx,uiautomator2,pypi,51.98,C,0.635,Sweet Spot,1469,1607,,,512
+1608,K-Dense-AI,scientific-agent-skills,pypi,51.97,C,0.8375,Crucible,1407,1608,,1123,
+1609,vantage-sh,ec2instances.info,npm,51.97,C,0.7625,Nursery,2048,1609,,1164,
+1610,k2-fsa,sherpa-onnx,systems,51.96,C,0.875,Sweet Spot,2156,1610,,1181,
+1611,zensical,zensical,crates,51.94,C,1.0,Nursery,2480,1611,,,
+1612,jgraph,drawio-mcp,npm,51.94,C,0.915,Nursery,1362,1612,,,
+1613,AnalogJ,scrutiny,go,51.94,C,0.84,Nursery,1731,1613,,1064,
+1614,rust-embedded,embedded-hal,crates,51.94,C,0.6625,Crucible,2240,1614,415,,502
+1615,netlify,gotrue,go,51.93,C,0.79,Nursery,2743,1615,,,
+1616,Picovoice,porcupine,pypi,51.93,C,0.655,Nursery,1841,1616,,,
+1617,cupy,cupy,pypi,51.92,C,0.6475,Crucible,1664,1617,,1166,616
+1618,mark3labs,mcp-go,go,51.9,C,1.0,Nursery,2162,1618,,924,701
+1619,coolsnowwolf,lede,systems,51.9,C,0.9025,Nursery,2454,1619,,,
+1620,xerrors,Yuxi,pypi,51.89,C,0.7725,Nursery,1863,1620,,414,878
+1621,xyflow,xyflow,npm,51.87,C,1.0,Nursery,2738,1621,,1116,
+1622,dotansimha,graphql-code-generator,npm,51.87,C,0.9375,Crucible,2179,1622,383,1259,
+1623,open-compass,VLMEvalKit,pypi,51.86,C,0.8375,Sweet Spot,2432,1623,,1226,570
+1624,pure-css,pure,npm,51.86,C,0.7375,Nursery,2398,1624,,,
+1625,socketio,socket.io,npm,51.85,C,1.0,Crucible,1921,1625,386,1362,
+1626,akfamily,akshare,pypi,51.83,C,0.9,Nursery,2565,1626,,,
+1627,architecture-decision-record,architecture-decision-record,npm,51.83,C,0.7,Nursery,1904,1627,,1030,
+1628,vercel,examples,npm,51.81,C,1.0,Nursery,2278,1628,,744,773
+1629,rkyv,rkyv,crates,51.81,C,0.7925,Crucible,2178,1629,411,1248,
+1630,reduxjs,redux-devtools,npm,51.81,C,0.79,Nursery,2462,1630,,,
+1631,pdfarranger,pdfarranger,pypi,51.79,C,0.815,Nursery,2044,1631,,1006,
+1632,dundee,gdu,go,51.78,C,0.915,Nursery,1860,1632,,957,
+1633,denoland,rusty_v8,crates,51.77,C,0.9375,Crucible,1738,1633,,1171,
+1634,axolotl-ai-cloud,axolotl,pypi,51.77,C,0.875,Nursery,1456,1634,,946,
+1635,Automattic,simplenote-electron,npm,51.77,C,0.7625,Sweet Spot,1570,1635,,,
+1636,immunant,c2rust,crates,51.77,C,0.7225,Nursery,1951,1636,,,770
+1637,pillarjs,path-to-regexp,npm,51.77,C,0.7175,Crucible,2056,1637,427,1418,423
+1638,apache,hbase,maven,51.77,C,0.679166666667,Sweet Spot,1373,1638,,,
+1639,agent-substrate,substrate,go,51.76,C,0.625833333333,Nursery,1338,1639,,,744
+1640,obss,sahi,pypi,51.75,C,0.915,Nursery,2316,1640,,1002,
+1641,Eigenwise,atomic-agents,pypi,51.75,C,0.915,Nursery,1309,1641,,942,
+1642,ajaxorg,ace,npm,51.74,C,0.9025,Nursery,2106,1642,,919,
+1643,KaTeX,KaTeX,npm,51.72,C,0.775,Sweet Spot,2017,1643,,,
+1644,pmndrs,react-three-fiber,npm,51.69,C,1.0,Crucible,2169,1644,416,,531
+1645,mlfoundations,open_clip,pypi,51.69,C,0.8625,Nursery,2447,1645,,1111,
+1646,PriorLabs,TabPFN,pypi,51.65,C,0.875,Nursery,1620,1646,,,
+1647,mstange,samply,crates,51.65,C,0.84,Nursery,2333,1647,,937,
+1648,go-chi,chi,go,51.64,C,0.9775,Crucible,2209,1648,422,,
+1649,openscopeproject,InteractiveHtmlBom,pypi,51.64,C,0.8125,Nursery,1961,1649,,,
+1650,tealdeer-rs,tealdeer,crates,51.63,C,0.8625,Nursery,1894,1650,,876,
+1651,redbadger,crux,crates,51.63,C,0.8175,Sweet Spot,1815,1651,,1037,
+1652,BetterDiscord,BetterDiscord,npm,51.61,C,0.925,Nursery,1871,1652,,999,
+1653,tiagozip,cap,npm,51.6,C,1.0,Nursery,1938,1653,,837,
+1654,GoogleChrome,lighthouse,npm,51.6,C,1.0,Crucible,2090,1654,390,1202,
+1655,yizhiyanhua-ai,fireworks-tech-graph,pypi,51.59,C,0.625,Nursery,2656,1655,,,
+1656,54yyyu,zotero-mcp,pypi,51.58,C,1.0,Nursery,2275,1656,,776,
+1657,github,github-mcp-server,go,51.58,C,0.8125,Sweet Spot,1479,1657,,,535
+1658,zenstory-ai,oh-story-claudecode,pypi,51.58,C,0.7,Nursery,1708,1658,,1151,
+1659,breferrari,obsidian-mind,npm,51.58,C,0.65,Sweet Spot,1397,1659,,,
+1660,microsoft,playwright-mcp,npm,51.56,C,1.0,Nursery,1611,1660,,,
+1661,poem-web,poem,crates,51.56,C,0.825,Sweet Spot,2301,1661,,1153,
+1662,Giskard-AI,giskard-oss,pypi,51.56,C,0.7625,Crucible,1497,1662,,,
+1663,callstack,react-native-paper,npm,51.55,C,0.9775,Crucible,1065,1663,,1386,
+1664,muety,wakapi,go,51.55,C,0.825,Nursery,2201,1664,,751,
+1665,Graylog2,graylog2-server,maven,51.55,C,0.625833333333,Nursery,1311,1665,,,712
+1666,upx,upx,systems,51.53,C,0.8625,Nursery,2029,1666,,,
+1667,awslabs,gluonts,pypi,51.51,C,0.805,Nursery,2224,1667,,,639
+1668,DavidHDev,canvas-ui,npm,51.51,C,0.65,Nursery,2008,1668,,,
+1669,AutoMQ,automq,maven,51.5,C,0.791666666667,Sweet Spot,1438,1669,,,
+1670,NVIDIA-NeMo,Speech,pypi,51.49,C,0.65,Crucible,1548,1670,,,
+1671,ossrs,srs,systems,51.47,C,0.8,Sweet Spot,1946,1671,,1055,
+1672,shikijs,shiki,npm,51.46,C,0.8625,Crucible,2415,1672,406,1220,
+1673,NEKOparapa,AiNiee,pypi,51.45,C,0.7525,Nursery,2362,1673,,1119,
+1674,litmuschaos,litmus,go,51.43,C,1.0,Nursery,2230,1674,,973,695
+1675,linshenkx,prompt-optimizer,npm,51.41,C,0.775,Nursery,2299,1675,,1013,
+1676,lerna,lerna,npm,51.4,C,0.8625,Crucible,1722,1676,438,1412,
+1677,mindee,doctr,pypi,51.39,C,0.925,Nursery,1940,1677,,1154,
+1678,wasm3,wasm3,systems,51.38,C,0.68,Sweet Spot,1526,1678,,,
+1679,networknt,light-4j,maven,51.38,C,0.604166666667,Nursery,2532,1679,,,
+1680,browserless,browserless,npm,51.36,C,0.925,Nursery,1861,1680,,961,
+1681,uber,kraken,go,51.35,C,0.8775,Crucible,1092,1681,,952,
+1682,chakra-ui,zag,npm,51.34,C,1.0,Sweet Spot,1988,1682,,,
+1683,Canner,WrenAI,pypi,51.34,C,0.8125,Sweet Spot,1149,1683,,,611
+1684,ThreeDotsLabs,watermill,go,51.34,C,0.685,Crucible,2262,1684,,,586
+1685,jquery,jquery,npm,51.33,C,0.89,Crucible,2018,1685,384,,
+1686,tokio-rs,toasty,crates,51.33,C,0.875,Nursery,1788,1686,,,
+1687,Netflix,metaflow,pypi,51.33,C,0.875,Crucible,1671,1687,,,460
+1688,eugenp,tutorials,maven,51.33,C,0.844166666667,Nursery,2536,1688,,1128,649
+1689,TeamFlos,phira,crates,51.32,C,0.815,Sweet Spot,2133,1689,,1080,
+1690,pocoproject,poco,systems,51.31,C,0.9375,Nursery,2324,1690,,1017,
+1691,rust-lang,regex,crates,51.31,C,0.8325,Crucible,1475,1691,423,,
+1692,kubernetes-sigs,descheduler,go,51.3,C,1.0,Nursery,2033,1692,,1062,
+1693,netty,netty,maven,51.3,C,0.8125,Nursery,2219,1693,,,
+1694,stern,stern,go,51.3,C,0.7925,Nursery,2141,1694,,1178,654
+1695,misskey-dev,misskey,npm,51.3,C,0.6475,Nursery,1967,1695,,786,815
+1696,apache,flink,maven,51.29,C,0.625833333333,Nursery,1491,1696,,,686
+1697,openimsdk,open-im-server,go,51.28,C,0.9775,Nursery,2322,1697,,735,
+1698,ZLMediaKit,ZLMediaKit,systems,51.26,C,0.9775,Nursery,2246,1698,,960,
+1699,ilyhalight,voice-over-translation,npm,51.26,C,0.7,Sweet Spot,2112,1699,,1297,
+1700,nginx,nginx,systems,51.25,C,0.925,Crucible,1441,1700,,,
+1701,slidevjs,slidev,npm,51.21,C,1.0,Nursery,2387,1701,,1102,
+1702,libp2p,rust-libp2p,crates,51.2,C,0.9775,Crucible,2023,1702,437,1332,
+1703,getmoto,moto,pypi,51.19,C,0.875,Crucible,2306,1703,430,,
+1704,knadh,listmonk,go,51.17,C,1.0,Nursery,2205,1704,,917,
+1705,koush,scrypted,npm,51.16,C,0.8375,Nursery,2645,1705,,,
+1706,D4Vinci,Scrapling,pypi,51.15,C,1.0,Nursery,1851,1706,,,
+1707,taskflow,taskflow,systems,51.12,C,0.8175,Nursery,2271,1707,,1148,660
+1708,dreammis,social-auto-upload,pypi,51.12,C,0.7625,Nursery,2649,1708,,859,
+1709,plastic-labs,honcho,pypi,51.11,C,0.8125,Crucible,1138,1709,,,497
+1710,google,or-tools,systems,51.09,C,1.0,Nursery,2198,1710,,974,
+1711,joke2k,faker,pypi,51.08,C,1.0,Crucible,2404,1711,399,1322,
+1712,theOehrly,Fast-F1,pypi,51.08,C,0.9775,Nursery,1614,1712,,,
+1713,ultralytics,yolov5,pypi,51.08,C,0.7325,Crucible,1218,1713,442,1326,
+1714,MCSManager,MCSManager,npm,51.04,C,1.0,Nursery,2128,1714,,742,
+1715,labring,FastGPT,npm,51.04,C,0.655,Nursery,1602,1715,,,774
+1716,hynek,structlog,pypi,51.03,C,0.84,Crucible,1785,1716,414,1380,
+1717,sfu-db,connector-x,crates,51.03,C,0.78,Nursery,2253,1717,,1192,631
+1718,ChromeDevTools,chrome-devtools-mcp,npm,51.03,C,0.655,Nursery,985,1718,,,766
+1719,Delgan,loguru,pypi,51.02,C,0.9375,Crucible,2231,1719,405,,
+1720,LmeSzinc,AzurLaneAutoScript,pypi,51.02,C,0.815,Nursery,2739,1720,,,
+1721,geekcomputers,Python,pypi,51.02,C,0.7625,Nursery,2500,1721,,965,
+1722,hydro-dev,Hydro,npm,51.0,C,0.9275,Nursery,1989,1722,,,
+1723,google,highway,systems,50.99,C,0.875,Nursery,1906,1723,,,
+1724,tokio-rs,topcoat,crates,50.96,C,0.6475,Nursery,2043,1724,,,817
+1725,GoogleContainerTools,skaffold,go,50.94,C,0.9775,Sweet Spot,2127,1725,,,
+1726,sqlitebrowser,sqlitebrowser,systems,50.92,C,0.9375,Sweet Spot,2194,1726,,1163,
+1727,graphql-hive,graphql-yoga,npm,50.9,C,0.915,Crucible,2318,1727,,,
+1728,pytorch,torchtitan,pypi,50.9,C,0.655,Nursery,1151,1728,,,758
+1729,zumerlab,snapdom,npm,50.9,C,0.6475,Nursery,2524,1729,,693,
+1730,baomidou,mybatis-plus,maven,50.88,C,0.915,Crucible,2382,1730,434,1292,
+1731,pgvector,pgvector,systems,50.87,C,0.915,Nursery,1818,1731,,,
+1732,seek-oss,playroom,npm,50.87,C,0.8125,Sweet Spot,2102,1732,,,
+1733,Tencent,MMKV,systems,50.87,C,0.7375,Nursery,1811,1733,,,
+1734,browserbase,stagehand,npm,50.86,C,0.8125,Nursery,1511,1734,,,
+1735,microsoft,tsdoc,npm,50.86,C,0.7325,Crucible,1652,1735,428,1273,
+1736,SWE-agent,mini-swe-agent,pypi,50.84,C,1.0,Nursery,2155,1736,,,
+1737,miniflux,v2,go,50.84,C,0.925,Sweet Spot,2028,1737,,1279,
+1738,Kludex,uvicorn,pypi,50.82,C,0.9775,Crucible,2124,1738,401,,
+1739,linkedin,Liger-Kernel,pypi,50.82,C,0.925,Sweet Spot,1354,1739,,1288,590
+1740,thunderbird,thunderbolt,npm,50.82,C,0.65,Sweet Spot,1853,1740,,,584
+1741,udecode,plate,npm,50.82,C,0.6125,Nursery,2181,1741,,836,826
+1742,CrunchyData,postgres-operator,go,50.81,C,0.8125,Nursery,2257,1742,,,
+1743,mostlygeek,llama-swap,go,50.78,C,0.9775,Nursery,1832,1743,,,
+1744,flowable,flowable-engine,maven,50.77,C,0.679166666667,Nursery,2248,1744,,,
+1745,tesseract-ocr,tesseract,systems,50.76,C,0.915,Crucible,1508,1745,,1391,
+1746,permitio,opal,pypi,50.75,C,0.9775,Nursery,1704,1746,,,
+1747,fingerprintjs,fingerprintjs,npm,50.75,C,0.6875,Crucible,1703,1747,,1356,524
+1748,decaporg,decap-cms,npm,50.73,C,1.0,Nursery,2041,1748,,835,
+1749,fla-org,flash-linear-attention,pypi,50.73,C,0.875,Sweet Spot,1563,1749,,,600
+1750,Unleash,unleash,npm,50.72,C,0.655,Nursery,1720,1750,,,787
+1751,OpenNMT,CTranslate2,systems,50.69,C,0.915,Crucible,1524,1751,,1295,
+1752,model-checking,kani,crates,50.69,C,0.8875,Crucible,921,1752,,,
+1753,electron-userland,electron-builder,npm,50.69,C,0.875,Crucible,1445,1753,455,,
+1754,vas3k,TaxHacker,npm,50.69,C,0.7525,Nursery,2418,1754,,991,
+1755,johnkerl,miller,go,50.68,C,0.705,Nursery,1512,1755,,,
+1756,graph-gophers,graphql-go,go,50.68,C,0.705,Crucible,2055,1756,447,,
+1757,raphw,byte-buddy,maven,50.67,C,0.655,Crucible,2442,1757,435,,
+1758,FyroxEngine,Fyrox,crates,50.67,C,0.62,Nursery,,1758,,,
+1759,rime,librime,systems,50.66,C,0.9775,Nursery,2215,1759,,,
+1760,microsoft,FluidFramework,npm,50.66,C,0.655,Nursery,1176,1760,,,764
+1761,databasus,databasus,npm,50.65,C,0.8375,Sweet Spot,2063,1761,,1160,
+1762,openbq-org,OpenBB,pypi,50.64,C,0.8375,Nursery,2035,1762,,,
+1763,erebe,wstunnel,crates,50.64,C,0.7625,Nursery,2412,1763,,1093,
+1764,apple,embedding-atlas,npm,50.62,C,1.0,Nursery,2158,1764,,820,
+1765,567-labs,instructor,pypi,50.6,C,0.85,Crucible,1633,1765,,,
+1766,plouc,nivo,npm,50.6,C,0.6475,Sweet Spot,2232,1766,,,620
+1767,DioxusLabs,blitz,crates,50.58,C,0.8125,Nursery,2276,1767,,,
+1768,aquasecurity,tracee,go,50.56,C,0.915,Nursery,1429,1768,,,
+1769,sharkdp,fd,crates,50.55,C,1.0,Nursery,1515,1769,,,
+1770,snakers4,silero-vad,pypi,50.51,C,0.8625,Nursery,2411,1770,,1003,
+1771,Tribler,tribler,pypi,50.51,C,0.8125,Nursery,2116,1771,,,
+1772,reduxjs,react-redux,npm,50.49,C,0.8125,Crucible,2344,1772,424,,
+1773,wix,Detox,npm,50.49,C,0.7875,Sweet Spot,2319,1773,,1325,
+1774,nalgeon,sqlean,systems,50.49,C,0.63,Nursery,2363,1774,,,721
+1775,tconbeer,harlequin,pypi,50.47,C,0.865,Nursery,1887,1775,,,
+1776,alireza0,s-ui,go,50.45,C,0.915,Nursery,2242,1776,,897,
+1777,supertuxkart,stk-code,systems,50.44,C,1.0,Sweet Spot,1770,1777,,1210,
+1778,epezent,implot,systems,50.44,C,0.7325,Nursery,2421,1778,,1047,
+1779,citrolabs,ego-lite,npm,50.42,C,0.875,Nursery,2040,1779,,,
+1780,kubernetes-client,java,maven,50.42,C,0.8625,Nursery,2304,1780,,1232,
+1781,Ripple-TS,ripple,npm,50.42,C,0.6475,Nursery,2098,1781,,,821
+1782,pqoqubbw,icons,npm,50.41,C,0.775,Nursery,2000,1782,,1110,
+1783,google,comprehensive-rust,crates,50.4,C,0.8375,Nursery,1742,1783,,1067,708
+1784,ouch-org,ouch,crates,50.39,C,0.915,Nursery,1984,1784,,1044,
+1785,teloxide,teloxide,crates,50.39,C,0.7325,Sweet Spot,2309,1785,,1266,
+1786,LuanRT,YouTube.js,npm,50.37,C,0.9775,Nursery,2152,1786,,1127,
+1787,runatlantis,atlantis,go,50.36,C,0.875,Crucible,1579,1787,,,554
+1788,motdotla,dotenv,npm,50.36,C,0.84,Crucible,2470,1788,363,,
+1789,RoaringBitmap,RoaringBitmap,maven,50.36,C,0.7375,Crucible,2049,1789,,,
+1790,xanderfrangos,twinkle-tray,npm,50.35,C,0.7,Nursery,2286,1790,,1174,
+1791,karatelabs,karate,maven,50.31,C,0.605833333333,Nursery,1528,1791,,,
+1792,k0sproject,k0s,go,50.3,C,0.625833333333,Nursery,2353,1792,,,800
+1793,Velocidex,velociraptor,go,50.27,C,1.0,Nursery,2386,1793,,675,
+1794,sysadminsmedia,homebox,go,50.27,C,1.0,Nursery,2086,1794,,968,
+1795,runelite,runelite,maven,50.27,C,0.844166666667,Sweet Spot,2469,1795,,,
+1796,PDFCraftTool,pdfcraft,npm,50.27,C,0.7625,Nursery,2830,1796,,955,
+1797,OpenNHP,opennhp,go,50.25,C,0.670833333333,Nursery,2137,1797,,,895
+1798,Genesis-Embodied-AI,genesis-world,pypi,50.24,C,0.8125,Nursery,1761,1798,,,
+1799,apache,streampark,maven,50.23,C,0.791666666667,Sweet Spot,1901,1799,,,
+1800,microsoft,coreutils,crates,50.23,C,0.7625,Nursery,1964,1800,,1010,
+1801,louislam,uptime-kuma,npm,50.23,C,0.6475,Nursery,2212,1801,,361,928
+1802,MinecraftForge,MinecraftForge,maven,50.22,C,0.844166666667,Nursery,2293,1802,,,
+1803,graphprotocol,graph-node,crates,50.21,C,0.8375,Crucible,1628,1803,,,
+1804,node-formidable,formidable,npm,50.19,C,0.6625,Crucible,2515,1804,429,,559
+1805,brianc,node-postgres,npm,50.18,C,1.0,Nursery,2025,1805,,1000,
+1806,mhogomchungu,media-downloader,systems,50.18,C,0.7375,Nursery,2591,1806,,,
+1807,0xJacky,nginx-ui,go,50.18,C,0.680833333333,Nursery,2223,1807,,640,894
+1808,psviderski,uncloud,go,50.16,C,1.0,Nursery,1523,1808,,997,
+1809,kucherenko,jscpd,crates,50.16,C,0.75,Nursery,2351,1809,,661,880
+1810,googleapis,google-api-nodejs-client,npm,50.14,C,0.82,Nursery,2371,1810,,,745
+1811,bayesian-optimization,BayesianOptimization,pypi,50.13,C,0.6675,Sweet Spot,2441,1811,,,619
+1812,cloudwego,kitex,go,50.11,C,0.865,Nursery,2452,1812,,,
+1813,orhun,ratty,crates,50.1,C,0.925,Nursery,2103,1813,,894,
+1814,nautechsystems,nautilus_trader,crates,50.09,C,0.655,Nursery,1052,1814,,,750
+1815,Vendicated,Vencord,npm,50.08,C,0.875,Nursery,,1815,,,
+1816,henrygd,beszel,go,50.07,C,1.0,Nursery,1881,1816,,971,
+1817,netbirdio,netbird,go,50.07,C,0.625833333333,Sweet Spot,1719,1817,,,645
+1818,puckeditor,puck,npm,50.06,C,1.0,Nursery,1745,1818,,1033,
+1819,achristmascarl,rainfrog,crates,50.06,C,0.6925,Nursery,1935,1819,,,
+1820,hashicorp,packer,go,50.05,C,0.915,Crucible,1686,1820,,,
+1821,47ng,nuqs,npm,50.04,C,0.8175,Nursery,1781,1821,,1145,
+1822,mikf,gallery-dl,pypi,50.04,C,0.7325,Crucible,1670,1822,,1302,
+1823,microsoft,tgrep,crates,50.04,C,0.65,Nursery,1898,1823,,,
+1824,fluxcd,flagger,go,50.03,C,1.0,Nursery,2261,1824,,1173,
+1825,google,clusterfuzz,pypi,50.03,C,0.9775,Nursery,1653,1825,,,
+1826,microsoft,pg_durable,crates,50.03,C,0.7625,Nursery,1800,1826,,1126,
+1827,mher,flower,pypi,50.03,C,0.6925,Nursery,2400,1827,,1217,
+1828,aiogram,aiogram,pypi,50.02,C,1.0,Crucible,1825,1828,,1346,
+1829,uNetworking,uWebSockets,systems,50.02,C,0.7375,Nursery,2270,1829,,,
+1830,remoteintech,remote-jobs,npm,50.02,C,0.7,Sweet Spot,1974,1830,,1227,
+1831,iconify,iconify,npm,50.01,C,0.655,Nursery,2520,1831,,,
+1832,RMerl,asuswrt-merlin.ng,systems,50.0,C,0.8125,Nursery,2348,1832,,,
+1833,jarrodwatts,claude-hud,npm,49.99,C,0.7625,Sweet Spot,1899,1833,,,
+1834,apache,zookeeper,maven,49.97,C,0.9775,Nursery,1939,1834,,1124,
+1835,pyscript,pyscript,pypi,49.95,C,0.6275,Nursery,2380,1835,,,
+1836,universal-ctags,ctags,systems,49.94,C,0.8125,Nursery,2002,1836,,,
+1837,laurent22,joplin,npm,49.94,C,0.655,Nursery,1783,1837,,,680
+1838,sqlalchemy,alembic,pypi,49.93,C,0.915,Crucible,2217,1838,439,,
+1839,lra,mackup,pypi,49.93,C,0.7575,Nursery,2593,1839,,877,
+1840,Cyan4973,xxHash,systems,49.93,C,0.755,Nursery,2258,1840,,1158,
+1841,sindresorhus,got,npm,49.93,C,0.68,Crucible,2321,1841,443,,
+1842,ActivityWatch,activitywatch,pypi,49.92,C,0.7625,Nursery,2405,1842,,,
+1843,getfider,fider,go,49.9,C,1.0,Nursery,2445,1843,,987,
+1844,ibis-project,ibis,pypi,49.9,C,1.0,Crucible,2331,1844,,,
+1845,upstash,context7,npm,49.9,C,0.875,Nursery,1784,1845,,,
+1846,kdash-rs,kdash,crates,49.9,C,0.655,Nursery,2153,1846,,,
+1847,HKUDS,CLI-Anything,pypi,49.89,C,1.0,Nursery,2571,1847,,963,794
+1848,tubearchivist,tubearchivist,pypi,49.88,C,0.715,Crucible,,1848,,,
+1849,crosire,reshade,systems,49.87,C,1.0,Nursery,2408,1849,,992,
+1850,foxcpp,maddy,go,49.87,C,0.795,Crucible,1544,1850,,1162,
+1851,mountain-loop,yaak,npm,49.86,C,1.0,Nursery,1987,1851,,865,
+1852,0xERR0R,blocky,go,49.86,C,0.9375,Nursery,2099,1852,,1103,
+1853,petgraph,petgraph,crates,49.85,C,0.845,Crucible,2059,1853,451,1440,471
+1854,wix,react-native-ui-lib,npm,49.84,C,0.875,Nursery,2378,1854,,,
+1855,tilt-dev,tilt,go,49.83,C,1.0,Nursery,2622,1855,,1117,
+1856,juicedata,juicefs,go,49.83,C,0.8125,Nursery,2015,1856,,,
+1857,unlayer,react-email-editor,npm,49.83,C,0.7375,Nursery,2489,1857,,,
+1858,Baekalfen,PyBoy,pypi,49.82,C,0.78,Nursery,1714,1858,,1238,
+1859,wasp-lang,wasp,npm,49.81,C,0.8125,Nursery,1750,1859,,,
+1860,kellyjonbrazil,jc,pypi,49.79,C,0.9375,Nursery,2123,1860,,1140,
+1861,Vencord,Vesktop,npm,49.77,C,0.815,Nursery,2551,1861,,,
+1862,xojs,xo,npm,49.77,C,0.7325,Crucible,2373,1862,440,1286,
+1863,devtron-labs,devtron,go,49.76,C,0.8125,Nursery,2467,1863,,,
+1864,luongnv89,claude-howto,pypi,49.74,C,0.815,Nursery,1917,1864,,1206,
+1865,swimlane,ngx-datatable,npm,49.74,C,0.72,Nursery,2554,1865,,,678
+1866,ayghri,i-have-adhd,pypi,49.74,C,0.65,Nursery,1957,1866,,,
+1867,containers,podman-compose,pypi,49.73,C,1.0,Sweet Spot,2192,1867,,1251,
+1868,polakowo,vectorbt,pypi,49.73,C,0.9775,Graveyard,2089,1868,,1159,
+1869,tinyauthapp,tinyauth,go,49.73,C,0.925,Nursery,1399,1869,,1155,
+1870,mindfold-ai,Trellis,npm,49.73,C,0.7725,Nursery,2004,1870,,672,890
+1871,648540858,wvp-GB28181-pro,maven,49.73,C,0.769166666667,Nursery,2918,1871,,951,
+1872,argoproj,argo-workflows,go,49.73,C,0.625833333333,Nursery,1717,1872,,,781
+1873,zyantific,zydis,systems,49.7,C,0.775,Nursery,2003,1873,,,
+1874,zh-lx,pinyin-pro,npm,49.68,C,0.8125,Sweet Spot,1948,1874,,,
+1875,copy,v86,npm,49.67,C,1.0,Nursery,2177,1875,,1073,
+1876,mermaid-js,mermaid-cli,npm,49.66,C,0.705,Nursery,2385,1876,,,
+1877,mitsuhiko,minijinja,crates,49.65,C,0.9375,Crucible,2539,1877,425,1283,
+1878,spinabot,brigade,npm,49.62,C,0.8125,Nursery,2031,1878,,,
+1879,mljar,mercury,pypi,49.61,C,0.925,Nursery,2036,1879,,980,
+1880,reduxjs,reselect,npm,49.55,C,0.7375,Crucible,2592,1880,450,,
+1881,facet-rs,facet,crates,49.54,C,0.6475,Nursery,2406,1881,,,836
+1882,mawww,kakoune,systems,49.52,C,1.0,Nursery,2457,1882,,1149,
+1883,Marker-Inc-Korea,AutoRAG,npm,49.52,C,0.915,Nursery,2057,1883,,,
+1884,EasyTier,EasyTier,crates,49.51,C,0.925,Nursery,2568,1884,,1038,
+1885,vavr-io,vavr,maven,49.51,C,0.8625,Crucible,2095,1885,462,1393,
+1886,jgraph,drawio-desktop,npm,49.51,C,0.655,Nursery,1691,1886,,,
+1887,nodejs,node-gyp,pypi,49.51,C,0.65,Crucible,2011,1887,,,553
+1888,jwtk,jjwt,maven,49.5,C,0.6675,Crucible,2618,1888,459,,610
+1889,notepad-plus-plus,notepad-plus-plus,systems,49.49,C,0.855,Crucible,2429,1889,,,615
+1890,getsentry,MobileBuildMCP,npm,49.46,C,1.0,Nursery,2350,1890,,878,
+1891,lysine-dev,retrofit,maven,49.46,C,0.636666666667,Nursery,2733,1891,,1121,756
+1892,dprint,dprint,crates,49.44,C,0.915,Crucible,2358,1892,,1245,
+1893,foambubble,foam,npm,49.43,C,0.655,Nursery,1768,1893,,,
+1894,pqina,filepond,npm,49.43,C,0.61,Nursery,2719,1894,,,690
+1895,jely2002,youtube-dl-gui,crates,49.4,C,0.775,Crucible,1364,1895,,1280,
+1896,Shubhamsaboo,awesome-llm-apps,pypi,49.37,C,0.7125,Nursery,2436,1896,,,
+1897,espnet,espnet,pypi,49.37,C,0.6475,Nursery,2225,1897,,,752
+1898,juanfont,headscale,go,49.36,C,0.743333333333,Crucible,1743,1898,,1179,716
+1899,smallstep,cli,go,49.35,C,0.755,Crucible,1748,1899,454,,
+1900,ng-bootstrap,ng-bootstrap,npm,49.35,C,0.745,Nursery,2663,1900,,,
+1901,slack-go,slack,go,49.33,C,0.9375,Crucible,2235,1901,433,1378,
+1902,sayanarijit,xplr,crates,49.33,C,0.655,Nursery,2255,1902,,,
+1903,caprover,caprover,npm,49.33,C,0.625,Crucible,1552,1903,,,
+1904,huntabyte,shadcn-svelte,npm,49.31,C,1.0,Nursery,,1904,,1170,714
+1905,rime,weasel,systems,49.28,C,0.915,Nursery,2430,1905,,,
+1906,iBotPeaches,Apktool,maven,49.27,C,0.7325,Nursery,1983,1906,,1079,
+1907,XiaoDuoYa,codex-with-chatgpt,npm,49.27,C,0.65,Nursery,2440,1907,,,
+1908,oomol-lab,pdf-craft,pypi,49.26,C,0.7375,Nursery,2410,1908,,,
+1909,google,wireit,npm,49.25,C,0.8125,Graveyard,1843,1909,,,
+1910,bpmn-io,bpmn-js,npm,49.24,C,0.915,Crucible,1786,1910,,,
+1911,less,less.js,npm,49.24,C,0.915,Crucible,2325,1911,426,1434,
+1912,Crosstalk-Solutions,project-nomad,npm,49.23,C,0.7125,Crucible,1760,1912,,,
+1913,DNSCrypt,dnscrypt-proxy,go,49.17,C,0.89,Nursery,2014,1913,,,
+1914,redis,hiredis,systems,49.17,C,0.8125,Nursery,2530,1914,,,
+1915,ArthurBrussee,brush,crates,49.17,C,0.74,Nursery,2545,1915,,1007,
+1916,mtkennerly,ludusavi,crates,49.16,C,0.7375,Nursery,2145,1916,,,
+1917,sensepost,objection,pypi,49.16,C,0.61,Nursery,2476,1917,,,749
+1918,microsoft,RustTraining,crates,49.14,C,0.7625,Nursery,2725,1918,,849,
+1919,googleapis,mcp-toolbox,go,49.14,C,0.625833333333,Nursery,1875,1919,,,840
+1920,microsoft,Windows-driver-samples,systems,49.13,C,0.9025,Nursery,2381,1920,,1109,
+1921,google,syzkaller,go,49.13,C,0.625833333333,Nursery,2193,1921,,,726
+1922,TypeCellOS,BlockNote,npm,49.09,C,0.925,Sweet Spot,2070,1922,,1323,
+1923,BrasilAPI,BrasilAPI,npm,49.08,C,0.8375,Crucible,1872,1923,,1265,
+1924,FiloSottile,age,go,49.08,C,0.7575,Crucible,2439,1924,445,1350,
+1925,aws,aws-cli,pypi,49.08,C,0.7125,Sweet Spot,2084,1925,,,
+1926,badges,shields,npm,49.06,C,0.875,Nursery,2052,1926,,,
+1927,zhinianboke,xianyu-auto-reply,pypi,49.06,C,0.74,Nursery,2850,1927,,1004,
+1928,gogs,gogs,go,49.05,C,0.9775,Graveyard,2300,1928,,,
+1929,appsmithorg,appsmith,npm,49.04,C,0.65,Crucible,2395,1929,,,
+1930,komari-monitor,komari,go,49.02,C,1.0,Nursery,2670,1930,,828,
+1931,automatic-ripping-machine,automatic-ripping-machine,pypi,49.02,C,0.775,Crucible,2305,1931,,1364,602
+1932,Wox-launcher,Wox,go,49.01,C,0.605833333333,Nursery,1980,1932,,943,
+1933,immutables,immutables,maven,49.0,C,0.8625,Nursery,2266,1933,,1201,
+1934,LibreSprite,LibreSprite,systems,48.99,C,0.9775,Nursery,2402,1934,,1221,
+1935,stashapp,stash,go,48.96,C,0.925,Nursery,2021,1935,,,
+1936,keras-team,keras,pypi,48.94,C,0.655,Crucible,1413,1936,,,441
+1937,microsoft,AI-Engineering-Coach,npm,48.92,C,0.7625,Graveyard,1366,1937,,1250,
+1938,hieunc229,mailflare,npm,48.92,C,0.65,Nursery,2579,1938,,,
+1939,jpadilla,pyjwt,pypi,48.91,C,0.9775,Crucible,2438,1939,417,1422,
+1940,The-Powder-Toy,The-Powder-Toy,systems,48.91,C,0.915,Sweet Spot,2091,1940,,1377,
+1941,meteor,meteor,npm,48.91,C,0.7175,Crucible,1732,1941,,,662
+1942,margelo,react-native-mmkv,npm,48.91,C,0.63,Nursery,2602,1942,,1134,
+1943,arduino,arduino-cli,go,48.9,C,0.9775,Graveyard,2367,1943,,1135,
+1944,panda3d,panda3d,systems,48.89,C,0.9075,Nursery,2505,1944,,1085,
+1945,turbot,steampipe,go,48.87,C,0.7375,Nursery,2142,1945,,,
+1946,frangoteam,FUXA,npm,48.86,C,1.0,Nursery,2466,1946,,935,
+1947,mantinedev,mantine,npm,48.85,C,0.7725,Graveyard,2161,1947,,1215,735
+1948,alphaXiv,OpenResearch,crates,48.85,C,0.65,Nursery,2641,1948,,,
+1949,jacobgil,pytorch-grad-cam,pypi,48.82,C,0.6725,Nursery,2407,1949,,,691
+1950,yzhao062,pyod,pypi,48.8,C,0.9775,Crucible,2420,1950,,1324,
+1951,swoole,swoole-src,systems,48.78,C,0.915,Crucible,2143,1951,,1320,
+1952,penrose,penrose,npm,48.78,C,0.6225,Nursery,2315,1952,,,757
+1953,slackhq,nebula,go,48.74,C,0.9775,Crucible,2062,1953,453,,
+1954,trpc,trpc,npm,48.73,C,0.925,Crucible,2548,1954,446,1363,
+1955,cppcheck-opensource,cppcheck,systems,48.73,C,0.875,Nursery,2151,1955,,,
+1956,FreeRTOS,FreeRTOS,systems,48.73,C,0.8225,Crucible,1902,1956,,1260,688
+1957,TagStudioDev,TagStudio,pypi,48.71,C,1.0,Nursery,2100,1957,,,
+1958,wiltodelta,remove-ai-watermarks,pypi,48.69,C,0.8125,Nursery,1663,1958,,,
+1959,guokaigdg,animal-island-ui,npm,48.69,C,0.7875,Nursery,2449,1959,,1032,
+1960,coleifer,peewee,pypi,48.69,C,0.7625,Crucible,2345,1960,466,,
+1961,JefferyHcool,BiliNote,pypi,48.68,C,0.7625,Nursery,2709,1961,,1034,
+1962,skypjack,entt,systems,48.68,C,0.655,Nursery,2453,1962,,,
+1963,MarSeventh,CloudFlare-ImgBed,npm,48.66,C,0.7625,Nursery,2750,1963,,,
+1964,Fosowl,agenticSeek,pypi,48.65,C,0.74,Nursery,2755,1964,,993,
+1965,Snapchat,Valdi,systems,48.64,C,0.79,Crucible,1830,1965,,,
+1966,a2ui-project,a2ui,npm,48.64,C,0.655,Crucible,1191,1966,,,628
+1967,mamba-org,mamba,systems,48.63,C,0.915,Crucible,2149,1967,,1342,
+1968,leookun,cursor-byok,crates,48.6,C,0.7625,Nursery,2508,1968,,1299,
+1969,fastapi,full-stack-fastapi-template,npm,48.6,C,0.7375,Nursery,2173,1969,,,
+1970,laramies,theHarvester,pypi,48.59,C,0.9375,Nursery,1914,1970,,1015,
+1971,git-lfs,git-lfs,go,48.58,C,0.8675,Graveyard,2195,1971,,1241,
+1972,electron,forge,npm,48.58,C,0.77,Crucible,1242,1972,,,
+1973,chidiwilliams,buzz,pypi,48.57,C,0.915,Nursery,2384,1973,,944,
+1974,meilisearch,meilisearch,crates,48.57,C,0.6975,Nursery,1601,1974,,811,879
+1975,pythops,impala,crates,48.57,C,0.695,Nursery,,1975,,880,
+1976,riscv-collab,riscv-gnu-toolchain,systems,48.55,C,0.8125,Crucible,1865,1976,,,
+1977,allinurl,goaccess,systems,48.54,C,0.705,Nursery,2484,1977,,,
+1978,deepflowio,deepflow,go,48.53,C,0.875,Nursery,2171,1978,,,
+1979,Veirt,weathr,crates,48.53,C,0.695,Nursery,,1979,,787,
+1980,v2fly,v2ray-core,go,48.52,C,0.84,Graveyard,2640,1980,,1272,
+1981,Andyyyy64,whichllm,pypi,48.51,C,0.925,Nursery,1392,1981,,1255,
+1982,guohuiyuan,go-music-dl,go,48.51,C,0.7375,Nursery,2700,1982,,,
+1983,subzeroid,instagrapi,pypi,48.49,C,0.755,Nursery,2693,1983,,1196,
+1984,linyqh,NarratoAI,pypi,48.49,C,0.6775,Nursery,2811,1984,,1069,
+1985,gitkraken,vscode-gitlens,npm,48.48,C,0.7725,Nursery,2544,1985,,,932
+1986,agentscope-ai,AgentTeams,go,48.47,C,0.875,Crucible,1084,1986,,,
+1987,sogou,workflow,systems,48.47,C,0.7375,Nursery,2808,1987,,,
+1988,flxzt,rnote,crates,48.43,C,0.775,Crucible,1827,1988,,1285,
+1989,yusufkaraaslan,Skill_Seekers,pypi,48.41,C,1.0,Nursery,1807,1989,,1084,
+1990,pathwaycom,pathway,pypi,48.41,C,0.9375,Nursery,1713,1990,,,
+1991,JimLiu,baoyu-skills,npm,48.41,C,0.925,Nursery,2366,1991,,964,
+1992,Chia-Network,chia-blockchain,pypi,48.41,C,0.8125,Crucible,1856,1992,,,560
+1993,vercel,streamdown,npm,48.38,C,1.0,Graveyard,2267,1993,,1233,
+1994,spring-cloud,spring-cloud-kubernetes,maven,48.37,C,0.8125,Nursery,2566,1994,,,
+1995,danielmiessler,LifeOS,npm,48.37,C,0.6525,Crucible,1876,1995,,,
+1996,langchain-ai,openwiki,npm,48.36,C,0.8125,Crucible,1550,1996,,,635
+1997,Achilng,floral-notepaper,crates,48.36,C,0.7625,Nursery,2631,1997,,1270,
+1998,TigerVNC,tigervnc,systems,48.34,C,0.915,Crucible,2391,1998,,,
+1999,MikeMcl,bignumber.js,npm,48.32,C,0.61,Crucible,2669,1999,464,,545
+2000,keploy,keploy,go,48.27,C,0.8125,Crucible,2010,2000,,1264,
+2001,Martian-Engineering,lossless-claw,npm,48.22,C,0.875,Nursery,2336,2001,,,
+2002,mattwparas,steel,crates,48.22,C,0.8175,Nursery,2680,2002,,1185,
+2003,gsantner,markor,maven,48.22,C,0.624166666667,Graveyard,2352,2003,,1309,
+2004,caelestia-dots,caelestia,npm,48.21,C,0.8375,Crucible,2097,2004,,1284,
+2005,kovidgoyal,kitty,pypi,48.21,C,0.6475,Nursery,1994,2005,,,882
+2006,tbphp,gpt-load,go,48.19,C,0.781666666667,Nursery,2361,2006,,1298,
+2007,flipped-aurora,gin-vue-admin,go,48.18,C,0.9025,Nursery,2647,2007,,,
+2008,centrifugal,centrifugo,go,48.16,C,0.7375,Nursery,2620,2008,,,
+2009,arp242,goatcounter,go,48.16,C,0.7375,Nursery,,2009,,,
+2010,espressif,esptool,pypi,48.15,C,0.7575,Crucible,1897,2010,,,
+2011,wasm-bindgen,wasm-pack,crates,48.14,C,0.84,Nursery,2677,2011,,1252,
+2012,Amanieu,parking_lot,crates,48.12,C,0.79,Crucible,2356,2012,441,,
+2013,pheralb,svgl,npm,48.12,C,0.7625,Nursery,2845,2013,,1045,
+2014,expressjs,session,npm,48.12,C,0.7175,Crucible,2584,2014,461,1443,574
+2015,denizsafak,abogen,pypi,48.11,C,0.705,Nursery,1854,2015,,,
+2016,nextai-translator,nextai-translator,npm,48.08,C,0.7,Nursery,2555,2016,,1203,
+2017,agent-infra,sandbox,pypi,48.08,C,0.63,Nursery,2612,2017,,1188,
+2018,signalwire,freeswitch,systems,48.07,C,0.9775,Nursery,2574,2018,,1291,
+2019,QwikDev,partytown,npm,48.06,C,0.825,Nursery,2829,2019,,1076,
+2020,kubernetes-sigs,krew,go,48.04,C,0.6625,Graveyard,2576,2020,,,748
+2021,zeromq,libzmq,systems,48.03,C,0.7925,Nursery,2550,2021,,1213,761
+2022,Upsonic,Upsonic,pypi,48.02,C,0.925,Nursery,2763,2022,,862,
+2023,Termix-SSH,Termix,npm,48.0,C,0.8125,Nursery,2475,2023,,,
+2024,aldinokemal,go-whatsapp-web-multidevice,go,47.98,C,1.0,Nursery,1892,2024,,1207,
+2025,yvgude,lean-ctx,crates,47.98,C,0.655,Nursery,2081,2025,,,867
+2026,AlkaidLab,foundation-sunshine,systems,47.96,C,0.8625,Nursery,2479,2026,,1388,
+2027,DLR-RM,stable-baselines3,pypi,47.95,C,0.8625,Crucible,2472,2027,,,
+2028,qingjian-team,qingjian,crates,47.94,C,0.65,Nursery,2138,2028,,,
+2029,wkentaro,labelme,pypi,47.93,C,0.655,Crucible,1531,2029,,,713
+2030,nezhahq,nezha,go,47.92,C,0.8625,Nursery,2343,2030,,,
+2031,dtolnay,cxx,crates,47.92,C,0.745,Crucible,2509,2031,457,,
+2032,PyGithub,PyGithub,pypi,47.9,C,0.9775,Crucible,2320,2032,458,1442,
+2033,kyegomez,swarms,pypi,47.85,C,0.8125,Nursery,2684,2033,,1263,
+2034,camel-ai,camel,pypi,47.82,C,0.925,Graveyard,1877,2034,,1282,
+2035,winboat-org,winboat,npm,47.81,C,0.8375,Graveyard,2695,2035,,1305,718
+2036,jaredpalmer,kev,pypi,47.8,C,0.65,Nursery,1893,2036,,,
+2037,firecrawl,firecrawl-mcp-server,npm,47.79,C,0.9775,Nursery,2729,2037,,,755
+2038,bitwarden,clients,npm,47.79,C,0.655,Nursery,2037,2038,,,798
+2039,hummingbot,hummingbot,pypi,47.78,C,0.75,Nursery,2172,2039,,,679
+2040,elementalsouls,Claude-BugHunter,pypi,47.78,C,0.625,Nursery,2534,2040,,,
+2041,tt-a1i,archify,npm,47.77,C,0.8125,Nursery,1711,2041,,,
+2042,microsoft,UFO,pypi,47.76,C,0.765,Nursery,2458,2042,,,
+2043,InternLM,xtuner,pypi,47.75,C,0.875,Nursery,2537,2043,,,715
+2044,microsoft,DirectX-Graphics-Samples,systems,47.75,C,0.8575,Nursery,2549,2044,,1053,
+2045,xvzc,spoofdpi,go,47.74,C,0.7575,Nursery,2075,2045,,,
+2046,OpenCoworkAI,open-codesign,npm,47.73,C,0.7625,Nursery,2207,2046,,1354,
+2047,Jguer,yay,go,47.71,C,0.9375,Graveyard,2051,2047,,1012,
+2048,gitpod-io,gitpod,npm,47.7,C,0.925,Nursery,2183,2048,,,
+2049,jupytext,jupytext,pypi,47.7,C,0.8125,Crucible,2131,2049,469,,
+2050,beekeeper-studio,beekeeper-studio,npm,47.67,C,0.6475,Nursery,2068,2050,,867,909
+2051,effector,effector,npm,47.66,C,0.7675,Crucible,2423,2051,,,
+2052,apple,pkl,maven,47.65,C,0.925,Nursery,1838,2052,,1231,
+2053,ducaale,xh,crates,47.63,C,0.7875,Nursery,2696,2053,,1081,
+2054,IrisShaders,Iris,maven,47.56,C,0.791666666667,Nursery,2852,2054,,1112,
+2055,tectonic-typesetting,tectonic,systems,47.53,C,0.7875,Nursery,2497,2055,,1339,
+2056,imba,imba,npm,47.53,C,0.7,Nursery,2751,2056,,,
+2057,google,ax,go,47.52,C,0.8125,Nursery,2026,2057,,,
+2058,bottlerocket-os,bottlerocket,crates,47.51,C,0.925,Nursery,2186,2058,,,
+2059,ferdium,ferdium-app,npm,47.51,C,0.7525,Crucible,2060,2059,,1394,
+2060,lyswhut,lx-music-desktop,npm,47.5,C,0.74,Nursery,2617,2060,,,
+2061,alex8088,electron-vite,npm,47.5,C,0.62,Nursery,,2061,,,
+2062,revive-lint,revive,go,47.49,C,0.731666666667,Crucible,2277,2062,,,
+2063,hacdias,webdav,go,47.46,C,0.6725,Crucible,2456,2063,,,684
+2064,Fission-AI,OpenSpec,npm,47.44,C,0.8125,Crucible,1363,2064,,,
+2065,unum-cloud,USearch,systems,47.43,C,1.0,Nursery,2980,2065,,1115,
+2066,microsoft,data-formulator,pypi,47.43,C,0.9375,Nursery,2314,2066,,869,
+2067,wushuo894,ani-rss,maven,47.43,C,0.646666666667,Nursery,2801,2067,,,
+2068,stanfordnlp,CoreNLP,maven,47.42,C,0.604166666667,Nursery,2746,2068,,,
+2069,EsotericSoftware,spine-runtimes,systems,47.34,C,0.8775,Crucible,2435,2069,,,
+2070,ithewei,libhv,systems,47.34,C,0.8625,Graveyard,2359,2070,,1277,
+2071,ChatLab,ChatLab,npm,47.33,C,0.75,Nursery,2413,2071,,896,922
+2072,windingwind,zotero-pdf-translate,npm,47.3,C,0.65,Nursery,2526,2072,,,
+2073,Neargye,magic_enum,systems,47.29,C,0.7075,Graveyard,2485,2073,,1224,
+2074,tinyproxy,tinyproxy,systems,47.26,C,0.6675,Nursery,2685,2074,,,772
+2075,up-for-grabs,up-for-grabs.net,npm,47.25,C,0.7125,Crucible,2540,2075,,,613
+2076,alda-lang,alda,go,47.24,C,0.73,Nursery,2803,2076,,,
+2077,microsoft,playwright-cli,npm,47.23,C,0.84,Nursery,2073,2077,,,
+2078,esnet,iperf,systems,47.22,C,1.0,Crucible,2233,2078,,1341,
+2079,dotenvx,dotenvx,npm,47.22,C,0.6975,Nursery,2876,2079,,,869
+2080,HeyPuter,puter,npm,47.22,C,0.655,Nursery,2311,2080,,,908
+2081,dlvhdr,gh-dash,go,47.21,C,1.0,Nursery,,2081,,1132,
+2082,ReactiveX,RxPY,pypi,47.19,C,0.655,Crucible,1889,2082,,,
+2083,gnif,LookingGlass,systems,47.18,C,0.7425,Nursery,2561,2083,,1329,
+2084,greshake,i3status-rust,crates,47.15,C,0.9375,Nursery,2388,2084,,1131,
+2085,sezanzeb,input-remapper,pypi,47.14,C,0.7,Nursery,2425,2085,,1328,
+2086,vercel-labs,open-agents,npm,47.14,C,0.6375,Nursery,2541,2086,,,
+2087,nikkinikki-org,OpenWrt-nikki,npm,47.11,C,0.7275,Graveyard,2397,2087,,,
+2088,RyanCodrai,turbovec,crates,47.1,C,0.8625,Nursery,2604,2088,,,
+2089,Tonejs,Tone.js,npm,47.1,C,0.79,Graveyard,2926,2089,,,
+2090,unovue,shadcn-vue,npm,47.08,C,1.0,Nursery,2942,2090,,1065,
+2091,cloudwego,volo,crates,47.06,C,0.8125,Crucible,1557,2091,,,
+2092,fengshao1227,ccg-workflow,go,47.05,C,0.695,Graveyard,,2092,,,
+2093,anacrolix,torrent,go,46.99,C,0.8625,Crucible,2417,2093,467,1426,
+2094,dmMaze,BallonsTranslator,pypi,46.98,C,0.7525,Crucible,2383,2094,,,
+2095,go-gost,gost,go,46.97,C,0.655,Graveyard,1923,2095,,,
+2096,alibaba,arthas,maven,46.96,C,0.925,Nursery,2332,2096,,1050,
+2097,loco-rs,loco,crates,46.94,C,0.9375,Crucible,2160,2097,,,
+2098,Permify,permify,go,46.93,C,0.85,Nursery,2569,2098,,1147,857
+2099,makepad,makepad,crates,46.92,C,0.7725,Nursery,2621,2099,,1133,853
+2100,kohya-ss,sd-scripts,pypi,46.91,C,0.815,Graveyard,2339,2100,,1301,
+2101,spring-projects,spring-boot,maven,46.89,C,0.688333333333,Nursery,2247,2101,,,833
+2102,NationalSecurityAgency,ghidra,maven,46.89,C,0.61,Graveyard,2658,2102,,1229,
+2103,amacneil,dbmate,go,46.88,C,0.915,Crucible,2042,2103,,1420,
+2104,rajnandan1,kener,npm,46.88,C,0.8375,Graveyard,2562,2104,,1347,
+2105,harlan-zw,unlighthouse,npm,46.87,C,0.655,Nursery,2702,2105,,,
+2106,microsoft,SkillOpt,pypi,46.86,C,0.925,Nursery,2609,2106,,1137,865
+2107,webpack,webpack-dev-server,npm,46.86,C,0.815,Crucible,2671,2107,431,,
+2108,projectdiscovery,naabu,go,46.81,C,0.9375,Graveyard,2666,2108,,1261,
+2109,ninja-build,ninja,systems,46.8,C,1.0,Crucible,2428,2109,,1336,
+2110,typesense,typesense,systems,46.8,C,0.9775,Graveyard,2642,2110,,,692
+2111,MovingBlocks,Terasology,maven,46.78,C,0.729166666667,Graveyard,2282,2111,,1366,
+2112,bee-san,RustScan,crates,46.77,C,0.7,Crucible,2076,2112,,1402,
+2113,XiaoYouChR,Ghost-Downloader-3,pypi,46.73,C,0.6575,Nursery,2360,2113,,,
+2114,heroiclabs,nakama,go,46.72,C,1.0,Graveyard,2168,2114,,,
+2115,liuzhao1225,YouDub-webui,pypi,46.72,C,0.65,Nursery,2370,2115,,,
+2116,loro-dev,loro,crates,46.71,C,0.7875,Graveyard,2478,2116,,1359,
+2117,mofeng-git,One-KVM,crates,46.7,C,0.625,Nursery,2794,2117,,,
+2118,opencv,opencv_contrib,systems,46.69,C,1.0,Graveyard,2728,2118,,1311,
+2119,photoview,photoview,go,46.68,C,0.9375,Graveyard,2109,2119,,1194,
+2120,auth0,java-jwt,maven,46.65,C,0.7375,Crucible,2459,2120,,,
+2121,Almamu,linux-wallpaperengine,systems,46.61,C,1.0,Nursery,2587,2121,,1300,
+2122,EvoMap,evolver,npm,46.6,C,0.9525,Nursery,2396,2122,,,
+2123,mandiant,capa,pypi,46.59,C,0.845,Nursery,2451,2123,,,
+2124,n4ze3m,page-assist,npm,46.58,C,0.775,Nursery,3046,2124,,1184,
+2125,k1LoW,tbls,go,46.57,C,0.9375,Graveyard,2595,2125,,1338,
+2126,MichaelGrupp,evo,pypi,46.57,C,0.655,Nursery,2646,2126,,,
+2127,deepspeedai,DeepSpeedExamples,pypi,46.57,C,0.6325,Crucible,2197,2127,,,707
+2128,fatedier,frp,go,46.53,C,0.9775,Crucible,2437,2128,,,
+2129,str4d,rage,crates,46.52,C,0.7325,Crucible,2601,2129,,1396,
+2130,open-circle,valibot,npm,46.48,C,1.0,Graveyard,2265,2130,,1333,
+2131,moonlight-stream,moonlight-qt,systems,46.48,C,0.915,Crucible,2575,2131,,,
+2132,QuipNetwork,hashsigs-rs,crates,46.46,C,0.7375,Nursery,2607,2132,,,
+2133,quickwit-oss,quickwit,crates,46.45,C,0.6075,Crucible,1659,2133,,,
+2134,unionlabs,union,crates,46.44,C,0.9775,Nursery,2785,2134,,1091,
+2135,margelo,react-native-vision-camera,npm,46.44,C,0.815,Crucible,2364,2135,,,
+2136,oapi-codegen,oapi-codegen,go,46.43,C,1.0,Nursery,2234,2136,,1225,
+2137,openvinotoolkit,open_model_zoo,pypi,46.41,C,0.795,Nursery,2764,2137,,,850
+2138,amantus-ai,vibetunnel,npm,46.4,C,0.8625,Nursery,2486,2138,,1061,
+2139,jwilder,dockerize,go,46.4,C,0.7325,Nursery,2662,2139,,1152,
+2140,mekos2772,ios-location-spoofer,npm,46.39,C,0.6875,Nursery,3025,2140,,1212,
+2141,wcandillon,react-native-skia,npm,46.37,C,0.925,Nursery,2567,2141,,1330,
+2142,miantiao-me,Sink,npm,46.37,C,0.68,Crucible,1685,2142,,,
+2143,pymupdf,PyMuPDF,pypi,46.34,C,0.9375,Crucible,2523,2143,463,,
+2144,open-source-parsers,jsoncpp,systems,46.33,C,0.8625,Nursery,2835,2144,,1205,
+2145,seriousm4x,UpSnap,go,46.32,C,0.8625,Nursery,2783,2145,,1063,
+2146,MagicStack,asyncpg,pypi,46.29,C,0.8625,Crucible,2494,2146,471,1480,
+2147,go-co-op,gocron,go,46.29,C,0.7375,Crucible,2636,2147,472,,
+2148,baptisteArno,typebot.io,npm,46.27,C,0.815,Crucible,2146,2148,,,
+2149,yagop,node-telegram-bot-api,npm,46.25,C,0.7325,Crucible,2110,2149,,,
+2150,fuma-nama,fumadocs,npm,46.25,C,0.6975,Nursery,2487,2150,,1107,913
+2151,HKUDS,ClawTeam,pypi,46.25,C,0.695,Nursery,,2151,,932,
+2152,di-sukharev,opencommit,npm,46.2,C,0.9375,Nursery,2297,2152,,1169,
+2153,facebook,jscodeshift,npm,46.2,C,0.6625,Crucible,2529,2153,460,,738
+2154,apache,answer,go,46.18,C,1.0,Nursery,2401,2154,,,
+2155,ModelTC,LightLLM,pypi,46.18,C,0.6375,Nursery,2878,2155,,,776
+2156,codecentric,spring-boot-admin,maven,46.15,C,0.875,Graveyard,1925,2156,,,
+2157,vudovn,ag-kit,npm,46.15,C,0.695,Graveyard,,2157,,1254,
+2158,reown-com,appkit,npm,46.13,C,0.9775,Graveyard,2251,2158,,,
+2159,rust-ndarray,ndarray,crates,46.13,C,0.8925,Crucible,2832,2159,449,1429,
+2160,amanusk,s-tui,pypi,46.12,C,0.7075,Nursery,2605,2160,,,
+2161,binwiederhier,ntfy,go,46.11,C,1.0,Graveyard,2701,2161,,1294,
+2162,atuinsh,atuin,crates,46.09,C,0.8125,Crucible,2259,2162,,,
+2163,Tencent,puerts,systems,46.05,C,0.84,Graveyard,2788,2163,,1304,
+2164,emmett-framework,granian,crates,46.05,C,0.775,Graveyard,2889,2164,,1236,
+2165,Chocobozzz,PeerTube,npm,46.05,C,0.7725,Graveyard,2313,2165,,1199,855
+2166,gokcehan,lf,go,46.03,C,0.9775,Nursery,2448,2166,,,
+2167,mikumifa,biliTickerBuy,pypi,46.03,C,0.85,Nursery,2872,2167,,1114,
+2168,CVHub520,X-AnyLabeling,pypi,46.0,C,1.0,Nursery,2683,2168,,1165,
+2169,HKUDS,RAG-Anything,pypi,46.0,C,1.0,Nursery,2753,2169,,1204,849
+2170,niri-wm,niri,crates,45.99,C,1.0,Nursery,2250,2170,,1269,
+2171,chenyme,grok2api,go,45.99,C,0.743333333333,Nursery,2867,2171,,,959
+2172,Azure,Azure-Sentinel,pypi,45.95,C,0.655,Nursery,1890,2172,,,837
+2173,ApodexAI,FrontierAgent,pypi,45.95,C,0.65,Graveyard,2083,2173,,,
+2174,bitpay,bitcore,npm,45.95,C,0.6475,Graveyard,2718,2174,,,734
+2175,clauderic,dnd-kit,npm,45.93,C,1.0,Graveyard,2528,2175,,1275,
+2176,FasterXML,jackson-databind,maven,45.92,C,0.668333333333,Nursery,1741,2176,,1180,893
+2177,FuelLabs,fuel-core,crates,45.91,C,0.915,Crucible,2200,2177,,,725
+2178,j3ssie,osmedeus,go,45.9,C,0.705,Nursery,2239,2178,,,
+2179,quii,learn-go-with-tests,go,45.88,C,0.8175,Graveyard,2134,2179,,1344,
+2180,walkinglabs,learn-harness-engineering,npm,45.88,C,0.6875,Nursery,2637,2180,,1370,
+2181,git-bug,git-bug,go,45.87,C,0.925,Nursery,2854,2181,,1177,
+2182,ramda,ramda,npm,45.85,C,0.7425,Crucible,2614,2182,473,,555
+2183,MrLesk,Backlog.md,npm,45.84,C,1.0,Graveyard,2132,2183,,1281,
+2184,baairon,torlink,npm,45.84,C,0.925,Nursery,2914,2184,,1156,
+2185,robusta-dev,krr,pypi,45.82,C,0.745,Nursery,2455,2185,,,847
+2186,google,libphonenumber,systems,45.81,C,0.9775,Nursery,2581,2186,,1247,
+2187,latitude-dev,latitude-llm,npm,45.76,C,0.655,Nursery,2686,2187,,,936
+2188,sirmalloc,ccstatusline,npm,45.75,C,1.0,Nursery,2588,2188,,1274,
+2189,mvt-project,mvt,pypi,45.75,C,0.7375,Nursery,2414,2189,,,
+2190,toeverything,AFFiNE,npm,45.72,C,0.7125,Graveyard,2650,2190,,,
+2191,HyNetworks,hysteria,go,45.71,C,0.9025,Nursery,2891,2191,,1096,
+2192,openclaw,gogcli,go,45.71,C,0.618333333333,Nursery,2185,2192,,,898
+2193,DrewThomasson,ebook2audiobook,pypi,45.69,C,0.6475,Nursery,2488,2193,,,929
+2194,BlockRunAI,ClawRouter,npm,45.65,C,0.7725,Nursery,2464,2194,,,926
+2195,teamhanko,hanko,go,45.59,C,0.8125,Nursery,2269,2195,,,
+2196,Immediate-Mode-UI,Nuklear,systems,45.58,C,0.8875,Graveyard,2654,2196,,,
+2197,neoclide,coc.nvim,npm,45.57,C,0.655,Crucible,2154,2197,,,
+2198,jindrapetrik,jpexs-decompiler,maven,45.56,C,0.654166666667,Nursery,2804,2198,,1315,
+2199,jackocnr,intl-tel-input,npm,45.56,C,0.6125,Graveyard,2737,2199,,1379,784
+2200,antonmedv,fx,go,45.52,C,0.84,Nursery,2793,2200,,1239,
+2201,facebook,hermes,npm,45.47,C,0.82,Crucible,2204,2201,,,710
+2202,dgraph-io,dgraph,go,45.46,C,0.9775,Graveyard,2655,2202,,,
+2203,NomaDamas,k-skill,npm,45.45,C,0.6975,Nursery,2522,2203,,1139,918
+2204,json-schema-org,json-schema-spec,npm,45.44,C,0.7525,Graveyard,2674,2204,,,
+2205,drawdb-io,drawdb,npm,45.4,C,0.815,Graveyard,2616,2205,,,
+2206,Next-Flip,Momentum-Firmware,systems,45.4,C,0.6725,Crucible,,2206,,,
+2207,krausest,js-framework-benchmark,npm,45.38,C,1.0,Nursery,2613,2207,,1142,
+2208,tensorflow,tensorboard,npm,45.38,C,0.9775,Nursery,2492,2208,,1130,
+2209,walkinglabs,hands-on-modern-rl,pypi,45.38,C,0.7625,Graveyard,2535,2209,,1389,
+2210,ljharb,qs,npm,45.37,C,0.915,Crucible,2818,2210,456,1475,
+2211,bfirsh,jsnes,npm,45.37,C,0.68,Graveyard,2202,2211,,,
+2212,OpenBMB,MiniCPM-V,pypi,45.37,C,0.6775,Nursery,2744,2212,,,
+2213,docsifyjs,docsify,npm,45.36,C,0.915,Crucible,2465,2213,,,
+2214,mlua-rs,mlua,crates,45.36,C,0.71,Crucible,2799,2214,470,1430,
+2215,basketikun,chatgpt2api,pypi,45.36,C,0.6875,Nursery,2927,2215,,1361,
+2216,k2-fsa,OmniVoice,pypi,45.35,C,0.925,Nursery,2880,2216,,1144,
+2217,embedpdf,embed-pdf-viewer,npm,45.35,C,0.6975,Nursery,2518,2217,,1223,881
+2218,aiming-lab,AutoResearchClaw,pypi,45.34,C,0.8375,Graveyard,2915,2218,,1271,
+2219,mlc-ai,mlc-llm,pypi,45.31,C,0.7,Nursery,2969,2219,,1244,
+2220,miqdadbadjuber,anti-slop,npm,45.3,C,0.7375,Nursery,2802,2220,,,
+2221,microsoft,litebox,crates,45.3,C,0.65,Nursery,2538,2221,,,
+2222,ruvnet,RuVector,crates,45.29,C,0.655,Graveyard,2329,2222,,,731
+2223,react,metro,npm,45.28,C,0.9775,Crucible,2552,2223,475,,
+2224,ageerle,ruoyi-ai,maven,45.28,C,0.669166666667,Graveyard,2925,2224,,1289,
+2225,yournextstore,yournextstore,npm,45.28,C,0.625,Nursery,2675,2225,,,
+2226,hs-web,hsweb-framework,maven,45.24,C,0.655,Nursery,2626,2226,,,
+2227,uber,causalml,pypi,45.21,C,0.925,Nursery,2298,2227,,1278,
+2228,Kaliiiiiiiiii-Vinyzu,patchright,npm,45.21,C,0.7775,Nursery,2903,2228,,,
+2229,trailbaseio,trailbase,crates,45.14,C,0.75,Nursery,2629,2229,,,943
+2230,moonD4rk,HackBrowserData,go,45.14,C,0.655,Graveyard,1891,2230,,,
+2231,javascript-obfuscator,javascript-obfuscator,npm,45.13,C,0.655,Crucible,2115,2231,490,,
+2232,keystonejs,keystone,npm,45.11,C,0.8125,Graveyard,2676,2232,,,
+2233,antfu,skills,npm,45.11,C,0.6625,Nursery,2905,2233,,1189,
+2234,hhyo,Archery,pypi,45.05,C,0.65,Graveyard,2208,2234,,,
+2235,pressly,goose,go,45.02,C,0.915,Crucible,2503,2235,477,1460,
+2236,oraios,serena,pypi,45.01,C,0.7175,Nursery,2290,2236,,,887
+2237,dgtlmoon,changedetection.io,pypi,44.99,C,0.925,Nursery,2807,2237,,1317,
+2238,Nutlope,aicommits,npm,44.99,C,0.7925,Graveyard,2349,2238,,1321,
+2239,modelscope,ms-agent,pypi,44.97,C,0.8125,Nursery,2389,2239,,,793
+2240,Finsys,dockhand,npm,44.96,C,0.8375,Graveyard,2812,2240,,,
+2241,clearml,clearml,pypi,44.95,C,0.8625,Graveyard,2968,2241,,1373,
+2242,foobnix,LibreraReader,systems,44.95,C,0.84,Graveyard,3010,2242,,1348,
+2243,devlikeapro,waha,npm,44.95,C,0.775,Crucible,2244,2243,,1451,
+2244,makenotion,notion-mcp-server,npm,44.94,C,0.8575,Crucible,1568,2244,,,
+2245,exa-labs,exa-mcp-server,npm,44.9,C,1.0,Nursery,2623,2245,,,
+2246,umputun,remark42,go,44.9,C,0.865,Graveyard,2226,2246,,,
+2247,jetkvm,kvm,npm,44.9,C,0.6875,Nursery,2928,2247,,1345,
+2248,dograh-hq,dograh,pypi,44.89,C,0.875,Nursery,2546,2248,,,
+2249,ScottSloan,Bili23-Downloader,pypi,44.88,C,0.6,Nursery,2800,2249,,,
+2250,electerm,electerm,npm,44.84,C,0.6975,Nursery,2810,2250,,1230,916
+2251,hazelcast,hazelcast,maven,44.81,C,0.9,Nursery,2712,2251,,,
+2252,canonical,microk8s,pypi,44.81,C,0.7025,Nursery,2717,2252,,,
+2253,VectifyAI,OpenKB,pypi,44.8,C,0.925,Graveyard,2007,2253,,1392,
+2254,ent,ent,go,44.8,C,0.65,Crucible,2608,2254,465,,647
+2255,hao-ai-lab,FastVideo,pypi,44.79,C,0.8125,Graveyard,2471,2255,,,704
+2256,every-app,open-seo,npm,44.77,C,0.7625,Graveyard,2533,2256,,1407,
+2257,ultrajson,ultrajson,systems,44.75,C,0.8025,Graveyard,2596,2257,,1411,
+2258,jdepoix,youtube-transcript-api,pypi,44.73,C,0.6625,Crucible,2929,2258,,,724
+2259,alexpasmantier,television,crates,44.72,C,1.0,Nursery,2707,2259,,1198,
+2260,awarexone,Agentic-Bug-Hunter,pypi,44.72,C,0.9775,Nursery,2582,2260,,1243,
+2261,future-architect,vuls,go,44.72,C,0.7325,Crucible,2280,2261,,,
+2262,codexu,note-gen,npm,44.72,C,0.7,Graveyard,3020,2262,,1351,
+2263,zenbu-labs,terminal-browser,crates,44.71,C,0.65,Nursery,2720,2263,,,
+2264,trunk-rs,trunk,crates,44.7,C,0.8625,Nursery,2847,2264,,1211,
+2265,piscinajs,piscina,npm,44.69,C,0.825,Crucible,2652,2265,,1461,
+2266,droidrun,mobilerun,pypi,44.67,C,0.7725,Nursery,2993,2266,,959,966
+2267,Anil-matcha,Open-Generative-AI,npm,44.66,C,0.7625,Nursery,3088,2267,,,
+2268,discord-jda,JDA,maven,44.63,C,0.8625,Graveyard,2805,2268,,1382,
+2269,catchorg,Catch2,systems,44.57,C,1.0,Graveyard,2866,2269,,,
+2270,shoutem,ui,npm,44.57,C,0.675,Nursery,3047,2270,,,
+2271,BuilderIO,skills,npm,44.55,C,0.625,Nursery,2981,2271,,,
+2272,Wilfred,difftastic,crates,44.53,C,1.0,Graveyard,,2272,,1312,
+2273,JonathanSalwan,Triton,systems,44.52,C,0.7375,Nursery,2897,2273,,,
+2274,VirusTotal,yara,systems,44.48,C,0.925,Nursery,2778,2274,,1369,
+2275,Col-E,Recaf,maven,44.48,C,0.604166666667,Graveyard,2839,2275,,,
+2276,cactus-compute,cactus,systems,44.47,C,0.85,Nursery,3009,2276,,,
+2277,antvis,mcp-server-chart,npm,44.47,C,0.6575,Nursery,2789,2277,,,866
+2278,strapi,strapi,npm,44.47,C,0.655,Graveyard,1810,2278,,,797
+2279,tensorflow,models,pypi,44.46,C,0.7325,Graveyard,2482,2279,,1313,
+2280,FuelLabs,sway,crates,44.42,C,0.9775,Graveyard,2295,2280,,,
+2281,usememos,memos,go,44.38,C,0.668333333333,Nursery,2443,2281,,1222,920
+2282,gristlabs,grist-core,npm,44.38,C,0.605,Crucible,2245,2282,,1414,
+2283,purpleidea,mgmt,go,44.34,C,0.89,Nursery,2409,2283,,,
+2284,air-verse,air,go,44.34,C,0.795,Graveyard,2284,2284,,1352,
+2285,standardnotes,app,npm,44.34,C,0.79,Nursery,3064,2285,,,
+2286,Companion-Inc,feynman,npm,44.33,C,0.9525,Graveyard,2113,2286,,,
+2287,huggingface,transformers.js,npm,44.32,C,0.9775,Crucible,1947,2287,,,
+2288,telegramdesktop,tdesktop,systems,44.29,C,0.605,Graveyard,2473,2288,,1374,
+2289,pranshuparmar,witr,go,44.28,C,0.9375,Graveyard,2543,2289,,1258,
+2290,SteamDeckHomebrew,decky-loader,npm,44.27,C,0.7525,Crucible,2826,2290,,,705
+2291,alibaba,druid,maven,44.26,C,0.915,Crucible,1985,2291,488,1472,
+2292,microsoft,TypeChat,npm,44.26,C,0.7425,Nursery,2507,2292,,,886
+2293,shareAI-lab,learn-claude-code,pypi,44.23,C,0.815,Graveyard,2525,2293,,,
+2294,bahdotsh,wrkflw,crates,44.23,C,0.62,Graveyard,,2294,,,
+2295,cmu-db,bustub,systems,44.22,C,0.6625,Graveyard,2745,2295,,,823
+2296,RamonUnch,AltSnap,systems,44.22,C,0.655,Nursery,3103,2296,,,
+2297,visgl,react-map-gl,npm,44.16,C,0.6225,Crucible,2597,2297,,,666
+2298,birobirobiro,awesome-shadcn-ui,npm,44.13,C,0.8375,Graveyard,2989,2298,,1353,
+2299,bettercap,bettercap,go,44.13,C,0.7875,Graveyard,2450,2299,,1425,
+2300,freemocap,freemocap,npm,44.08,C,0.65,Graveyard,2741,2300,,,
+2301,DouyinFE,semi-design,npm,44.07,C,0.9375,Graveyard,2934,2301,,1306,
+2302,nageoffer,ragent,maven,44.04,C,0.844166666667,Nursery,2954,2302,,1349,
+2303,alibaba,hooks,npm,44.02,C,0.7675,Crucible,2078,2303,476,,658
+2304,dexie,Dexie.js,npm,43.98,C,0.7875,Crucible,2920,2304,482,1458,
+2305,AlaSQL,alasql,npm,43.96,C,0.865,Crucible,2236,2305,,1441,
+2306,warp-tech,warpgate,crates,43.96,C,0.65,Graveyard,2713,2306,,,
+2307,tambo-ai,tambo,npm,43.96,C,0.6475,Nursery,2393,2307,,,907
+2308,acassen,keepalived,systems,43.95,C,0.7675,Graveyard,2724,2308,,,
+2309,opendataloader-project,opendataloader-pdf,maven,43.94,C,1.0,Nursery,2723,2309,,,
+2310,dani-garcia,vaultwarden,crates,43.94,C,0.9775,Graveyard,2374,2310,,,819
+2311,cloudwego,eino,go,43.92,C,0.925,Nursery,2547,2311,,1268,
+2312,aframevr,aframe,npm,43.91,C,0.7375,Graveyard,2937,2312,,,
+2313,google,adk-recipes,pypi,43.9,C,0.65,Graveyard,2559,2313,,,
+2314,hashicorp,consul-template,go,43.85,C,0.8625,Crucible,2506,2314,,,
+2315,GrapesJS,grapesjs,npm,43.84,C,0.915,Graveyard,3061,2315,,1372,
+2316,tech-leads-club,agent-skills,npm,43.83,C,0.75,Nursery,2570,2316,,,940
+2317,thinkjs,thinkjs,npm,43.82,C,0.7375,Nursery,2962,2317,,,
+2318,algorithmicsuperintelligence,optillm,pypi,43.82,C,0.7,Nursery,2898,2318,,,
+2319,soxoj,maigret,pypi,43.79,C,0.8125,Graveyard,2687,2319,,,
+2320,QuentinFuxa,WhisperLiveKit,pypi,43.76,C,0.9375,Graveyard,2377,2320,,1337,
+2321,rustfs,rustfs,crates,43.75,C,0.655,Nursery,2704,2321,,,953
+2322,krahets,hello-algo,maven,43.71,C,0.691666666667,Graveyard,2913,2322,,1376,
+2323,avajs,ava,npm,43.7,C,0.8825,Crucible,2924,2323,479,1487,667
+2324,SWivid,F5-TTS,pypi,43.65,C,0.7575,Nursery,2892,2324,,1253,
+2325,CadQuery,cadquery,pypi,43.64,C,0.915,Crucible,2527,2325,,1444,
+2326,biolab,orange3,pypi,43.63,C,0.85,Graveyard,2762,2326,,1371,
+2327,websockets,ws,npm,43.63,C,0.68,Crucible,2767,2327,474,,
+2328,Adam-CAD,CADAM,npm,43.62,C,0.74,Nursery,3158,2328,,,
+2329,gosom,google-maps-scraper,go,43.6,C,0.9775,Graveyard,2463,2329,,1340,
+2330,jo-inc,camofox-browser,npm,43.59,C,1.0,Graveyard,2461,2330,,,
+2331,truelockmc,streambert,npm,43.58,C,0.7625,Graveyard,2706,2331,,1406,
+2332,MIC-DKFZ,nnUNet,pypi,43.57,C,0.9025,Graveyard,2511,2332,,1433,
+2333,jupyterlite,jupyterlite,npm,43.56,C,0.8125,Graveyard,2821,2333,,,
+2334,navidrome,navidrome,go,43.54,C,0.8125,Graveyard,2774,2334,,,
+2335,OpenBMB,UltraRAG,pypi,43.53,C,0.7525,Crucible,2273,2335,,,
+2336,ktbyers,netmiko,pypi,43.52,C,0.89,Crucible,2781,2336,,,
+2337,elder-plinius,OBLITERATUS,pypi,43.52,C,0.775,Graveyard,2289,2337,,,
+2338,DistroAV,DistroAV,systems,43.5,C,0.865,Crucible,2218,2338,,,
+2339,melonjs,melonJS,npm,43.44,C,0.655,Graveyard,2714,2339,,,
+2340,pvolok,dekit,crates,43.42,C,0.8025,Nursery,3076,2340,,1172,
+2341,ish-app,ish,systems,43.41,C,0.82,Crucible,2661,2341,,,759
+2342,xingkongliang,skills-manager,crates,43.41,C,0.7625,Graveyard,2896,2342,,1423,
+2343,mr-karan,doggo,go,43.39,C,0.655,Graveyard,2731,2343,,,
+2344,evilmartians,lefthook,go,43.36,C,0.9375,Graveyard,2531,2344,,1408,
+2345,FaridSafi,react-native-gifted-chat,npm,43.31,C,0.7325,Graveyard,2625,2345,,,
+2346,blacklanternsecurity,bbot,pypi,43.31,C,0.6475,Nursery,2416,2346,,,884
+2347,alibaba,AliSQL,systems,43.31,C,0.63,Nursery,3017,2347,,,935
+2348,microsoft,fast,npm,43.28,C,0.8625,Crucible,1950,2348,,,
+2349,Bogdanp,dramatiq,pypi,43.27,C,0.825,Graveyard,2869,2349,,,
+2350,RobinHerbots,Inputmask,npm,43.24,C,0.7375,Crucible,2699,2350,,,
+2351,vale-cli,vale,go,43.23,C,0.9375,Nursery,2820,2351,,1190,
+2352,halo-dev,halo,maven,43.23,C,0.925,Graveyard,2317,2352,,1331,
+2353,casdoor,casdoor,go,43.18,C,0.688333333333,Nursery,2703,2353,,,954
+2354,stalwartlabs,stalwart,crates,43.18,C,0.6775,Graveyard,,2354,,1435,
+2355,NVIDIA,nccl,systems,43.18,C,0.6575,Crucible,2890,2355,,,
+2356,AgriciDaniel,claude-seo,pypi,43.15,C,0.815,Crucible,2227,2356,,,
+2357,hapijs,hapi,npm,43.15,C,0.605,Crucible,2844,2357,,,683
+2358,jazzband,django-silk,pypi,43.14,C,0.915,Graveyard,2603,2358,,,
+2359,kekingcn,kkFileView,maven,43.14,C,0.679166666667,Crucible,2264,2359,,,
+2360,yihong0618,bilingual_book_maker,pypi,43.12,C,0.8625,Nursery,2971,2360,,1237,
+2361,snapcast,snapcast,systems,43.1,C,0.6725,Graveyard,,2361,,1360,
+2362,automerge,automerge,npm,43.07,C,0.915,Crucible,2648,2362,,,
+2363,tulir,whatsmeow,go,43.02,C,0.9025,Graveyard,2932,2363,,,
+2364,rrweb-io,rrweb,npm,43.01,C,0.9775,Crucible,2643,2364,,,
+2365,GargantuaX,gemini-watermark-remover,npm,43.01,C,0.68,Graveyard,2446,2365,,,
+2366,WebGoat,WebGoat,npm,43.0,C,0.815,Graveyard,2624,2366,,,
+2367,hacksider,Deep-Live-Cam,pypi,42.97,C,0.815,Graveyard,2716,2367,,,
+2368,loopbackio,loopback-next,npm,42.97,C,0.8125,Crucible,2147,2368,,,
+2369,newton-physics,newton,pypi,42.97,C,0.655,Crucible,1623,2369,,,706
+2370,benjamn,recast,npm,42.96,C,0.8125,Crucible,2833,2370,492,,
+2371,dromara,carbon,go,42.95,C,0.7375,Nursery,3031,2371,,,
+2372,jonobr1,two.js,npm,42.94,C,0.655,Crucible,1927,2372,,,
+2373,microsoft,agent-lightning,pypi,42.93,C,0.9375,Nursery,3029,2373,,1035,
+2374,BuilderIO,mitosis,npm,42.91,C,0.6225,Graveyard,2730,2374,,,824
+2375,Genymobile,scrcpy,systems,42.9,C,0.9525,Graveyard,2711,2375,,,
+2376,Tencent,BrowserSkill,npm,42.89,C,0.925,Nursery,2747,2376,,1404,
+2377,terraform-linters,tflint,go,42.89,C,0.8125,Crucible,2682,2377,,,
+2378,JFormDesigner,FlatLaf,maven,42.83,C,0.655,Graveyard,2822,2378,,,
+2379,expressjs,morgan,npm,42.82,C,0.7675,Crucible,2842,2379,481,,642
+2380,Fei-Away,Codex-Dream-Skin,npm,42.76,C,0.65,Crucible,2279,2380,,,
+2381,SagerNet,sing-box,go,42.75,C,0.9025,Graveyard,3056,2381,,,
+2382,hect0x7,JMComic-Crawler-Python,pypi,42.75,C,0.7375,Nursery,3005,2382,,,
+2383,vuejs,create-vue,npm,42.73,C,0.7375,Graveyard,2572,2383,,,
+2384,isso-comments,isso,pypi,42.71,C,0.7575,Nursery,2943,2384,,1296,
+2385,Vincentwei1021,video-shotcraft,npm,42.71,C,0.65,Graveyard,2846,2385,,,
+2386,clockworklabs,SpacetimeDB,crates,42.69,C,0.655,Nursery,2365,2386,,,870
+2387,EpicGames,lore,crates,42.67,C,0.6925,Crucible,,2387,,,
+2388,butlerx,wetty,npm,42.65,C,0.7425,Nursery,2886,2388,,,864
+2389,openreplay,openreplay,npm,42.62,C,0.7175,Nursery,3048,2389,,,978
+2390,ampproject,amphtml,npm,42.61,C,0.815,Crucible,2337,2390,,1481,729
+2391,electric-sql,pglite,npm,42.6,C,1.0,Graveyard,2955,2391,,1395,
+2392,vercel-labs,deepsec,npm,42.6,C,0.925,Nursery,2947,2392,,,
+2393,JannisX11,blockbench,npm,42.58,C,0.7725,Nursery,2931,2393,,1246,950
+2394,chalk,chalk,npm,42.57,C,0.6625,Crucible,2759,2394,480,,625
+2395,bluenviron,mediamtx,go,42.56,C,0.875,Graveyard,2815,2395,,,
+2396,hasura,graphql-engine,npm,42.56,C,0.815,Crucible,2521,2396,,,
+2397,stagewise-io,stagewise,npm,42.54,C,0.655,Nursery,2900,2397,,,977
+2398,barry-ran,QtScrcpy,systems,42.53,C,0.655,Graveyard,2837,2398,,,
+2399,lorien,awesome-web-scraping,npm,42.52,C,0.815,Graveyard,2796,2399,,,
+2400,its-a-feature,Mythic,npm,42.51,C,0.6175,Graveyard,2853,2400,,1409,
+2401,projectdiscovery,katana,go,42.49,C,0.915,Graveyard,2843,2401,,,
+2402,google,OpenSK,crates,42.49,C,0.705,Graveyard,2468,2402,,,877
+2403,projectM-visualizer,projectm,systems,42.43,C,0.915,Crucible,2427,2403,,,
+2404,FlowElement-xinliuyuansu,m_flow,pypi,42.43,C,0.6375,Nursery,2970,2404,,,
+2405,Kuberwastaken,claurst,crates,42.42,C,0.815,Graveyard,2664,2405,,1449,
+2406,KhronosGroup,Vulkan-Samples,systems,42.4,C,0.9375,Graveyard,2556,2406,,1415,
+2407,agalwood,Motrix,npm,42.37,C,0.8625,Graveyard,2583,2407,,,
+2408,facebookresearch,xformers,pypi,42.37,C,0.6475,Graveyard,,2408,,1431,
+2409,asdf-vm,asdf,go,42.36,C,0.8625,Graveyard,2638,2409,,1400,
+2410,StarTrail-org,PixelRAG,pypi,42.35,C,0.925,Nursery,2792,2410,,1398,
+2411,shelljs,shelljs,npm,42.35,C,0.6975,Crucible,2997,2411,484,,663
+2412,pbatard,rufus,systems,42.33,C,0.845,Graveyard,2749,2412,,,
+2413,web-infra-dev,modern.js,npm,42.31,C,0.875,Graveyard,2341,2413,,,
+2414,atilaahmettaner,tradingview-mcp,pypi,42.3,C,1.0,Graveyard,2806,2414,,1334,
+2415,sindresorhus,execa,npm,42.28,C,0.68,Crucible,2836,2415,485,,
+2416,AykutSarac,jsoncrack.com,npm,42.28,C,0.6725,Nursery,,2416,,1316,
+2417,FareedKhan-dev,train-llm-from-scratch,pypi,42.28,C,0.625,Graveyard,2775,2417,,,
+2418,vectordotdev,vector,crates,42.26,C,0.655,Graveyard,2136,2418,,1257,941
+2419,kubernetes,kompose,go,42.23,C,0.7925,Crucible,2512,2419,,,696
+2420,kubesphere,kubesphere,go,42.21,C,0.8,Nursery,3036,2420,,,
+2421,taigrr,spank,go,42.18,C,0.695,Graveyard,,2421,,,
+2422,ArroyoSystems,arroyo,crates,42.16,C,0.7325,Graveyard,2491,2422,,,
+2423,jorgerojas26,lazysql,go,42.13,C,0.8625,Graveyard,2959,2423,,1319,
+2424,ocrmypdf,OCRmyPDF,pypi,42.09,C,0.8625,Graveyard,2917,2424,,,
+2425,cucumber,cucumber-js,npm,42.07,C,0.8625,Crucible,2681,2425,,1491,
+2426,sparklemotion,nokogiri,systems,42.06,C,0.6675,Graveyard,2434,2426,,,
+2427,caolan,async,npm,41.98,C,0.6675,Crucible,2819,2427,489,,592
+2428,asyncapi,spec,npm,41.96,C,0.6075,Graveyard,2766,2428,,,
+2429,Maxteabag,sqlit,pypi,41.93,C,1.0,Nursery,2983,2429,,1314,
+2430,facebook,docusaurus,npm,41.91,C,0.8125,Crucible,2288,2430,,,
+2431,aiortc,aiortc,pypi,41.8,C,0.7575,Crucible,2765,2431,,,740
+2432,sipeed,picoclaw,go,41.79,C,0.625833333333,Nursery,,2432,,,947
+2433,cowrie,cowrie,pypi,41.72,C,0.925,Graveyard,2916,2433,,1417,
+2434,dataelement,dsh-desktop,npm,41.68,C,0.65,Graveyard,2948,2434,,,
+2435,baidu,dperf,systems,41.67,C,0.7375,Nursery,3171,2435,,,
+2436,pinchtab,pinchtab,go,41.66,C,0.618333333333,Nursery,2824,2436,,,957
+2437,lightningpixel,modly,npm,41.63,C,0.7625,Graveyard,2945,2437,,1464,
+2438,danielgatis,rembg,pypi,41.63,C,0.655,Crucible,2859,2438,,,
+2439,microsoft,edit,crates,41.56,C,1.0,Graveyard,2586,2439,,1293,
+2440,HKUDS,DeepCode,pypi,41.56,C,0.9375,Graveyard,2710,2440,,,
+2441,hcengineering,platform,npm,41.56,C,0.875,Graveyard,2580,2441,,,
+2442,SFTtech,openage,pypi,41.56,C,0.65,Graveyard,2721,2442,,,
+2443,codex-team,editor.js,npm,41.56,C,0.65,Crucible,2887,2443,,,789
+2444,guanzhi,GmSSL,systems,41.55,C,0.85,Nursery,3129,2444,,1419,
+2445,sabrogden,Ditto,systems,41.53,C,0.915,Graveyard,2868,2445,,1424,
+2446,yrutschle,sslh,systems,41.49,C,0.655,Graveyard,2861,2446,,,
+2447,facebook,prophet,pypi,41.48,C,0.7175,Crucible,2904,2447,493,1474,834
+2448,burnash,gspread,pypi,41.47,C,0.6925,Crucible,2722,2448,497,,
+2449,GetStream,Vision-Agents,pypi,41.46,C,0.875,Nursery,3032,2449,,,
+2450,whyour,qinglong,npm,41.45,C,0.84,Graveyard,2816,2450,,1384,
+2451,EmulatorJS,EmulatorJS,npm,41.42,C,0.9375,Graveyard,2873,2451,,1368,
+2452,langbot-app,LangBot,pypi,41.41,C,0.7675,Nursery,2690,2452,,1308,961
+2453,HKUDS,ViMax,pypi,41.38,C,0.6775,Graveyard,3085,2453,,1399,
+2454,sshuttle,sshuttle,pypi,41.38,C,0.63,Graveyard,2692,2454,,,813
+2455,bytedance,sonic,go,41.36,C,0.915,Crucible,2708,2455,487,,
+2456,django-oscar,django-oscar,pypi,41.36,C,0.8125,Graveyard,2860,2456,,,
+2457,rayon-rs,rayon,crates,41.34,C,0.72,Crucible,2874,2457,486,,
+2458,google,model-viewer,npm,41.31,C,0.8625,Graveyard,3063,2458,,1437,
+2459,C4illin,ConvertX,npm,41.25,C,0.775,Graveyard,2923,2459,,1454,
+2460,react-dropzone,react-dropzone,npm,41.25,C,0.68,Crucible,2340,2460,495,,
+2461,serde-rs,json,crates,41.24,C,0.745,Crucible,2975,2461,478,,
+2462,bitnami,sealed-secrets,go,41.23,C,0.9375,Graveyard,2882,2462,,1383,
+2463,tstack,lnav,systems,41.18,C,0.7,Graveyard,2877,2463,,,
+2464,ahrm,sioyek,systems,41.14,C,0.7325,Graveyard,3012,2464,,1436,
+2465,avianphysics,avian,crates,41.12,C,1.0,Graveyard,,2465,,1432,
+2466,denisidoro,navi,crates,41.09,C,0.9375,Graveyard,2665,2466,,1416,
+2467,netdata,netdata,go,41.07,C,0.625833333333,Nursery,2557,2467,,,945
+2468,rustviz,rustviz,crates,41.06,C,0.8,Nursery,3156,2468,,,
+2469,hugsy,gef,pypi,41.02,C,0.61,Nursery,2995,2469,,,924
+2470,OwO-Network,DLX,go,41.01,C,0.655,Nursery,3021,2470,,,
+2471,h2o,h2o,systems,41.0,C,0.705,Graveyard,2863,2471,,,
+2472,tashfeenahmed,freellmapi,npm,40.99,C,0.8125,Graveyard,2672,2472,,,
+2473,mjmlio,mjml,npm,40.99,C,0.8125,Crucible,2653,2473,,,
+2474,paperwm,PaperWM,npm,40.99,C,0.6575,Graveyard,3027,2474,,,
+2475,BespokeSynth,BespokeSynth,systems,40.94,C,0.925,Graveyard,3167,2475,,1397,
+2476,fishaudio,fish-speech,pypi,40.93,C,0.7,Graveyard,3039,2476,,,811
+2477,cloudflare,boringtun,crates,40.93,C,0.6625,Graveyard,2952,2477,,,814
+2478,Waishnav,devspace,npm,40.89,C,0.925,Graveyard,2433,2478,,,
+2479,GLips,Figma-Context-MCP,npm,40.84,C,0.9025,Graveyard,2834,2479,,,
+2480,aleksey-hoffman,sigma-file-manager,npm,40.83,C,0.7275,Graveyard,2630,2480,,1427,
+2481,fish-shell,fish-shell,crates,40.82,C,0.6975,Nursery,3022,2481,,,956
+2482,asciinema,asciinema,crates,40.8,C,0.68,Graveyard,2659,2482,,,
+2483,apache,caldera,pypi,40.8,C,0.6775,Graveyard,3113,2483,,1410,
+2484,moleculerjs,moleculer,npm,40.79,C,0.7425,Crucible,2460,2484,,,
+2485,keon,algorithms,pypi,40.77,C,0.9375,Graveyard,2779,2485,,1428,
+2486,quartz-scheduler,quartz,maven,40.71,C,0.73,Crucible,3011,2486,491,,
+2487,czlonkowski,n8n-mcp,npm,40.69,C,0.925,Graveyard,2426,2487,,,
+2488,yamadashy,repomix,npm,40.6,C,0.6475,Graveyard,2126,2488,,,868
+2489,andreafrancia,trash-cli,pypi,40.58,C,0.8625,Graveyard,2504,2489,,,
+2490,undertow-io,undertow,maven,40.55,C,1.0,Graveyard,3001,2490,,1421,
+2491,mikeyobrien,ralph-orchestrator,crates,40.52,C,0.8625,Graveyard,2953,2491,,1343,
+2492,altsem,gitu,crates,40.51,C,0.7925,Graveyard,2909,2492,,1365,
+2493,0xPlaygrounds,rig,crates,40.5,C,0.8125,Graveyard,2862,2493,,,
+2494,sitespeedio,sitespeed.io,npm,40.49,C,0.7325,Graveyard,2615,2494,,,
+2495,dunglas,mercure,go,40.48,C,0.7075,Crucible,2490,2495,,,
+2496,fabric8io,kubernetes-client,maven,40.46,C,0.875,Graveyard,2651,2496,,,
+2497,termux,termux-x11,systems,40.45,C,0.68,Graveyard,2991,2497,,,
+2498,ChatGPTNextWeb,NextChat,npm,40.44,C,0.74,Nursery,3192,2498,,,
+2499,imgproxy,imgproxy,go,40.42,C,0.84,Graveyard,2864,2499,,,
+2500,dunst-project,dunst,systems,40.42,C,0.7075,Graveyard,3019,2500,,,
+2501,TideDra,zotero-arxiv-daily,pypi,40.41,C,0.655,Graveyard,2906,2501,,,
+2502,libigl,libigl,systems,40.4,C,0.7375,Graveyard,3065,2502,,,
+2503,ayn2op,discordo,go,40.34,C,0.755,Graveyard,2694,2503,,,
+2504,naver,billboard.js,npm,40.32,C,0.7575,Crucible,2564,2504,,,
+2505,PaddlePaddle,PaddleFormers,pypi,40.31,C,0.655,Nursery,2977,2505,,,931
+2506,novnc,noVNC,npm,40.29,C,0.87,Graveyard,2964,2506,,1473,
+2507,genkit-ai,genkit,npm,40.29,C,0.655,Graveyard,2542,2507,,,891
+2508,open-legal-products,mike,npm,40.28,C,0.7625,Crucible,2125,2508,,,
+2509,platformio,platformio-core,pypi,40.23,C,0.7,Graveyard,3086,2509,,1385,
+2510,larksuite,cli,go,40.22,C,0.625833333333,Graveyard,2444,2510,,,892
+2511,wenzhixin,bootstrap-table,npm,40.18,C,0.84,Graveyard,2966,2511,,1469,
+2512,trailhq,Graft,npm,40.18,C,0.65,Crucible,2585,2512,,,
+2513,praydog,REFramework,systems,40.17,C,0.84,Graveyard,3074,2513,,1453,
+2514,simplifaisoul,osiris,npm,40.15,C,0.7625,Graveyard,3116,2514,,,
+2515,AmanVarshney01,create-better-t-stack,npm,40.13,C,0.8175,Graveyard,2978,2515,,1387,
+2516,h2oai,wave,pypi,40.13,C,0.68,Graveyard,2965,2516,,,
+2517,evershopcommerce,evershop,npm,40.1,C,0.7925,Graveyard,2736,2517,,1448,
+2518,builderz-labs,mission-control,npm,40.08,C,0.875,Graveyard,2553,2518,,,
+2519,joerick,pyinstrument,pypi,40.04,C,0.72,Crucible,2958,2519,,,
+2520,supermemoryai,supermemory,npm,39.99,D,0.8125,Graveyard,2813,2520,,,805
+2521,mermaid-js,mermaid-live-editor,npm,39.99,D,0.795,Graveyard,2589,2521,,,
+2522,yuin,goldmark,go,39.99,D,0.7125,Crucible,2769,2522,496,,
+2523,tamagui,tamagui,npm,39.98,D,0.71,Graveyard,2974,2523,,1462,896
+2524,yjs,yjs,npm,39.93,D,0.79,Crucible,3087,2524,494,,
+2525,abseil,abseil-cpp,systems,39.92,D,0.9775,Graveyard,2946,2525,,,
+2526,jsr-io,jsr,crates,39.89,D,0.73,Graveyard,2786,2526,,1438,
+2527,bilawalsidhu,gods-eye-view,npm,39.89,D,0.65,Graveyard,2828,2527,,1479,
+2528,Azure-Samples,azure-search-openai-demo,pypi,39.86,D,0.815,Graveyard,2697,2528,,,
+2529,alibaba,zvec,systems,39.8,D,0.875,Graveyard,2814,2529,,,
+2530,thlorenz,doctoc,npm,39.78,D,0.775,Crucible,2481,2530,,,
+2531,JoshuaC215,agent-service-toolkit,pypi,39.75,D,0.7525,Graveyard,2644,2531,,,
+2532,metersphere,metersphere,maven,39.7,D,0.604166666667,Graveyard,3072,2532,,,
+2533,evidence-dev,evidence,npm,39.61,D,0.6675,Crucible,2019,2533,,,
+2534,feder-cr,AIHawk,pypi,39.55,D,0.7525,Graveyard,2951,2534,,,
+2535,huggingface,chat-ui,npm,39.55,D,0.7125,Graveyard,2987,2535,,,
+2536,heyform,heyform,npm,39.55,D,0.6775,Graveyard,3145,2536,,1471,
+2537,mobile-next,mobile-mcp,npm,39.54,D,0.9375,Graveyard,2888,2537,,,
+2538,microsoft,graphrag,pypi,39.53,D,0.9775,Graveyard,2963,2538,,,
+2539,dropwizard,dropwizard,maven,39.49,D,0.8125,Crucible,2831,2539,,,
+2540,dogecoin,dogecoin,systems,39.43,D,0.915,Crucible,2787,2540,,1496,788
+2541,boostorg,beast,systems,39.42,D,0.8275,Graveyard,2910,2541,,,
+2542,basketikun,infinite-canvas,npm,39.36,D,0.7625,Graveyard,2985,2542,,,
+2543,bootandy,dust,crates,39.34,D,0.9375,Graveyard,2949,2543,,1446,
+2544,freenet,freenet-core,crates,39.34,D,0.655,Graveyard,2632,2544,,,912
+2545,zylon-ai,private-gpt,pypi,39.32,D,0.7525,Graveyard,2825,2545,,,
+2546,openziti,ziti,go,39.31,D,0.6925,Graveyard,2634,2546,,,
+2547,feder-cr,dots,npm,39.26,D,0.7525,Graveyard,2972,2547,,,
+2548,toon-format,toon,npm,39.25,D,1.0,Graveyard,2922,2548,,1445,
+2549,UfoMiao,zcf,npm,39.23,D,0.84,Graveyard,2950,2549,,,
+2550,HelixDB,helix-db,crates,39.2,D,0.6875,Graveyard,2870,2550,,,948
+2551,sparckles,Robyn,pypi,39.19,D,0.89,Graveyard,2967,2551,,1447,
+2552,PrismarineJS,mineflayer,npm,39.17,D,0.9775,Graveyard,3006,2552,,1490,
+2553,lissy93,web-check,npm,39.16,D,0.915,Graveyard,2919,2553,,1439,
+2554,microsoft,flint-chart,npm,39.05,D,0.8125,Graveyard,3077,2554,,,
+2555,umami-software,umami,npm,39.05,D,0.7725,Graveyard,2976,2555,,1381,968
+2556,Openpanel-dev,openpanel,npm,39.02,D,0.8375,Graveyard,3120,2556,,,
+2557,DayuanJiang,next-ai-draw-io,npm,38.94,D,0.925,Graveyard,2895,2557,,1459,
+2558,mickael-kerjean,filestash,go,38.94,D,0.7325,Graveyard,3152,2558,,,
+2559,ochinchina,supervisord,go,38.89,D,0.7375,Graveyard,3117,2559,,,
+2560,mosaicml,composer,pypi,38.89,D,0.6625,Graveyard,2849,2560,,,873
+2561,cactus-compute,needle,pypi,38.83,D,0.8625,Graveyard,3111,2561,,1470,
+2562,lightvector,KataGo,systems,38.82,D,0.7375,Graveyard,3053,2562,,,
+2563,zeux,pugixml,systems,38.81,D,0.705,Graveyard,3143,2563,,,
+2564,olikraus,u8g2,systems,38.76,D,0.745,Graveyard,2935,2564,,,
+2565,onionshare,onionshare,pypi,38.75,D,0.65,Crucible,2884,2565,,,
+2566,teamchong,pxpipe,npm,38.63,D,0.925,Graveyard,3037,2566,,1452,
+2567,Huanshere,VideoLingo,pypi,38.62,D,0.815,Graveyard,3094,2567,,,
+2568,exaloop,codon,pypi,38.6,D,0.9025,Nursery,3157,2568,,1307,
+2569,davebcn87,pi-autoresearch,npm,38.56,D,1.0,Graveyard,3035,2569,,1413,
+2570,semaphoreui,semaphore,go,38.53,D,0.618333333333,Graveyard,2857,2570,,,967
+2571,Frommi,miniz_oxide,crates,38.5,D,0.655,Crucible,2988,2571,502,,
+2572,benfred,py-spy,crates,38.48,D,0.845,Graveyard,2994,2572,,1495,843
+2573,immutable-js,immutable-js,npm,38.46,D,0.7125,Crucible,3023,2573,498,,
+2574,valor-software,ngx-bootstrap,npm,38.44,D,0.6225,Crucible,3007,2574,,,775
+2575,emqx,MQTTX,npm,38.42,D,0.7,Graveyard,2907,2575,,1493,
+2576,Orange-OpenSource,hurl,crates,38.37,D,0.8125,Graveyard,3080,2576,,,
+2577,chromedp,chromedp,go,38.36,D,0.68,Crucible,2673,2577,505,,
+2578,h5bp,html5-boilerplate,npm,38.36,D,0.6625,Graveyard,2901,2578,,,796
+2579,sampotts,plyr,npm,38.35,D,0.6625,Crucible,2689,2579,,,719
+2580,actions,checkout,npm,38.32,D,0.8325,Graveyard,3044,2580,,,917
+2581,a-ghorbani,pocketpal-ai,npm,38.23,D,0.7525,Graveyard,2912,2581,,,
+2582,Studio-42,elFinder,npm,38.23,D,0.7425,Graveyard,3004,2582,,1467,
+2583,skyzh,mini-lsm,crates,38.19,D,0.655,Graveyard,3090,2583,,,
+2584,usablica,intro.js,npm,38.18,D,0.7375,Graveyard,3153,2584,,,
+2585,zeux,meshoptimizer,systems,38.16,D,0.7325,Graveyard,3078,2585,,,
+2586,srbhr,Resume-Matcher,pypi,38.09,D,0.61,Graveyard,3059,2586,,1465,
+2587,ardatan,graphql-tools,npm,38.08,D,0.7375,Crucible,3082,2587,504,,
+2588,OHF-Voice,piper1-gpl,systems,38.07,D,0.84,Graveyard,3168,2588,,1478,
+2589,activeloopai,deeplake,systems,38.06,D,0.7425,Graveyard,3141,2589,,,
+2590,OctoPrint,OctoPrint,pypi,38.04,D,0.7325,Graveyard,,2590,,,
+2591,tchiotludo,akhq,maven,38.04,D,0.679166666667,Graveyard,3040,2591,,1483,
+2592,mlc-ai,web-llm,npm,37.9,D,0.7575,Graveyard,3097,2592,,,
+2593,MobSF,Mobile-Security-Framework-MobSF,npm,37.89,D,0.7525,Graveyard,2879,2593,,,
+2594,ajayyy,SponsorBlock,npm,37.86,D,0.77,Graveyard,3051,2594,,1456,
+2595,wbh604,UZI-Skill,pypi,37.84,D,0.7,Graveyard,2790,2595,,,
+2596,Milkdown,milkdown,npm,37.83,D,0.9375,Graveyard,3170,2596,,,
+2597,FongMi,TV,maven,37.83,D,0.684166666667,Graveyard,3197,2597,,,
+2598,papra-hq,papra,npm,37.79,D,0.875,Graveyard,3140,2598,,1358,
+2599,xo,usql,go,37.77,D,0.7325,Crucible,2732,2599,,1497,
+2600,ATH-MaaS,Pixelle-Video,pypi,37.75,D,0.74,Graveyard,3127,2600,,1463,
+2601,EcoPasteHub,EcoPaste,crates,37.68,D,0.6775,Graveyard,2982,2601,,,
+2602,instaloader,instaloader,pypi,37.61,D,0.9075,Graveyard,3054,2602,,1466,942
+2603,killbill,killbill,maven,37.6,D,0.875,Graveyard,3073,2603,,,
+2604,Helvesec,rmux,crates,37.6,D,0.6975,Graveyard,3069,2604,,,986
+2605,zhouxiaoka,autoclip,pypi,37.54,D,0.7525,Crucible,2688,2605,,,
+2606,Dicklesworthstone,destructive_command_guard,crates,37.52,D,0.6625,Graveyard,2823,2606,,,963
+2607,uber-go,goleak,go,37.51,D,0.6675,Crucible,3057,2607,501,,848
+2608,gluster,glusterfs,systems,37.49,D,0.8125,Graveyard,3135,2608,,,
+2609,SYSTRAN,faster-whisper,pypi,37.49,D,0.76,Crucible,3130,2609,,,806
+2610,restify,node-restify,npm,37.4,D,0.7425,Crucible,3045,2610,,,812
+2611,gruns,icecream,pypi,37.37,D,0.6925,Crucible,2990,2611,,,
+2612,hexojs,hexo,npm,37.36,D,0.6675,Crucible,2791,2612,,,
+2613,microsoft,mimalloc,systems,37.35,D,0.6575,Graveyard,2761,2613,,,
+2614,Pagefind,pagefind,crates,37.3,D,0.9375,Graveyard,3176,2614,,1457,
+2615,jedisct1,libsodium,systems,37.28,D,0.7325,Graveyard,,2615,,,
+2616,cubefs,cubefs,go,37.25,D,0.7675,Graveyard,2902,2616,,,
+2617,codebymitch,TitanBot,npm,37.22,D,0.7375,Graveyard,3207,2617,,,
+2618,knowm,XChange,maven,37.16,D,0.656666666667,Graveyard,3128,2618,,,
+2619,bytedance,xgplayer,npm,37.15,D,0.655,Crucible,2502,2619,,,
+2620,carltongibson,django-filter,pypi,37.14,D,0.65,Crucible,3067,2620,506,,746
+2621,qjfoidnh,BaiduPCS-Go,go,37.1,D,0.6125,Graveyard,,2621,,,889
+2622,cloudreve,cloudreve,go,37.08,D,0.68,Graveyard,3049,2622,,,
+2623,zhongerxin,Cowart,npm,37.05,D,0.6875,Graveyard,3172,2623,,,
+2624,holaboss-ai,holaOS,npm,37.0,D,0.7875,Graveyard,2908,2624,,,
+2625,KeygraphHQ,shannon,npm,36.98,D,0.9525,Graveyard,2294,2625,,,
+2626,maildev,maildev,npm,36.94,D,0.7375,Crucible,2660,2626,,,
+2627,charmbracelet,wish,go,36.88,D,0.655,Crucible,3038,2627,,,
+2628,jhy,jsoup,maven,36.87,D,0.7325,Crucible,3093,2628,503,,
+2629,google,snappy,systems,36.85,D,0.7875,Graveyard,3015,2629,,1489,
+2630,espressif,esp-idf,systems,36.85,D,0.6575,Graveyard,3110,2630,,,
+2631,nginx-proxy,docker-gen,go,36.73,D,0.7675,Graveyard,3033,2631,,,
+2632,ReagentX,imessage-exporter,crates,36.73,D,0.7325,Graveyard,3132,2632,,,
+2633,thelounge,thelounge,npm,36.7,D,0.915,Graveyard,2999,2633,,1492,
+2634,streetwriters,notesnook,npm,36.7,D,0.6475,Graveyard,3162,2634,,,985
+2635,ipfs,ipfs-desktop,npm,36.69,D,0.625,Graveyard,3133,2635,,,
+2636,ToolJet,ToolJet,npm,36.68,D,0.655,Graveyard,2944,2636,,,930
+2637,stalniy,casl,npm,36.53,D,0.7325,Graveyard,3166,2637,,,
+2638,andrewyng,context-hub,npm,36.51,D,0.9025,Graveyard,3193,2638,,,
+2639,get-convex,convex-backend,npm,36.51,D,0.665,Graveyard,3075,2639,,,902
+2640,Open-Dev-Society,OpenStock,npm,36.49,D,0.7525,Graveyard,3137,2640,,1476,
+2641,usesend,useSend,npm,36.43,D,0.9375,Graveyard,3131,2641,,1455,
+2642,memcached,memcached,systems,36.4,D,0.7925,Graveyard,3101,2642,,,
+2643,Wei-Shaw,sub2api,go,36.31,D,0.625833333333,Nursery,3185,2643,,,1001
+2644,11ty,buildawesome,npm,36.28,D,0.655,Crucible,2961,2644,,,
+2645,hrkfdn,ncspot,crates,36.27,D,0.7075,Graveyard,3105,2645,,,
+2646,53AI,53AIHub,go,36.19,D,0.7375,Nursery,3227,2646,,,975
+2647,3proxy,3proxy,systems,36.15,D,0.62,Graveyard,,2647,,,
+2648,tirth8205,code-review-graph,pypi,36.1,D,0.6475,Graveyard,2780,2648,,,960
+2649,google-deepmind,mujoco,systems,36.08,D,0.6575,Graveyard,2957,2649,,,
+2650,musistudio,claude-code-router,npm,36.07,D,0.9775,Graveyard,3175,2650,,,
+2651,qutebrowser,qutebrowser,pypi,36.02,D,0.6075,Graveyard,3125,2651,,,
+2652,markodenic,web-development-resources,npm,36.0,D,0.84,Graveyard,3189,2652,,,
+2653,collabora,WhisperLive,pypi,35.9,D,0.915,Graveyard,3107,2653,,1485,
+2654,siteboon,claudecodeui,npm,35.8,D,0.8125,Graveyard,2777,2654,,,
+2655,codesandbox,codesandbox-client,npm,35.73,D,0.6375,Graveyard,3060,2655,,,915
+2656,nocobase,nocobase,npm,35.66,D,0.655,Graveyard,3163,2656,,,1004
+2657,GraphiteEditor,Graphite,crates,35.64,D,0.8125,Graveyard,3109,2657,,1482,
+2658,sass,sass,npm,35.58,D,0.7425,Graveyard,3096,2658,,,982
+2659,JanusGraph,janusgraph,maven,35.53,D,0.679166666667,Graveyard,3008,2659,,,
+2660,VERT-sh,VERT,npm,35.48,D,0.715,Graveyard,3191,2660,,,
+2661,google,adk-python,pypi,35.46,D,0.655,Graveyard,3055,2661,,,888
+2662,FareedKhan-dev,kimi-k3-in-c,systems,35.43,D,0.8125,Graveyard,3081,2662,,,
+2663,mopidy,mopidy,pypi,35.41,D,0.7375,Graveyard,3126,2663,,,
+2664,charmbracelet,soft-serve,go,35.4,D,0.84,Graveyard,3188,2664,,,
+2665,jrnl-org,jrnl,pypi,35.38,D,0.84,Graveyard,3108,2665,,,
+2666,mongo-express,mongo-express,npm,35.36,D,0.675,Graveyard,3028,2666,,,911
+2667,majd,ipatool,go,35.18,D,0.9775,Graveyard,3146,2667,,,
+2668,drakkan,sftpgo,go,35.16,D,0.9525,Graveyard,3114,2668,,,
+2669,sahat,hackathon-starter,npm,35.16,D,0.7325,Graveyard,2881,2669,,,
+2670,shadowsocks,shadowsocks-rust,crates,35.13,D,0.655,Graveyard,3136,2670,,,
+2671,istoreos,istoreos,systems,35.06,D,0.6075,Graveyard,,2671,,,862
+2672,pre-commit,pre-commit-hooks,pypi,35.01,D,0.7075,Crucible,3068,2672,,,832
+2673,DavidAnson,markdownlint,npm,35.0,D,0.7325,Crucible,3138,2673,,,
+2674,infracost,infracost,go,34.98,D,0.9375,Graveyard,2984,2674,,1477,
+2675,spring-io,initializr,maven,34.94,D,0.84,Graveyard,3169,2675,,,
+2676,avwo,whistle,npm,34.89,D,0.655,Graveyard,3202,2676,,,
+2677,i3,i3,systems,34.65,D,0.795,Graveyard,3142,2677,,,
+2678,getzep,zep,pypi,34.52,D,0.7375,Graveyard,3208,2678,,,
+2679,juce-framework,JUCE,systems,34.47,D,0.8825,Graveyard,2992,2679,,,
+2680,ThrowTheSwitch,Unity,systems,34.44,D,0.79,Graveyard,3173,2680,,,
+2681,presenton,presenton,npm,34.37,D,0.82,Graveyard,3079,2681,,,1000
+2682,lapce,floem,crates,34.36,D,0.66,Graveyard,,2682,,,
+2683,opa334,Dopamine,systems,34.32,D,0.6775,Graveyard,3211,2683,,,
+2684,infinitered,reactotron,npm,34.23,D,0.6225,Crucible,2998,2684,,,839
+2685,Shopify,toxiproxy,go,34.19,D,0.7425,Crucible,3115,2685,508,,900
+2686,pocketbase,pocketbase,go,34.14,D,0.7325,Crucible,,2686,,,
+2687,vercel,ms,npm,34.14,D,0.6625,Crucible,3148,2687,509,,816
+2688,apache,casbin,go,34.08,D,0.84,Graveyard,3209,2688,,1484,
+2689,cisco,openh264,systems,34.06,D,0.865,Graveyard,3123,2689,,,
+2690,pythops,bluetui,crates,33.87,D,0.695,Graveyard,,2690,,,
+2691,lucidrains,x-transformers,pypi,33.85,D,0.7375,Graveyard,3221,2691,,,
+2692,haiwen,seafile,systems,33.79,D,0.7375,Graveyard,3183,2692,,,
+2693,jonas,tig,systems,33.75,D,0.7425,Graveyard,3139,2693,,,
+2694,yc-software,qm,npm,33.73,D,0.8125,Graveyard,3155,2694,,,
+2695,zerotier,ZeroTierOne,systems,33.58,D,0.745,Graveyard,3160,2695,,,
+2696,ValveSoftware,GameNetworkingSockets,systems,33.52,D,0.7375,Graveyard,3151,2696,,,
+2697,TomWright,dasel,go,33.4,D,0.655,Graveyard,3194,2697,,,
+2698,algorithmicsuperintelligence,openevolve,pypi,33.37,D,0.8625,Graveyard,3212,2698,,1486,994
+2699,safing,portmaster,go,33.18,D,0.7875,Graveyard,3206,2699,,,
+2700,UditAkhourii,adhd,npm,33.03,D,0.655,Graveyard,3198,2700,,,
+2701,cypress-io,cypress-realworld-app,npm,32.71,D,0.845,Graveyard,3200,2701,,,1006
+2702,code-yeongyu,oh-my-openagent,npm,32.67,D,0.655,Graveyard,3018,2702,,,958
+2703,wondertrader,wondertrader,systems,32.59,D,0.6675,Graveyard,3233,2703,,,989
+2704,qilingframework,qiling,pypi,32.5,D,0.65,Graveyard,3083,2704,,,
+2705,microsoft,magentic-ui,pypi,32.46,D,0.7325,Graveyard,2973,2705,,,
+2706,camel-ai,oasis,pypi,32.32,D,0.71,Graveyard,3204,2706,,,
+2707,NVlabs,Sana,pypi,32.23,D,0.625,Graveyard,3203,2707,,,
+2708,libfuse,sshfs,systems,32.2,D,0.6675,Graveyard,3122,2708,,,
+2709,hatoo,oha,crates,32.19,D,0.73,Graveyard,3187,2709,,,
+2710,feathersjs,feathers,npm,32.18,D,0.6925,Graveyard,3177,2710,,,
+2711,dromara,Sa-Token,maven,32.17,D,0.755,Graveyard,3236,2711,,,
+2712,dyad-sh,dyad,npm,32.16,D,0.655,Graveyard,3100,2712,,,1003
+2713,cmusphinx,pocketsphinx,systems,32.08,D,0.8125,Graveyard,3112,2713,,,
+2714,krisk,Fuse,npm,32.0,D,0.6675,Crucible,3186,2714,510,,
+2715,phusion,passenger,systems,31.93,D,0.655,Crucible,3003,2715,,,
+2716,StackStorm,st2,pypi,31.83,D,0.6925,Graveyard,3091,2716,,,
+2717,julep-ai,julep,pypi,31.79,D,0.7875,Graveyard,3244,2717,,,
+2718,fxsound2,fxsound-app,systems,31.58,D,0.8175,Graveyard,3196,2718,,,
+2719,m3db,m3,go,31.51,D,0.655,Graveyard,3223,2719,,,
+2720,inkeep,open-knowledge,npm,31.49,D,0.63,Graveyard,3119,2720,,,996
+2721,dcajasn,Riskfolio-Lib,systems,31.46,D,0.7525,Graveyard,3106,2721,,,
+2722,llmware-ai,llmware,pypi,31.37,D,0.7375,Graveyard,3238,2722,,,
+2723,Guake,guake,pypi,31.14,D,0.7425,Graveyard,3161,2723,,,974
+2724,drivendataorg,cookiecutter-data-science,pypi,30.92,D,0.635,Graveyard,3241,2724,,,1008
+2725,mjl-,mox,go,30.69,D,0.9175,Graveyard,3179,2725,,,
+2726,intel,hyperscan,systems,30.34,D,0.6675,Graveyard,3248,2726,,,984
+2727,GreyDGL,PentestGPT,pypi,30.22,D,0.6025,Graveyard,,2727,,,955
+2728,benjitaylor,agentation,npm,29.87,D,0.83,Graveyard,2691,2728,,,
+2729,YunaiV,ruoyi-vue-pro,maven,29.77,D,0.658333333333,Graveyard,3250,2729,,,1017
+2730,2FastLabs,agent-squad,pypi,29.71,D,0.9525,Graveyard,3190,2730,,,
+2731,darkroomengineering,lenis,npm,29.56,D,0.62,Graveyard,,2731,,,
+2732,ValveSoftware,Proton,systems,29.39,D,0.77,Graveyard,3235,2732,,,
+2733,linuxkit,linuxkit,go,29.39,D,0.655,Graveyard,3217,2733,,,
+2734,SawyerHood,dev-browser,npm,29.38,D,0.7325,Graveyard,3150,2734,,,
+2735,gin-gonic,examples,go,29.33,D,0.655,Graveyard,3219,2735,,,
+2736,orf,gping,crates,29.32,D,0.655,Graveyard,3205,2736,,,
+2737,obi1kenobi,trustfall,crates,29.14,D,0.6675,Graveyard,3225,2737,,,
+2738,index-tts,index-tts,pypi,28.99,D,0.915,Graveyard,3226,2738,,,
+2739,obytes,react-native-template-obytes,npm,28.77,D,0.6025,Graveyard,,2739,,,1002
+2740,yarrick,iodine,systems,28.5,D,0.655,Graveyard,3218,2740,,,
+2741,lyswhut,lx-music-mobile,npm,28.39,D,0.6575,Graveyard,,2741,,,
+2742,sigoden,dufs,crates,28.32,D,0.77,Graveyard,3230,2742,,,998
+2743,JetBrains,intellij-community,maven,28.0,D,0.720833333333,Graveyard,3154,2743,,,1009
+2744,uber,baseweb,npm,27.47,D,0.8125,Graveyard,3232,2744,,,
+2745,XxHuberrr,Mineradio-paused,npm,27.35,D,0.6325,Graveyard,,2745,,,
+2746,libjpeg-turbo,libjpeg-turbo,systems,27.09,D,0.7325,Graveyard,3240,2746,,,
+2747,brightdata,cli,npm,26.99,D,0.675,Graveyard,3253,2747,,,
+2748,AI4Finance-Foundation,FinRobot,pypi,26.94,D,0.6725,Graveyard,,2748,,,
+2749,XxHuberrr,Mineradio,npm,26.87,D,0.6325,Graveyard,,2749,,,
+2750,transitive-bullshit,nextjs-notion-starter-kit,npm,26.82,D,0.6725,Graveyard,,2750,,,
+2751,nicobailon,visual-explainer,npm,26.75,D,0.9525,Graveyard,3229,2751,,,
+2752,TheTom,turboquant_plus,pypi,26.32,D,0.6025,Graveyard,,2752,,,
+2753,everywall,ladder,go,26.29,D,0.604166666667,Graveyard,3243,2753,,,
+2754,Evil0ctal,Douyin_TikTok_Download_API,pypi,26.28,D,0.7775,Graveyard,3234,2754,,,
+2755,browseros-ai,BrowserOS,npm,26.15,D,0.655,Graveyard,3252,2755,,,1018
+2756,microsoft,SPTAG,systems,25.32,D,0.7375,Graveyard,3249,2756,,,
+2757,elie222,inbox-zero,npm,24.57,D,0.655,Graveyard,3231,2757,,,1016
+2758,erincatto,box2d,systems,24.52,D,0.68,Graveyard,3239,2758,,,
+2759,jarun,buku,pypi,24.22,D,0.655,Graveyard,3247,2759,,,
+2760,TencentBlueKing,bk-cmdb,go,23.37,D,0.6675,Graveyard,3216,2760,,,
+2761,microsoft,inshellisense,npm,22.54,D,0.7375,Graveyard,3246,2761,,,
+2762,21st-dev,magic-mcp,npm,22.54,D,0.6025,Graveyard,,2762,,,1012
+2763,loks666,get_jobs,maven,22.51,D,0.609166666667,Graveyard,,2763,,,
+2764,torvalds,AudioNoise,systems,22.46,D,0.6725,Graveyard,,2764,,,
+2765,KoljaB,RealtimeSTT,pypi,21.89,D,0.6775,Graveyard,3254,2765,,,

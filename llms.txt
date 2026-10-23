@@ -2,24 +2,24 @@
 
 > A porch lamp left on tells a visitor they are expected. Porchlamp ranks 11,000 open-source projects by what happens to a stranger's pull request, not by how many stars the project has. Every score traces back to recorded GitHub responses and SHA-256 content hashes (by Rahul Kumar, `pctablet505`).
 
-## Findings (snapshot `2026-10-21`)
-- **More than 1 in 5.** In Porchlamp's 2026-10-21 snapshot, 796 of 3,767 active open-source projects (21.1%) left most outside pull requests with no human reply, review or merge within 14 days.
-- **More stars, more silence.** The share rises with stars: 17% of projects with 1,000 to 10,000 stars, 25% at 10,000 to 50,000, and 30% at 50,000 or more.
-- **Fame is no guarantee.** 12 of the 100 most-starred projects are black holes, and only 4 of them reach Porchlamp's top 100.
-- **Stars barely predict an answer.** Across 3,746 ranked projects, the rank correlation between stars and the Porchlamp score is 0.10.
-- **Most of those pull requests waited.** Inside the black-hole projects, 50,197 of 65,551 counted outside pull requests got no human reply within 14 days.
-- We followed 1,110,798 pull requests from 199,026 outside contributors to 11,000 GitHub projects, from 24 April to 21 October 2026.
-- 3,746 projects are ranked under the balanced lens; 5,457 are gated and 1,797 unrated, each listed with its reason under [Not ranked](https://porchlamp.org/not-ranked/).
+## Findings (snapshot `2026-10-23`)
+- **More than 1 in 5.** In Porchlamp's 2026-10-23 snapshot, 844 of 4,125 active open-source projects (20.5%) left most outside pull requests with no human reply, review or merge within 14 days.
+- **More stars, more silence.** The share rises with stars: 17% of projects with 1,000 to 10,000 stars, 24% at 10,000 to 50,000, and 27% at 50,000 or more.
+- **Fame is no guarantee.** 14 of the 100 most-starred projects are black holes, and only 6 of them reach Porchlamp's top 100.
+- **Stars barely predict an answer.** Across 3,991 ranked projects, the rank correlation between stars and the Porchlamp score is 0.11.
+- **Most of those pull requests waited.** Inside the black-hole projects, 57,316 of 75,791 counted outside pull requests got no human reply within 14 days.
+- We followed 1,443,194 pull requests from 227,261 outside contributors to 11,000 GitHub projects, from 25 April to 22 October 2026.
+- 3,991 projects are ranked under the balanced lens; 5,505 are gated and 1,504 unrated, each listed with its reason under [Not ranked](https://porchlamp.org/not-ranked/).
 
 ## Static pages (readable without JavaScript)
 - [Stars don't review pull requests: the state of open-source black holes (latest snapshot)](https://porchlamp.org/black-holes/)
-- [The same report, frozen for citation (snapshot `2026-10-21`)](https://porchlamp.org/black-holes/2026-10-21/)
-- [CSV of the 3,746 ranked projects (CC BY 4.0)](https://porchlamp.org/black-holes/2026-10-21/porchlamp-2026-10-21-ranked.csv)
+- [The same report, frozen for citation (snapshot `2026-10-23`)](https://porchlamp.org/black-holes/2026-10-23/)
+- [CSV of the 3,991 ranked projects (CC BY 4.0)](https://porchlamp.org/black-holes/2026-10-23/porchlamp-2026-10-23-ranked.csv)
 - [Methodology: every gate, pillar, lens, weight and parameter](https://porchlamp.org/methodology/)
 
 ## One page per ranked project (readable without JavaScript)
 To check a project, open https://porchlamp.org/projects/<owner>/<name>/ (lower case).
-Each page opens with the project's median time to a first human reply to an outside pull request, the share that got no reply within 14 days, and its rank overall and for first-time contributors. Example: [servo/rust-smallvec](https://porchlamp.org/projects/servo/rust-smallvec/)
+Each page opens with the project's median time to a first human reply to an outside pull request, the share that got no reply within 14 days, and its rank overall and for first-time contributors. Example: [meshery/meshery](https://porchlamp.org/projects/meshery/meshery/)
 
 ## Ecosystem and lens pages (readable without JavaScript)
 Each page lists the top 50 projects of its cut, with score and tier, and each name opens that project's page.
@@ -41,37 +41,37 @@ Each page lists the top 50 projects of its cut, with score and tier, and each na
 4. **Rigor (15%):** Pipeline Defenses, AI Policy Posture, Substantive Review Rate.
 5. **Accessibility (15%):** Newcomer Issue Supply, Newcomer Conversion, Newcomer Return Rate, Developer Experience.
 
-## Top 20 ranked projects (balanced lens, snapshot `2026-10-21`)
-1. `servo/rust-smallvec` (Rust) — Score `79.42` · Coverage `94%` · Tier `A (capped)` · `Sweet Spot`
-2. `kedacore/keda` (Go) — Score `77.76` · Coverage `88%` · Tier `A (capped)` · `Sweet Spot`
-3. `onnx/onnx` (Python) — Score `77.48` · Coverage `88%` · Tier `A (capped)` · `Sweet Spot`
-4. `external-secrets/external-secrets` (Go) — Score `77.26` · Coverage `88%` · Tier `A (capped)` · `Sweet Spot`
-5. `matplotlib/matplotlib` (Python) — Score `77.25` · Coverage `88%` · Tier `A (capped)` · `Sweet Spot`
-6. `ggml-org/llama.cpp` (C and C++) — Score `76.39` · Coverage `81%` · Tier `A (capped)` · `Sweet Spot`
-7. `freeCodeCamp/freeCodeCamp` (JavaScript) — Score `75.89` · Coverage `65%` · Tier `B (capped)` · `Sweet Spot`
-8. `containerd/containerd` (Go) — Score `75.72` · Coverage `88%` · Tier `A (capped)` · `Sweet Spot`
-9. `scikit-learn/scikit-learn` (Python) — Score `75.70` · Coverage `81%` · Tier `A (capped)` · `Sweet Spot`
-10. `biomejs/biome` (Rust) — Score `75.66` · Coverage `65%` · Tier `B (capped)` · `Sweet Spot`
-11. `rust-lang/libc` (Rust) — Score `75.34` · Coverage `88%` · Tier `A (capped)` · `Sweet Spot`
-12. `pylint-dev/pylint` (Python) — Score `75.23` · Coverage `88%` · Tier `A (capped)` · `Sweet Spot`
-13. `prometheus/client_golang` (Go) — Score `74.71` · Coverage `100%` · Tier `A` · `Sweet Spot`
-14. `redis/node-redis` (JavaScript) — Score `74.69` · Coverage `100%` · Tier `A` · `Sweet Spot`
-15. `rust-lang/cc-rs` (Rust) — Score `74.35` · Coverage `100%` · Tier `A` · `Sweet Spot`
-16. `jaegertracing/jaeger` (Go) — Score `74.02` · Coverage `81%` · Tier `A (capped)` · `Sweet Spot`
-17. `diesel-rs/diesel` (Rust) — Score `73.77` · Coverage `100%` · Tier `A` · `Sweet Spot`
-18. `eslint/eslint` (JavaScript) — Score `73.37` · Coverage `88%` · Tier `A (capped)` · `Sweet Spot`
-19. `valyala/fasthttp` (Go) — Score `73.12` · Coverage `98%` · Tier `A` · `Sweet Spot`
-20. `caddyserver/caddy` (Go) — Score `73.09` · Coverage `93%` · Tier `A (capped)` · `Sweet Spot`
+## Top 20 ranked projects (balanced lens, snapshot `2026-10-23`)
+1. `meshery/meshery` (JavaScript) — Score `79.94` · Coverage `65%` · Tier `B (capped)` · `Sweet Spot`
+2. `servo/rust-smallvec` (Rust) — Score `79.42` · Coverage `94%` · Tier `A (capped)` · `Sweet Spot`
+3. `kedacore/keda` (Go) — Score `77.67` · Coverage `88%` · Tier `A (capped)` · `Sweet Spot`
+4. `onnx/onnx` (Python) — Score `77.41` · Coverage `88%` · Tier `A (capped)` · `Sweet Spot`
+5. `matplotlib/matplotlib` (Python) — Score `77.19` · Coverage `88%` · Tier `A (capped)` · `Sweet Spot`
+6. `external-secrets/external-secrets` (Go) — Score `77.18` · Coverage `88%` · Tier `A (capped)` · `Sweet Spot`
+7. `organicmaps/organicmaps` (C and C++) — Score `76.40` · Coverage `88%` · Tier `A (capped)` · `Sweet Spot`
+8. `ggml-org/llama.cpp` (C and C++) — Score `76.32` · Coverage `81%` · Tier `A (capped)` · `Sweet Spot`
+9. `ant-design/ant-design` (JavaScript) — Score `76.26` · Coverage `65%` · Tier `B (capped)` · `Sweet Spot`
+10. `moby/moby` (Go) — Score `75.96` · Coverage `81%` · Tier `A (capped)` · `Sweet Spot`
+11. `freeCodeCamp/freeCodeCamp` (JavaScript) — Score `75.85` · Coverage `65%` · Tier `B (capped)` · `Sweet Spot`
+12. `containerd/containerd` (Go) — Score `75.68` · Coverage `88%` · Tier `A (capped)` · `Sweet Spot`
+13. `biomejs/biome` (Rust) — Score `75.62` · Coverage `65%` · Tier `B (capped)` · `Sweet Spot`
+14. `scikit-learn/scikit-learn` (Python) — Score `75.57` · Coverage `81%` · Tier `A (capped)` · `Sweet Spot`
+15. `rust-lang/libc` (Rust) — Score `75.32` · Coverage `88%` · Tier `A (capped)` · `Sweet Spot`
+16. `pylint-dev/pylint` (Python) — Score `75.17` · Coverage `88%` · Tier `A (capped)` · `Sweet Spot`
+17. `argoproj/argo-cd` (Go) — Score `75.06` · Coverage `81%` · Tier `A (capped)` · `Sweet Spot`
+18. `redis/node-redis` (JavaScript) — Score `74.68` · Coverage `100%` · Tier `A` · `Sweet Spot`
+19. `prometheus/client_golang` (Go) — Score `74.67` · Coverage `100%` · Tier `A` · `Sweet Spot`
+20. `rust-lang/cc-rs` (Rust) — Score `74.35` · Coverage `100%` · Tier `A` · `Sweet Spot`
 
 ## Data files
-- [Snapshot provenance and hashes](https://porchlamp.org/data/2026-10-21/snapshot.json)
-- [Balanced leaderboard (JSON)](https://porchlamp.org/data/2026-10-21/leaderboard-balanced.json)
-- [First-timer leaderboard (JSON)](https://porchlamp.org/data/2026-10-21/leaderboard-first_timer.json)
-- [Career capital leaderboard (JSON)](https://porchlamp.org/data/2026-10-21/leaderboard-career_capital.json)
-- [Senior systems leaderboard (JSON)](https://porchlamp.org/data/2026-10-21/leaderboard-senior_systems.json)
-- [AI-assisted leaderboard (JSON)](https://porchlamp.org/data/2026-10-21/leaderboard-ai_assisted.json)
-- [Leverage and friction matrix (JSON)](https://porchlamp.org/data/2026-10-21/matrix.json)
-- [Methodology (JSON)](https://porchlamp.org/data/2026-10-21/methodology.json)
-- [Report (JSON)](https://porchlamp.org/data/2026-10-21/report.json)
+- [Snapshot provenance and hashes](https://porchlamp.org/data/2026-10-23/snapshot.json)
+- [Balanced leaderboard (JSON)](https://porchlamp.org/data/2026-10-23/leaderboard-balanced.json)
+- [First-timer leaderboard (JSON)](https://porchlamp.org/data/2026-10-23/leaderboard-first_timer.json)
+- [Career capital leaderboard (JSON)](https://porchlamp.org/data/2026-10-23/leaderboard-career_capital.json)
+- [Senior systems leaderboard (JSON)](https://porchlamp.org/data/2026-10-23/leaderboard-senior_systems.json)
+- [AI-assisted leaderboard (JSON)](https://porchlamp.org/data/2026-10-23/leaderboard-ai_assisted.json)
+- [Leverage and friction matrix (JSON)](https://porchlamp.org/data/2026-10-23/matrix.json)
+- [Methodology (JSON)](https://porchlamp.org/data/2026-10-23/methodology.json)
+- [Report (JSON)](https://porchlamp.org/data/2026-10-23/report.json)
 - [Atom feed](https://porchlamp.org/feed.xml)
 - [Sitemap index](https://porchlamp.org/sitemap.xml): [pages](https://porchlamp.org/sitemap-pages.xml) and [projects](https://porchlamp.org/sitemap-projects.xml)

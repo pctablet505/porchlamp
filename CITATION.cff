@@ -6,8 +6,8 @@ authors:
   - given-names: Rahul
     family-names: Kumar
     alias: pctablet505
-version: "2026-10-26"
-date-released: 2026-10-26
+version: "2026-10-27"
+date-released: 2026-10-27
 url: "https://porchlamp.org/"
 repository: "https://github.com/pctablet505/porchlamp"
 license: CC-BY-4.0

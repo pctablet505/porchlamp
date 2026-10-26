@@ -1,6 +1,6 @@
 # Porchlamp (https://porchlamp.org/)
 
-> A porch lamp left on tells a visitor they are expected. Porchlamp ranks 11,000 open-source projects by what happens to a stranger's pull request, not by how many stars the project has. Every score traces back to recorded GitHub responses and SHA-256 content hashes (by Rahul Kumar, `pctablet505`).
+> A porch lamp left on tells a visitor they are expected. Porchlamp measures 11,000 open-source projects by what happens to a stranger's pull request, not by how many stars the project has. Every score traces back to recorded GitHub responses and SHA-256 content hashes (by Rahul Kumar, `pctablet505`).
 
 ## Findings (snapshot `2026-10-27`)
 - **More than 1 in 8.** In Porchlamp's 2026-10-27 snapshot, 567 of 4,169 active open-source projects (13.6%) left most outside pull requests with no human reply, review, merge or close within 14 days or since.

@@ -6,12 +6,12 @@ authors:
   - given-names: Rahul
     family-names: Kumar
     alias: pctablet505
-version: "2026-10-27"
-date-released: 2026-10-27
+version: "2026-10-31"
+date-released: 2026-10-31
 url: "https://porchlamp.org/"
 repository: "https://github.com/pctablet505/porchlamp"
 license: CC-BY-4.0
-abstract: "A six-month snapshot of 1,442,863 pull requests from 227,260 outside contributors to 11,000 GitHub projects. Each project is ranked by what happens to a stranger's pull request: whether a human replies, reviews or merges it, and how soon."
+abstract: "A six-month snapshot of 1,726,945 pull requests from 268,212 outside contributors to 11,000 GitHub projects. Each project is ranked by what happens to a stranger's pull request: whether a human replies, reviews or merges it, and how soon."
 keywords:
   - open source
   - pull requests

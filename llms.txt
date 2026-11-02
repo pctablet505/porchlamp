@@ -2,8 +2,8 @@
 
 > A porch lamp left on tells a visitor they are expected. Porchlamp measures 11,000 open-source projects by what happens to a stranger's pull request, not by how many stars the project has. Every score traces back to recorded GitHub responses and SHA-256 content hashes (by Rahul Kumar, `pctablet505`).
 
-## Findings (snapshot `2026-10-31`)
-- **More than 1 in 8.** In Porchlamp's 2026-10-31 snapshot, 562 of 4,396 active open-source projects (12.8%) left most outside pull requests with no human reply, review, merge or close within 14 days or since.
+## Findings (snapshot `2026-11-02`)
+- **More than 1 in 8.** In Porchlamp's 2026-11-02 snapshot, 562 of 4,396 active open-source projects (12.8%) left most outside pull requests with no human reply, review, merge or close within 14 days or since.
 - **More stars, more silence.** The share rises with stars: 10% of projects with 1,000 to 10,000 stars, 16% at 10,000 to 50,000, and 16% at 50,000 or more.
 - **Fame is no guarantee.** 17 of the 100 most-starred projects are black holes, and only 7 of them reach Porchlamp's top 100.
 - **Stars barely predict an answer.** Across 4,044 ranked projects, the rank correlation between stars and the Porchlamp score is 0.06.
@@ -13,8 +13,8 @@
 
 ## Static pages (readable without JavaScript)
 - [Stars don't review pull requests: the state of open-source black holes (latest snapshot)](https://porchlamp.org/black-holes/)
-- [The same report, frozen for citation (snapshot `2026-10-31`)](https://porchlamp.org/black-holes/2026-10-31/)
-- [CSV of the 4,044 ranked projects (CC BY 4.0)](https://porchlamp.org/black-holes/2026-10-31/porchlamp-2026-10-31-ranked.csv)
+- [The same report, frozen for citation (snapshot `2026-11-02`)](https://porchlamp.org/black-holes/2026-11-02/)
+- [CSV of the 4,044 ranked projects (CC BY 4.0)](https://porchlamp.org/black-holes/2026-11-02/porchlamp-2026-11-02-ranked.csv)
 - [Methodology: every gate, pillar, lens, weight and parameter](https://porchlamp.org/methodology/)
 
 ## One page per ranked project (readable without JavaScript)
@@ -41,7 +41,7 @@ Each page lists the top 50 projects of its cut, with score and tier, and each na
 4. **Rigor (15%):** Pipeline Defenses, AI Policy Posture, Substantive Review Rate.
 5. **Accessibility (15%):** Newcomer Issue Supply, Newcomer Conversion, Newcomer Return Rate, Developer Experience.
 
-## Top 20 ranked projects (balanced lens, snapshot `2026-10-31`)
+## Top 20 ranked projects (balanced lens, snapshot `2026-11-02`)
 1. `ant-design/ant-design` (JavaScript) — Score `84.42` · Coverage `81%` · Tier `A (capped)` · `Sweet Spot`
 2. `kornia/kornia` (Python) — Score `83.91` · Coverage `81%` · Tier `A (capped)` · `Sweet Spot`
 3. `servo/rust-smallvec` (Rust) — Score `83.01` · Coverage `94%` · Tier `S` · `Sweet Spot`
@@ -64,14 +64,14 @@ Each page lists the top 50 projects of its cut, with score and tier, and each na
 20. `keycloak/keycloak` (Java) — Score `79.11` · Coverage `81%` · Tier `A (capped)` · `Sweet Spot`
 
 ## Data files
-- [Snapshot provenance and hashes](https://porchlamp.org/data/2026-10-31/snapshot.json)
-- [Balanced leaderboard (JSON)](https://porchlamp.org/data/2026-10-31/leaderboard-balanced.json)
-- [First-timer leaderboard (JSON)](https://porchlamp.org/data/2026-10-31/leaderboard-first_timer.json)
-- [Career capital leaderboard (JSON)](https://porchlamp.org/data/2026-10-31/leaderboard-career_capital.json)
-- [Senior systems leaderboard (JSON)](https://porchlamp.org/data/2026-10-31/leaderboard-senior_systems.json)
-- [AI-assisted leaderboard (JSON)](https://porchlamp.org/data/2026-10-31/leaderboard-ai_assisted.json)
-- [Leverage and friction matrix (JSON)](https://porchlamp.org/data/2026-10-31/matrix.json)
-- [Methodology (JSON)](https://porchlamp.org/data/2026-10-31/methodology.json)
-- [Report (JSON)](https://porchlamp.org/data/2026-10-31/report.json)
+- [Snapshot provenance and hashes](https://porchlamp.org/data/2026-11-02/snapshot.json)
+- [Balanced leaderboard (JSON)](https://porchlamp.org/data/2026-11-02/leaderboard-balanced.json)
+- [First-timer leaderboard (JSON)](https://porchlamp.org/data/2026-11-02/leaderboard-first_timer.json)
+- [Career capital leaderboard (JSON)](https://porchlamp.org/data/2026-11-02/leaderboard-career_capital.json)
+- [Senior systems leaderboard (JSON)](https://porchlamp.org/data/2026-11-02/leaderboard-senior_systems.json)
+- [AI-assisted leaderboard (JSON)](https://porchlamp.org/data/2026-11-02/leaderboard-ai_assisted.json)
+- [Leverage and friction matrix (JSON)](https://porchlamp.org/data/2026-11-02/matrix.json)
+- [Methodology (JSON)](https://porchlamp.org/data/2026-11-02/methodology.json)
+- [Report (JSON)](https://porchlamp.org/data/2026-11-02/report.json)
 - [Atom feed](https://porchlamp.org/feed.xml)
 - [Sitemap index](https://porchlamp.org/sitemap.xml): [pages](https://porchlamp.org/sitemap-pages.xml) and [projects](https://porchlamp.org/sitemap-projects.xml)

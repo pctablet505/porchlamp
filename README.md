@@ -14,7 +14,7 @@ request, not by how many stars the project has.
 
 ## Stars don't review pull requests
 
-Measured on the 2026-10-31 snapshot of 11,000 projects:
+Measured on the 2026-11-02 snapshot of 11,000 projects:
 
 - **More than 1 in 8 active projects are black holes.** Of the 4,396 licensed,
   maintained software projects with at least ten counted outside pull requests
@@ -41,15 +41,15 @@ number traces back to a recorded GitHub response and its content hash.
 
 This repository is the published site and nothing else: a static snapshot
 served by GitHub Pages. Every ranking, filter and project page is answered
-from precomputed JSON under `data/2026-10-31/` by `api.js` (project records sharded into 256
-hash-bucketed files under `data/2026-10-31/repos/`), so the site needs no
+from precomputed JSON under `data/2026-11-02/` by `api.js` (project records sharded into 256
+hash-bucketed files under `data/2026-11-02/repos/`), so the site needs no
 server.
 
-- **Snapshot ID:** `2026-10-31` (measured as of `2026-10-24T18:10:00+00:00`, benchmark `2.0.0-rc1`)
+- **Snapshot ID:** `2026-11-02` (measured as of `2026-10-24T18:10:00+00:00`, benchmark `2.0.0-rc1`)
 - **Universe Counts:** `4,044` rated (ranked) · `5,114` gated (Stage 0) · `1,842` unrated (`<60%` coverage) · `11,000` total
 - **Persona Visible Counts:** `balanced: 4,044` · `first_timer: 1,904` · `career_capital: 872` · `senior_systems: 986` · `ai_assisted: 4,002`
-- **Verification Hashes:** `constants_hash: de2c71c1d7ba…` · `manifest_root: 0044bb2ada2c…` · `canonical_dump_hash: 470e0ef313ab…`
+- **Verification Hashes:** `constants_hash: 093cefd6c2f4…` · `manifest_root: ad5765832fb3…` · `canonical_dump_hash: 9599fdb8b826…`
 
 ## License and citation
 
-The data under `data/` and the text of this site are licensed under [CC BY 4.0](LICENSE): reuse them freely, with credit to "Porchlamp rankings" and a link to https://porchlamp.org/. To cite the dataset, use GitHub's "Cite this repository" button, which reads `CITATION.cff`. To cite a finding, link the report frozen for this snapshot: https://porchlamp.org/black-holes/2026-10-31/ . The code in this repository is not covered by this license, and the engine that collects the data is private.
+The data under `data/` and the text of this site are licensed under [CC BY 4.0](LICENSE): reuse them freely, with credit to "Porchlamp rankings" and a link to https://porchlamp.org/. To cite the dataset, use GitHub's "Cite this repository" button, which reads `CITATION.cff`. To cite a finding, link the report frozen for this snapshot: https://porchlamp.org/black-holes/2026-11-02/ . The code in this repository is not covered by this license, and the engine that collects the data is private.

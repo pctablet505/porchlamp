@@ -14,18 +14,18 @@ request, not by how many stars the project has.
 
 ## Stars don't review pull requests
 
-Measured on the 2026-11-02 snapshot of 11,000 projects:
+Measured on the 2026-11-05 snapshot of 11,000 projects:
 
 - **More than 1 in 8 active projects are black holes.** Of the 4,396 licensed,
   maintained software projects with at least ten counted outside pull requests
   in six months, 562 (12.8%) left most of them with no human reply, review,
-  merge or close within two weeks or since. We could not judge 1 busy project yet: we hold only its newest 500 pull
-  requests, and they do not reach back to 27 April.
-- **More stars, more silence.** The black-hole share is higher for popular projects: 10%
+  merge or close within two weeks or since. We could not judge 1 busy project yet: we hold only
+  its newest 500 pull requests, and they do not reach back to 27 April.
+- **More stars, more silence.** The black-hole share rises with popularity: 10%
   of projects with 1k–10k stars, 16% at 10k–50k, and 16% at 50k or more.
 - **Stars barely predict the ranking.** Across the 4,044 ranked projects the
   rank correlation between stars and the Porchlamp score is 0.06, and 7 of the
-  100 most-starred projects make the top 100.
+  100 most-starred projects makes the top 100.
 
 ## Where the numbers come from
 
@@ -41,15 +41,15 @@ number traces back to a recorded GitHub response and its content hash.
 
 This repository is the published site and nothing else: a static snapshot
 served by GitHub Pages. Every ranking, filter and project page is answered
-from precomputed JSON under `data/2026-11-02/` by `api.js` (project records sharded into 256
-hash-bucketed files under `data/2026-11-02/repos/`), so the site needs no
+from precomputed JSON under `data/2026-11-05/` by `api.js` (project records sharded into 256
+hash-bucketed files under `data/2026-11-05/repos/`), so the site needs no
 server.
 
-- **Snapshot ID:** `2026-11-02` (measured as of `2026-10-24T18:10:00+00:00`, benchmark `2.0.0-rc1`)
+- **Snapshot ID:** `2026-11-05` (measured as of `2026-10-24T18:10:00+00:00`, benchmark `2.0.0-rc1`)
 - **Universe Counts:** `4,044` rated (ranked) · `5,114` gated (Stage 0) · `1,842` unrated (`<60%` coverage) · `11,000` total
 - **Persona Visible Counts:** `balanced: 4,044` · `first_timer: 1,904` · `career_capital: 872` · `senior_systems: 986` · `ai_assisted: 4,002`
-- **Verification Hashes:** `constants_hash: 093cefd6c2f4…` · `manifest_root: ad5765832fb3…` · `canonical_dump_hash: 9599fdb8b826…`
+- **Verification Hashes:** `constants_hash: 093cefd6c2f4…` · `manifest_root: dca42c4f9c30…` · `canonical_dump_hash: a0ac1f57352a…`
 
 ## License and citation
 
-The data under `data/` and the text of this site are licensed under [CC BY 4.0](LICENSE): reuse them freely, with credit to "Porchlamp rankings" and a link to https://porchlamp.org/. To cite the dataset, use GitHub's "Cite this repository" button, which reads `CITATION.cff`. To cite a finding, link the report frozen for this snapshot: https://porchlamp.org/black-holes/2026-11-02/ . The code in this repository is not covered by this license, and the engine that collects the data is private.
+The data under `data/` and the text of this site are licensed under [CC BY 4.0](LICENSE): reuse them freely, with credit to "Porchlamp rankings" and a link to https://porchlamp.org/. To cite the dataset, use GitHub's "Cite this repository" button, which reads `CITATION.cff`. To cite a finding, link the report frozen for this snapshot: https://porchlamp.org/black-holes/2026-11-05/ . The code in this repository is not covered by this license, and the engine that collects the data is private.

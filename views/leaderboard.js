@@ -224,9 +224,9 @@ export function renderTabs(activeTab, counts, visibleCount, notRankedCount = und
   return (
     `<div class="tabs">` +
     `<a class="tab" href="${href("ranked")}" data-route-tab="ranked"${current("ranked")}>` +
-    `${escapeHtml(copy.TAB_RANKED)}<span class="count">${rated}</span></a>` +
+    `${escapeHtml(copy.TAB_RANKED)} <span class="count">${rated}</span></a>` +
     `<a class="tab" href="${href("notranked")}" data-route-tab="notranked"${current("notranked")}>` +
-    `${escapeHtml(copy.TAB_NOT_RANKED)}<span class="count">${notRanked}</span></a>` +
+    `${escapeHtml(copy.TAB_NOT_RANKED)} <span class="count">${notRanked}</span></a>` +
     `</div>`
   );
 }
@@ -260,7 +260,7 @@ export function renderMobileSortBar(sort = "rank") {
   return (
     `<div class="mobile-sort-bar" data-mobile-sort-bar="true">` +
     `<label>${escapeHtml(copy.SORT_LABEL)} ` +
-    `<select class="control" data-mobile-sort-select="true" aria-label="${escapeHtml(copy.SORT_LABEL)}">${options}</select></label>` +
+    `<select class="control" id="mobile-sort-select" name="sort" data-mobile-sort-select="true" aria-label="${escapeHtml(copy.SORT_LABEL)}">${options}</select></label>` +
     `<button type="button" class="icon-button" data-mobile-sort-dir="true" ` +
     `aria-label="${escapeHtml(copy.SORT_DIRECTION_TOGGLE_LABEL)}" ` +
     `title="${escapeHtml(copy.SORT_DIRECTION_TOGGLE_LABEL)} (${dir})">${arrow}</button>` +
@@ -301,7 +301,7 @@ export function renderPager(page, pageSize, total, dataPrefix = "pager", { botto
   const sizeSelect = bottom
     ? ""
     : `<label>${escapeHtml(copy.PAGE_SIZE_LABEL)} ` +
-      `<select class="control" data-${dataPrefix}-size-select="true">${sizeOptions}</select></label>`;
+      `<select class="control" id="${escapeHtml(dataPrefix)}-size-select" name="page_size" data-${dataPrefix}-size-select="true">${sizeOptions}</select></label>`;
   return (
     `<div class="pager${bottom ? " pager-bottom" : ""}">` +
     sizeSelect +
@@ -547,6 +547,17 @@ function listSentence(template, numbers, words = {}) {
   return { html: fill(template, slots), text: String(template).replace(SLOT, (_m, id) => plain[id]) };
 }
 
+/** The numbers of the first-timer lens's gate, from the methodology's persona gates. A number the methodology lacks,
+ *  or all of them before it has loaded, is null, and the gate's sentence is left out. */
+function firstTimerGateNumbers(methodology) {
+  const gates = methodology && methodology.personas ? methodology.personas.gates : null;
+  const gate = Array.isArray(gates) ? gates.find((g) => g.persona === "first_timer") : null;
+  if (!gate || !gate.thresholds) return {};
+  const t = gate.thresholds;
+  const text = (value, scale = 1) => (typeof value === "number" && Number.isFinite(value) ? String(Math.round(value * scale)) : null);
+  return { min_prs: text(t.min_decided_prs), min_rate: text(t.min_mr_first, 100), min_issues: text(t.min_newcomer_issues) };
+}
+
 /** What kind of list a route is: "rankings", "fastest", "ecosystem-lens", "lens" or "ecosystem". */
 function listKind(route) {
   const fixed = route.fixed || {};
@@ -620,7 +631,12 @@ export function listHead(state) {
         .join(" · ");
       links = `<p class="list-sublinks" data-list-sublinks="true">${links}</p>`;
     } else if (kind === "lens" || kind === "ecosystem-lens") {
-      add(kind === "lens" ? copy.LIST_INTRO_LENS : copy.LIST_INTRO_ECOSYSTEM_LENS);
+      if (fixed.persona === "first_timer") {
+        add(kind === "lens" ? copy.LIST_INTRO_FIRST_TIMERS : copy.LIST_INTRO_ECOSYSTEM_FIRST_TIMERS);
+        add(copy.LIST_INTRO_FIRST_TIMER_GATE, firstTimerGateNumbers(methodology));
+      } else {
+        add(kind === "lens" ? copy.LIST_INTRO_LENS : copy.LIST_INTRO_ECOSYSTEM_LENS);
+      }
       add(copy.LIST_INTRO_WEIGHS, { weights: lensWeightsText(methodology, fixed.persona) });
     } else {
       // A fastest list counts what it lists: the rows before its cut (at most a page), not the projects in scope.
@@ -818,8 +834,7 @@ export function renderRowHtml(row, opts) {
     )
     .join("");
   return (
-    `<tr data-owner="${escapeHtml(row.owner)}" data-name="${escapeHtml(row.name)}" tabindex="0" role="button" ` +
-    `aria-label="${escapeHtml(`Open ${escapeHtml(row.owner)}/${escapeHtml(row.name)}`)}" title="${escapeHtml(copy.ROW_OPEN_HINT)}" ` +
+    `<tr data-owner="${escapeHtml(row.owner)}" data-name="${escapeHtml(row.name)}" title="${escapeHtml(copy.ROW_OPEN_HINT)}" ` +
     `class="${classAttr(tied && "row-tied", selected && "row-selected")}" data-key="${escapeHtml(rowKey(row))}">${cellHtml}</tr>`
   );
 }
@@ -830,8 +845,7 @@ export function renderCardHtml(row, opts) {
   const drawn = renderCard(row, opts);
   const inner = drawn.slice(drawn.indexOf(">") + 1, drawn.length - "</div>".length);
   return (
-    `<div data-owner="${escapeHtml(row.owner)}" data-name="${escapeHtml(row.name)}" tabindex="0" role="button" ` +
-    `aria-label="${escapeHtml(`Open ${escapeHtml(row.owner)}/${escapeHtml(row.name)}`)}" title="${escapeHtml(copy.ROW_OPEN_HINT)}" ` +
+    `<div data-owner="${escapeHtml(row.owner)}" data-name="${escapeHtml(row.name)}" title="${escapeHtml(copy.ROW_OPEN_HINT)}" ` +
     `class="${classAttr("leaderboard-card", isTieMate(row, previousRow) && "row-tied", selected && "row-selected")}" ` +
     `data-rendered="${escapeHtml(inner)}" data-key="${escapeHtml(rowKey(row))}">${inner}</div>`
   );

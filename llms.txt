@@ -24,12 +24,12 @@ Each page opens with the project's median time to a first human reply to an outs
 
 ## Ecosystem and lens pages (readable without JavaScript)
 Each page lists the top 50 projects of its cut, with score and tier, and each name opens that project's page.
-- [Rust projects that answer outside pull requests](https://porchlamp.org/rust/)
-- [Python projects that answer outside pull requests](https://porchlamp.org/python/)
-- [JavaScript projects that answer outside pull requests](https://porchlamp.org/javascript/)
-- [Go projects that answer outside pull requests](https://porchlamp.org/go/)
-- [Java projects that answer outside pull requests](https://porchlamp.org/java/)
-- [C and C++ projects that answer outside pull requests](https://porchlamp.org/c-cpp/)
+- [Rust open source projects to contribute to](https://porchlamp.org/rust/)
+- [Python open source projects to contribute to](https://porchlamp.org/python/)
+- [JavaScript open source projects to contribute to](https://porchlamp.org/javascript/)
+- [Go open source projects to contribute to](https://porchlamp.org/go/)
+- [Java open source projects to contribute to](https://porchlamp.org/java/)
+- [C and C++ open source projects to contribute to](https://porchlamp.org/c-cpp/)
 - [Open-source projects for first-time contributors](https://porchlamp.org/first-timers/)
 - [Open-source projects for building career capital](https://porchlamp.org/career/)
 - [Open-source projects for senior systems engineers](https://porchlamp.org/senior-systems/)

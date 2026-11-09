@@ -358,6 +358,8 @@ a {
   display: flex;
   align-items: center;
   gap: var(--space-md);
+  min-height: var(--header-height);
+  box-sizing: border-box;
   padding: var(--space-sm) var(--space-md);
   background: var(--bg-surface);
   border-bottom: 1px solid var(--border-subtle);
@@ -960,6 +962,11 @@ input.control::placeholder {
 }
 
 .pillar-sort-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 24px;
+  min-height: 24px;
   border: 0;
   background: transparent;
   padding: 2px 3px;
@@ -1017,9 +1024,20 @@ input.control::placeholder {
   }
 
   .leaderboard-table td[data-cell="repository"] {
-    max-width: 135px;
+    min-width: 180px;
+    max-width: 220px;
     overflow: hidden;
     text-overflow: ellipsis;
+  }
+
+  .leaderboard-table .repo-line {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1px;
+  }
+
+  .leaderboard-table .repo-line .eco-chip {
+    margin-left: 0;
   }
 }
 
@@ -1169,7 +1187,7 @@ input.control::placeholder {
   height: 180px;
   box-sizing: border-box;
   overflow: hidden;
-  margin-bottom: 12px; /* 180 + 12 = components/table.js CARD_HEIGHT_PX (192): six lines, the replies one of them */
+  margin-bottom: 12px; /* 180 + 12 = components/table.js CARD_HEIGHT_PX (192), the list's windowing pitch */
   background: var(--bg-surface);
   border: 1px solid var(--border-subtle);
   border-radius: var(--radius-card);
@@ -1284,6 +1302,12 @@ input.control::placeholder {
 }
 
 .reason-list li:hover {
+  background: var(--bg-surface-hover);
+}
+
+.reason-list li:focus-visible {
+  outline: 2px solid var(--border-focus);
+  outline-offset: 2px;
   background: var(--bg-surface-hover);
 }
 
@@ -1457,6 +1481,18 @@ input.control::placeholder {
   border: 1px solid var(--border-strong);
   border-radius: var(--radius-badge);
   padding: 1px 6px;
+  white-space: nowrap;
+}
+
+.keymap-overlay [data-keymap-close] {
+  margin-top: var(--space-md);
+}
+
+/* The footer's shortcuts button is for a keyboard: a touch screen has none to press. */
+@media (hover: none) and (pointer: coarse) {
+  .keymap-trigger {
+    display: none;
+  }
 }
 
 /* ---- Drawer ---- */
@@ -1834,6 +1870,33 @@ p.cell-numeric {
   color: var(--text-secondary);
 }
 
+/* The lists every page links to: their own rows above the snapshot's fields. */
+.footer-browse {
+  flex: 1 0 100%;
+  display: grid;
+  gap: var(--space-xs);
+}
+
+.footer-browse-row {
+  margin: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-xs) var(--space-sm);
+}
+
+.footer-browse-label {
+  color: var(--text-primary);
+}
+
+/* A row of short words (Go, Java): each link is a target at least 24 px square (WCAG 2.5.8). */
+.footer-browse-row a {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 24px;
+  min-height: 24px;
+}
+
 .app-live-region {
   position: absolute;
   width: 1px;
@@ -1949,8 +2012,9 @@ p.cell-numeric {
 
 .black-hole-pr-scroll {
   margin: var(--space-sm) 0;
-  max-height: 240px;
-  overflow: auto;
+  max-height: none;
+  overflow-x: auto;
+  overflow-y: visible;
   background: var(--bg-surface);
   border: 1px solid var(--border-subtle);
   border-radius: var(--radius-control);
@@ -2339,8 +2403,12 @@ p.cell-numeric {
 .matrix-scale-tick {
   font-size: 2.8px;
   font-family: var(--font-mono);
-  fill: var(--text-muted);
-  opacity: 0.75;
+  fill: var(--text-secondary);
+  opacity: 1;
+  paint-order: stroke;
+  stroke: var(--bg-surface);
+  stroke-width: 2.5px;
+  stroke-linejoin: round;
 }
 
 .matrix-hover-card .hint {
@@ -2385,8 +2453,14 @@ p.cell-numeric {
 
 .matrix-quad-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: var(--space-md);
+}
+
+@media (max-width: 639px) {
+  .matrix-quad-grid {
+    grid-template-columns: minmax(0, 1fr);
+  }
 }
 
 .matrix-quad-card {
@@ -2516,7 +2590,9 @@ p.cell-numeric {
 
 .matrix-top-repo-name {
   font-family: var(--font-mono);
-  overflow-wrap: anywhere;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
   min-width: 0;
 }
 
@@ -2645,7 +2721,7 @@ p.cell-numeric {
   }
 }
 
-@media (max-width: 1279px) {
+@media (max-width: 1599px) {
   .configure-layout {
     grid-template-columns: minmax(0, 1fr);
   }
@@ -2656,7 +2732,8 @@ p.cell-numeric {
 }
 
 /* Wide viewports (>= 1024px): keep overflow-x visible so the window is the
- * scroll container and `.leaderboard-table thead th` sticks below the nav.
+ * scroll container and `.leaderboard-table thead th` sticks below the nav
+ * (the layout stacks below 1600px, so the table has the full width there).
  * Narrow viewports (< 1024px): scroll horizontally in its own box and disable
  * sticky thead offset inside the non-vertically-scrolling box. */
 .configure-table-col {
@@ -2680,6 +2757,12 @@ p.cell-numeric {
   padding: var(--space-sm) var(--space-md);
   position: sticky;
   top: calc(var(--header-height) + var(--primary-nav-height, 41px) + var(--space-md));
+}
+
+.configure-delta-col > h2 {
+  font-size: var(--text-h2);
+  font-weight: 600;
+  margin: 0 0 var(--space-xs);
 }
 
 .delta-list h3 {
@@ -2723,12 +2806,22 @@ p.cell-numeric {
 }
 
 .compare-chip button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 24px;
+  min-height: 24px;
   color: var(--text-secondary);
   font-size: var(--text-body-lg);
   line-height: 1;
 }
 
 .compare-clear-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 24px;
+  min-height: 24px;
   font-size: var(--text-caption);
   color: var(--text-secondary);
   padding: 4px var(--space-xs);
@@ -3170,7 +3263,7 @@ p.cell-numeric {
 }
 
 .compare-better-mark {
-  color: var(--accent-success);
+  color: var(--text-success);
 }
 
 .compare-better-cell {
@@ -3457,10 +3550,10 @@ p.cell-numeric {
 
 .doc-subhead {
   margin: var(--space-lg) 0 var(--space-xs);
-  color: var(--text-muted);
-  font-size: var(--text-caption);
+  color: var(--text-secondary);
+  font-size: var(--text-body-lg);
   font-weight: 600;
-  letter-spacing: 0.06em;
+  letter-spacing: 0.04em;
   text-transform: uppercase;
 }
 
@@ -5039,7 +5132,7 @@ a.project-eco:hover {
 }
 
 .project-view .black-hole-pr-scroll {
-  max-height: 16rem;
+  max-height: none;
 }
 
 .project-view .black-hole-pr-table th,
@@ -5109,7 +5202,7 @@ a.project-eco:hover {
   }
 
   .project-table td[data-label]::before {
-    content: attr(data-label) " ";
+    content: attr(data-label) ": ";
     font-weight: 400;
     color: var(--text-secondary);
   }

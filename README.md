@@ -50,6 +50,19 @@ server.
 - **Persona Visible Counts:** `balanced: 4,044` · `first_timer: 1,904` · `career_capital: 872` · `senior_systems: 986` · `ai_assisted: 4,002`
 - **Verification Hashes:** `constants_hash: 44b11850f0a2…` · `manifest_root: 3a071aa3e96a…` · `canonical_dump_hash: 44959749335b…`
 
+## Help improve it
+
+Porchlamp is open source, and every issue and pull request gets a reply from a
+person within 14 days.
+
+- **A record looks wrong?** Each project page ends with a link that opens a
+  report with the project filled in.
+- **Want to change the code, the method or the site?** The engine builds all of
+  it: https://github.com/pctablet505/porchlamp-engine . Start with its guide for
+  contributors: https://github.com/pctablet505/porchlamp-engine/blob/main/CONTRIBUTING.md .
+  This repository is rebuilt at every publish, so a change made here would be
+  overwritten.
+
 ## License and citation
 
 The data under `data/` and the text of this site are licensed under [CC BY 4.0](LICENSE): reuse them freely, with credit to "Porchlamp rankings" and a link to https://porchlamp.org/. To cite the dataset, use GitHub's "Cite this repository" button, which reads `CITATION.cff`. To cite a finding, link the report frozen for this snapshot: https://porchlamp.org/black-holes/2026-11-10/ . The code in this repository is not covered by this license. The engine that collects the data is open source under the Apache License 2.0: https://github.com/pctablet505/porchlamp-engine .

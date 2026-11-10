@@ -1147,7 +1147,6 @@ export const LIST_INTRO_ECOSYSTEM = "Porchlamp ranks {total} {ecosystem} open so
 export const LIST_INTRO_ECOSYSTEM_REPORT =
   "Among the {judged} judged {ecosystem} projects, {eco_share}% left most outside pull requests with no human reply, review, merge or close within {deadline_days} days or since, against {share}% across all {ecosystems_word} ecosystems.";
 export const LIST_INTRO_LENS = "This view ranks {total} projects for {lens}.";
-export const LIST_INTRO_ECOSYSTEM_LENS = "This view ranks {total} {ecosystem} projects for {lens}.";
 /** The first-timer lens's lists: the words people search for, then the lens's gate (porchlamp/core/persona.py). */
 export const LIST_INTRO_FIRST_TIMERS = "Porchlamp ranks {total} open source projects for beginners and {lens}, by what happens to a stranger's pull request, not by stars.";
 export const LIST_INTRO_ECOSYSTEM_FIRST_TIMERS = "Porchlamp ranks {total} {ecosystem} open source projects for beginners and {lens}, by what happens to a stranger's pull request, not by stars.";
@@ -1387,9 +1386,10 @@ export const PARAM_MEANINGS = Object.freeze({
   dx: "Developer experience, 0 to 100: half CI run time, half setup signals.",
 });
 
-/** The page's lede; {date} is the snapshot date. */
+/** The number block of a ranked project's page: its label, and the line under the number; {count} is how many were measured. */
 export const PROJECT_NUMBER_LABEL = "First human reply";
 export const PROJECT_NUMBER_TEXT = "typical wait for an outside pull request, from {count} measured.";
+/** The page's lede; {date} is the snapshot date. */
 export const PROJECT_LEDE = "What happens to a stranger's pull request here, in the Porchlamp snapshot of {date}.";
 /** The lede of a project the snapshot does not rank (its page stays at its address); {date} is the snapshot date. */
 export const PROJECT_LEDE_NOT_RANKED = "Not ranked in the Porchlamp snapshot of {date}.";
@@ -1568,6 +1568,8 @@ export const FIRST_PRS_CURVE_TICKS = Object.freeze([[0, "0", false], [7, "1 week
 export const FIRST_PRS_ANSWERED_NARROW_TICKS = Object.freeze([1, 24, 168, 2160]);
 export const FIRST_PRS_ASK_CHART_HEADING = "Gap in answers over the next 30 days, against no comment, inside one project";
 export const FIRST_PRS_ASK_CAVEAT = "Authors who ask may also care more, or have a better pull request. A comment with no ask and no tag shows no gap, which argues against plain engagement as the whole explanation. This still compares what happened and doesn't prove that asking causes the answer.";
+/** The caveat when a comment with no ask and no tag shows a difference after all (the record's claims): no claim about it. */
+export const FIRST_PRS_ASK_CAVEAT_UNSURE = "Authors who ask may also care more, or have a better pull request. This compares what happened and doesn't prove that asking causes the answer.";
 export const FIRST_PRS_WEEK_CHART_HEADING = "Answered within 24 hours, by the day it opened";
 export const FIRST_PRS_HIST_AXIS = "The busiest person's share of first answers";
 export const FIRST_PRS_POINTS = "points";
@@ -1600,7 +1602,7 @@ export const LOOKUP_NO_SCRIPT = "The lookup runs in your browser, so it needs Ja
 export const LOOKUP_READS_HEADING = "What this can and can't see";
 export const LOOKUP_READS = Object.freeze([
   "Public pull requests to projects the account isn't a member of, newest first. Replies from members, owners and collaborators count as answers, as do merges and closes by someone else.",
-  "A single look can't see everything the snapshot does. It misses people who hold access without GitHub saying so, it can't filter automated replies, and it tells a first pull request from GitHub's label and these recent results, so a project's page can differ.",
+  "A single look can't see everything the snapshot does. It misses people who hold access without GitHub saying so, it can't filter automated replies, it measures a reply's length on its markdown rather than the text GitHub shows, and it tells a first pull request from GitHub's label and these recent results, so a project's page can differ.",
   "The percentages come from the waiting curve in the report. They describe what happened to other pull requests, not what will happen to yours.",
 ]);
 export const LOOKUP_REPORT_HREF = "/first-pull-requests/";
@@ -1643,4 +1645,4 @@ export const LOOKUP_ASKING_NOTE = "At two weeks of silence, authors who had aske
 export const LOOKUP_NOT_ASKED_LINK = "more answers";
 export const LOOKUP_ASKING_HREF = "/first-pull-requests/#asking";
 export const LOOKUP_PROJECT_TYPICAL = "This project's typical first reply: {time}. {link}";
-export const LOOKUP_PROJECT_LINK = "Its page";
+export const LOOKUP_PROJECT_LINK = "{repo} on Porchlamp";
